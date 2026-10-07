@@ -1,0 +1,86 @@
+[build]
+  publish = "."
+
+# ── Trailing-slash redirects ──────────────────────────────────────────────────
+[[redirects]]
+  from = "/about"
+  to   = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/admin"
+  to   = "/admin/"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to   = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/home-valuation"
+  to   = "/home-valuation/"
+  status = 301
+
+[[redirects]]
+  from = "/neighborhoods"
+  to   = "/neighborhoods/"
+  status = 301
+
+[[redirects]]
+  from = "/buyer-guide"
+  to   = "/buyer-guide/"
+  status = 301
+
+[[redirects]]
+  from = "/seller-guide"
+  to   = "/seller-guide/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy"
+  to   = "/privacy-policy/"
+  status = 301
+
+# ── HTTP → HTTPS (Netlify handles this, but explicit is safer) ────────────────
+[[redirects]]
+  from   = "http://nashvilleluxurylist.com/*"
+  to     = "https://www.nashvilleluxurylist.com/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "http://www.nashvilleluxurylist.com/*"
+  to     = "https://www.nashvilleluxurylist.com/:splat"
+  status = 301
+  force  = true
+
+# Non-www → www
+[[redirects]]
+  from   = "https://nashvilleluxurylist.com/*"
+  to     = "https://www.nashvilleluxurylist.com/:splat"
+  status = 301
+  force  = true
+
+# ── Security headers ─────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options              = "DENY"
+    X-Content-Type-Options       = "nosniff"
+    X-XSS-Protection             = "1; mode=block"
+    Referrer-Policy              = "strict-origin-when-cross-origin"
+    Permissions-Policy           = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security    = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy      = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://fonts.googleapis.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.netlify.com; frame-ancestors 'none';"
+
+# ── Cache: static assets ─────────────────────────────────────────────────────
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
