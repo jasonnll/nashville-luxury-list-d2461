@@ -138,10 +138,13 @@
     .listings-section { background: var(--white); }
     .listings-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px; margin-top: 48px;
     }
+    @media (max-width: 960px) { .listings-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .listings-grid { grid-template-columns: 1fr; } }
     .listing-card {
+      display: block;
       border-radius: calc(var(--r)*2); overflow: hidden;
       box-shadow: var(--shadow-card);
       transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
@@ -165,6 +168,12 @@
       font-size: 0.78rem; font-weight: 500; color: var(--ink-muted);
     }
     .listing-spec-icon { margin-right: 4px; }
+    .listing-link {
+      display: inline-block; margin-top: 16px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .listing-card:hover .listing-link { color: var(--ink); }
 
     /* LEAD MAGNETS */
     .magnet-section { background: var(--paper); }
@@ -305,69 +314,56 @@
     </div>
     <div class="listings-grid">
 
-      <div class="listing-card sr">
+      <a class="listing-card sr" href="https://www.compass.com/homedetails/698-Sneed-Rd-W-Nashville-TN-37221/SJFUV_pid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener">
         <div class="listing-img">
-          <img src="https://images.unsplash.com/photo-1570129477492-45c003dc6fd9?w=600&q=80" alt="Listing" loading="lazy" />
+          <img src="/assets/listings/698-sneed-rd-w.jpg" alt="698 Sneed Rd W, Nashville, TN 37221" loading="lazy" />
           <span class="listing-status">Active</span>
         </div>
         <div class="listing-body">
-          <div class="listing-price">$3,895,000</div>
-          <div class="listing-addr">4812 Chickering Lane, Nashville</div>
+          <div class="listing-price">$7,200,000</div>
+          <div class="listing-addr">698 Sneed Rd W, Nashville, TN 37221</div>
+          <div class="listing-specs">
+            <span><span class="listing-spec-icon">🛏</span>4 bd</span>
+            <span><span class="listing-spec-icon">🛁</span>4.2 ba</span>
+            <span><span class="listing-spec-icon">📐</span>5,570 sf</span>
+          </div>
+          <span class="listing-link">View on Compass →</span>
+        </div>
+      </a>
+
+      <a class="listing-card sr" href="https://www.compass.com/homedetails/address-upon-request-college-grove-tn-37046/2207527227142662297_lid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener">
+        <div class="listing-img">
+          <img src="/assets/listings/9541-thatchbay-cir.jpg" alt="9541 Thatchbay Cir, College Grove, TN 37046" loading="lazy" />
+          <span class="listing-status">Active</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$4,195,000</div>
+          <div class="listing-addr">9541 Thatchbay Cir, College Grove, TN 37046</div>
           <div class="listing-specs">
             <span><span class="listing-spec-icon">🛏</span>5 bd</span>
-            <span><span class="listing-spec-icon">🛁</span>5.5 ba</span>
-            <span><span class="listing-spec-icon">📐</span>6,240 sf</span>
+            <span><span class="listing-spec-icon">🛁</span>5.1 ba</span>
+            <span><span class="listing-spec-icon">📐</span>6,125 sf</span>
           </div>
+          <span class="listing-link">View on Compass →</span>
         </div>
-      </div>
+      </a>
 
-      <div class="listing-card sr">
+      <a class="listing-card sr" href="https://www.compass.com/homedetails/8206-Spring-Valley-Dr-Brentwood-TN-37027/S2K02_pid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener">
         <div class="listing-img">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Listing" loading="lazy" />
+          <img src="/assets/listings/8206-spring-valley-dr.jpg" alt="8206 Spring Valley Dr, Brentwood, TN 37027" loading="lazy" />
           <span class="listing-status">Active</span>
         </div>
         <div class="listing-body">
-          <div class="listing-price">$2,450,000</div>
-          <div class="listing-addr">1833 Woodmont Blvd, Nashville</div>
+          <div class="listing-price">$4,975,000</div>
+          <div class="listing-addr">8206 Spring Valley Dr, Brentwood, TN 37027</div>
           <div class="listing-specs">
-            <span><span class="listing-spec-icon">🛏</span>4 bd</span>
-            <span><span class="listing-spec-icon">🛁</span>4 ba</span>
-            <span><span class="listing-spec-icon">📐</span>4,100 sf</span>
+            <span><span class="listing-spec-icon">🛏</span>5 bd</span>
+            <span><span class="listing-spec-icon">🛁</span>6.2 ba</span>
+            <span><span class="listing-spec-icon">📐</span>7,781 sf</span>
           </div>
+          <span class="listing-link">View on Compass →</span>
         </div>
-      </div>
-
-      <div class="listing-card sr">
-        <div class="listing-img">
-          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="Listing" loading="lazy" />
-          <span class="listing-status">Pending</span>
-        </div>
-        <div class="listing-body">
-          <div class="listing-price">$5,200,000</div>
-          <div class="listing-addr">3920 Granny White Pike, Nashville</div>
-          <div class="listing-specs">
-            <span><span class="listing-spec-icon">🛏</span>6 bd</span>
-            <span><span class="listing-spec-icon">🛁</span>6.5 ba</span>
-            <span><span class="listing-spec-icon">📐</span>8,750 sf</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="listing-card sr">
-        <div class="listing-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Listing" loading="lazy" />
-          <span class="listing-status">Active</span>
-        </div>
-        <div class="listing-body">
-          <div class="listing-price">$1,895,000</div>
-          <div class="listing-addr">615 Lynnwood Blvd, Belle Meade</div>
-          <div class="listing-specs">
-            <span><span class="listing-spec-icon">🛏</span>4 bd</span>
-            <span><span class="listing-spec-icon">🛁</span>3.5 ba</span>
-            <span><span class="listing-spec-icon">📐</span>3,620 sf</span>
-          </div>
-        </div>
-      </div>
+      </a>
 
     </div>
   </div>
