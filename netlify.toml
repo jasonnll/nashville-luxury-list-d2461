@@ -57,6 +57,57 @@
   to   = "/privacy-policy/"
   status = 301
 
+# ── Old Squarespace URLs → new pages (keeps existing links & search rankings) ──
+[[redirects]]
+  from = "/home"
+  to   = "/"
+  status = 301
+
+[[redirects]]
+  from = "/contact-4"
+  to   = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/reviews-2"
+  to   = "/#testimonials"
+  status = 301
+
+[[redirects]]
+  from = "/current-listings"
+  to   = "/#listings"
+  status = 301
+
+[[redirects]]
+  from = "/listings/franklin"
+  to   = "https://guides.nashvilleluxurylist.com/franklin/"
+  status = 301
+
+[[redirects]]
+  from = "/listings/*"
+  to   = "/#listings"
+  status = 301
+
+[[redirects]]
+  from = "/listings"
+  to   = "/#listings"
+  status = 301
+
+[[redirects]]
+  from = "/blog/category/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/tag/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/api-webhook"
+  to   = "/"
+  status = 301
+
 # ── HTTP → HTTPS (Netlify handles this, but explicit is safer) ────────────────
 [[redirects]]
   from   = "http://nashvilleluxurylist.com/*"
