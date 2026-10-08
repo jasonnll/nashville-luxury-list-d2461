@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you/
-Disallow: /assets/
 
-Sitemap: https://www.nashvilleluxurylist.com/sitemap.xml
+Sitemap: https://jasonkloess.nashvilleluxurylist.com/sitemap.xml

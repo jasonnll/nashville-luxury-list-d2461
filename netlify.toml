@@ -1,41 +1,104 @@
 [build]
   publish = "."
 
-# ── Trailing-slash redirects ──────────────────────────────────────────────────
+# ── This project serves only the jasonkloess.nashvilleluxurylist.com landing page.
+# Pages carried over from the main Nashville Luxury List site redirect to their
+# live versions on www.nashvilleluxurylist.com (a separate Netlify project).
 [[redirects]]
-  from = "/about"
-  to   = "/about/"
+  from   = "/about/*"
+  to     = "https://www.nashvilleluxurylist.com/about/:splat"
   status = 301
+  force  = true
 
 [[redirects]]
-  from = "/admin"
-  to   = "/admin/"
+  from   = "/about"
+  to     = "https://www.nashvilleluxurylist.com/about/"
   status = 301
+  force  = true
 
 [[redirects]]
-  from = "/contact"
-  to   = "/contact/"
+  from   = "/admin/*"
+  to     = "https://www.nashvilleluxurylist.com/admin/:splat"
   status = 301
+  force  = true
 
 [[redirects]]
-  from = "/home-valuation"
-  to   = "/home-valuation/"
+  from   = "/admin"
+  to     = "https://www.nashvilleluxurylist.com/admin/"
   status = 301
+  force  = true
 
 [[redirects]]
-  from = "/neighborhoods"
-  to   = "/neighborhoods/"
+  from   = "/contact/*"
+  to     = "https://www.nashvilleluxurylist.com/contact/:splat"
   status = 301
+  force  = true
 
 [[redirects]]
-  from = "/buyer-guide"
-  to   = "/buyer-guide/"
+  from   = "/contact"
+  to     = "https://www.nashvilleluxurylist.com/contact/"
   status = 301
+  force  = true
 
 [[redirects]]
-  from = "/seller-guide"
-  to   = "/seller-guide/"
+  from   = "/home-valuation/*"
+  to     = "https://www.nashvilleluxurylist.com/home-valuation/:splat"
   status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/home-valuation"
+  to     = "https://www.nashvilleluxurylist.com/home-valuation/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/neighborhoods/*"
+  to     = "https://www.nashvilleluxurylist.com/neighborhoods/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/neighborhoods"
+  to     = "https://www.nashvilleluxurylist.com/neighborhoods/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/buyer-guide/*"
+  to     = "https://www.nashvilleluxurylist.com/buyer-guide/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/buyer-guide"
+  to     = "https://www.nashvilleluxurylist.com/buyer-guide/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/seller-guide/*"
+  to     = "https://www.nashvilleluxurylist.com/seller-guide/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/seller-guide"
+  to     = "https://www.nashvilleluxurylist.com/seller-guide/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/privacy-policy/*"
+  to     = "https://www.nashvilleluxurylist.com/privacy-policy/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/privacy-policy"
+  to     = "https://www.nashvilleluxurylist.com/privacy-policy/"
+  status = 301
+  force  = true
 
 [[redirects]]
   from = "/guides/*"
@@ -45,11 +108,6 @@
 [[redirects]]
   from = "/guides"
   to   = "/"
-  status = 301
-
-[[redirects]]
-  from = "/privacy-policy"
-  to   = "/privacy-policy/"
   status = 301
 
 # ── HTTP → HTTPS (Netlify handles this, but explicit is safer) ────────────────
