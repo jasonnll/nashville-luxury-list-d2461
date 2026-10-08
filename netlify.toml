@@ -1,5 +1,8 @@
 [build]
   publish = "."
+  # Turns each week's Friday Mailchimp campaign into a blog post (see the script for the rules).
+  # A Zapier "campaign sent" Zap calls this site's build hook so the post goes live right away.
+  command = "python3 scripts/import-mailchimp-blog.py"
 
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 [[redirects]]

@@ -235,6 +235,14 @@ def main():
         built.append(dict(slug=slug, title=p['title'], body=body, cover=cover, date=date,
                           desc=truncate(excerpt, 160), excerpt=truncate(excerpt, 180),
                           author=(p.get('author') or {}).get('displayName') or 'Jason Kloess'))
+    render(built)
+
+
+def render(built):
+    """Write blog/<slug>/index.html for every post plus the blog/index.html listing.
+
+    Each post is a dict with slug, title, body, cover, date, desc, excerpt and author.
+    """
     built.sort(key=lambda b: b['date'], reverse=True)
 
     for i, b in enumerate(built):
