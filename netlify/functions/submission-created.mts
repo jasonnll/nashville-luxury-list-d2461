@@ -1,47 +1,39 @@
-// Runs automatically whenever a verified Netlify Forms submission is created.
-// Forwards Buyer/Seller Guide leads from the homepage landing page to the Compass CRM via Zapier.
-
-interface FormPayload {
-  form_name: string
-  data: Record<string, string>
-  created_at: string
-}
-
-const GUIDE_FORMS: Record<string, 'buyer' | 'seller'> = {
-  'buyer-guide-lead': 'buyer',
-  'seller-guide-lead': 'seller',
-}
-
+// Runs automatically after every verified Netlify Forms submission.
+// Newsletter signups ("vip-newsletter") are forwarded to a Zapier Catch Hook,
+// whose Zap adds/updates the subscriber in Mailchimp.
+//
+// Set ZAPIER_NEWSLETTER_WEBHOOK_URL in the site's environment variables.
 export default async (req: Request) => {
-  const { payload } = (await req.json()) as { payload: FormPayload }
-  const type = GUIDE_FORMS[payload.form_name]
-  if (!type) return new Response('Ignored')
+  const { payload } = await req.json()
+  if (payload?.form_name !== 'vip-newsletter') return new Response('ignored')
 
-  const webhookUrl =
-    process.env.ZAPIER_CRM_WEBHOOK_URL || 'https://hooks.zapier.com/hooks/catch/25124451/4m7pk3q/'
-
-  const name = (payload.data.name || '').trim()
-  const guide = type === 'buyer' ? 'Buyer' : 'Seller'
-  const lead = {
-    firstName: name.split(/\s+/)[0] || '',
-    lastName: name.split(/\s+/).slice(1).join(' '),
-    email: (payload.data.email || '').trim(),
-    source: `Nashville Luxury List – ${guide} Guide`,
-    tags: [`${type}-lead`, 'instagram-bio'],
-    note: `Lead captured via nashvilleluxurylist.com landing page. Downloaded ${guide} Guide.`,
-    submittedAt: payload.created_at,
+  const webhook = Netlify.env.get('ZAPIER_NEWSLETTER_WEBHOOK_URL')
+  if (!webhook) {
+    console.warn('ZAPIER_NEWSLETTER_WEBHOOK_URL is not set; newsletter signup kept in Netlify Forms only')
+    return new Response('no webhook configured')
   }
 
-  const res = await fetch(webhookUrl, {
+  const data = payload.data ?? {}
+  const subscriber = {
+    email: String(data.email ?? payload.email ?? '').trim().toLowerCase(),
+    first_name: String(data.first_name ?? '').trim(),
+    last_name: String(data.last_name ?? '').trim(),
+    area_of_interest: data.area_of_interest || 'All of Middle Tennessee',
+    price_point: data.price_point || 'Any price',
+    timeline: data.timeline || 'Just exploring',
+    source: data.source || 'Website',
+    submitted_at: payload.created_at ?? new Date().toISOString(),
+  }
+  if (!subscriber.email) return new Response('missing email')
+
+  const res = await fetch(webhook, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(lead),
+    body: JSON.stringify(subscriber),
   })
-
   if (!res.ok) {
-    console.error(`Zapier CRM webhook failed: ${res.status}`)
-    return new Response('CRM push failed', { status: 502 })
+    console.error(`Zapier webhook responded ${res.status}`)
+    return new Response('webhook failed', { status: 502 })
   }
-
-  return new Response('OK')
+  return new Response('forwarded')
 }

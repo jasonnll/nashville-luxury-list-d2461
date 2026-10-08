@@ -1,112 +1,110 @@
 [build]
   publish = "."
 
-# ── This project serves only the jasonkloess.nashvilleluxurylist.com landing page.
-# Pages carried over from the main Nashville Luxury List site redirect to their
-# live versions on www.nashvilleluxurylist.com (a separate Netlify project).
+# ── Trailing-slash redirects ──────────────────────────────────────────────────
 [[redirects]]
-  from   = "/about/*"
-  to     = "https://www.nashvilleluxurylist.com/about/:splat"
+  from = "/about"
+  to   = "/about/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/about"
-  to     = "https://www.nashvilleluxurylist.com/about/"
+  from = "/admin"
+  to   = "/admin/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/admin/*"
-  to     = "https://www.nashvilleluxurylist.com/admin/:splat"
+  from = "/contact"
+  to   = "/contact/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/admin"
-  to     = "https://www.nashvilleluxurylist.com/admin/"
+  from = "/home-valuation"
+  to   = "/home-valuation/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/contact/*"
-  to     = "https://www.nashvilleluxurylist.com/contact/:splat"
+  from = "/neighborhoods"
+  to   = "/neighborhoods/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/contact"
-  to     = "https://www.nashvilleluxurylist.com/contact/"
+  from = "/buyer-guide"
+  to   = "/buyer-guide/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/home-valuation/*"
-  to     = "https://www.nashvilleluxurylist.com/home-valuation/:splat"
+  from = "/seller-guide"
+  to   = "/seller-guide/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/home-valuation"
-  to     = "https://www.nashvilleluxurylist.com/home-valuation/"
+  from = "/blog"
+  to   = "/blog/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/neighborhoods/*"
-  to     = "https://www.nashvilleluxurylist.com/neighborhoods/:splat"
+  from = "/faq"
+  to   = "/faq/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/neighborhoods"
-  to     = "https://www.nashvilleluxurylist.com/neighborhoods/"
+  from = "/newsletter"
+  to   = "/newsletter/"
   status = 301
-  force  = true
 
 [[redirects]]
-  from   = "/buyer-guide/*"
-  to     = "https://www.nashvilleluxurylist.com/buyer-guide/:splat"
+  from = "/privacy-policy"
+  to   = "/privacy-policy/"
   status = 301
-  force  = true
 
+# ── Old Squarespace URLs → new pages (keeps existing links & search rankings) ──
 [[redirects]]
-  from   = "/buyer-guide"
-  to     = "https://www.nashvilleluxurylist.com/buyer-guide/"
-  status = 301
-  force  = true
-
-[[redirects]]
-  from   = "/seller-guide/*"
-  to     = "https://www.nashvilleluxurylist.com/seller-guide/:splat"
-  status = 301
-  force  = true
-
-[[redirects]]
-  from   = "/seller-guide"
-  to     = "https://www.nashvilleluxurylist.com/seller-guide/"
-  status = 301
-  force  = true
-
-[[redirects]]
-  from   = "/privacy-policy/*"
-  to     = "https://www.nashvilleluxurylist.com/privacy-policy/:splat"
-  status = 301
-  force  = true
-
-[[redirects]]
-  from   = "/privacy-policy"
-  to     = "https://www.nashvilleluxurylist.com/privacy-policy/"
-  status = 301
-  force  = true
-
-[[redirects]]
-  from = "/guides/*"
+  from = "/home"
   to   = "/"
   status = 301
 
 [[redirects]]
-  from = "/guides"
+  from = "/contact-4"
+  to   = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/reviews-2"
+  to   = "/#testimonials"
+  status = 301
+
+[[redirects]]
+  from = "/current-listings"
+  to   = "/#listings"
+  status = 301
+
+[[redirects]]
+  from = "/listings/franklin"
+  to   = "https://guides.nashvilleluxurylist.com/franklin/"
+  status = 301
+
+[[redirects]]
+  from = "/listings/*"
+  to   = "/#listings"
+  status = 301
+
+[[redirects]]
+  from = "/listings"
+  to   = "/#listings"
+  status = 301
+
+[[redirects]]
+  from = "/blog/category/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/tag/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/api-webhook"
   to   = "/"
   status = 301
 
@@ -140,13 +138,24 @@
     Referrer-Policy              = "strict-origin-when-cross-origin"
     Permissions-Policy           = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security    = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy      = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://fonts.googleapis.com https://identity.netlify.com https://unpkg.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.netlify.com; frame-src https://calendly.com; frame-ancestors 'none';"
+    Content-Security-Policy      = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://fonts.googleapis.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.netlify.com; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none';"
 
 # ── Cache: static assets ─────────────────────────────────────────────────────
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# CSS/JS keep their filenames between deploys, so browsers must revalidate them
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/*.html"
