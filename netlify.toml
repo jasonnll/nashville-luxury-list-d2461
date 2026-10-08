@@ -38,8 +38,13 @@
   status = 301
 
 [[redirects]]
+  from = "/guides/*"
+  to   = "/"
+  status = 301
+
+[[redirects]]
   from = "/guides"
-  to   = "/guides/"
+  to   = "/"
   status = 301
 
 [[redirects]]

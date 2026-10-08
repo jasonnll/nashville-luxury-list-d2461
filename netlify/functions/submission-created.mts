@@ -1,5 +1,5 @@
 // Runs automatically whenever a verified Netlify Forms submission is created.
-// Forwards Buyer/Seller Guide leads from /guides/ to the Compass CRM via Zapier.
+// Forwards Buyer/Seller Guide leads from the homepage landing page to the Compass CRM via Zapier.
 
 interface FormPayload {
   form_name: string
