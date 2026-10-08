@@ -6,7 +6,10 @@
   const WHATSAPP  = '16154570768';
 
   const currentPath = window.location.pathname;
-  const isActive = (href) => currentPath === href || currentPath === href.replace(/\/$/, '') ? 'active' : '';
+  const isActive = (href) => {
+    if (href === '/') return currentPath === '/' || currentPath === '/index.html' ? 'active' : '';
+    return currentPath === href || currentPath === href.replace(/\/$/, '') || currentPath.startsWith(href) ? 'active' : '';
+  };
 
   /* ── HEADER ── */
   const headerEl = document.getElementById('site-header');
@@ -28,6 +31,8 @@
             <a href="/buyer-guide/" class="nav-link ${isActive('/buyer-guide/')}">Buyer Guide</a>
             <a href="/seller-guide/" class="nav-link ${isActive('/seller-guide/')}">Seller Guide</a>
             <a href="/home-valuation/" class="nav-link ${isActive('/home-valuation/')}">Home Valuation</a>
+            <a href="/blog/" class="nav-link ${isActive('/blog/')}">Blog</a>
+            <a href="/newsletter/" class="nav-link ${isActive('/newsletter/')}">Newsletter</a>
             <a href="/contact/" class="nav-link ${isActive('/contact/')}">Contact</a>
             <a href="/contact/" class="btn btn-gold btn-sm nav-cta">Get Started</a>
           </nav>
@@ -46,6 +51,9 @@
       <a href="/buyer-guide/" class="nav-link">Buyer Guide</a>
       <a href="/seller-guide/" class="nav-link">Seller Guide</a>
       <a href="/home-valuation/" class="nav-link">Home Valuation</a>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/faq/" class="nav-link">FAQ</a>
+      <a href="/newsletter/" class="nav-link">Newsletter</a>
       <a href="/contact/" class="nav-link">Contact</a>
       <a href="/contact/" class="btn btn-gold btn-lg" style="margin-top:1rem">Get Started</a>
       <div style="margin-top:2rem;color:rgba(255,255,255,0.6);font-size:0.9rem;">${PHONE}</div>`;
@@ -57,7 +65,7 @@
     floatingEl.innerHTML = `
       <div class="floating-cta-item">
         <span class="floating-label">Call Jason</span>
-        <a href="tel:+1${PHONE_RAW}" class="floating-cta-btn fcta-phone" aria-label="Call Jason">
+        <a href="tel:+${PHONE_RAW}" class="floating-cta-btn fcta-phone" aria-label="Call Jason">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.27 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </a>
       </div>
@@ -72,9 +80,9 @@
   /* ── FOOTER ── */
   const footerEl = document.getElementById('site-footer');
   if (footerEl) {
-    const isContactPage = currentPath.includes('/contact');
+    const hideNewsletter = currentPath.includes('/contact') || currentPath.includes('/newsletter');
     footerEl.innerHTML = `
-      ${!isContactPage ? `
+      ${!hideNewsletter ? `
       <section class="newsletter-section">
         <div class="container">
           <div class="newsletter-inner">
@@ -87,6 +95,7 @@
               <div class="form-wrapper">
                 <form name="vip-newsletter" netlify data-netlify="true" data-netlify-honeypot="bot-field">
                   <input type="hidden" name="form-name" value="vip-newsletter">
+                  <input type="hidden" name="source" value="Footer – ${currentPath}">
                   <p hidden><input name="bot-field"></p>
                   <div class="newsletter-form">
                     <input type="email" name="email" placeholder="Your email address" required aria-label="Email Address">
@@ -94,10 +103,10 @@
                   </div>
                   <p class="newsletter-note">No spam. Unsubscribe anytime. $1.5M+ properties only.</p>
                 </form>
-                <div class="form-success" style="display:none;background:rgba(13,27,42,0.08);border-radius:8px;padding:2rem;text-align:center;">
+                <div class="form-success" style="display:none;background:rgba(22,33,43,0.08);border-radius:8px;padding:2rem;text-align:center;">
                   <div style="font-size:2.5rem;margin-bottom:0.75rem;">✓</div>
                   <h3 style="color:var(--navy);font-size:1.4rem;">You're on the List!</h3>
-                  <p style="color:rgba(13,27,42,0.65);">Check your inbox for a confirmation email.</p>
+                  <p style="color:rgba(22,33,43,0.65);">Check your inbox for a confirmation email.</p>
                 </div>
               </div>
             </div>
@@ -114,9 +123,9 @@
               </div>
               <p style="font-size:0.875rem;line-height:1.75;margin:0 0 1.5rem;">Connecting discerning buyers and sellers with Nashville's most exclusive properties.</p>
               <div class="footer-social">
-                <a href="#" class="social-link" aria-label="Instagram">IG</a>
-                <a href="#" class="social-link" aria-label="Facebook">FB</a>
-                <a href="#" class="social-link" aria-label="LinkedIn">LI</a>
+                <a href="https://instagram.com/nashvilleluxurylist" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+                <a href="https://facebook.com/nashvilleluxurylist" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+                <a href="https://www.linkedin.com/in/jasonkloess/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">LI</a>
               </div>
             </div>
             <div class="footer-col">
@@ -127,27 +136,30 @@
                 <a href="/buyer-guide/">Buyer Guide</a>
                 <a href="/seller-guide/">Seller Guide</a>
                 <a href="/home-valuation/">Home Valuation</a>
+                <a href="/blog/">Blog</a>
+                <a href="/newsletter/">Weekly Newsletter</a>
                 <a href="/about/">About Jason</a>
+                <a href="/faq/">FAQ</a>
                 <a href="/contact/">Contact</a>
               </div>
             </div>
             <div class="footer-col">
               <h4>Areas We Serve</h4>
               <div class="footer-links">
-                <a href="/neighborhoods/">Belle Meade</a>
-                <a href="/neighborhoods/">Brentwood</a>
-                <a href="/neighborhoods/">Green Hills</a>
-                <a href="/neighborhoods/">Franklin</a>
-                <a href="/neighborhoods/">Oak Hill</a>
-                <a href="/neighborhoods/">Forest Hills</a>
-                <a href="/neighborhoods/">12 South</a>
-                <a href="/neighborhoods/">Downtown</a>
+                <a href="https://guides.nashvilleluxurylist.com/belle-meade/">Belle Meade</a>
+                <a href="https://guides.nashvilleluxurylist.com/brentwood/">Brentwood</a>
+                <a href="https://guides.nashvilleluxurylist.com/green-hills/">Green Hills</a>
+                <a href="https://guides.nashvilleluxurylist.com/franklin/">Franklin</a>
+                <a href="https://guides.nashvilleluxurylist.com/forest-hills-oak-hill/">Oak Hill</a>
+                <a href="https://guides.nashvilleluxurylist.com/forest-hills-oak-hill/">Forest Hills</a>
+                <a href="https://guides.nashvilleluxurylist.com/12-south/">12 South</a>
+                <a href="https://guides.nashvilleluxurylist.com/">Downtown</a>
               </div>
             </div>
             <div class="footer-col">
               <h4>Contact Jason</h4>
               <div class="footer-links">
-                <a href="tel:+1${PHONE_RAW.replace(/^1/,'')}0768">${PHONE}</a>
+                <a href="tel:+${PHONE_RAW}">${PHONE}</a>
                 <a href="mailto:${EMAIL}">${EMAIL}</a>
                 <a href="https://www.google.com/maps/search/1610+West+End+Ave+Nashville+TN" target="_blank" rel="noopener">1610 West End Ave, Suite 115<br>Nashville, TN 37203</a>
                 <a href="/home-valuation/">Free Home Valuation</a>

@@ -38,6 +38,21 @@
   status = 301
 
 [[redirects]]
+  from = "/blog"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/faq"
+  to   = "/faq/"
+  status = 301
+
+[[redirects]]
+  from = "/newsletter"
+  to   = "/newsletter/"
+  status = 301
+
+[[redirects]]
   from = "/privacy-policy"
   to   = "/privacy-policy/"
   status = 301
@@ -72,13 +87,24 @@
     Referrer-Policy              = "strict-origin-when-cross-origin"
     Permissions-Policy           = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security    = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy      = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://fonts.googleapis.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.netlify.com; frame-ancestors 'none';"
+    Content-Security-Policy      = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://fonts.googleapis.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.netlify.com; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none';"
 
 # ── Cache: static assets ─────────────────────────────────────────────────────
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# CSS/JS keep their filenames between deploys, so browsers must revalidate them
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/*.html"

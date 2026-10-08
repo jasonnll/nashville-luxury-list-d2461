@@ -1,0 +1,347 @@
+/* ==========================================================================
+   Nashville Luxury List — "Ink & Ivory" palette
+   Load AFTER main.css:
+   <link rel="stylesheet" href="/assets/css/palette.css?v=1">
+   Every color decision lives in :root below. Change a value there and it
+   updates sitewide.
+   ========================================================================== */
+
+:root {
+  /* Core palette */
+  --ink:          #16212B;  /* deep navy-ink: dark sections, primary buttons */
+  --ink-soft:     #212D38;  /* hover state for ink */
+  --ivory:        #F7F3EC;  /* page base */
+  --parchment:    #EDE6DA;  /* alternate light sections */
+  --stone:        #D8CFC0;  /* hairlines, borders */
+  --taupe:        #6F6658;  /* secondary text on light */
+  --charcoal:     #2B2926;  /* body text on light */
+  --bronze:       #A8865A;  /* lines, icons, large accents on light */
+  --bronze-deep:  #7D6040;  /* small text and links on light (AA contrast) */
+  --bronze-light: #C4A574;  /* accents on dark backgrounds */
+  --hunter:       #26332B;  /* testimonials only */
+  --ivory-muted:  #A9A397;  /* secondary text on dark */
+
+  /* Remap the original theme variables so every existing rule inherits */
+  --navy:        var(--ink);
+  --navy-mid:    var(--ink);
+  --navy-light:  var(--ink-soft);
+  --gold:        var(--bronze);
+  --gold-dark:   var(--bronze-deep);
+  --gold-light:  var(--bronze-light);
+  --off-white:   var(--ivory);
+  --text-dark:   var(--charcoal);
+  --text-mid:    #4A463F;
+  --gray-100:    var(--parchment);
+  --gray-300:    var(--stone);
+  --gray-500:    var(--taupe);
+  --gray-700:    #4A463F;
+
+  /* Quieter shape language: tighter corners, almost no shadow */
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --shadow-sm:   none;
+  --shadow-md:   0 1px 2px rgba(22, 33, 43, 0.06);
+  --shadow-lg:   0 12px 32px rgba(22, 33, 43, 0.10);
+  --shadow-gold: none;
+}
+
+/* ---------- Base ---------- */
+body { background: var(--ivory); color: var(--charcoal); }
+a { color: var(--bronze-deep); }
+a:hover { color: var(--ink); }
+.eyebrow { color: var(--bronze-deep); letter-spacing: 0.18em; }
+.section-title { color: var(--ink); }
+.section-subtitle { color: var(--taupe); }
+.divider { background: var(--bronze); height: 1px; }
+::selection { background: var(--stone); color: var(--ink); }
+
+/* ---------- Buttons ----------
+   Primary = ink fill on light sections, ivory fill on dark sections.
+   No gold fills anywhere. */
+.btn-gold { background: var(--ink); color: var(--ivory); border-color: var(--ink); box-shadow: none; }
+.btn-gold:hover { background: var(--ink-soft); color: var(--ivory); box-shadow: none; }
+.btn-outline-gold { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline-gold:hover { background: var(--ink); color: var(--ivory); }
+.btn-dark { background: var(--ink); color: var(--ivory); }
+.btn-dark:hover { background: var(--ink-soft); color: var(--ivory); box-shadow: none; }
+
+:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer, .mobile-nav,
+    .page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero,
+    .contact-hero, .blog-cta, .newsletter-hero) .btn-gold {
+  background: var(--ivory); color: var(--ink); border-color: var(--ivory);
+}
+:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer, .mobile-nav,
+    .page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero,
+    .contact-hero, .blog-cta, .newsletter-hero) .btn-gold:hover {
+  background: #FFFFFF; color: var(--ink);
+}
+:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer,
+    .page-hero, .blog-cta) .btn-outline-gold {
+  color: var(--ivory); border-color: rgba(247, 243, 236, 0.6);
+}
+:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer,
+    .page-hero, .blog-cta) .btn-outline-gold:hover {
+  background: var(--ivory); color: var(--ink);
+}
+.btn-outline-white { color: var(--ivory); border-color: rgba(247, 243, 236, 0.55); }
+.btn-outline-white:hover { background: rgba(247, 243, 236, 0.10); color: var(--ivory); }
+
+/* ---------- Header & nav (ink, bronze hairline) ---------- */
+#site-header.scrolled {
+  background: var(--ink);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(168, 134, 90, 0.35);
+}
+.site-logo .logo-main { color: var(--ivory); }
+.site-logo .logo-sub { color: var(--bronze-light); border-top-color: rgba(196, 165, 116, 0.4); }
+.nav-link { color: rgba(247, 243, 236, 0.82); }
+.nav-link:hover, .nav-link.active { color: var(--ivory); background: transparent; box-shadow: inset 0 -1px 0 var(--bronze-light); }
+.hamburger span { background: var(--ivory); }
+.mobile-nav { background: var(--ink); }
+
+/* ---------- Hero (ink scrim over photography) ---------- */
+.hero-bg { background: var(--ink); }
+.hero-overlay {
+  background: linear-gradient(90deg,
+    rgba(22, 33, 43, 0.86) 0%,
+    rgba(22, 33, 43, 0.62) 55%,
+    rgba(22, 33, 43, 0.35) 100%);
+}
+.hero-eyebrow { color: var(--bronze-light); }
+.hero-eyebrow::before { background: var(--bronze-light); }
+.hero h1 { color: var(--ivory); }
+.hero h1 em { color: var(--bronze-light); }
+.hero-description { color: rgba(247, 243, 236, 0.82); }
+
+/* Stats strip */
+.hero-stats { border-top-color: rgba(196, 165, 116, 0.28); }
+.hero-stat-value { color: var(--ivory); }
+.hero-stat-label { color: var(--ivory-muted); letter-spacing: 0.12em; }
+.hero-scroll { color: var(--ivory-muted); }
+
+/* ---------- Valuation bar (parchment) ---------- */
+.valuation-bar { background: var(--parchment); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
+.valuation-bar-text { color: var(--ink); }
+.valuation-bar input { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; color: var(--charcoal); }
+.valuation-bar .btn { background: var(--ink); color: var(--ivory); }
+.valuation-bar .btn:hover { background: var(--ink-soft); color: var(--ivory); }
+
+/* ---------- Trust bar (ivory, quiet small caps) ---------- */
+.trust-bar { background: var(--ivory); border-bottom: 1px solid var(--stone); }
+.trust-item { color: var(--taupe); letter-spacing: 0.1em; }
+.trust-item svg { color: var(--bronze); }
+
+/* ---------- The difference / value props (ivory) ---------- */
+.value-props { background: var(--ivory); }
+.value-card { background: transparent; border: 1px solid var(--stone); box-shadow: none; }
+.value-card:hover { border-color: var(--bronze); box-shadow: none; }
+.value-icon { background: transparent; color: var(--bronze); border: 1px solid var(--stone); }
+.value-card h3 { color: var(--ink); }
+.value-card p { color: var(--taupe); }
+
+/* ---------- Featured listings (parchment field, white cards) ---------- */
+.listings-section { background: var(--parchment); }
+.listing-card { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
+.listing-card:hover { box-shadow: var(--shadow-lg); }
+.listing-img { background: var(--parchment); }
+.listing-badge {
+  background: var(--ivory); color: var(--ink);
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+}
+.listing-badge.off-market { background: var(--ink); color: var(--ivory); }
+.listing-price { background: rgba(22, 33, 43, 0.88); color: var(--ivory); }
+.listing-location { color: var(--bronze-deep); letter-spacing: 0.08em; }
+.listing-title { color: var(--ink); }
+.listing-specs { color: var(--taupe); }
+
+/* ---------- Neighborhoods (ink, photography forward) ---------- */
+.neighborhoods-section { background: var(--ink); }
+.neighborhoods-section .section-title { color: var(--ivory); }
+.neighborhoods-section .section-subtitle { color: var(--ivory-muted); }
+.neighborhoods-section .eyebrow { color: var(--bronze-light); }
+.neighborhood-card-bg { background-color: var(--ink); }
+.neighborhood-card-overlay {
+  background: linear-gradient(to top, rgba(22, 33, 43, 0.92) 0%, rgba(22, 33, 43, 0.25) 60%, transparent 100%);
+}
+.neighborhood-card-hover { background: rgba(22, 33, 43, 0.82); }
+.neighborhood-name { color: var(--ivory); }
+.neighborhood-meta { color: var(--bronze-light); }
+
+/* ---------- Free resources / guides (ivory, parchment cards) ---------- */
+.guides-section { background: var(--ivory); }
+.guide-card { background: var(--parchment); border: 1px solid var(--stone); box-shadow: none; }
+.guide-card:hover { border-color: var(--bronze); box-shadow: none; }
+.guide-header { background: var(--ink); }
+.guide-header h3 { color: var(--ivory); }
+.guide-header p { color: var(--ivory-muted); }
+.guide-icon { background: transparent; color: var(--bronze-light); border: 1px solid rgba(196, 165, 116, 0.4); }
+.guide-features li { color: #4A463F; }
+.guide-features li::before { color: var(--bronze); }
+.guide-secondary-link { color: var(--bronze-deep); }
+
+/* ---------- Testimonials (the one hunter-green moment) ---------- */
+.testimonials-section { background: var(--hunter); }
+.testimonials-section .section-title { color: #F2EDE3; }
+.testimonials-section .section-subtitle { color: rgba(242, 237, 227, 0.7); }
+.testimonials-section .eyebrow { color: var(--bronze-light); }
+.testimonial-card { background: transparent; border: 1px solid rgba(242, 237, 227, 0.14); }
+.testimonial-card:hover { background: rgba(242, 237, 227, 0.04); border-color: rgba(196, 165, 116, 0.45); }
+.testimonial-stars { color: var(--bronze-light); letter-spacing: 0.2em; }
+.testimonial-quote { color: rgba(242, 237, 227, 0.88); font-family: var(--font-serif); font-style: italic; }
+.testimonial-avatar { background: transparent; color: var(--bronze-light); border: 1px solid rgba(196, 165, 116, 0.5); }
+.testimonial-name { color: #F2EDE3; }
+.testimonial-role { color: rgba(242, 237, 227, 0.55); }
+
+/* ---------- Contact / lead capture (parchment, light form) ---------- */
+.lead-capture-section { background: var(--parchment); color: var(--charcoal); }
+.lead-capture-section::before { display: none; }
+.lead-capture-section .section-title,
+.lead-capture-section .section-title.light,
+.lead-capture-section h2,
+.lead-capture-section h3 { color: var(--ink); }
+.lead-capture-section .section-subtitle,
+.lead-capture-section .section-subtitle.light,
+.lead-capture-section p { color: var(--taupe); }
+.lead-capture-section .eyebrow { color: var(--bronze-deep); }
+.lead-capture-section a { color: var(--ink); }
+.lead-capture-section a:hover { color: var(--bronze-deep); }
+.lead-form-wrapper { background: #FFFFFF; border: 1px solid var(--stone); }
+.form-label { color: #4A463F; }
+.form-control {
+  background: #FFFFFF; border: 1px solid var(--stone); color: var(--charcoal);
+}
+.form-control::placeholder { color: #A39A8C; }
+.form-control:focus { background: #FFFFFF; border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
+.form-note { color: var(--taupe); }
+.form-success h3 { color: var(--ink); }
+.form-success p { color: var(--taupe); }
+/* The contact block in index.html sets white text inline; !important is the
+   only way to beat inline styles from a stylesheet. */
+.lead-capture-section h3[style] { color: var(--ink) !important; }
+.lead-capture-section p[style] { color: var(--taupe) !important; }
+.lead-capture-section a[style] { color: var(--ink) !important; }
+.lead-capture-section .btn-gold,
+.lead-capture-section button[type="submit"] { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+
+/* Dark-page heroes keep the original light-on-dark form styling */
+:is(.valuation-hero, .contact-hero, .newsletter-hero) .form-control {
+  background: rgba(247, 243, 236, 0.08); border-color: rgba(247, 243, 236, 0.18); color: var(--ivory);
+}
+:is(.valuation-hero, .contact-hero, .newsletter-hero) .form-label { color: rgba(247, 243, 236, 0.75); }
+
+/* ---------- About Jason (ivory) ---------- */
+.agent-section { background: var(--ivory); }
+.agent-photo { background: var(--parchment); box-shadow: none; }
+.agent-name { color: var(--ink); }
+.agent-title { color: var(--bronze-deep); letter-spacing: 0.08em; }
+.agent-bio { color: #4A463F; }
+.credential { color: #4A463F; }
+.credential svg { color: var(--bronze); }
+
+/* ---------- FAQ (ivory, hairline dividers) ---------- */
+.faq-section { background: var(--ivory); }
+.faq-item { background: transparent; border: 0; border-bottom: 1px solid var(--stone); border-radius: 0; box-shadow: none; }
+.faq-question { color: var(--ink); }
+.faq-question:hover, .faq-question.open { color: var(--bronze-deep); }
+.faq-chevron { background: transparent; color: var(--bronze-deep); border: 1px solid var(--stone); }
+.faq-answer { color: #4A463F; }
+
+/* ---------- Newsletter band (parchment instead of gold) ---------- */
+.newsletter-section { background: var(--parchment); border-top: 1px solid var(--stone); }
+.newsletter-text h2 { color: var(--ink); }
+.newsletter-text p { color: var(--taupe); }
+.newsletter-note { color: var(--taupe); }
+.newsletter-form input { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
+.newsletter-form input:focus { border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
+
+/* ---------- Footer (ink, single bronze rule) ---------- */
+#site-footer { background: var(--ink); color: var(--ivory-muted); border-top: 1px solid var(--bronze); }
+.footer-grid { border-bottom-color: rgba(247, 243, 236, 0.08); }
+.footer-brand .logo-main { color: var(--ivory); }
+.footer-col h4 { color: var(--bronze-light); letter-spacing: 0.14em; }
+.footer-links a { color: var(--ivory-muted); }
+.footer-links a:hover { color: var(--ivory); }
+.social-link { border-color: rgba(247, 243, 236, 0.18); color: var(--ivory-muted); }
+.social-link:hover { color: var(--ivory); background: transparent; border-color: var(--bronze-light); }
+.footer-disclaimer { color: rgba(247, 243, 236, 0.38); }
+.footer-legal a { color: rgba(247, 243, 236, 0.5); }
+
+/* ---------- Floating contact buttons ---------- */
+.fcta-phone { background: var(--ink); color: var(--ivory); box-shadow: 0 0 0 1px rgba(247, 243, 236, 0.3), var(--shadow-lg); }
+.fcta-chat { background: var(--ivory); color: var(--ink); border: 1px solid var(--stone); }
+.floating-label { background: var(--ink); color: var(--ivory); }
+
+/* ---------- Interior pages: flat ink heroes, no gradients ---------- */
+:is(.page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero, .contact-hero) {
+  background: var(--ink);
+}
+.page-hero-sub { color: var(--ivory-muted); }
+.newsletter-hero .page-hero-title em { color: var(--bronze-light); }
+.val-step-num, .ndc-price { background: var(--ink); color: var(--ivory); }
+.guide-step-number { background: var(--ink); color: var(--bronze-light); }
+.contact-method-icon { background: transparent; color: var(--bronze); border: 1px solid var(--stone); }
+.tab-btn.active, .filter-btn.active { background: var(--ink); color: var(--ivory); }
+.filter-btn:hover, .tab-btn:hover { color: var(--bronze-deep); background: transparent; }
+.blog-index { background: var(--ivory); }
+.blog-card { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
+.blog-card-date, .blog-card-link, .blog-pager-link span { color: var(--bronze-deep); }
+.blog-cta { background: var(--ink); }
+.neighborhood-stats, .ndc-tag, .guide-step-tags span { background: var(--parchment); }
+.neighborhood-full-card, .neighborhood-detail-card, .contact-form-box {
+  background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none;
+}
+.text-gold { color: var(--bronze-deep); }
+.prose a { color: var(--bronze-deep); }
+
+/* ==========================================================================
+   Site-specific adjustments for the palette
+   ========================================================================== */
+
+/* Lead-capture sections are light now: inline white text inside them
+   (checklists, contact rows, success messages) needs to switch to ink/taupe. */
+.lead-capture-section :is(li, div, span)[style*="rgba(255,255,255"],
+.lead-capture-section :is(li, div, span, h3, p)[style*="var(--white)"] { color: var(--taupe) !important; }
+.lead-capture-section :is(h3, h2)[style*="var(--white)"] { color: var(--ink) !important; }
+.lead-capture-section .form-success div[style*="var(--gold)"] { color: var(--bronze) !important; }
+.lead-capture-section .trust-item svg,
+.lead-capture-section li svg { color: var(--bronze); }
+
+/* Form cards are white everywhere, including the one in the dark newsletter hero */
+.newsletter-hero .newsletter-card .form-control {
+  background: #FFFFFF; border: 1px solid var(--stone); color: var(--charcoal);
+}
+.newsletter-hero .newsletter-card .form-control:focus { border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
+.newsletter-hero .newsletter-card .form-label { color: #4A463F; }
+.newsletter-card-title { color: var(--ink); }
+.newsletter-card-sub { color: var(--taupe); }
+.newsletter-prefs { border-color: var(--stone); }
+.newsletter-prefs summary { color: var(--bronze-deep); }
+.newsletter-prefs summary span { color: var(--taupe); }
+.newsletter-hero .newsletter-card .btn-gold { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+.newsletter-hero .newsletter-card .btn-gold:hover { background: var(--ink-soft); color: var(--ivory); }
+.newsletter-card .form-success h3[style] { color: var(--ink) !important; }
+.newsletter-card .form-success p[style] { color: var(--taupe) !important; }
+.newsletter-card .form-success div[style] { color: var(--bronze) !important; }
+.newsletter-benefits li { color: rgba(247, 243, 236, 0.82); }
+.newsletter-benefits li span { color: var(--bronze-light); }
+.newsletter-lede { color: rgba(247, 243, 236, 0.8); }
+
+/* Bronze rule sits on the footer itself, not above the newsletter band */
+#site-footer { border-top: 0; }
+#site-footer > footer { border-top: 1px solid var(--bronze); }
+
+/* Blog: back link and meta on the ink hero */
+.blog-back { color: var(--bronze-light); }
+.blog-back:hover { color: var(--ivory); }
+.blog-meta { color: var(--ivory-muted); }
+.blog-card-title a { color: var(--ink); }
+.blog-card-title a:hover { color: var(--bronze-deep); }
+
+/* Gold accents used inline on light sections read as bronze-deep for contrast */
+.listing-spec + .listing-spec::before { color: var(--bronze); }
+
+/* Header CTA sits on the ink header, so it takes the ivory treatment */
+#site-header .btn-gold { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+#site-header .btn-gold:hover { background: #FFFFFF; color: var(--ink); }

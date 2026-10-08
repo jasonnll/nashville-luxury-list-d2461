@@ -1,6 +1,88 @@
+# robots.txt for www.nashvilleluxurylist.com
+# Search engines and AI assistants are welcome to read every public page.
+# Only the CMS admin area is kept private.
+
+# --- AI search & answer engines (ChatGPT, Claude, Perplexity, Google AI Overviews, Apple Intelligence) ---
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /admin/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /admin/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /admin/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /admin/
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+
+# --- Traditional search engines ---
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+
+# --- Everyone else ---
 User-agent: *
 Allow: /
-Disallow: /thank-you/
-Disallow: /assets/
+Disallow: /admin/
 
 Sitemap: https://www.nashvilleluxurylist.com/sitemap.xml
