@@ -72,9 +72,10 @@
     btn.addEventListener('click', () => {
       const parent = btn.closest('[data-tabs]');
       if (!parent) return;
-      parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      parent.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
       parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
       const content = parent.querySelector(`[data-tab-content="${btn.dataset.tab}"]`);
       if (content) content.classList.add('active');
     });
