@@ -314,7 +314,7 @@ h1, h2, h3, h4, h5 {
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 960px;
 }
 .hero-eyebrow {
   font-size: 0.75rem;
@@ -335,9 +335,12 @@ h1, h2, h3, h4, h5 {
   background: var(--gold);
 }
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.75rem);
   color: var(--white);
   line-height: 1.1;
+  /* wide measure so the headline sets in ~3 balanced lines on desktop */
+  max-width: 22ch;
+  text-wrap: balance;
   margin-bottom: 1.5rem;
 }
 .hero h1 em {
