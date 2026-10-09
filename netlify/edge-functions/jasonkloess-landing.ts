@@ -1,9 +1,11 @@
 // jasonkloess.nashvilleluxurylist.com and www.nashvilleluxurylist.com are two Netlify projects
 // built from this same repo. On the jasonkloess subdomain, the homepage is the lead-gen landing
-// page in /jasonkloess/ instead of the main site's homepage. Every other host passes through.
+// page in /jasonkloess/ instead of the main site's homepage, and robots.txt, sitemap.xml and
+// llms.txt come from /jasonkloess/ so crawlers get this host's URLs. Every other host passes through.
 import type { Config } from '@netlify/edge-functions'
 
 const LANDING_HOST = 'jasonkloess.nashvilleluxurylist.com'
+const CRAWLER_FILES = ['/robots.txt', '/sitemap.xml', '/llms.txt']
 
 // Same policy as netlify.toml, plus the Calendly booking embed used on the landing page.
 const CSP = [
@@ -22,6 +24,11 @@ export default async (req: Request) => {
   if (url.hostname !== LANDING_HOST) return
   if (req.method !== 'GET' && req.method !== 'HEAD') return
 
+  // Crawler files are served as-is from the landing page's folder.
+  if (CRAWLER_FILES.includes(url.pathname)) {
+    return fetch(new URL(`/jasonkloess${url.pathname}`, url), { method: req.method, headers: req.headers })
+  }
+
   // /jasonkloess/ isn't on this function's path, so this fetch goes straight to the static page.
   const res = await fetch(new URL('/jasonkloess/', url), { method: req.method, headers: req.headers })
   const headers = new Headers(res.headers)
@@ -35,5 +42,5 @@ export default async (req: Request) => {
 }
 
 export const config: Config = {
-  path: ['/', '/index.html'],
+  path: ['/', '/index.html', '/robots.txt', '/sitemap.xml', '/llms.txt'],
 }
