@@ -49,6 +49,7 @@
       <a href="/" class="nav-link">Home</a>
       <a href="/neighborhoods/" class="nav-link">Neighborhoods</a>
       <a href="/buyer-guide/" class="nav-link">Buyer Guide</a>
+      <a href="/relocation/" class="nav-link">Relocating to Nashville</a>
       <a href="/seller-guide/" class="nav-link">Seller Guide</a>
       <a href="/home-valuation/" class="nav-link">Home Valuation</a>
       <a href="/blog/" class="nav-link">Blog</a>
@@ -134,6 +135,7 @@
                 <a href="/">Home</a>
                 <a href="/neighborhoods/">Neighborhoods</a>
                 <a href="/buyer-guide/">Buyer Guide</a>
+                <a href="/relocation/">Relocating to Nashville</a>
                 <a href="/seller-guide/">Seller Guide</a>
                 <a href="/home-valuation/">Home Valuation</a>
                 <a href="/blog/">Blog</a>
