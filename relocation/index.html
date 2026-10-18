@@ -165,6 +165,8 @@
 .rl-card .form-group{margin-bottom:1rem}
 .rl-card .form-label{font-size:.72rem}
 .rl-card .opt{text-transform:none;letter-spacing:0;font-weight:400;color:var(--taupe)}
+.rl-sms{display:flex;gap:.6rem;align-items:flex-start;font-size:.75rem;line-height:1.5;color:#4A463F;margin:.25rem 0 1rem;cursor:pointer}
+.rl-sms input{margin-top:.2rem;accent-color:var(--ink);flex:0 0 auto}
 .rl-consent{font-size:.72rem;line-height:1.55;color:var(--taupe);margin-top:.9rem}
 .rl-card .form-success{text-align:center;padding:1rem 0}
 .rl-card .form-success h3{color:var(--ink);font-size:1.4rem;margin:.75rem 0 .5rem}
@@ -381,7 +383,8 @@
         </div>
         <form name="relocation-playbook" method="POST" action="/relocation/" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="rl-form">
           <input type="hidden" name="form-name" value="relocation-playbook">
-          <input type="hidden" name="lead_source" value="Relocation Landing Page">
+          <input type="hidden" name="source" value="Relocation Playbook page">
+          <input type="hidden" name="lane" value="Relocation">
           <input type="hidden" name="utm_source" id="rl-utm-source">
           <input type="hidden" name="utm_medium" id="rl-utm-medium">
           <input type="hidden" name="utm_campaign" id="rl-utm-campaign">
@@ -413,8 +416,9 @@
               <option>$5M+</option>
             </select>
           </div>
+          <label class="rl-sms"><input type="checkbox" name="sms_consent" value="Yes"> Text me about my move. Jason Kloess, Compass. Message and data rates may apply. Message frequency varies. Reply STOP to opt out. Consent is not a condition of purchase.</label>
           <button type="submit" class="btn btn-gold btn-full btn-lg">Send My Relocation Playbook</button>
-          <p class="rl-consent">By submitting, you agree to receive the playbook and follow-up emails, calls or texts from Jason Kloess at Compass about your move. Consent is not a condition of any purchase. Message and data rates may apply; reply STOP to opt out. <a href="/privacy-policy/">Privacy policy</a>.</p>
+          <p class="rl-consent">By submitting, you agree to receive the playbook and follow-up emails from Jason Kloess at Compass about your move. Unsubscribe anytime. <a href="/privacy-policy/">Privacy policy</a>.</p>
         </form>
         <div class="form-success" role="status" aria-live="polite" style="display:none">
           <div class="rl-check">&#10003;</div>
