@@ -1,18 +1,17 @@
 // Runs automatically after every verified Netlify Forms submission.
 //
-// 1. Newsletter signups ("vip-newsletter"), Off-Market Access step 1 ("off-market-access")
-//    and Relocation Playbook requests ("relocation-playbook")
-//    go to the Zapier Catch Hook that adds/updates the subscriber in Mailchimp.
-//    Env: ZAPIER_NEWSLETTER_WEBHOOK_URL
-// 2. Every lead form (see LEAD_FORMS) also goes to the lead-routing Catch Hook, which writes the
-//    Master Lead Log, creates the Compass CRM contact, tags Mailchimp, sends the instant text
-//    (only when sms_consent = Yes) and alerts Jason.
-//    Env: ZAPIER_LEADS_WEBHOOK_URL
-const NEWSLETTER_FORMS = new Set(['vip-newsletter', 'off-market-access', 'relocation-playbook'])
+// Every signup and lead form below is posted to the "NLL lead routing" Zap (ZAPIER_LEADS_WEBHOOK_URL).
+// The Zap logs it in the NLL Master Lead Log and decides the rest by form name:
+//   - vip-newsletter, off-market-access: added to Mailchimp as a new subscriber (never re-subscribes
+//     someone who unsubscribed) and tagged, so the Off-Market Access welcome sequence starts
+//   - access-match, relocation-playbook, home-valuation: also added to Mailchimp, plus a Compass CRM lead
+//     and an email alert to Jason
 const LEAD_FORMS: Record<string, string> = {
+  'vip-newsletter': 'Buyer',
   'off-market-access': 'Buyer',
   'access-match': 'Buyer',
   'relocation-playbook': 'Relocation',
+  'home-valuation': 'Seller',
 }
 
 const clean = (v: unknown) => String(v ?? '').trim()
@@ -37,24 +36,6 @@ export default async (req: Request) => {
 
   const jobs: Promise<boolean>[] = []
 
-  if (NEWSLETTER_FORMS.has(form)) {
-    const webhook = Netlify.env.get('ZAPIER_NEWSLETTER_WEBHOOK_URL')
-    if (webhook) {
-      jobs.push(post(webhook, {
-        email,
-        first_name: clean(data.first_name),
-        last_name: clean(data.last_name),
-        area_of_interest: data.area_of_interest || 'All of Middle Tennessee',
-        price_point: data.price_point || 'Any price',
-        timeline: data.timeline || 'Just exploring',
-        source: data.source || 'Website',
-        submitted_at,
-      }, 'Newsletter'))
-    } else {
-      console.warn('ZAPIER_NEWSLETTER_WEBHOOK_URL is not set; signup kept in Netlify Forms only')
-    }
-  }
-
   if (form in LEAD_FORMS) {
     const webhook = Netlify.env.get('ZAPIER_LEADS_WEBHOOK_URL')
     if (webhook) {
@@ -62,14 +43,17 @@ export default async (req: Request) => {
         form,
         lane: clean(data.lane) || LEAD_FORMS[form],
         email,
-        first_name: clean(data.first_name),
-        last_name: clean(data.last_name),
+        first_name: clean(data.first_name) || clean(data.name).split(/\s+/)[0] || '',
+        last_name: clean(data.last_name) || (clean(data.first_name) ? '' : clean(data.name).split(/\s+/).slice(1).join(' ')),
         phone: clean(data.phone),
         sms_consent: clean(data.sms_consent) === 'Yes' ? 'Yes' : 'No',
         timeline: clean(data.timeline),
         timeline_stated_on: submitted_at.slice(0, 10),
-        price_range: clean(data.price_range),
-        areas: clean(data.areas),
+        price_range: clean(data.price_range) || clean(data.price_point),
+        areas: clean(data.areas) || clean(data.area_of_interest),
+        address: clean(data.address),
+        goal: clean(data.goal),
+        message: clean(data.message),
         moving_from: clean(data.moving_from),
         financing: clean(data.financing),
         has_agent: clean(data.has_agent),
