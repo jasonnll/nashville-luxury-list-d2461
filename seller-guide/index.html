@@ -18,6 +18,12 @@
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1367479611783678');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1367479611783678&ev=PageView&noscript=1"/></noscript>
+<style>
+  .calendly-section { background: var(--white); }
+  .calendly-section .calendly-inline-widget { min-width: 320px; height: 700px; }
+  .booking-alt { text-align: center; font-size: 0.9rem; color: var(--text-mid); margin-top: 1rem; }
+  .booking-alt a { color: var(--bronze); }
+</style>
 </head>
 <body>
 
@@ -35,7 +41,7 @@
       <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
         <a href="https://jasonkloess.nashvilleluxurylist.com/assets/guides/seller-guide.pdf" download="Nashville-Luxury-Sellers-Guide-2026-Jason-Kloess.pdf" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Download the Seller's Guide (PDF) ↓</a>
         <a href="/home-valuation/" class="btn btn-outline-gold btn-lg">Get Free Valuation →</a>
-        <a href="/contact/" class="btn btn-outline-white btn-lg">Talk to Jason</a>
+        <a href="#book-consultation" class="btn btn-outline-white btn-lg">Schedule a Seller Consultation</a>
       </div>
     </div>
   </div>
@@ -156,7 +162,7 @@
       </div>
       <div class="fade-up delay-2">
         <div class="lead-form-wrapper">
-          <div class="text-center" style="margin-bottom:1.75rem;"><h3 style="color:var(--white);font-size:1.5rem;margin-bottom:0.5rem;">Start My Seller Consultation</h3><p style="color:rgba(255,255,255,0.55);font-size:0.9rem;">Jason responds within 2 hours</p></div>
+          <div class="text-center" style="margin-bottom:1.75rem;"><h3 style="color:var(--white);font-size:1.5rem;margin-bottom:0.5rem;">Start My Seller Consultation</h3><p style="color:rgba(255,255,255,0.55);font-size:0.9rem;">Jason responds within 2 hours &middot; or <a href="#book-consultation" style="color:var(--gold);">pick a time on his calendar</a></p></div>
           <div class="form-wrapper">
             <form name="seller-inquiry" netlify data-netlify="true" data-netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="seller-inquiry">
@@ -173,12 +179,26 @@
               <button type="submit" class="btn btn-gold btn-full btn-lg">Request Seller Consultation →</button>
               <p class="form-note">100% confidential. No marketing without your approval.</p>
             </form>
-            <div class="form-success" style="display:none;text-align:center;padding:2rem;"><div style="font-size:3rem;color:var(--gold);margin-bottom:1rem;">✓</div><h3 style="color:var(--white);">We'll Be in Touch!</h3><p style="color:rgba(255,255,255,0.7);margin-top:0.5rem;">Jason will reach out within 2 hours.</p><p style="margin-top:1.25rem;"><a href="https://jasonkloess.nashvilleluxurylist.com/assets/guides/seller-guide.pdf" download="Nashville-Luxury-Sellers-Guide-2026-Jason-Kloess.pdf" target="_blank" rel="noopener" class="btn btn-gold">Download the Seller's Guide (PDF) ↓</a></p></div>
+            <div class="form-success" style="display:none;text-align:center;padding:2rem;"><div style="font-size:3rem;color:var(--gold);margin-bottom:1rem;">✓</div><h3 style="color:var(--white);">We'll Be in Touch!</h3><p style="color:rgba(255,255,255,0.7);margin-top:0.5rem;">Jason will reach out within 2 hours. Want to lock in a time now? <a href="#book-consultation" style="color:var(--gold);">Schedule your consultation</a>.</p><p style="margin-top:1.25rem;"><a href="https://jasonkloess.nashvilleluxurylist.com/assets/guides/seller-guide.pdf" download="Nashville-Luxury-Sellers-Guide-2026-Jason-Kloess.pdf" target="_blank" rel="noopener" class="btn btn-gold">Download the Seller's Guide (PDF) ↓</a></p></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
+
+<!-- BOOK A SELLER CONSULTATION -->
+<section class="section calendly-section" id="book-consultation">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2rem;">
+      <span class="eyebrow">Seller Consultation</span>
+      <h2 class="section-title">Schedule a Seller Consultation</h2>
+      <div class="divider center"></div>
+      <p style="max-width:640px;margin:0 auto;color:var(--text-mid);line-height:1.75;">Pick a time to talk with Jason about your home, your timing and your options, from a quiet off-market sale to a full launch. No obligation.</p>
+    </div>
+  </div>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/jason-nashvilleluxurylist/seller-consultation?hide_gdpr_banner=1&amp;primary_color=a8865a"></div>
+  <p class="booking-alt">Calendar not loading? <a href="https://calendly.com/jason-nashvilleluxurylist/seller-consultation" target="_blank" rel="noopener">Open the booking page</a> or call <a href="tel:+16154570768">615-457-0768</a>.</p>
 </section>
 
 <!-- FAQ -->
@@ -196,6 +216,42 @@
 <div id="site-footer"></div>
 <script src="/assets/js/partials.js?v=20261008e"></script>
 <script src="/assets/js/main.js?v=20261008e"></script>
+<script>
+  (function () {
+    // Calendly: load the widget only as the booking section nears the viewport (or when a link jumps there).
+    var section = document.getElementById('book-consultation'), loaded = false;
+    var form = document.querySelector('form[name="seller-inquiry"]');
+    function load() {
+      if (loaded) return; loaded = true;
+      var widget = section.querySelector('.calendly-inline-widget'), prefill = [];
+      ['name', 'email'].forEach(function (k) {
+        var el = form && form.querySelector('[name="' + k + '"]');
+        if (el && el.value) prefill.push(k + '=' + encodeURIComponent(el.value));
+      });
+      var addr = form && form.querySelector('[name="address"]');
+      if (addr && addr.value) prefill.push('a1=' + encodeURIComponent(addr.value));
+      if (prefill.length) widget.setAttribute('data-url', widget.getAttribute('data-url') + '&' + prefill.join('&'));
+      var s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true;
+      document.body.appendChild(s);
+    }
+    if (!('IntersectionObserver' in window)) load();
+    else {
+      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { io.disconnect(); load(); } }, { rootMargin: '800px 0px' });
+      io.observe(section);
+    }
+    if (location.hash === '#book-consultation') load();
+    document.querySelectorAll('a[href="#book-consultation"]').forEach(function (a) { a.addEventListener('click', load); });
+
+    // Meta and GA events when a time is booked.
+    window.addEventListener('message', function (e) {
+      if (e.origin === 'https://calendly.com' && e.data && e.data.event === 'calendly.event_scheduled') {
+        try { fbq('track', 'Schedule', { content_name: 'Seller Consultation' }); } catch (err) {}
+        try { gtag('event', 'schedule_call', { call_type: 'seller_consultation' }); } catch (err) {}
+      }
+    });
+  })();
+</script>
 <script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/";});}});}</script>
 </body>
 </html>

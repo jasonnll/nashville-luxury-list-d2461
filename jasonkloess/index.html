@@ -193,6 +193,7 @@
       transition: border-color 0.2s;
     }
     .form-row input:focus { border-color: var(--gold); }
+    @media (max-width: 768px) { .form-row input { font-size: 16px; } } /* stops iOS zooming into the field */
     .seller-bg .form-row input { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: var(--white); }
     .seller-bg .form-row input::placeholder { color: rgba(255,255,255,0.4); }
     .seller-bg .form-row input:focus { border-color: var(--gold); }

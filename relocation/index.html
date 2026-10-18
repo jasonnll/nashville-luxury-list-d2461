@@ -138,7 +138,8 @@
 <style>
 /* ===== Relocation page (scoped: rl-) — built on main.css + palette.css tokens ===== */
 .rl-hero{background:var(--ink);color:var(--ivory);padding:calc(var(--header-h) + clamp(2rem,5vw,3.5rem)) 0 clamp(3rem,6vw,5rem);position:relative;overflow:hidden}
-.rl-hero::before{content:"";position:absolute;inset:0;background:url('/assets/images/listings/8206-spring-valley-dr.jpg') center/cover no-repeat;opacity:.22}
+.rl-hero::before{content:"";position:absolute;inset:0;background:url('/.netlify/images?url=/assets/images/listings/8206-spring-valley-dr.jpg&w=1600&q=60') center/cover no-repeat;opacity:.22}
+@media(max-width:768px){.rl-hero::before{background-image:url('/.netlify/images?url=/assets/images/listings/8206-spring-valley-dr.jpg&w=800&q=55')}}
 .rl-hero .container{position:relative;display:grid;gap:clamp(2rem,5vw,4rem);align-items:start}
 @media(min-width:980px){.rl-hero .container{grid-template-columns:1.12fr .88fr}}
 .rl-crumbs{font-size:.78rem;color:var(--ivory-muted);margin-bottom:1.5rem}
@@ -323,10 +324,19 @@
 .rl-faq details[open] summary::after{transform:rotate(45deg)}
 .rl-faq-a{padding:0 0 1.4rem;color:#4A463F;line-height:1.75}
 
+/* Relocation call booking */
+.rl-book{background:var(--white,#fff);border-top:1px solid var(--stone)}
+.rl-book .calendly-inline-widget{min-width:320px;height:700px}
+.rl-book-alt{text-align:center;font-size:.9rem;color:var(--taupe);margin-top:1rem}
+.rl-book-alt a{color:var(--bronze-deep)}
+.rl-call-link{margin-top:1.1rem;font-size:.92rem}
+.rl-call-link a{color:var(--bronze-deep);font-weight:600}
+
 /* Final CTA */
 .rl-final .container{display:grid;gap:2rem;align-items:center}
 @media(min-width:900px){.rl-final .container{grid-template-columns:1.3fr .7fr;gap:4rem}}
 .rl-final .btn{width:100%;justify-content:center}
+.rl-final .btn+.btn{margin-top:.75rem}
 .rl-final .rl-contact{margin-top:1.25rem;font-size:.95rem}
 .rl-final .rl-contact a{color:var(--bronze-light)}
 
@@ -337,6 +347,7 @@
 /* Mobile sticky CTA */
 .rl-sticky{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;gap:.6rem;padding:.65rem 1rem calc(.65rem + env(safe-area-inset-bottom));background:var(--ink);border-top:1px solid rgba(196,165,116,.35);transform:translateY(110%);transition:transform .3s}
 .rl-sticky.show{transform:none}
+body.is-typing .rl-sticky.show{transform:translateY(110%)}
 .rl-sticky .btn{flex:1;justify-content:center;padding:.85rem 1rem;font-size:.82rem}
 @media(min-width:980px){.rl-sticky{display:none}}
 @media(max-width:979px){body.rl-has-sticky #floating-cta{display:none}}
@@ -369,6 +380,7 @@
         <li>Seven neighborhood profiles with fall 2026 prices, lot sizes, zoned schools and drive times</li>
         <li>A sample three-day scouting weekend and a 12-month relocation timeline</li>
       </ul>
+      <p class="rl-call-link">Ready to talk it through? <a href="#book-call">Schedule a 30-minute relocation call with Jason &rarr;</a></p>
       <p class="rl-updated">2026 Edition &middot; Market data through September 2026 &middot; By Jason Kloess, REALTOR&reg;, Compass</p>
     </div>
 
@@ -425,7 +437,7 @@
           <h3>Your playbook is ready</h3>
           <p>Open it now. Jason will also follow up personally, usually within two hours.</p>
           <a class="btn btn-gold btn-full" id="rl-open-pdf" href="/assets/guides/nashville-relocation-playbook-2026.pdf" target="_blank" rel="noopener">Open the Playbook (PDF)</a>
-          <a class="btn btn-outline-gold btn-full" href="https://calendly.com/jason-nashvilleluxurylist/15min" target="_blank" rel="noopener">Book a Call with Jason</a>
+          <a class="btn btn-outline-gold btn-full" href="#book-call">Schedule a Relocation Call</a>
         </div>
       </div>
     </div>
@@ -668,7 +680,7 @@
 <section class="rl-sec alt" aria-labelledby="rl-agent-h">
   <div class="container rl-agent">
     <div class="rl-portrait">
-      <img src="/assets/images/jason-kloess.jpg" alt="Jason Kloess, luxury REALTOR with Compass in Nashville" width="380" height="475" loading="lazy">
+      <img src="/.netlify/images?url=/assets/images/jason-kloess.jpg&amp;w=760&amp;q=75" srcset="/.netlify/images?url=/assets/images/jason-kloess.jpg&amp;w=380&amp;q=75 380w, /.netlify/images?url=/assets/images/jason-kloess.jpg&amp;w=760&amp;q=75 760w" sizes="(max-width: 480px) 90vw, 380px" alt="Jason Kloess, luxury REALTOR with Compass in Nashville" width="380" height="475" loading="lazy" decoding="async">
     </div>
     <div>
       <span class="eyebrow">Your relocation advisor</span>
@@ -706,6 +718,19 @@
   </div>
 </section>
 
+<!-- ================= BOOK A RELOCATION CALL ================= -->
+<section class="rl-sec rl-book" id="book-call" aria-labelledby="rl-book-h">
+  <div class="container">
+    <div class="rl-head center">
+      <span class="eyebrow">30-Minute Relocation Call</span>
+      <h2 class="section-title" id="rl-book-h">Schedule a call <em>with Jason</em></h2>
+      <p class="rl-lede">Thirty minutes, by phone or video. Bring your move date, budget and must-haves; leave with a short list of areas, a sense of pricing in each and a plan for your first scouting trip.</p>
+    </div>
+  </div>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/jason-nashvilleluxurylist/relocation-call?hide_gdpr_banner=1&amp;primary_color=a8865a"></div>
+  <p class="rl-book-alt">Calendar not loading? <a href="https://calendly.com/jason-nashvilleluxurylist/relocation-call" target="_blank" rel="noopener">Open the booking page</a> or call <a href="tel:+16154570768">615-457-0768</a>.</p>
+</section>
+
 <!-- ================= FINAL CTA ================= -->
 <section class="rl-sec dark rl-final" aria-labelledby="rl-final-h">
   <div class="container">
@@ -717,6 +742,7 @@
     </div>
     <div>
       <a class="btn btn-gold btn-lg" href="#get-playbook">Send My Relocation Playbook</a>
+      <a class="btn btn-outline-gold btn-lg" href="#book-call" style="color:var(--ivory);border-color:rgba(247,243,236,.5)">Schedule a Relocation Call</a>
     </div>
   </div>
 </section>
@@ -732,7 +758,8 @@
 <div id="site-footer"></div>
 
 <div class="rl-sticky" id="rl-sticky">
-  <a class="btn btn-gold" href="#get-playbook">Get the Relocation Playbook</a>
+  <a class="btn btn-gold" href="#get-playbook">Get the Playbook</a>
+  <a class="btn btn-outline-gold" href="#book-call" style="color:var(--ivory);border-color:rgba(247,243,236,.5)">Schedule a Call</a>
   <a class="btn btn-outline-gold" href="tel:+16154570768" style="flex:0 0 auto;color:var(--ivory);border-color:rgba(247,243,236,.5)" aria-label="Call Jason">Call</a>
 </div>
 
@@ -759,6 +786,31 @@
   }
   var pdf=document.getElementById('rl-open-pdf');
   if(pdf){pdf.addEventListener('click',function(){try{gtag('event','file_download',{file_name:'nashville-relocation-playbook-2026.pdf'});}catch(e){}});}
+
+  // Calendly: load the widget only as the booking section nears the viewport (or when a link jumps there)
+  var book=document.getElementById('book-call'),calLoaded=false;
+  function loadCal(){
+    if(calLoaded||!book) return; calLoaded=true;
+    var w=book.querySelector('.calendly-inline-widget'),pre=[];
+    var nm=form&&form.querySelector('[name="first_name"]'),em=form&&form.querySelector('[name="email"]');
+    if(nm&&nm.value) pre.push('name='+encodeURIComponent(nm.value));
+    if(em&&em.value) pre.push('email='+encodeURIComponent(em.value));
+    if(pre.length) w.setAttribute('data-url',w.getAttribute('data-url')+'&'+pre.join('&'));
+    var sc=document.createElement('script'); sc.src='https://assets.calendly.com/assets/external/widget.js'; sc.async=true;
+    document.body.appendChild(sc);
+  }
+  if(book){
+    if(!('IntersectionObserver' in window)) loadCal();
+    else{var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();loadCal();}},{rootMargin:'800px 0px'});io.observe(book);}
+    if(location.hash==='#book-call') loadCal();
+    document.querySelectorAll('a[href="#book-call"]').forEach(function(a){a.addEventListener('click',loadCal);});
+  }
+  window.addEventListener('message',function(e){
+    if(e.origin==='https://calendly.com'&&e.data&&e.data.event==='calendly.event_scheduled'){
+      try{fbq('track','Schedule',{content_name:'Relocation Call'});}catch(err){}
+      try{gtag('event','schedule_call',{call_type:'relocation'});}catch(err){}
+    }
+  });
 
   // Mobile sticky CTA once the form card scrolls away
   var bar=document.getElementById('rl-sticky'),card=document.getElementById('get-playbook');

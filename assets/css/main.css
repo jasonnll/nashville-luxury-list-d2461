@@ -1790,3 +1790,68 @@ select.form-control option { color: var(--text-dark); background: var(--white); 
 
 /* Links into the FAQ from other pages */
 .faq-more { text-align: center; margin-top: 2.25rem; }
+
+/* ── MOBILE & TOUCH ── */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+a, button, summary, label { -webkit-tap-highlight-color: rgba(168, 134, 90, 0.18); }
+a, button, input, select, textarea, summary { touch-action: manipulation; }
+
+/* Hamburger and close buttons meet the 44px touch target */
+.hamburger { width: 44px; height: 44px; align-items: center; justify-content: center; padding: 0; margin-right: -10px; }
+.mobile-nav-close { width: 44px; height: 44px; top: 0.75rem; right: 0.75rem; display: flex; align-items: center; justify-content: center; }
+.mobile-nav .nav-link { padding: 0.35rem 1rem; }
+.mobile-nav .nav-link.active { color: var(--bronze-light); }
+.mobile-nav-phone { margin-top: 1.5rem; color: rgba(247, 243, 236, 0.75); font-size: 1rem; padding: 0.5rem 1rem; }
+.mobile-nav-phone:hover { color: var(--ivory); }
+body.nav-open { overflow: hidden; }
+
+/* Mobile action bar (the floating call buttons become labeled, thumb-friendly tabs) */
+.mobile-bar { display: none; }
+
+@media (max-width: 768px) {
+  /* A shorter header leaves more of the screen for content */
+  :root { --header-h: 70px; }
+  #site-header, #site-header.scrolled { padding: 0.6rem 0; }
+  .site-logo .logo-main { font-size: 1.05rem; }
+  .site-logo .logo-sub { font-size: 0.58rem; margin-top: 6px; padding-top: 6px; }
+
+  /* 16px text stops iOS Safari from zooming into fields on focus */
+  input, select, textarea, .form-control { font-size: 16px !important; }
+
+  /* Long button labels wrap instead of pushing the page sideways */
+  .btn { white-space: normal; text-align: center; justify-content: center; line-height: 1.35; min-height: 44px; }
+  .btn-lg { padding: 1rem 1.5rem; }
+
+  /* Two-column sections stack with a phone-sized gap */
+  .grid-2[style*="gap:5rem"] { gap: 2.5rem !important; }
+
+  /* Footer links get room between them for thumbs */
+  .footer-links a { display: inline-block; padding: 0.3rem 0; }
+  .social-link { width: 44px; height: 44px; }
+
+  .floating-cta { display: none; }
+  .mobile-bar {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    background: var(--ink); border-top: 1px solid rgba(196, 165, 116, 0.35);
+    padding-bottom: env(safe-area-inset-bottom);
+    transition: transform 0.25s ease;
+  }
+  .mobile-bar a {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.2rem;
+    min-height: 56px; color: var(--ivory); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .mobile-bar a + a { border-left: 1px solid rgba(247, 243, 236, 0.12); }
+  .mobile-bar a:active { background: var(--ink-soft); }
+  .mobile-bar svg { width: 20px; height: 20px; color: var(--bronze-light); }
+  body.has-mobile-bar { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
+  /* Hide the bar while typing so it never covers a field above the keyboard */
+  body.is-typing .mobile-bar { transform: translateY(110%); }
+}
+@media (max-width: 979px) { body.rl-has-sticky .mobile-bar { display: none; } body.rl-has-sticky.has-mobile-bar { padding-bottom: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .fade-up { opacity: 1 !important; transform: none !important; }
+}
