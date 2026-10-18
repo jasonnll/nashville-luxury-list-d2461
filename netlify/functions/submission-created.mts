@@ -1,39 +1,85 @@
 // Runs automatically after every verified Netlify Forms submission.
-// Newsletter signups ("vip-newsletter") are forwarded to a Zapier Catch Hook,
-// whose Zap adds/updates the subscriber in Mailchimp.
 //
-// Set ZAPIER_NEWSLETTER_WEBHOOK_URL in the site's environment variables.
-export default async (req: Request) => {
-  const { payload } = await req.json()
-  if (payload?.form_name !== 'vip-newsletter') return new Response('ignored')
+// 1. Newsletter signups ("vip-newsletter") and Off-Market Access step 1 ("off-market-access")
+//    go to the Zapier Catch Hook that adds/updates the subscriber in Mailchimp.
+//    Env: ZAPIER_NEWSLETTER_WEBHOOK_URL
+// 2. Every lead form (see LEAD_FORMS) also goes to the lead-routing Catch Hook, which writes the
+//    Master Lead Log, creates the Compass CRM contact, tags Mailchimp, sends the instant text
+//    (only when sms_consent = Yes) and alerts Jason.
+//    Env: ZAPIER_LEADS_WEBHOOK_URL
+const NEWSLETTER_FORMS = new Set(['vip-newsletter', 'off-market-access'])
+const LEAD_FORMS: Record<string, string> = {
+  'off-market-access': 'Buyer',
+  'access-match': 'Buyer',
+}
 
-  const webhook = Netlify.env.get('ZAPIER_NEWSLETTER_WEBHOOK_URL')
-  if (!webhook) {
-    console.warn('ZAPIER_NEWSLETTER_WEBHOOK_URL is not set; newsletter signup kept in Netlify Forms only')
-    return new Response('no webhook configured')
-  }
+const clean = (v: unknown) => String(v ?? '').trim()
 
-  const data = payload.data ?? {}
-  const subscriber = {
-    email: String(data.email ?? payload.email ?? '').trim().toLowerCase(),
-    first_name: String(data.first_name ?? '').trim(),
-    last_name: String(data.last_name ?? '').trim(),
-    area_of_interest: data.area_of_interest || 'All of Middle Tennessee',
-    price_point: data.price_point || 'Any price',
-    timeline: data.timeline || 'Just exploring',
-    source: data.source || 'Website',
-    submitted_at: payload.created_at ?? new Date().toISOString(),
-  }
-  if (!subscriber.email) return new Response('missing email')
-
-  const res = await fetch(webhook, {
+async function post(url: string, body: unknown, label: string) {
+  const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(subscriber),
+    body: JSON.stringify(body),
   })
-  if (!res.ok) {
-    console.error(`Zapier webhook responded ${res.status}`)
-    return new Response('webhook failed', { status: 502 })
+  if (!res.ok) console.error(`${label} webhook responded ${res.status}`)
+  return res.ok
+}
+
+export default async (req: Request) => {
+  const { payload } = await req.json()
+  const form = clean(payload?.form_name)
+  const data = payload?.data ?? {}
+  const email = clean(data.email ?? payload?.email).toLowerCase()
+  if (!email) return new Response('missing email')
+  const submitted_at = payload?.created_at ?? new Date().toISOString()
+
+  const jobs: Promise<boolean>[] = []
+
+  if (NEWSLETTER_FORMS.has(form)) {
+    const webhook = Netlify.env.get('ZAPIER_NEWSLETTER_WEBHOOK_URL')
+    if (webhook) {
+      jobs.push(post(webhook, {
+        email,
+        first_name: clean(data.first_name),
+        last_name: clean(data.last_name),
+        area_of_interest: data.area_of_interest || 'All of Middle Tennessee',
+        price_point: data.price_point || 'Any price',
+        timeline: data.timeline || 'Just exploring',
+        source: data.source || 'Website',
+        submitted_at,
+      }, 'Newsletter'))
+    } else {
+      console.warn('ZAPIER_NEWSLETTER_WEBHOOK_URL is not set; signup kept in Netlify Forms only')
+    }
   }
-  return new Response('forwarded')
+
+  if (form in LEAD_FORMS) {
+    const webhook = Netlify.env.get('ZAPIER_LEADS_WEBHOOK_URL')
+    if (webhook) {
+      jobs.push(post(webhook, {
+        form,
+        lane: clean(data.lane) || LEAD_FORMS[form],
+        email,
+        first_name: clean(data.first_name),
+        last_name: clean(data.last_name),
+        phone: clean(data.phone),
+        sms_consent: clean(data.sms_consent) === 'Yes' ? 'Yes' : 'No',
+        timeline: clean(data.timeline),
+        timeline_stated_on: submitted_at.slice(0, 10),
+        price_range: clean(data.price_range),
+        areas: clean(data.areas),
+        financing: clean(data.financing),
+        has_agent: clean(data.has_agent),
+        source: clean(data.source) || 'Website',
+        utm_campaign: clean(data.utm_campaign),
+        submitted_at,
+      }, 'Leads'))
+    } else {
+      console.warn('ZAPIER_LEADS_WEBHOOK_URL is not set; lead kept in Netlify Forms only')
+    }
+  }
+
+  if (!jobs.length) return new Response('ignored')
+  const results = await Promise.all(jobs)
+  return results.every(Boolean) ? new Response('forwarded') : new Response('webhook failed', { status: 502 })
 }
