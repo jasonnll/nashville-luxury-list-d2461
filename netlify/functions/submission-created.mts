@@ -1,16 +1,18 @@
 // Runs automatically after every verified Netlify Forms submission.
 //
-// 1. Newsletter signups ("vip-newsletter") and Off-Market Access step 1 ("off-market-access")
+// 1. Newsletter signups ("vip-newsletter"), Off-Market Access step 1 ("off-market-access")
+//    and Relocation Playbook requests ("relocation-playbook")
 //    go to the Zapier Catch Hook that adds/updates the subscriber in Mailchimp.
 //    Env: ZAPIER_NEWSLETTER_WEBHOOK_URL
 // 2. Every lead form (see LEAD_FORMS) also goes to the lead-routing Catch Hook, which writes the
 //    Master Lead Log, creates the Compass CRM contact, tags Mailchimp, sends the instant text
 //    (only when sms_consent = Yes) and alerts Jason.
 //    Env: ZAPIER_LEADS_WEBHOOK_URL
-const NEWSLETTER_FORMS = new Set(['vip-newsletter', 'off-market-access'])
+const NEWSLETTER_FORMS = new Set(['vip-newsletter', 'off-market-access', 'relocation-playbook'])
 const LEAD_FORMS: Record<string, string> = {
   'off-market-access': 'Buyer',
   'access-match': 'Buyer',
+  'relocation-playbook': 'Relocation',
 }
 
 const clean = (v: unknown) => String(v ?? '').trim()
@@ -68,6 +70,7 @@ export default async (req: Request) => {
         timeline_stated_on: submitted_at.slice(0, 10),
         price_range: clean(data.price_range),
         areas: clean(data.areas),
+        moving_from: clean(data.moving_from),
         financing: clean(data.financing),
         has_agent: clean(data.has_agent),
         source: clean(data.source) || 'Website',
