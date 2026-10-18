@@ -15,6 +15,8 @@ const LEAD_FORMS: Record<string, string> = {
   'relocation-playbook': 'Relocation',
 }
 
+const PLAYBOOK_URL = 'https://www.nashvilleluxurylist.com/assets/guides/nashville-relocation-playbook-2026.pdf'
+
 const clean = (v: unknown) => String(v ?? '').trim()
 
 async function post(url: string, body: unknown, label: string) {
@@ -75,6 +77,8 @@ export default async (req: Request) => {
         has_agent: clean(data.has_agent),
         source: clean(data.source) || 'Website',
         utm_campaign: clean(data.utm_campaign),
+        // Link for the Zap's "email the playbook" step on relocation-playbook leads
+        playbook_url: form === 'relocation-playbook' ? PLAYBOOK_URL : '',
         submitted_at,
       }, 'Leads'))
     } else {
