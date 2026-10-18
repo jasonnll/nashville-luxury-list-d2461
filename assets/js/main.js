@@ -26,14 +26,32 @@
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileClose = document.querySelector('.mobile-nav-close');
   if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', () => {
+    const openNav = () => {
       mobileNav.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-    const closeNav = () => { mobileNav.classList.remove('open'); document.body.style.overflow = ''; };
-    if (mobileClose) mobileClose.addEventListener('click', closeNav);
-    mobileNav.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeNav));
+      document.body.classList.add('nav-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      if (mobileClose) mobileClose.focus();
+    };
+    const closeNav = () => {
+      if (!mobileNav.classList.contains('open')) return;
+      mobileNav.classList.remove('open');
+      document.body.classList.remove('nav-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    };
+    hamburger.addEventListener('click', openNav);
+    if (mobileClose) mobileClose.addEventListener('click', () => { closeNav(); hamburger.focus(); });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', closeNav));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+    // Rotating a phone or widening the window past the breakpoint shouldn't leave the page scroll-locked
+    const wide = window.matchMedia('(min-width: 1201px)');
+    const onWide = (m) => { if (m.matches) closeNav(); };
+    if (wide.addEventListener) wide.addEventListener('change', onWide); else if (wide.addListener) wide.addListener(onWide);
   }
+
+  /* ── MOBILE ACTION BAR: tuck it away while the keyboard is up ── */
+  const isField = (el) => el && el.matches && el.matches('input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]), select, textarea');
+  document.addEventListener('focusin', (e) => { if (isField(e.target)) document.body.classList.add('is-typing'); });
+  document.addEventListener('focusout', () => { setTimeout(() => { if (!isField(document.activeElement)) document.body.classList.remove('is-typing'); }, 50); });
 
   /* ── HERO BG LOADED ── */
   const heroBg = document.querySelector('.hero-bg img');
@@ -140,10 +158,17 @@
   /* ── SMOOTH ANCHOR SCROLL ── */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
-      const target = document.querySelector(link.getAttribute('href'));
+      const hash = link.getAttribute('href');
+      if (hash.length < 2) return;
+      let target;
+      try { target = document.querySelector(hash); } catch { return; }
       if (!target) return;
       e.preventDefault();
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      // Offset by the real header height, which is shorter on phones
+      const headerH = header ? header.offsetHeight : 0;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerH - 12, behavior: reduce ? 'auto' : 'smooth' });
+      if (history.replaceState) history.replaceState(null, '', hash);
     });
   });
 

@@ -20,10 +20,12 @@
   /* Off-Market Access page: small additions on top of the site system */
   .access-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0 0 2rem; max-width: 460px; }
   .access-card { border: 1px solid rgba(196,165,116,0.35); border-radius: var(--radius-md); padding: 0.9rem; background: rgba(255,255,255,0.03); }
-  .access-card-img { height: 92px; border-radius: var(--radius-sm); background: linear-gradient(135deg, #3a4a57, #6f6658); margin-bottom: 0.7rem; }
+  .access-card-img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-sm); background: #3a4a57; margin-bottom: 0.7rem; }
+  .access-card-title { font-family: var(--font-serif); font-size: 0.92rem; color: var(--ivory); line-height: 1.3; }
+  .access-card-sub { font-size: 0.72rem; color: var(--ivory-muted); margin-top: 0.15rem; }
   .access-card-line { height: 8px; border-radius: 2px; background: rgba(247,243,236,0.35); margin-bottom: 0.45rem; }
   .access-card-line.short { width: 60%; }
-  .access-card.private .access-card-img, .access-card.private .access-card-line { filter: blur(5px); }
+  .access-card.private .access-card-line { filter: blur(4px); }
   .access-card-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bronze-light); margin-top: 0.6rem; display: flex; align-items: center; gap: 0.35rem; }
   .access-card-label.public { color: var(--ivory-muted); }
   .access-step-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bronze-deep); margin-bottom: 0.5rem; display: block; }
@@ -95,12 +97,13 @@
         <p class="newsletter-lede">A private weekly list of Middle Tennessee's best homes from $1.5M, including off-market properties you won't find on Zillow.</p>
         <div class="access-cards" aria-hidden="true">
           <div class="access-card">
-            <div class="access-card-img"></div>
-            <div class="access-card-line"></div><div class="access-card-line short"></div>
+            <img class="access-card-img" src="/.netlify/images?url=/assets/images/listings/768-georgetown-dr.jpg&amp;w=440&amp;q=75" srcset="/.netlify/images?url=/assets/images/listings/768-georgetown-dr.jpg&amp;w=220&amp;q=75 220w, /.netlify/images?url=/assets/images/listings/768-georgetown-dr.jpg&amp;w=440&amp;q=75 440w" sizes="(max-width: 520px) 45vw, 220px" alt="768 Georgetown Dr, Nashville" width="440" height="293" decoding="async" fetchpriority="low">
+            <div class="access-card-title">768 Georgetown Dr</div>
+            <div class="access-card-sub">Nashville, TN</div>
             <div class="access-card-label public">On the market</div>
           </div>
           <div class="access-card private">
-            <div class="access-card-img"></div>
+            <img class="access-card-img" src="/.netlify/images?url=/assets/images/listings/private-exclusive.jpg&amp;w=440&amp;q=75" srcset="/.netlify/images?url=/assets/images/listings/private-exclusive.jpg&amp;w=220&amp;q=75 220w, /.netlify/images?url=/assets/images/listings/private-exclusive.jpg&amp;w=440&amp;q=75 440w" sizes="(max-width: 520px) 45vw, 220px" alt="Compass Private Exclusive" width="440" height="293" decoding="async" fetchpriority="low">
             <div class="access-card-line"></div><div class="access-card-line short"></div>
             <div class="access-card-label"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Off-market, members only</div>
           </div>
@@ -265,7 +268,7 @@
 <section class="section">
   <div class="container">
     <div class="access-about fade-up">
-      <img src="/assets/images/jason-kloess.jpg" alt="Jason Kloess, Compass" width="180" height="180" loading="lazy">
+      <img src="/.netlify/images?url=/assets/images/jason-kloess.jpg&amp;w=360&amp;q=75" srcset="/.netlify/images?url=/assets/images/jason-kloess.jpg&amp;w=180&amp;q=75 1x, /.netlify/images?url=/assets/images/jason-kloess.jpg&amp;w=360&amp;q=75 2x" alt="Jason Kloess, Compass" width="180" height="180" loading="lazy" decoding="async">
       <div>
         <span class="eyebrow">Who Curates the List</span>
         <h2 class="section-title" style="margin-bottom:1rem;">Jason Kloess, Compass</h2>
