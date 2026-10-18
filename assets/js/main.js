@@ -97,7 +97,9 @@
   const encode = (data) =>
     Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
 
-  document.querySelectorAll('form[netlify], form[data-netlify="true"]').forEach(form => {
+  // Netlify strips the netlify/data-netlify attributes from deployed HTML, so also match the hidden form-name field.
+  document.querySelectorAll('form').forEach(form => {
+    if (!form.hasAttribute('netlify') && form.getAttribute('data-netlify') !== 'true' && !form.querySelector('input[type="hidden"][name="form-name"]')) return;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('[type="submit"]');
