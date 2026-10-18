@@ -31,8 +31,8 @@
             <a href="/buyer-guide/" class="nav-link ${isActive('/buyer-guide/')}">Buyer Guide</a>
             <a href="/seller-guide/" class="nav-link ${isActive('/seller-guide/')}">Seller Guide</a>
             <a href="/home-valuation/" class="nav-link ${isActive('/home-valuation/')}">Home Valuation</a>
-            <a href="/blog/" class="nav-link ${isActive('/blog/')}">Blog</a>
-            <a href="/newsletter/" class="nav-link ${isActive('/newsletter/')}">Newsletter</a>
+            <a href="/relocation/" class="nav-link ${isActive('/relocation/')}">Relocation</a>
+            <a href="/access/" class="nav-link ${isActive('/access/')}">Off Market Access</a>
             <a href="/contact/" class="nav-link ${isActive('/contact/')}">Contact</a>
             <a href="/contact/" class="btn btn-gold btn-sm nav-cta">Get Started</a>
           </nav>
@@ -52,9 +52,8 @@
       <a href="/relocation/" class="nav-link">Relocating to Nashville</a>
       <a href="/seller-guide/" class="nav-link">Seller Guide</a>
       <a href="/home-valuation/" class="nav-link">Home Valuation</a>
-      <a href="/blog/" class="nav-link">Blog</a>
       <a href="/faq/" class="nav-link">FAQ</a>
-      <a href="/newsletter/" class="nav-link">Newsletter</a>
+      <a href="/access/" class="nav-link">Off Market Access</a>
       <a href="/contact/" class="nav-link">Contact</a>
       <a href="/contact/" class="btn btn-gold btn-lg" style="margin-top:1rem">Get Started</a>
       <div style="margin-top:2rem;color:rgba(255,255,255,0.6);font-size:0.9rem;">${PHONE}</div>`;
