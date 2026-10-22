@@ -6,6 +6,11 @@
 
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 [[redirects]]
+  from = "/playbook"
+  to   = "/playbook/"
+  status = 301
+
+[[redirects]]
   from = "/about"
   to   = "/about/"
   status = 301
