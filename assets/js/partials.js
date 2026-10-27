@@ -162,6 +162,9 @@
             <div class="footer-col">
               <h4>Areas We Serve</h4>
               <div class="footer-links">
+                <a href="/nashville-luxury-realtor/">Nashville Luxury Realtor</a>
+                <a href="/brentwood-tn-luxury-realtor/">Brentwood TN Luxury Realtor</a>
+                <a href="/franklin-tn-luxury-realtor/">Franklin TN Luxury Realtor</a>
                 <a href="https://guides.nashvilleluxurylist.com/belle-meade/">Belle Meade</a>
                 <a href="https://guides.nashvilleluxurylist.com/brentwood/">Brentwood</a>
                 <a href="https://guides.nashvilleluxurylist.com/green-hills/">Green Hills</a>
