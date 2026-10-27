@@ -6,6 +6,9 @@
 //     someone who unsubscribed) and tagged, so the Off-Market Access welcome sequence starts
 //   - access-match, relocation-playbook, home-valuation: also added to Mailchimp, plus a Compass CRM lead
 //     and an email alert to Jason
+//
+// Signups from the site-wide off-market popup (off-market-access with a "Popup" source) are also sent
+// straight to the Compass CRM Zap (ZAPIER_CRM_WEBHOOK_URL, same Zap as guide-lead-crm.mts).
 const LEAD_FORMS: Record<string, string> = {
   'vip-newsletter': 'Buyer',
   'off-market-access': 'Buyer',
@@ -13,6 +16,8 @@ const LEAD_FORMS: Record<string, string> = {
   'relocation-playbook': 'Relocation',
   'home-valuation': 'Seller',
 }
+
+const CRM_WEBHOOK_FALLBACK = 'https://hooks.zapier.com/hooks/catch/25124451/4m7pk3q/'
 
 const PLAYBOOK_URL = 'https://www.nashvilleluxurylist.com/assets/guides/nashville-relocation-playbook-2026.pdf'
 
@@ -68,6 +73,18 @@ export default async (req: Request) => {
     } else {
       console.warn('ZAPIER_LEADS_WEBHOOK_URL is not set; lead kept in Netlify Forms only')
     }
+  }
+
+  if (form === 'off-market-access' && clean(data.source).startsWith('Popup')) {
+    jobs.push(post(Netlify.env.get('ZAPIER_CRM_WEBHOOK_URL') || CRM_WEBHOOK_FALLBACK, {
+      firstName: clean(data.first_name),
+      lastName: clean(data.last_name),
+      email,
+      source: 'Nashville Luxury List – Off-Market Weekly Popup',
+      tags: ['buyer-lead', 'off-market-weekly', 'website-popup'],
+      note: `Joined the weekly off-market email list from the website popup (${clean(data.source).replace(/^Popup – /, '') || '/'}).`,
+      submittedAt: submitted_at,
+    }, 'Compass CRM'))
   }
 
   if (!jobs.length) return new Response('ignored')

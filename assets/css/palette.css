@@ -345,3 +345,37 @@ a:hover { color: var(--ink); }
 /* Header CTA sits on the ink header, so it takes the ivory treatment */
 #site-header .btn-gold { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 #site-header .btn-gold:hover { background: #FFFFFF; color: var(--ink); }
+
+/* ---------- Off-market signup popup ---------- */
+.om-popup { position: fixed; inset: 0; z-index: 1100; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.om-popup[hidden] { display: none; }
+.om-popup-backdrop { position: absolute; inset: 0; background: rgba(22, 33, 43, 0.6); opacity: 0; transition: opacity 0.3s ease; }
+.om-popup-card {
+  position: relative; width: 100%; max-width: 460px; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: var(--ivory); border: 1px solid var(--stone); border-top: 3px solid var(--bronze);
+  padding: 2.5rem 2rem 1.75rem; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+  opacity: 0; transform: translateY(16px); transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.om-popup.open .om-popup-backdrop, .om-popup.open .om-popup-card { opacity: 1; transform: none; }
+.om-popup-close {
+  position: absolute; top: 0.75rem; right: 0.75rem; width: 2.25rem; height: 2.25rem;
+  background: none; border: 0; color: var(--taupe); font-size: 1.1rem; cursor: pointer;
+}
+.om-popup-close:hover { color: var(--ink); }
+.om-popup .eyebrow { color: var(--bronze-deep); }
+.om-popup-title { color: var(--ink); font-size: 1.6rem; line-height: 1.2; margin: 0.4rem 0 0.5rem; }
+.om-popup-sub { color: var(--taupe); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.om-popup .form-group { margin-bottom: 1rem; }
+.om-popup .btn-gold { background: var(--ink); color: var(--ivory); border-color: var(--ink); margin-top: 0.25rem; }
+.om-popup .btn-gold:hover { background: var(--ink-soft); color: var(--ivory); }
+.om-popup .form-note { text-align: center; margin: 0.9rem 0 0; }
+.om-popup-check { font-size: 2.75rem; color: var(--bronze); margin-bottom: 0.75rem; }
+.om-popup .form-success { padding: 1rem 0; }
+@media (max-width: 520px) {
+  .om-popup-card { padding: 2.25rem 1.25rem 1.5rem; }
+  .om-popup-title { font-size: 1.35rem; }
+  .om-popup .form-row { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .om-popup-backdrop, .om-popup-card { transition: none; }
+}
