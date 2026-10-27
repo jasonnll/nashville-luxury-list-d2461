@@ -71,6 +71,21 @@
   status = 301
 
 [[redirects]]
+  from = "/nashville-luxury-realtor"
+  to   = "/nashville-luxury-realtor/"
+  status = 301
+
+[[redirects]]
+  from = "/brentwood-tn-luxury-realtor"
+  to   = "/brentwood-tn-luxury-realtor/"
+  status = 301
+
+[[redirects]]
+  from = "/franklin-tn-luxury-realtor"
+  to   = "/franklin-tn-luxury-realtor/"
+  status = 301
+
+[[redirects]]
   from = "/privacy-policy"
   to   = "/privacy-policy/"
   status = 301

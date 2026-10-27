@@ -104,7 +104,7 @@
             <div class="newsletter-text fade-up">
               <span class="eyebrow">Stay Ahead of the Market</span>
               <h2>Nashville's Most Exclusive<br>Listings, Weekly.</h2>
-              <p>Join 2,400+ buyers and investors who receive our curated weekly digest of off-market and pre-market luxury properties.</p>
+              <p>Join 600+ buyers and investors who receive our curated weekly digest of off-market and pre-market luxury properties.</p>
             </div>
             <div class="fade-up delay-2">
               <div class="form-wrapper">
@@ -162,6 +162,9 @@
             <div class="footer-col">
               <h4>Areas We Serve</h4>
               <div class="footer-links">
+                <a href="/nashville-luxury-realtor/">Nashville Luxury Realtor</a>
+                <a href="/brentwood-tn-luxury-realtor/">Brentwood TN Luxury Realtor</a>
+                <a href="/franklin-tn-luxury-realtor/">Franklin TN Luxury Realtor</a>
                 <a href="https://guides.nashvilleluxurylist.com/belle-meade/">Belle Meade</a>
                 <a href="https://guides.nashvilleluxurylist.com/brentwood/">Brentwood</a>
                 <a href="https://guides.nashvilleluxurylist.com/green-hills/">Green Hills</a>
