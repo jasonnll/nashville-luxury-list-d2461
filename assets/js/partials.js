@@ -104,7 +104,7 @@
             <div class="newsletter-text fade-up">
               <span class="eyebrow">Stay Ahead of the Market</span>
               <h2>Nashville's Most Exclusive<br>Listings, Weekly.</h2>
-              <p>Join 2,400+ buyers and investors who receive our curated weekly digest of off-market and pre-market luxury properties.</p>
+              <p>Join 600+ buyers and investors who receive our curated weekly digest of off-market and pre-market luxury properties.</p>
             </div>
             <div class="fade-up delay-2">
               <div class="form-wrapper">
