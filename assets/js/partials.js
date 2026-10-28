@@ -11,12 +11,107 @@
     return currentPath === href || currentPath === href.replace(/\/$/, '') || currentPath.startsWith(href) ? 'active' : '';
   };
 
+  /* ── SITE MENU ──
+     One definition drives the desktop dropdowns and the mobile accordion.
+     IDX_SEARCH_URL: set this once the IDX property search is live and a
+     "Search Homes" button appears in the header and the mobile menu. */
+  const IDX_SEARCH_URL = '';
+  const STATES = [['california','California'],['new-york','New York'],['new-jersey','New Jersey'],['illinois','Illinois'],['washington','Washington'],['massachusetts','Massachusetts'],['florida','Florida'],['texas','Texas']];
+  const MENU = [
+    { id: 'about', label: 'About', href: '/about/', overview: 'About Nashville Luxury List', columns: [
+      { heading: 'Nashville Luxury List', links: [
+        ['/about/why-nashville-luxury-list/', 'Why Nashville Luxury List', 'Luxury homes, estates and off-market listings'],
+        ['/about/', 'Meet Jason Kloess', 'Compass REALTOR&reg;, 7+ years in Middle Tennessee'],
+        ['/testimonials/', 'Client Testimonials', 'In their words'],
+        ['/past-sales/', 'Past Sales &amp; Active Listings', 'Closed sales and homes on the market now'],
+      ]},
+      { heading: 'Insights', links: [
+        ['/market-report/', 'Monthly Market Report', 'Dated luxury data for both counties'],
+        ['/blog/', 'Weekly Luxury List', 'Each week’s $1.5M+ homes'],
+        ['/faq/', 'Market FAQ', 'Prices and answers by neighborhood'],
+      ]},
+    ], feature: { eyebrow: 'Weekly', title: 'Off-market homes, first', text: 'Join 600+ buyers who get private and pre-market listings every week.', href: '/access/', cta: 'Get Off-Market Access' } },
+    { id: 'buyers', label: 'Buyers', href: '/buyers/', overview: 'All buyer resources', columns: [
+      { heading: 'Buying', links: [
+        ['/buyer-guide/', 'Buyer’s Guide', 'How a $1.5M+ purchase works'],
+        ['/buyers/buying-process/', 'The Buying Process', 'Seven steps from first call to keys'],
+        ['/buyers/why-work-with-us/', 'Why Work With Us', 'What you get that the apps can’t show'],
+        ['/mortgage-calculator/', 'Mortgage Calculator', 'Payment with real TN tax rates'],
+        ['/strategy/', 'Private Buyer Strategy Session', '30 minutes, one plan'],
+      ]},
+      { heading: 'Relocating', links: [
+        ['/relocation/', 'Relocation Guide', 'Moving to Nashville, start here'],
+      ].concat(STATES.map(([s, n]) => [`/relocation/moving-from-${s}/`, `Moving from ${n}`, ''])), compact: true },
+    ], feature: { eyebrow: 'Calculator', title: 'What will it cost each month?', text: 'Principal, interest, insurance and property tax at 2026 Nashville, Brentwood and Franklin rates.', href: '/mortgage-calculator/', cta: 'Run the numbers' } },
+    { id: 'sellers', label: 'Sellers', href: '/sellers/', overview: 'All seller resources', columns: [
+      { heading: 'Selling', links: [
+        ['/home-valuation/', 'What’s My Home Worth?', 'A real valuation, not an algorithm'],
+        ['/seller-guide/', 'Seller’s Guide', 'How Jason markets and sells luxury homes'],
+        ['/sellers/compass-concierge/', 'Compass Concierge', 'Pre-sale improvements, paid at closing'],
+        ['/review/', 'Private Pricing Review', 'Price and positioning, before you list'],
+        ['/market-report/', 'Monthly Market Report', 'What’s selling, and for how much'],
+      ]},
+    ], feature: { eyebrow: 'Home value', title: 'What would your home sell for today?', text: 'Get a pricing read from Jason based on this month’s closed and pending sales.', href: '/home-valuation/', cta: 'Get my home value' } },
+    { id: 'communities', label: 'Communities', mega: true, href: '/neighborhoods/', overview: 'All neighborhoods', columns: [
+      { heading: 'Davidson County', links: [
+        ['/neighborhoods/belle-meade/', 'Belle Meade'], ['/neighborhoods/green-hills/', 'Green Hills'],
+        ['/neighborhoods/forest-hills-oak-hill/', 'Forest Hills &amp; Oak Hill'], ['/neighborhoods/12-south/', '12 South'],
+        ['/neighborhoods/east-nashville/', 'East Nashville'], ['/neighborhoods/sylvan-park/', 'Sylvan Park'],
+        ['/nashville-luxury-realtor/', 'Nashville Luxury Realtor', '', 'more'],
+      ]},
+      { heading: 'Williamson County', links: [
+        ['/neighborhoods/brentwood/', 'Brentwood'], ['/neighborhoods/franklin/', 'Franklin'],
+        ['/neighborhoods/college-grove/', 'College Grove'], ['/neighborhoods/leipers-fork/', 'Leiper’s Fork'],
+        ['/brentwood-tn-luxury-realtor/', 'Brentwood Luxury Realtor', '', 'more'],
+        ['/franklin-tn-luxury-realtor/', 'Franklin Luxury Realtor', '', 'more'],
+      ]},
+      { heading: 'Gated &amp; Golf Communities', links: [
+        ['/neighborhoods/governors-club/', 'Governors Club', 'Brentwood'], ['/neighborhoods/annandale/', 'Annandale', 'Brentwood'],
+        ['/neighborhoods/westhaven/', 'Westhaven', 'Franklin'], ['/neighborhoods/laurelbrooke/', 'Laurelbrooke', 'Franklin'],
+        ['/neighborhoods/legends-ridge/', 'Legends Ridge', 'Franklin'], ['/neighborhoods/the-grove/', 'The Grove', 'College Grove'],
+        ['/neighborhoods/troubadour/', 'Troubadour', 'College Grove'],
+      ]},
+      { heading: 'Clubs &amp; Lifestyle', links: [
+        ['/country-clubs/', 'Country Clubs', 'Every private club, both counties'],
+        ['/golf-tennis/', 'Golf &amp; Tennis', 'Private and public courses'],
+        ['/neighborhoods/', 'All Neighborhoods', 'Compare every area'],
+      ]},
+    ] },
+    { id: 'access', label: 'Off Market Access', href: '/access/' },
+    { id: 'contact', label: 'Contact', href: '/contact/' },
+  ];
+  const norm = (p) => p.replace(/index\.html$/, '').replace(/\/?$/, '/');
+  const here = norm(currentPath);
+  const isHere = (href) => norm(href.split('#')[0]) === here;
+  const groupActive = (g) => g.href && here.startsWith(norm(g.href)) && g.href !== '/' ? true
+    : (g.columns || []).some(c => c.links.some(([h]) => isHere(h)));
+  const chev = '<svg class="nav-chev" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>';
+  const cur = (h) => isHere(h) ? ' aria-current="page"' : '';
+
+  const desktopPanel = (g) => {
+    const cols = g.columns.map(c => `
+              <div class="nav-col${c.compact ? ' compact' : ''}">
+                <p class="nav-col-h">${c.heading}</p>
+                <ul>${c.links.map(([h, t, d, k]) => `<li><a href="${h}"${cur(h)}${k ? ` class="nav-${k}"` : ''}><span class="nav-t">${t}</span>${d && !c.compact ? `<span class="nav-d">${d}</span>` : ''}</a></li>`).join('')}</ul>
+              </div>`).join('');
+    const f = g.feature ? `
+              <a class="nav-feature" href="${g.feature.href}"><span class="nav-col-h">${g.feature.eyebrow}</span><span class="nav-feature-t">${g.feature.title}</span><span class="nav-d">${g.feature.text}</span><span class="nav-feature-cta">${g.feature.cta} &rarr;</span></a>` : '';
+    return `<div class="nav-menu${g.mega ? ' mega' : ''}" id="nav-menu-${g.id}" hidden><div class="nav-menu-inner">${cols}${f}</div>${g.mega ? `<div class="nav-menu-foot"><a href="/neighborhoods/">Explore all neighborhoods &rarr;</a><a href="/market-report/">Monthly market report &rarr;</a><a href="/contact/">Ask Jason about an area &rarr;</a></div>` : `<div class="nav-menu-foot"><a href="${g.href}">${g.overview} &rarr;</a></div>`}</div>`;
+  };
+
   /* ── HEADER ── */
   const headerEl = document.getElementById('site-header');
   if (headerEl) {
     const isTransparent = currentPath === '/' || currentPath === '/index.html';
     headerEl.dataset.transparent = isTransparent ? 'true' : 'false';
     if (!isTransparent) headerEl.classList.add('scrolled');
+
+    const items = MENU.map(g => g.columns ? `
+            <div class="nav-item has-menu${g.mega ? ' is-mega' : ''}" data-menu="${g.id}">
+              <a href="${g.href}" class="nav-link nav-top${groupActive(g) ? ' active' : ''}"${cur(g.href)}>${g.label}</a><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="nav-menu-${g.id}" aria-label="${g.label} menu">${chev}</button>
+              ${desktopPanel(g)}
+            </div>` : `
+            <a href="${g.href}" class="nav-link${isHere(g.href) ? ' active' : ''}"${cur(g.href)}>${g.label}</a>`).join('');
 
     headerEl.innerHTML = `
       <div class="container">
@@ -25,40 +120,80 @@
             <span class="logo-main">Nashville Luxury List</span>
             <span class="logo-sub">Compass Luxury Division</span>
           </a>
-          <nav class="site-nav" role="navigation" aria-label="Primary Navigation">
-            <a href="/" class="nav-link ${isActive('/')}">Home</a>
-            <a href="/neighborhoods/" class="nav-link ${isActive('/neighborhoods/')}">Neighborhoods</a>
-            <a href="/buyer-guide/" class="nav-link ${isActive('/buyer-guide/')}">Buyer Guide</a>
-            <a href="/seller-guide/" class="nav-link ${isActive('/seller-guide/')}">Seller Guide</a>
-            <a href="/home-valuation/" class="nav-link ${isActive('/home-valuation/')}">Home Valuation</a>
-            <a href="/relocation/" class="nav-link ${isActive('/relocation/')}">Relocation</a>
-            <a href="/access/" class="nav-link ${isActive('/access/')}">Off Market Access</a>
-            <a href="/contact/" class="nav-link ${isActive('/contact/')}">Contact</a>
-            <a href="/contact/" class="btn btn-gold btn-sm nav-cta">Get Started</a>
+          <nav class="site-nav" aria-label="Primary">
+            ${items}
+            ${IDX_SEARCH_URL ? `<a href="${IDX_SEARCH_URL}" class="btn btn-gold btn-sm nav-cta">Search Homes</a>` : `<a href="/contact/" class="btn btn-gold btn-sm nav-cta">Get Started</a>`}
           </nav>
           <button class="hamburger" type="button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
       </div>`;
+
+    /* Dropdown behavior: click or hover to open, Escape / outside click / tabbing away closes */
+    const navItems = headerEl.querySelectorAll('.nav-item.has-menu');
+    const closeAll = (except) => navItems.forEach(it => { if (it !== except) closeOne(it); });
+    const closeOne = (it) => {
+      it.classList.remove('open');
+      it.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false');
+      it.querySelector('.nav-menu').hidden = true;
+    };
+    const openItem = (it) => {
+      closeAll(it);
+      it.classList.add('open');
+      it.querySelector('.nav-trigger').setAttribute('aria-expanded', 'true');
+      it.querySelector('.nav-menu').hidden = false;
+    };
+    const hoverable = window.matchMedia('(hover: hover) and (pointer: fine)');
+    navItems.forEach(it => {
+      const btn = it.querySelector('.nav-trigger');
+      let t;
+      let hoverOpenedAt = 0;
+      // A click right after hover-open shouldn't snap the menu shut
+      btn.addEventListener('click', () => {
+        if (it.classList.contains('open') && Date.now() - hoverOpenedAt > 600) closeAll(); else openItem(it);
+      });
+      it.addEventListener('mouseenter', () => {
+        if (!hoverable.matches) return; clearTimeout(t);
+        if (!it.classList.contains('open')) { hoverOpenedAt = Date.now(); openItem(it); }
+      });
+      it.addEventListener('mouseleave', () => { if (!hoverable.matches) return; t = setTimeout(() => { if (!it.contains(document.activeElement)) closeOne(it); }, 180); });
+      it.addEventListener('focusout', (e) => { if (e.relatedTarget && !it.contains(e.relatedTarget)) closeOne(it); });
+      it.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && it.classList.contains('open')) { e.stopPropagation(); closeAll(); btn.focus(); }
+        if (e.key === 'ArrowDown' && (e.target === btn || e.target.classList.contains('nav-top'))) { e.preventDefault(); openItem(it); const a = it.querySelector('.nav-menu a'); if (a) a.focus(); }
+      });
+    });
+    document.addEventListener('click', (e) => { if (!headerEl.contains(e.target)) closeAll(); });
   }
 
-  /* ── MOBILE NAV ── */
+  /* ── MOBILE NAV (accordion) ── */
   const mobileNavEl = document.getElementById('mobile-nav');
   if (mobileNavEl) {
+    const group = (g) => {
+      const open = groupActive(g);
+      const body = `<a class="mnav-overview" href="${g.href}"${cur(g.href)}>${g.overview} &rarr;</a>` + g.columns.map(c => `
+        <p class="mnav-h">${c.heading}</p>
+        <ul>${c.links.map(([h, t]) => `<li><a href="${h}"${cur(h)}>${t}</a></li>`).join('')}</ul>`).join('');
+      return `
+      <div class="mnav-group">
+        <button type="button" class="mnav-trigger" aria-expanded="${open}" aria-controls="mnav-${g.id}">${g.label}${chev}</button>
+        <div class="mnav-panel" id="mnav-${g.id}"${open ? '' : ' hidden'}>${body}</div>
+      </div>`;
+    };
     mobileNavEl.innerHTML = `
       <button class="mobile-nav-close" type="button" aria-label="Close Menu">✕</button>
-      <a href="/" class="nav-link ${isActive('/')}">Home</a>
-      <a href="/neighborhoods/" class="nav-link ${isActive('/neighborhoods/')}">Neighborhoods</a>
-      <a href="/buyer-guide/" class="nav-link ${isActive('/buyer-guide/')}">Buyer Guide</a>
-      <a href="/relocation/" class="nav-link ${isActive('/relocation/')}">Relocating to Nashville</a>
-      <a href="/seller-guide/" class="nav-link ${isActive('/seller-guide/')}">Seller Guide</a>
-      <a href="/home-valuation/" class="nav-link ${isActive('/home-valuation/')}">Home Valuation</a>
-      <a href="/access/" class="nav-link ${isActive('/access/')}">Off Market Access</a>
-      <a href="/blog/" class="nav-link ${isActive('/blog/')}">Blog</a>
-      <a href="/faq/" class="nav-link ${isActive('/faq/')}">FAQ</a>
-      <a href="/contact/" class="nav-link ${isActive('/contact/')}">Contact</a>
-      <a href="/contact/" class="btn btn-gold btn-lg" style="margin-top:1rem">Get Started</a>
-      <a href="tel:+${PHONE_RAW}" class="mobile-nav-phone">Call or text ${PHONE}</a>`;
+      <div class="mnav">
+        <a href="/" class="mnav-link${isHere('/') ? ' active' : ''}">Home</a>
+        ${MENU.map(g => g.columns ? group(g) : `<a href="${g.href}" class="mnav-link${isHere(g.href) ? ' active' : ''}"${cur(g.href)}>${g.label}</a>`).join('')}
+        ${IDX_SEARCH_URL ? `<a href="${IDX_SEARCH_URL}" class="btn btn-gold btn-lg mnav-cta">Search Homes</a>` : `<a href="/contact/" class="btn btn-gold btn-lg mnav-cta">Get Started</a>`}
+        <a href="tel:+${PHONE_RAW}" class="mobile-nav-phone">Call or text ${PHONE}</a>
+      </div>`;
     mobileNavEl.setAttribute('aria-label', 'Mobile Navigation');
+    mobileNavEl.querySelectorAll('.mnav-trigger').forEach(b => b.addEventListener('click', () => {
+      const p = document.getElementById(b.getAttribute('aria-controls'));
+      const willOpen = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(willOpen));
+      p.hidden = !willOpen;
+    }));
   }
 
   /* ── FLOATING CTAs ── */
@@ -146,18 +281,23 @@
             <div class="footer-col">
               <h3>Navigate</h3>
               <div class="footer-links">
-                <a href="/">Home</a>
-                <a href="/neighborhoods/">Neighborhoods</a>
+                <a href="/about/why-nashville-luxury-list/">Why Nashville Luxury List</a>
+                <a href="/about/">About Jason</a>
+                <a href="/testimonials/">Testimonials</a>
+                <a href="/past-sales/">Past Sales &amp; Listings</a>
+                <a href="/buyers/">Buyers</a>
                 <a href="/buyer-guide/">Buyer Guide</a>
+                <a href="/mortgage-calculator/">Mortgage Calculator</a>
                 <a href="/relocation/">Relocating to Nashville</a>
+                <a href="/sellers/">Sellers</a>
+                <a href="/seller-guide/">Seller Guide</a>
+                <a href="/home-valuation/">Home Valuation</a>
+                <a href="/sellers/compass-concierge/">Compass Concierge</a>
                 <a href="/market-report/">Monthly Market Report</a>
                 <a href="/country-clubs/">Country Clubs</a>
                 <a href="/golf-tennis/">Golf &amp; Tennis</a>
-                <a href="/seller-guide/">Seller Guide</a>
-                <a href="/home-valuation/">Home Valuation</a>
                 <a href="/blog/">Blog</a>
                 <a href="/newsletter/">Weekly Newsletter</a>
-                <a href="/about/">About Jason</a>
                 <a href="/faq/">FAQ</a>
                 <a href="/contact/">Contact</a>
               </div>

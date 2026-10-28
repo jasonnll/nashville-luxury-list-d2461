@@ -1482,7 +1482,7 @@ select.form-control option { color: var(--text-dark); background: var(--white); 
 @media (max-width: 1360px) {
   .nav-link { padding: 0.5rem 0.6rem; font-size: 0.82rem; }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .site-nav { display: none; }
   .hamburger { display: flex; }
 }
