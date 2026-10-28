@@ -447,3 +447,7 @@ a:hover { color: var(--ink); }
 .nav-item.open > .nav-top { color: var(--ivory); box-shadow: inset 0 -1px 0 var(--bronze-light); }
 .nav-trigger:focus-visible { outline: 2px solid var(--bronze-light); outline-offset: 1px; }
 .mnav-overview { display: flex; align-items: center; min-height: 44px; margin-top: .4rem; color: var(--bronze-light) !important; font-weight: 600; font-size: .95rem; text-decoration: none; }
+
+/* Neighborhood hub photos */
+.ndc-photo{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--parchment)}
+.mg-photo{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:var(--parchment)}

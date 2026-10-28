@@ -4,6 +4,10 @@
   # A Zapier "campaign sent" Zap calls this site's build hook so the post goes live right away.
   command = "python3 scripts/import-mailchimp-blog.py"
 
+# Netlify Image CDN may fetch and optimize these remote images (credited Wikimedia Commons photos)
+[images]
+  remote_images = ["https://thumb\\.wikimedia\\.org/.*", "https://upload\\.wikimedia\\.org/.*"]
+
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 # Old neighborhood-guide subdomain -> guides now live at /neighborhoods/<slug>/.
 # Takes effect once guides.nashvilleluxurylist.com is added as a domain alias of this site.
