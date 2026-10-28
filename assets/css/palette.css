@@ -8,18 +8,19 @@
 
 :root {
   /* Core palette */
-  --ink:          #16212B;  /* deep navy-ink: dark sections, primary buttons */
-  --ink-soft:     #212D38;  /* hover state for ink */
-  --ivory:        #F7F3EC;  /* page base */
-  --parchment:    #EDE6DA;  /* alternate light sections */
-  --stone:        #D8CFC0;  /* hairlines, borders */
-  --taupe:        #6F6658;  /* secondary text on light */
-  --charcoal:     #2B2926;  /* body text on light */
-  --bronze:       #A8865A;  /* lines, icons, large accents on light */
-  --bronze-deep:  #7D6040;  /* small text and links on light (AA contrast) */
-  --bronze-light: #C4A574;  /* accents on dark backgrounds */
-  --hunter:       #26332B;  /* testimonials only */
-  --ivory-muted:  #A9A397;  /* secondary text on dark */
+  --ink:          #1E2B40;  /* handsome navy: footer, interior heroes, primary buttons */
+  --ink-soft:     #2C3D59;  /* hover state for ink */
+  --ivory:        #FFFFFF;  /* page base: crisp white */
+  --parchment:    #F6F0E4;  /* cream cashmere: alternate sections, distinct from white */
+  --stone:        #E3D9C6;  /* linen hairlines, borders */
+  --taupe:        #5E584E;  /* secondary text on light */
+  --charcoal:     #2B2A27;  /* body text on light */
+  --bronze:       #A8894F;  /* antique brass: lines and icons only, never small text */
+  --bronze-deep:  #7A6232;  /* small text and links on light (AA contrast) */
+  --bronze-light: #D9C79E;  /* accents on dark backgrounds */
+  --hunter:       #2E4636;  /* hunter green: testimonials */
+  --leather:      #6E4A30;  /* saddle leather: italic accents, hovers */
+  --ivory-muted:  #B9B3A6;  /* secondary text on dark */
 
   /* Remap the original theme variables so every existing rule inherits */
   --navy:        var(--ink);
@@ -42,8 +43,8 @@
   --radius-lg: 4px;
   --radius-xl: 6px;
   --shadow-sm:   none;
-  --shadow-md:   0 1px 2px rgba(22, 33, 43, 0.06);
-  --shadow-lg:   0 12px 32px rgba(22, 33, 43, 0.10);
+  --shadow-md:   0 1px 2px rgba(30, 43, 64, 0.06);
+  --shadow-lg:   0 12px 32px rgba(30, 43, 64, 0.10);
   --shadow-gold: none;
 }
 
@@ -67,59 +68,94 @@ a:hover { color: var(--ink); }
 .btn-dark { background: var(--ink); color: var(--ivory); }
 .btn-dark:hover { background: var(--ink-soft); color: var(--ivory); box-shadow: none; }
 
-:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer, .mobile-nav,
+/* Dark contexts (navy footer, navy interior heroes, hunter testimonials, photo hovers) */
+:is(.testimonials-section, #site-footer, .neighborhood-card-hover,
     .page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero,
     .contact-hero, .blog-cta, .newsletter-hero) .btn-gold {
   background: var(--ivory); color: var(--ink); border-color: var(--ivory);
 }
-:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer, .mobile-nav,
+:is(.testimonials-section, #site-footer, .neighborhood-card-hover,
     .page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero,
     .contact-hero, .blog-cta, .newsletter-hero) .btn-gold:hover {
   background: #FFFFFF; color: var(--ink);
 }
-:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer,
+:is(.testimonials-section, #site-footer,
     .page-hero, .blog-cta) .btn-outline-gold {
-  color: var(--ivory); border-color: rgba(247, 243, 236, 0.6);
+  color: var(--ivory); border-color: rgba(255, 255, 255, 0.6);
 }
-:is(.hero, .neighborhoods-section, .testimonials-section, #site-footer,
+:is(.testimonials-section, #site-footer,
     .page-hero, .blog-cta) .btn-outline-gold:hover {
   background: var(--ivory); color: var(--ink);
 }
+/* The homepage hero is light now: its white-outline button becomes a navy outline */
+.hero .btn-outline-white { color: var(--ink); border-color: var(--ink); }
+.hero .btn-outline-white:hover { background: var(--ink); color: var(--ivory); }
 .btn-outline-white { color: var(--ivory); border-color: rgba(247, 243, 236, 0.55); }
 .btn-outline-white:hover { background: rgba(247, 243, 236, 0.10); color: var(--ivory); }
 
-/* ---------- Header & nav (ink, bronze hairline) ---------- */
+/* ---------- Header & nav (ivory, linen hairline, navy type) ----------
+   Solid on every page, including over the homepage hero, so the nav
+   never sits on top of photography. */
+#site-header,
+#site-header.transparent,
 #site-header.scrolled {
-  background: var(--ink);
+  background: var(--ivory);
   box-shadow: none;
-  border-bottom: 1px solid rgba(168, 134, 90, 0.35);
+  border-bottom: 1px solid var(--stone);
 }
-.site-logo .logo-main { color: var(--ivory); }
-.site-logo .logo-sub { color: var(--bronze-light); border-top-color: rgba(196, 165, 116, 0.4); }
-.nav-link { color: rgba(247, 243, 236, 0.82); }
-.nav-link:hover, .nav-link.active { color: var(--ivory); background: transparent; box-shadow: inset 0 -1px 0 var(--bronze-light); }
-.hamburger span { background: var(--ivory); }
-.mobile-nav { background: var(--ink); }
+.site-logo .logo-main { color: var(--ink); }
+.site-logo .logo-sub { color: var(--bronze-deep); border-top-color: var(--stone); }
+.nav-link { color: var(--charcoal); }
+.nav-link:hover, .nav-link.active { color: var(--ink); background: transparent; box-shadow: inset 0 -1px 0 var(--bronze); }
+.hamburger span { background: var(--ink); }
 
-/* ---------- Hero (ink scrim over photography) ---------- */
-.hero-bg { background: var(--ink); }
+/* Mobile menu: light, like the rest of the site */
+.mobile-nav { background: var(--ivory); }
+.mobile-nav .nav-link { color: var(--ink); }
+.mobile-nav .nav-link.active { color: var(--leather); }
+.mobile-nav-close { color: var(--ink); }
+.mobile-nav-phone { color: var(--taupe); }
+.mobile-nav-phone:hover { color: var(--ink); }
+
+/* ---------- Hero (cream wash over photography, navy type) ---------- */
+.hero-bg { background: var(--parchment); }
 .hero-overlay {
   background: linear-gradient(90deg,
-    rgba(22, 33, 43, 0.86) 0%,
-    rgba(22, 33, 43, 0.62) 55%,
-    rgba(22, 33, 43, 0.35) 100%);
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.92) 40%,
+    rgba(255, 255, 255, 0.45) 68%,
+    rgba(255, 255, 255, 0) 100%);
 }
-.hero-eyebrow { color: var(--bronze-light); }
-.hero-eyebrow::before { background: var(--bronze-light); }
-.hero h1 { color: var(--ivory); }
-.hero h1 em { color: var(--bronze-light); }
-.hero-description { color: rgba(247, 243, 236, 0.82); }
+.hero > .container { width: 100%; }
+.hero-content { max-width: 640px; }
+.hero-eyebrow { color: var(--bronze-deep); }
+.hero-eyebrow::before { background: var(--bronze); }
+.hero h1 { color: var(--ink); }
+.hero h1 em { color: var(--leather); }
+.hero-description { color: #4A453D; }
 
 /* Stats strip */
-.hero-stats { border-top-color: rgba(196, 165, 116, 0.28); }
-.hero-stat-value { color: var(--ivory); }
-.hero-stat-label { color: var(--ivory-muted); letter-spacing: 0.12em; }
-.hero-scroll { color: var(--ivory-muted); }
+.hero-stats { border-top-color: var(--stone); }
+.hero-stat-value { color: var(--ink); }
+.hero-stat-label { color: var(--taupe); letter-spacing: 0.12em; }
+.hero-scroll { color: var(--taupe); }
+
+/* Phones: photo on top, text below on cream, never text over the photo */
+@media (max-width: 768px) {
+  .hero {
+    display: block;
+    min-height: 0;
+    padding: var(--header-h) 0 3rem;
+    background: var(--ivory);
+  }
+  .hero-bg {
+    position: relative;
+    height: min(46vh, 340px);
+    transform: none;
+  }
+  .hero-overlay { display: none; }
+  .hero-content { padding-top: 2rem; }
+}
 
 /* ---------- Valuation bar (parchment) ---------- */
 .valuation-bar { background: var(--parchment); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
@@ -131,6 +167,20 @@ a:hover { color: var(--ink); }
 /* ---------- Trust bar (ivory, quiet small caps) ---------- */
 .trust-bar { background: var(--ivory); border-bottom: 1px solid var(--stone); }
 .trust-item { color: var(--taupe); letter-spacing: 0.1em; }
+
+/* Phones: a compact two-column grid instead of five tall rows */
+@media (max-width: 768px) {
+  .trust-bar { padding: 1rem 0; }
+  .trust-bar-inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem 1rem;
+    justify-items: start;
+  }
+  .trust-item { font-size: 0.78rem; letter-spacing: 0.03em; gap: 0.45rem; line-height: 1.3; }
+  .trust-item svg { width: 14px; height: 14px; }
+  .trust-item:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; }
+}
 .trust-item svg { color: var(--bronze); }
 
 /* ---------- The difference / value props (ivory) ---------- */
@@ -151,27 +201,30 @@ a:hover { color: var(--ink); }
   letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
 }
 .listing-badge.off-market { background: var(--ink); color: var(--ivory); }
-.listing-price { background: rgba(22, 33, 43, 0.88); color: var(--ivory); }
+.listing-price { background: rgba(30, 43, 64, 0.88); color: var(--ivory); }
 .listing-location { color: var(--bronze-deep); letter-spacing: 0.08em; }
 .listing-title { color: var(--ink); }
 .listing-specs { color: var(--taupe); }
 
-/* ---------- Neighborhoods (ink, photography forward) ---------- */
-.neighborhoods-section { background: var(--ink); }
-.neighborhoods-section .section-title { color: var(--ivory); }
-.neighborhoods-section .section-subtitle { color: var(--ivory-muted); }
-.neighborhoods-section .eyebrow { color: var(--bronze-light); }
-.neighborhood-card-bg { background-color: var(--ink); }
+/* ---------- Neighborhoods (ivory section, photo cards keep a navy scrim) ---------- */
+.neighborhoods-section { background: var(--ivory); }
+.neighborhoods-section .section-title,
+.neighborhoods-section .section-title.light { color: var(--ink); }
+.neighborhoods-section .section-subtitle { color: var(--taupe); }
+.neighborhoods-section .eyebrow { color: var(--bronze-deep); }
+.neighborhoods-section > .container > p { color: var(--taupe); }
+.neighborhoods-section > .container > p a { color: var(--bronze-deep); }
+.neighborhood-card-bg { background-color: var(--parchment); }
 .neighborhood-card-overlay {
-  background: linear-gradient(to top, rgba(22, 33, 43, 0.92) 0%, rgba(22, 33, 43, 0.25) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(30, 43, 64, 0.85) 0%, rgba(30, 43, 64, 0.2) 55%, transparent 100%);
 }
-.neighborhood-card-hover { background: rgba(22, 33, 43, 0.82); }
+.neighborhood-card-hover { background: rgba(30, 43, 64, 0.82); }
 .neighborhood-name { color: var(--ivory); }
 .neighborhood-meta { color: var(--bronze-light); }
 
 /* ---------- Free resources / guides (ivory, parchment cards) ---------- */
-.guides-section { background: var(--ivory); }
-.guide-card { background: var(--parchment); border: 1px solid var(--stone); box-shadow: none; }
+.guides-section { background: var(--parchment); }
+.guide-card { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
 .guide-card:hover { border-color: var(--bronze); box-shadow: none; }
 .guide-header { background: var(--ink); }
 .guide-header h3 { color: var(--ivory); }
@@ -195,7 +248,7 @@ a:hover { color: var(--ink); }
 .testimonial-role { color: rgba(242, 237, 227, 0.55); }
 
 /* ---------- Contact / lead capture (parchment, light form) ---------- */
-.lead-capture-section { background: var(--parchment); color: var(--charcoal); }
+.lead-capture-section { background: var(--ivory); color: var(--charcoal); }
 .lead-capture-section::before { display: none; }
 .lead-capture-section .section-title,
 .lead-capture-section .section-title.light,
@@ -232,8 +285,8 @@ a:hover { color: var(--ink); }
 :is(.valuation-hero, .contact-hero, .newsletter-hero) .form-label { color: rgba(247, 243, 236, 0.75); }
 
 /* ---------- About Jason (ivory) ---------- */
-.agent-section { background: var(--ivory); }
-.agent-photo { background: var(--parchment); box-shadow: none; }
+.agent-section { background: var(--parchment); }
+.agent-photo { background: var(--stone); box-shadow: none; }
 .agent-name { color: var(--ink); }
 .agent-title { color: var(--bronze-deep); letter-spacing: 0.08em; }
 .agent-bio { color: #4A463F; }
@@ -330,7 +383,7 @@ a:hover { color: var(--ink); }
 .newsletter-lede { color: rgba(247, 243, 236, 0.8); }
 
 /* Bronze rule sits on the footer itself, not above the newsletter band */
-#site-footer { border-top: 0; }
+#site-footer { border-top: 0; background: var(--parchment); } /* navy lives on the inner <footer>; no navy strip above the newsletter band */
 #site-footer > footer { border-top: 1px solid var(--bronze); }
 
 /* Blog: back link and meta on the ink hero */
@@ -343,14 +396,14 @@ a:hover { color: var(--ink); }
 /* Gold accents used inline on light sections read as bronze-deep for contrast */
 .listing-spec + .listing-spec::before { color: var(--bronze); }
 
-/* Header CTA sits on the ink header, so it takes the ivory treatment */
-#site-header .btn-gold { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
-#site-header .btn-gold:hover { background: #FFFFFF; color: var(--ink); }
+/* Header CTA sits on the ivory header, so it takes the navy treatment */
+#site-header .btn-gold { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+#site-header .btn-gold:hover { background: var(--ink-soft); color: var(--ivory); }
 
 /* ---------- Off-market signup popup ---------- */
 .om-popup { position: fixed; inset: 0; z-index: 1100; display: flex; align-items: center; justify-content: center; padding: 1rem; }
 .om-popup[hidden] { display: none; }
-.om-popup-backdrop { position: absolute; inset: 0; background: rgba(22, 33, 43, 0.6); opacity: 0; transition: opacity 0.3s ease; }
+.om-popup-backdrop { position: absolute; inset: 0; background: rgba(30, 43, 64, 0.6); opacity: 0; transition: opacity 0.3s ease; }
 .om-popup-card {
   position: relative; width: 100%; max-width: 460px; max-height: calc(100vh - 2rem); overflow-y: auto;
   background: var(--ivory); border: 1px solid var(--stone); border-top: 3px solid var(--bronze);
@@ -389,12 +442,12 @@ a:hover { color: var(--ink); }
 .nav-trigger { display: inline-flex; align-items: center; gap: .4rem; background: none; border: 0; cursor: pointer; font: inherit; font-size: .875rem; font-weight: 500; letter-spacing: .02em; }
 .nav-chev { transition: transform .2s ease; opacity: .8; }
 .nav-item.open .nav-chev { transform: rotate(180deg); }
-.nav-item.open > .nav-trigger { color: var(--ivory); box-shadow: inset 0 -1px 0 var(--bronze-light); }
+.nav-item.open > .nav-trigger { color: var(--ink); box-shadow: inset 0 -1px 0 var(--bronze); }
 .nav-menu {
   position: absolute; top: calc(100% + 14px); left: -1rem; z-index: 1002;
   background: var(--ivory); color: var(--ink);
   border: 1px solid var(--stone); border-top: 2px solid var(--bronze);
-  box-shadow: 0 18px 40px rgba(22, 33, 43, .18);
+  box-shadow: 0 18px 40px rgba(30, 43, 64, .18);
   min-width: 560px; text-align: left;
 }
 .nav-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; } /* hover bridge */
@@ -427,26 +480,26 @@ a:hover { color: var(--ink); }
 /* ---------- Mobile menu (accordion) ---------- */
 .mobile-nav { align-items: stretch; justify-content: flex-start; padding: 4.5rem 1.5rem 2.5rem; gap: 0; }
 .mnav { width: 100%; max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; }
-.mnav-link, .mnav-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: .95rem .25rem; font-family: var(--font-serif); font-size: 1.35rem; color: var(--ivory); background: none; border: 0; border-bottom: 1px solid rgba(196,165,116,.22); text-align: left; cursor: pointer; text-decoration: none; }
-.mnav-link.active { color: var(--bronze-light); }
+.mnav-link, .mnav-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: .95rem .25rem; font-family: var(--font-serif); font-size: 1.35rem; color: var(--ink); background: none; border: 0; border-bottom: 1px solid var(--stone); text-align: left; cursor: pointer; text-decoration: none; }
+.mnav-link.active { color: var(--leather); }
 .mnav-trigger .nav-chev { width: 14px; height: 14px; transition: transform .2s ease; }
 .mnav-trigger[aria-expanded="true"] .nav-chev { transform: rotate(180deg); }
-.mnav-panel { padding: .4rem .25rem 1rem; border-bottom: 1px solid rgba(196,165,116,.22); }
-.mnav-h { font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--bronze-light); font-weight: 600; margin: .9rem 0 .35rem; }
+.mnav-panel { padding: .4rem .25rem 1rem; border-bottom: 1px solid var(--stone); }
+.mnav-h { font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--bronze-deep); font-weight: 600; margin: .9rem 0 .35rem; }
 .mnav-panel ul { list-style: none; margin: 0; padding: 0; }
-.mnav-panel a { display: block; padding: .5rem 0; color: rgba(247,243,236,.88); font-size: 1rem; text-decoration: none; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; }
-.mnav-panel a[aria-current="page"] { color: var(--bronze-light); }
+.mnav-panel a { display: block; padding: .5rem 0; color: var(--charcoal); font-size: 1rem; text-decoration: none; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; }
+.mnav-panel a[aria-current="page"] { color: var(--leather); }
 .mnav-cta { margin-top: 1.5rem; text-align: center; }
 .mnav .mobile-nav-phone { margin-top: 1rem; text-align: center; }
 
 /* Top-level items are links to hub pages; the chevron button opens the menu (hover also opens) */
 .nav-item.has-menu { display: inline-flex; align-items: center; }
 .nav-item .nav-top { padding-right: .2rem; }
-.nav-item .nav-trigger { padding: .5rem .45rem .5rem .15rem; color: rgba(247,243,236,.82); border-radius: var(--radius-sm); min-height: 36px; }
-.nav-item .nav-trigger:hover, .nav-item.open > .nav-trigger { color: var(--ivory); box-shadow: none; }
-.nav-item.open > .nav-top { color: var(--ivory); box-shadow: inset 0 -1px 0 var(--bronze-light); }
-.nav-trigger:focus-visible { outline: 2px solid var(--bronze-light); outline-offset: 1px; }
-.mnav-overview { display: flex; align-items: center; min-height: 44px; margin-top: .4rem; color: var(--bronze-light) !important; font-weight: 600; font-size: .95rem; text-decoration: none; }
+.nav-item .nav-trigger { padding: .5rem .45rem .5rem .15rem; color: var(--charcoal); border-radius: var(--radius-sm); min-height: 36px; }
+.nav-item .nav-trigger:hover, .nav-item.open > .nav-trigger { color: var(--ink); box-shadow: none; }
+.nav-item.open > .nav-top { color: var(--ink); box-shadow: inset 0 -1px 0 var(--bronze); }
+.nav-trigger:focus-visible { outline: 2px solid var(--bronze); outline-offset: 1px; }
+.mnav-overview { display: flex; align-items: center; min-height: 44px; margin-top: .4rem; color: var(--bronze-deep) !important; font-weight: 600; font-size: .95rem; text-decoration: none; }
 
 /* Neighborhood hub photos */
 .ndc-photo{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--parchment)}
