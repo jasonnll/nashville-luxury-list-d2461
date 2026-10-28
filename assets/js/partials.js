@@ -18,7 +18,7 @@
   const IDX_SEARCH_URL = '';
   const STATES = [['california','California'],['new-york','New York'],['new-jersey','New Jersey'],['illinois','Illinois'],['washington','Washington'],['massachusetts','Massachusetts'],['florida','Florida'],['texas','Texas']];
   const MENU = [
-    { id: 'about', label: 'About', columns: [
+    { id: 'about', label: 'About', href: '/about/', overview: 'About Nashville Luxury List', columns: [
       { heading: 'Nashville Luxury List', links: [
         ['/about/why-nashville-luxury-list/', 'Why Nashville Luxury List', 'Luxury homes, estates and off-market listings'],
         ['/about/', 'Meet Jason Kloess', 'Compass REALTOR&reg;, 7+ years in Middle Tennessee'],
@@ -31,7 +31,7 @@
         ['/faq/', 'Market FAQ', 'Prices and answers by neighborhood'],
       ]},
     ], feature: { eyebrow: 'Weekly', title: 'Off-market homes, first', text: 'Join 600+ buyers who get private and pre-market listings every week.', href: '/access/', cta: 'Get Off-Market Access' } },
-    { id: 'buyers', label: 'Buyers', columns: [
+    { id: 'buyers', label: 'Buyers', href: '/buyers/', overview: 'All buyer resources', columns: [
       { heading: 'Buying', links: [
         ['/buyer-guide/', 'Buyer’s Guide', 'How a $1.5M+ purchase works'],
         ['/buyers/buying-process/', 'The Buying Process', 'Seven steps from first call to keys'],
@@ -43,7 +43,7 @@
         ['/relocation/', 'Relocation Guide', 'Moving to Nashville, start here'],
       ].concat(STATES.map(([s, n]) => [`/relocation/moving-from-${s}/`, `Moving from ${n}`, ''])), compact: true },
     ], feature: { eyebrow: 'Calculator', title: 'What will it cost each month?', text: 'Principal, interest, insurance and property tax at 2026 Nashville, Brentwood and Franklin rates.', href: '/mortgage-calculator/', cta: 'Run the numbers' } },
-    { id: 'sellers', label: 'Sellers', columns: [
+    { id: 'sellers', label: 'Sellers', href: '/sellers/', overview: 'All seller resources', columns: [
       { heading: 'Selling', links: [
         ['/home-valuation/', 'What’s My Home Worth?', 'A real valuation, not an algorithm'],
         ['/seller-guide/', 'Seller’s Guide', 'How Jason markets and sells luxury homes'],
@@ -52,7 +52,7 @@
         ['/market-report/', 'Monthly Market Report', 'What’s selling, and for how much'],
       ]},
     ], feature: { eyebrow: 'Home value', title: 'What would your home sell for today?', text: 'Get a pricing read from Jason based on this month’s closed and pending sales.', href: '/home-valuation/', cta: 'Get my home value' } },
-    { id: 'communities', label: 'Communities', mega: true, href: '/neighborhoods/', columns: [
+    { id: 'communities', label: 'Communities', mega: true, href: '/neighborhoods/', overview: 'All neighborhoods', columns: [
       { heading: 'Davidson County', links: [
         ['/neighborhoods/belle-meade/', 'Belle Meade'], ['/neighborhoods/green-hills/', 'Green Hills'],
         ['/neighborhoods/forest-hills-oak-hill/', 'Forest Hills &amp; Oak Hill'], ['/neighborhoods/12-south/', '12 South'],
@@ -96,7 +96,7 @@
               </div>`).join('');
     const f = g.feature ? `
               <a class="nav-feature" href="${g.feature.href}"><span class="nav-col-h">${g.feature.eyebrow}</span><span class="nav-feature-t">${g.feature.title}</span><span class="nav-d">${g.feature.text}</span><span class="nav-feature-cta">${g.feature.cta} &rarr;</span></a>` : '';
-    return `<div class="nav-menu${g.mega ? ' mega' : ''}" id="nav-menu-${g.id}" hidden><div class="nav-menu-inner">${cols}${f}</div>${g.mega ? `<div class="nav-menu-foot"><a href="/neighborhoods/">Explore all neighborhoods &rarr;</a><a href="/market-report/">Monthly market report &rarr;</a><a href="/contact/">Ask Jason about an area &rarr;</a></div>` : ''}</div>`;
+    return `<div class="nav-menu${g.mega ? ' mega' : ''}" id="nav-menu-${g.id}" hidden><div class="nav-menu-inner">${cols}${f}</div>${g.mega ? `<div class="nav-menu-foot"><a href="/neighborhoods/">Explore all neighborhoods &rarr;</a><a href="/market-report/">Monthly market report &rarr;</a><a href="/contact/">Ask Jason about an area &rarr;</a></div>` : `<div class="nav-menu-foot"><a href="${g.href}">${g.overview} &rarr;</a></div>`}</div>`;
   };
 
   /* ── HEADER ── */
@@ -108,7 +108,7 @@
 
     const items = MENU.map(g => g.columns ? `
             <div class="nav-item has-menu${g.mega ? ' is-mega' : ''}" data-menu="${g.id}">
-              <button type="button" class="nav-link nav-trigger${groupActive(g) ? ' active' : ''}" aria-expanded="false" aria-controls="nav-menu-${g.id}">${g.label}${chev}</button>
+              <a href="${g.href}" class="nav-link nav-top${groupActive(g) ? ' active' : ''}"${cur(g.href)}>${g.label}</a><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="nav-menu-${g.id}" aria-label="${g.label} menu">${chev}</button>
               ${desktopPanel(g)}
             </div>` : `
             <a href="${g.href}" class="nav-link${isHere(g.href) ? ' active' : ''}"${cur(g.href)}>${g.label}</a>`).join('');
@@ -159,7 +159,7 @@
       it.addEventListener('focusout', (e) => { if (e.relatedTarget && !it.contains(e.relatedTarget)) closeOne(it); });
       it.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && it.classList.contains('open')) { e.stopPropagation(); closeAll(); btn.focus(); }
-        if (e.key === 'ArrowDown' && e.target === btn) { e.preventDefault(); openItem(it); const a = it.querySelector('.nav-menu a'); if (a) a.focus(); }
+        if (e.key === 'ArrowDown' && (e.target === btn || e.target.classList.contains('nav-top'))) { e.preventDefault(); openItem(it); const a = it.querySelector('.nav-menu a'); if (a) a.focus(); }
       });
     });
     document.addEventListener('click', (e) => { if (!headerEl.contains(e.target)) closeAll(); });
@@ -170,7 +170,7 @@
   if (mobileNavEl) {
     const group = (g) => {
       const open = groupActive(g);
-      const body = g.columns.map(c => `
+      const body = `<a class="mnav-overview" href="${g.href}"${cur(g.href)}>${g.overview} &rarr;</a>` + g.columns.map(c => `
         <p class="mnav-h">${c.heading}</p>
         <ul>${c.links.map(([h, t]) => `<li><a href="${h}"${cur(h)}>${t}</a></li>`).join('')}</ul>`).join('');
       return `
@@ -285,9 +285,11 @@
                 <a href="/about/">About Jason</a>
                 <a href="/testimonials/">Testimonials</a>
                 <a href="/past-sales/">Past Sales &amp; Listings</a>
+                <a href="/buyers/">Buyers</a>
                 <a href="/buyer-guide/">Buyer Guide</a>
                 <a href="/mortgage-calculator/">Mortgage Calculator</a>
                 <a href="/relocation/">Relocating to Nashville</a>
+                <a href="/sellers/">Sellers</a>
                 <a href="/seller-guide/">Seller Guide</a>
                 <a href="/home-valuation/">Home Valuation</a>
                 <a href="/sellers/compass-concierge/">Compass Concierge</a>
