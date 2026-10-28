@@ -1,0 +1,25 @@
+# Jason Kloess · Nashville Luxury List
+
+> Landing page for Jason Kloess, a REALTOR® with Compass in Nashville, Tennessee (Tennessee license #357138) and founder of Nashville Luxury List (https://www.nashvilleluxurylist.com/). Visitors can download free 2026 Nashville luxury buyer and seller guides, browse Jason's active listings, read client reviews, and book a 15-minute call.
+
+Contact: 615-457-0768 · jason@nashvilleluxurylist.com · Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203 (office 615-522-5100).
+
+Jason represents buyers and sellers of luxury homes across Nashville and Williamson County, including Green Hills, Belle Meade, Forest Hills, Brentwood and Franklin.
+
+## This page
+
+- [Jason Kloess landing page](https://jasonkloess.nashvilleluxurylist.com/): Free buyer and seller guides, active listings, client reviews, and a booking calendar.
+
+## Main site: Nashville Luxury List
+
+- [Nashville Luxury List](https://www.nashvilleluxurylist.com/): Jason's full luxury real estate site and weekly newsletter.
+- [About Jason Kloess](https://www.nashvilleluxurylist.com/about/)
+- [Nashville Luxury Real Estate FAQ (2026)](https://www.nashvilleluxurylist.com/faq/)
+- [Neighborhoods](https://www.nashvilleluxurylist.com/neighborhoods/)
+- [Buyer's Guide](https://www.nashvilleluxurylist.com/buyer-guide/)
+- [Seller's Guide](https://www.nashvilleluxurylist.com/seller-guide/)
+- [Free Home Valuation](https://www.nashvilleluxurylist.com/home-valuation/)
+- [Weekly Newsletter](https://www.nashvilleluxurylist.com/newsletter/)
+- [Blog](https://www.nashvilleluxurylist.com/blog/)
+- [Contact](https://www.nashvilleluxurylist.com/contact/)
+- [Full site summary for AI assistants](https://www.nashvilleluxurylist.com/llms.txt)
