@@ -150,6 +150,9 @@
                 <a href="/neighborhoods/">Neighborhoods</a>
                 <a href="/buyer-guide/">Buyer Guide</a>
                 <a href="/relocation/">Relocating to Nashville</a>
+                <a href="/market-report/">Monthly Market Report</a>
+                <a href="/country-clubs/">Country Clubs</a>
+                <a href="/golf-tennis/">Golf &amp; Tennis</a>
                 <a href="/seller-guide/">Seller Guide</a>
                 <a href="/home-valuation/">Home Valuation</a>
                 <a href="/blog/">Blog</a>
@@ -165,14 +168,15 @@
                 <a href="/nashville-luxury-realtor/">Nashville Luxury Realtor</a>
                 <a href="/brentwood-tn-luxury-realtor/">Brentwood TN Luxury Realtor</a>
                 <a href="/franklin-tn-luxury-realtor/">Franklin TN Luxury Realtor</a>
-                <a href="https://guides.nashvilleluxurylist.com/belle-meade/">Belle Meade</a>
-                <a href="https://guides.nashvilleluxurylist.com/brentwood/">Brentwood</a>
-                <a href="https://guides.nashvilleluxurylist.com/green-hills/">Green Hills</a>
-                <a href="https://guides.nashvilleluxurylist.com/franklin/">Franklin</a>
-                <a href="https://guides.nashvilleluxurylist.com/forest-hills-oak-hill/">Oak Hill</a>
-                <a href="https://guides.nashvilleluxurylist.com/forest-hills-oak-hill/">Forest Hills</a>
-                <a href="https://guides.nashvilleluxurylist.com/12-south/">12 South</a>
-                <a href="https://guides.nashvilleluxurylist.com/">Downtown</a>
+                <a href="/neighborhoods/belle-meade/">Belle Meade</a>
+                <a href="/neighborhoods/green-hills/">Green Hills</a>
+                <a href="/neighborhoods/forest-hills-oak-hill/">Forest Hills &amp; Oak Hill</a>
+                <a href="/neighborhoods/12-south/">12 South</a>
+                <a href="/neighborhoods/east-nashville/">East Nashville</a>
+                <a href="/neighborhoods/brentwood/">Brentwood</a>
+                <a href="/neighborhoods/franklin/">Franklin</a>
+                <a href="/neighborhoods/college-grove/">College Grove</a>
+                <a href="/neighborhoods/">All Neighborhoods</a>
               </div>
             </div>
             <div class="footer-col">
