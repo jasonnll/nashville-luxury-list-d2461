@@ -237,6 +237,7 @@ a:hover { color: var(--ink); }
 .agent-name { color: var(--ink); }
 .agent-title { color: var(--bronze-deep); letter-spacing: 0.08em; }
 .agent-bio { color: #4A463F; }
+.agent-bio a { color: var(--bronze-deep); text-decoration: underline; text-underline-offset: 3px; }
 .credential { color: #4A463F; }
 .credential svg { color: var(--bronze); }
 
@@ -260,13 +261,13 @@ a:hover { color: var(--ink); }
 #site-footer { background: var(--ink); color: var(--ivory-muted); border-top: 1px solid var(--bronze); }
 .footer-grid { border-bottom-color: rgba(247, 243, 236, 0.08); }
 .footer-brand .logo-main { color: var(--ivory); }
-.footer-col h4 { color: var(--bronze-light); letter-spacing: 0.14em; }
+.footer-col h3, .footer-col h4 { color: var(--bronze-light); letter-spacing: 0.14em; }
 .footer-links a { color: var(--ivory-muted); }
 .footer-links a:hover { color: var(--ivory); }
 .social-link { border-color: rgba(247, 243, 236, 0.18); color: var(--ivory-muted); }
 .social-link:hover { color: var(--ivory); background: transparent; border-color: var(--bronze-light); }
-.footer-disclaimer { color: rgba(247, 243, 236, 0.38); }
-.footer-legal a { color: rgba(247, 243, 236, 0.5); }
+.footer-disclaimer { color: rgba(247, 243, 236, 0.62); }
+.footer-legal a { color: rgba(247, 243, 236, 0.66); }
 
 /* ---------- Floating contact buttons ---------- */
 .fcta-phone { background: var(--ink); color: var(--ivory); box-shadow: 0 0 0 1px rgba(247, 243, 236, 0.3), var(--shadow-lg); }

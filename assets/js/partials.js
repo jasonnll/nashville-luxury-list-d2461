@@ -98,7 +98,7 @@
     const hideNewsletter = currentPath.includes('/contact') || currentPath.includes('/newsletter');
     footerEl.innerHTML = `
       ${!hideNewsletter ? `
-      <section class="newsletter-section">
+      <section class="newsletter-section" aria-label="Weekly newsletter signup">
         <div class="container">
           <div class="newsletter-inner">
             <div class="newsletter-text fade-up">
@@ -144,7 +144,7 @@
               </div>
             </div>
             <div class="footer-col">
-              <h4>Navigate</h4>
+              <h3>Navigate</h3>
               <div class="footer-links">
                 <a href="/">Home</a>
                 <a href="/neighborhoods/">Neighborhoods</a>
@@ -160,7 +160,7 @@
               </div>
             </div>
             <div class="footer-col">
-              <h4>Areas We Serve</h4>
+              <h3>Areas We Serve</h3>
               <div class="footer-links">
                 <a href="/nashville-luxury-realtor/">Nashville Luxury Realtor</a>
                 <a href="/brentwood-tn-luxury-realtor/">Brentwood TN Luxury Realtor</a>
@@ -176,7 +176,7 @@
               </div>
             </div>
             <div class="footer-col">
-              <h4>Contact Jason</h4>
+              <h3>Contact Jason</h3>
               <div class="footer-links">
                 <a href="tel:+${PHONE_RAW}">${PHONE}</a>
                 <a href="mailto:${EMAIL}">${EMAIL}</a>
