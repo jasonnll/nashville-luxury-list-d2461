@@ -1210,7 +1210,7 @@ select.form-control option { color: var(--text-dark); background: var(--white); 
   transition: var(--transition);
 }
 .social-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); }
-.footer-col h4 {
+.footer-col h3, .footer-col h4 {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;

@@ -93,13 +93,13 @@
                 <input type="hidden" name="inquiry_type" value="buyer">
                 <p hidden><input name="bot-field"></p>
                 <div class="form-row">
-                  <div class="form-group"><label class="form-label">Name *</label><input type="text" name="name" class="form-control" placeholder="Full Name" required></div>
-                  <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-control" placeholder="(615) 000-0000"></div>
+                  <div class="form-group"><label class="form-label" for="contact-buyer-name">Name *</label><input id="contact-buyer-name" type="text" name="name" class="form-control" placeholder="Full Name" required></div>
+                  <div class="form-group"><label class="form-label" for="contact-buyer-phone">Phone</label><input id="contact-buyer-phone" type="tel" name="phone" class="form-control" placeholder="(615) 000-0000"></div>
                 </div>
-                <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-control" placeholder="you@email.com" required></div>
-                <div class="form-group"><label class="form-label">Price Range</label><select name="price_range" class="form-control"><option value="">Select</option><option>$1.5M – $2M</option><option>$2M – $3M</option><option>$3M – $5M</option><option>$5M+</option></select></div>
-                <div class="form-group"><label class="form-label">Preferred Neighborhoods</label><input type="text" name="neighborhoods" class="form-control" placeholder="Belle Meade, Brentwood, Green Hills…"></div>
-                <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-control" rows="3" placeholder="Tell us about what you're looking for…"></textarea></div>
+                <div class="form-group"><label class="form-label" for="contact-buyer-email">Email *</label><input id="contact-buyer-email" type="email" name="email" class="form-control" placeholder="you@email.com" required></div>
+                <div class="form-group"><label class="form-label" for="contact-buyer-price-range">Price Range</label><select id="contact-buyer-price-range" name="price_range" class="form-control"><option value="">Select</option><option>$1.5M – $2M</option><option>$2M – $3M</option><option>$3M – $5M</option><option>$5M+</option></select></div>
+                <div class="form-group"><label class="form-label" for="contact-buyer-neighborhoods">Preferred Neighborhoods</label><input id="contact-buyer-neighborhoods" type="text" name="neighborhoods" class="form-control" placeholder="Belle Meade, Brentwood, Green Hills…"></div>
+                <div class="form-group"><label class="form-label" for="contact-buyer-message">Message</label><textarea id="contact-buyer-message" name="message" class="form-control" rows="3" placeholder="Tell us about what you're looking for…"></textarea></div>
                 <button type="submit" class="btn btn-gold btn-full btn-lg">Send Buyer Inquiry →</button>
                 <p class="form-note">Zero cost to buyers. Jason responds within 2 hours.</p>
               </form>
@@ -115,14 +115,14 @@
                 <input type="hidden" name="inquiry_type" value="seller">
                 <p hidden><input name="bot-field"></p>
                 <div class="form-row">
-                  <div class="form-group"><label class="form-label">Name *</label><input type="text" name="name" class="form-control" placeholder="Full Name" autocomplete="name" required></div>
-                  <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-control" placeholder="(615) 000-0000" autocomplete="tel"></div>
+                  <div class="form-group"><label class="form-label" for="contact-seller-name">Name *</label><input id="contact-seller-name" type="text" name="name" class="form-control" placeholder="Full Name" autocomplete="name" required></div>
+                  <div class="form-group"><label class="form-label" for="contact-seller-phone">Phone</label><input id="contact-seller-phone" type="tel" name="phone" class="form-control" placeholder="(615) 000-0000" autocomplete="tel"></div>
                 </div>
-                <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-control" placeholder="you@email.com" autocomplete="email" required></div>
-                <div class="form-group"><label class="form-label">Property Address</label><input type="text" name="address" class="form-control" placeholder="123 Belle Meade Blvd, Nashville, TN" autocomplete="street-address"></div>
-                <div class="form-group"><label class="form-label">Estimated Value</label><select name="estimated_value" class="form-control"><option value="">Select</option><option>$1.5M – $2M</option><option>$2M – $3M</option><option>$3M – $5M</option><option>$5M+</option><option>Not sure</option></select></div>
-                <div class="form-group"><label class="form-label">Timeline</label><select name="timeline" class="form-control"><option value="">When are you thinking of selling?</option><option>ASAP (0–3 months)</option><option>3–6 months</option><option>6–12 months</option><option>Just exploring</option></select></div>
-                <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-control" rows="3" placeholder="Tell us about your property — unique features, timing, questions…"></textarea></div>
+                <div class="form-group"><label class="form-label" for="contact-seller-email">Email *</label><input id="contact-seller-email" type="email" name="email" class="form-control" placeholder="you@email.com" autocomplete="email" required></div>
+                <div class="form-group"><label class="form-label" for="contact-seller-address">Property Address</label><input id="contact-seller-address" type="text" name="address" class="form-control" placeholder="123 Belle Meade Blvd, Nashville, TN" autocomplete="street-address"></div>
+                <div class="form-group"><label class="form-label" for="contact-seller-estimated-value">Estimated Value</label><select id="contact-seller-estimated-value" name="estimated_value" class="form-control"><option value="">Select</option><option>$1.5M – $2M</option><option>$2M – $3M</option><option>$3M – $5M</option><option>$5M+</option><option>Not sure</option></select></div>
+                <div class="form-group"><label class="form-label" for="contact-seller-timeline">Timeline</label><select id="contact-seller-timeline" name="timeline" class="form-control"><option value="">When are you thinking of selling?</option><option>ASAP (0–3 months)</option><option>3–6 months</option><option>6–12 months</option><option>Just exploring</option></select></div>
+                <div class="form-group"><label class="form-label" for="contact-seller-message">Message</label><textarea id="contact-seller-message" name="message" class="form-control" rows="3" placeholder="Tell us about your property — unique features, timing, questions…"></textarea></div>
                 <button type="submit" class="btn btn-gold btn-full btn-lg">Send Seller Inquiry →</button>
                 <p class="form-note">100% confidential. No marketing without your approval.</p>
               </form>
@@ -138,17 +138,17 @@
                 <input type="hidden" name="inquiry_type" value="valuation">
                 <p hidden><input name="bot-field"></p>
                 <div class="form-row">
-                  <div class="form-group"><label class="form-label">Name *</label><input type="text" name="name" class="form-control" placeholder="Full Name" autocomplete="name" required></div>
-                  <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-control" placeholder="(615) 000-0000" autocomplete="tel"></div>
+                  <div class="form-group"><label class="form-label" for="contact-valuation-name">Name *</label><input id="contact-valuation-name" type="text" name="name" class="form-control" placeholder="Full Name" autocomplete="name" required></div>
+                  <div class="form-group"><label class="form-label" for="contact-valuation-phone">Phone</label><input id="contact-valuation-phone" type="tel" name="phone" class="form-control" placeholder="(615) 000-0000" autocomplete="tel"></div>
                 </div>
-                <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-control" placeholder="you@email.com" autocomplete="email" required></div>
-                <div class="form-group"><label class="form-label">Property Address *</label><input type="text" name="address" class="form-control" placeholder="123 Belle Meade Blvd, Nashville, TN" autocomplete="street-address" required></div>
+                <div class="form-group"><label class="form-label" for="contact-valuation-email">Email *</label><input id="contact-valuation-email" type="email" name="email" class="form-control" placeholder="you@email.com" autocomplete="email" required></div>
+                <div class="form-group"><label class="form-label" for="contact-valuation-address">Property Address *</label><input id="contact-valuation-address" type="text" name="address" class="form-control" placeholder="123 Belle Meade Blvd, Nashville, TN" autocomplete="street-address" required></div>
                 <div class="form-row">
-                  <div class="form-group"><label class="form-label">Bedrooms</label><select name="bedrooms" class="form-control"><option value="">Select</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
-                  <div class="form-group"><label class="form-label">Approx. Sq Ft</label><input type="number" name="sqft" class="form-control" placeholder="4,000" min="500"></div>
+                  <div class="form-group"><label class="form-label" for="contact-valuation-bedrooms">Bedrooms</label><select id="contact-valuation-bedrooms" name="bedrooms" class="form-control"><option value="">Select</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+                  <div class="form-group"><label class="form-label" for="contact-valuation-sqft">Approx. Sq Ft</label><input id="contact-valuation-sqft" type="number" name="sqft" class="form-control" placeholder="4,000" min="500"></div>
                 </div>
-                <div class="form-group"><label class="form-label">Reason for Valuation</label><select name="reason" class="form-control"><option value="">Select</option><option>Thinking of selling</option><option>Refinancing</option><option>Estate or financial planning</option><option>Just curious</option></select></div>
-                <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-control" rows="3" placeholder="Recent renovations, special features, anything we should know…"></textarea></div>
+                <div class="form-group"><label class="form-label" for="contact-valuation-reason">Reason for Valuation</label><select id="contact-valuation-reason" name="reason" class="form-control"><option value="">Select</option><option>Thinking of selling</option><option>Refinancing</option><option>Estate or financial planning</option><option>Just curious</option></select></div>
+                <div class="form-group"><label class="form-label" for="contact-valuation-message">Message</label><textarea id="contact-valuation-message" name="message" class="form-control" rows="3" placeholder="Recent renovations, special features, anything we should know…"></textarea></div>
                 <button type="submit" class="btn btn-gold btn-full btn-lg">Request Free Valuation →</button>
                 <p class="form-note">Results within 24–48 hours. 100% confidential.</p>
               </form>
@@ -164,12 +164,12 @@
                 <input type="hidden" name="inquiry_type" value="general">
                 <p hidden><input name="bot-field"></p>
                 <div class="form-row">
-                  <div class="form-group"><label class="form-label">Name *</label><input type="text" name="name" class="form-control" placeholder="Full Name" autocomplete="name" required></div>
-                  <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-control" placeholder="(615) 000-0000" autocomplete="tel"></div>
+                  <div class="form-group"><label class="form-label" for="contact-general-name">Name *</label><input id="contact-general-name" type="text" name="name" class="form-control" placeholder="Full Name" autocomplete="name" required></div>
+                  <div class="form-group"><label class="form-label" for="contact-general-phone">Phone</label><input id="contact-general-phone" type="tel" name="phone" class="form-control" placeholder="(615) 000-0000" autocomplete="tel"></div>
                 </div>
-                <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-control" placeholder="you@email.com" autocomplete="email" required></div>
-                <div class="form-group"><label class="form-label">Topic</label><select name="topic" class="form-control"><option value="">Select</option><option>General question</option><option>Relocating to Nashville</option><option>Investment property</option><option>Off-market opportunities</option><option>Media or partnership</option><option>Something else</option></select></div>
-                <div class="form-group"><label class="form-label">Message *</label><textarea name="message" class="form-control" rows="4" placeholder="Tell us how Jason can help…" required></textarea></div>
+                <div class="form-group"><label class="form-label" for="contact-general-email">Email *</label><input id="contact-general-email" type="email" name="email" class="form-control" placeholder="you@email.com" autocomplete="email" required></div>
+                <div class="form-group"><label class="form-label" for="contact-general-topic">Topic</label><select id="contact-general-topic" name="topic" class="form-control"><option value="">Select</option><option>General question</option><option>Relocating to Nashville</option><option>Investment property</option><option>Off-market opportunities</option><option>Media or partnership</option><option>Something else</option></select></div>
+                <div class="form-group"><label class="form-label" for="contact-general-message">Message *</label><textarea id="contact-general-message" name="message" class="form-control" rows="4" placeholder="Tell us how Jason can help…" required></textarea></div>
                 <button type="submit" class="btn btn-gold btn-full btn-lg">Send Message →</button>
                 <p class="form-note">Jason responds personally within 2 hours.</p>
               </form>

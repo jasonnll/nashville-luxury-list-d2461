@@ -93,22 +93,22 @@
             <form name="home-valuation" netlify data-netlify="true" data-netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="home-valuation">
               <p hidden><input name="bot-field"></p>
-              <div class="form-group"><label class="form-label">Property Address *</label><input type="text" name="address" class="form-control" placeholder="123 Belle Meade Blvd, Nashville, TN" required></div>
+              <div class="form-group"><label class="form-label" for="home-valuation-address">Property Address *</label><input id="home-valuation-address" type="text" name="address" class="form-control" placeholder="123 Belle Meade Blvd, Nashville, TN" required></div>
               <div class="form-row">
-                <div class="form-group"><label class="form-label">Bedrooms</label><select name="bedrooms" class="form-control"><option value="">Select</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
-                <div class="form-group"><label class="form-label">Bathrooms</label><select name="bathrooms" class="form-control"><option value="">Select</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+                <div class="form-group"><label class="form-label" for="home-valuation-bedrooms">Bedrooms</label><select id="home-valuation-bedrooms" name="bedrooms" class="form-control"><option value="">Select</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+                <div class="form-group"><label class="form-label" for="home-valuation-bathrooms">Bathrooms</label><select id="home-valuation-bathrooms" name="bathrooms" class="form-control"><option value="">Select</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
               </div>
               <div class="form-row">
-                <div class="form-group"><label class="form-label">Approx. Sq Ft</label><input type="number" name="sqft" class="form-control" placeholder="3500" min="1000"></div>
-                <div class="form-group"><label class="form-label">Year Built</label><input type="number" name="year_built" class="form-control" placeholder="2010" min="1900" max="2026"></div>
+                <div class="form-group"><label class="form-label" for="home-valuation-sqft">Approx. Sq Ft</label><input id="home-valuation-sqft" type="number" name="sqft" class="form-control" placeholder="3500" min="1000"></div>
+                <div class="form-group"><label class="form-label" for="home-valuation-year-built">Year Built</label><input id="home-valuation-year-built" type="number" name="year_built" class="form-control" placeholder="2010" min="1900" max="2026"></div>
               </div>
-              <div class="form-group"><label class="form-label">Your Goal</label><select name="goal" class="form-control"><option value="">Select your intention</option><option>Thinking about selling in 0–3 months</option><option>Selling in 3–12 months</option><option>Just curious about value</option><option>Estate / trust valuation</option><option>Refinancing / insurance</option></select></div>
-              <div class="form-group"><label class="form-label">Full Name *</label><input type="text" name="name" class="form-control" placeholder="First &amp; Last Name" required></div>
+              <div class="form-group"><label class="form-label" for="home-valuation-goal">Your Goal</label><select id="home-valuation-goal" name="goal" class="form-control"><option value="">Select your intention</option><option>Thinking about selling in 0–3 months</option><option>Selling in 3–12 months</option><option>Just curious about value</option><option>Estate / trust valuation</option><option>Refinancing / insurance</option></select></div>
+              <div class="form-group"><label class="form-label" for="home-valuation-name">Full Name *</label><input id="home-valuation-name" type="text" name="name" class="form-control" placeholder="First &amp; Last Name" required></div>
               <div class="form-row">
-                <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-control" placeholder="(615) 000-0000"></div>
-                <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-control" placeholder="you@email.com" required></div>
+                <div class="form-group"><label class="form-label" for="home-valuation-phone">Phone</label><input id="home-valuation-phone" type="tel" name="phone" class="form-control" placeholder="(615) 000-0000"></div>
+                <div class="form-group"><label class="form-label" for="home-valuation-email">Email *</label><input id="home-valuation-email" type="email" name="email" class="form-control" placeholder="you@email.com" required></div>
               </div>
-              <div class="form-group"><label class="form-label">Anything else we should know?</label><textarea name="message" class="form-control" rows="2" placeholder="Recent renovations, unique features, etc."></textarea></div>
+              <div class="form-group"><label class="form-label" for="home-valuation-message">Anything else we should know?</label><textarea id="home-valuation-message" name="message" class="form-control" rows="2" placeholder="Recent renovations, unique features, etc."></textarea></div>
               <button type="submit" class="btn btn-gold btn-full btn-lg">Request My Free Valuation <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
               <p class="form-note">Your information is 100% confidential. No spam, ever.</p>
             </form>

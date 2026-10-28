@@ -169,6 +169,8 @@
 <nav id="mobile-nav" class="mobile-nav"></nav>
 <div id="floating-cta" class="floating-cta"></div>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="hero" aria-label="Hero">
   <div class="hero-bg">
@@ -270,8 +272,8 @@
             <span class="listing-spec">5,570 sq ft</span>
           </div>
           <div class="listing-actions">
-            <a href="https://www.compass.com/homedetails/698-Sneed-Rd-W-Nashville-TN-37221/SJFUV_pid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener" class="btn btn-dark btn-sm">View on Compass</a>
-            <a href="/contact/?listing=698+Sneed+Rd+W&amp;type=tour" class="btn btn-outline-gold btn-sm">Schedule Tour</a>
+            <a href="https://www.compass.com/homedetails/698-Sneed-Rd-W-Nashville-TN-37221/SJFUV_pid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener" class="btn btn-dark btn-sm" aria-label="View 698 Sneed Rd W on Compass">View on Compass</a>
+            <a href="/contact/?listing=698+Sneed+Rd+W&amp;type=tour" class="btn btn-outline-gold btn-sm" aria-label="Schedule a tour of 698 Sneed Rd W">Schedule Tour</a>
           </div>
         </div>
       </article>
@@ -290,8 +292,8 @@
             <span class="listing-spec">6,125 sq ft</span>
           </div>
           <div class="listing-actions">
-            <a href="https://www.compass.com/homedetails/address-upon-request-college-grove-tn-37046/2207527227142662297_lid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener" class="btn btn-dark btn-sm">View on Compass</a>
-            <a href="/contact/?listing=9541+Thatchbay+Cir&amp;type=tour" class="btn btn-outline-gold btn-sm">Schedule Tour</a>
+            <a href="https://www.compass.com/homedetails/address-upon-request-college-grove-tn-37046/2207527227142662297_lid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener" class="btn btn-dark btn-sm" aria-label="View 9541 Thatchbay Cir on Compass">View on Compass</a>
+            <a href="/contact/?listing=9541+Thatchbay+Cir&amp;type=tour" class="btn btn-outline-gold btn-sm" aria-label="Schedule a tour of 9541 Thatchbay Cir">Schedule Tour</a>
           </div>
         </div>
       </article>
@@ -310,8 +312,8 @@
             <span class="listing-spec">7,781 sq ft</span>
           </div>
           <div class="listing-actions">
-            <a href="https://www.compass.com/homedetails/8206-Spring-Valley-Dr-Brentwood-TN-37027/S2K02_pid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener" class="btn btn-dark btn-sm">View on Compass</a>
-            <a href="/contact/?listing=8206+Spring+Valley+Dr&amp;type=tour" class="btn btn-outline-gold btn-sm">Schedule Tour</a>
+            <a href="https://www.compass.com/homedetails/8206-Spring-Valley-Dr-Brentwood-TN-37027/S2K02_pid/?origin=listing_page&amp;origin_type=copy_url&amp;agent_id=6660a3278fab2b0001bb97ed" target="_blank" rel="noopener" class="btn btn-dark btn-sm" aria-label="View 8206 Spring Valley Dr on Compass">View on Compass</a>
+            <a href="/contact/?listing=8206+Spring+Valley+Dr&amp;type=tour" class="btn btn-outline-gold btn-sm" aria-label="Schedule a tour of 8206 Spring Valley Dr">Schedule Tour</a>
           </div>
         </div>
       </article>
@@ -364,7 +366,7 @@
 <section class="section testimonials-section" id="testimonials">
   <div class="container">
     <div class="text-center fade-up" style="margin-bottom:3.5rem;">
-      <span class="eyebrow" style="color:var(--gold);">Client Experiences</span>
+      <span class="eyebrow" style="color:var(--bronze-light);">Client Experiences</span>
       <h2 class="section-title light">What Nashville's Elite Buyers &amp; Sellers Say</h2>
       <div class="divider center"></div>
     </div>
@@ -399,12 +401,12 @@
               <input type="hidden" name="form-name" value="homepage-contact">
               <p hidden><input name="bot-field"></p>
               <div class="form-row">
-                <div class="form-group"><label class="form-label">Your Name *</label><input type="text" name="name" class="form-control" placeholder="First &amp; Last Name" required></div>
-                <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-control" placeholder="(615) 000-0000"></div>
+                <div class="form-group"><label class="form-label" for="homepage-contact-name">Your Name *</label><input id="homepage-contact-name" type="text" name="name" class="form-control" placeholder="First &amp; Last Name" required></div>
+                <div class="form-group"><label class="form-label" for="homepage-contact-phone">Phone</label><input id="homepage-contact-phone" type="tel" name="phone" class="form-control" placeholder="(615) 000-0000"></div>
               </div>
-              <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-control" placeholder="you@email.com" required></div>
-              <div class="form-group"><label class="form-label">I'm interested in…</label><select name="interest" class="form-control"><option value="">Select</option><option>Buying a luxury home</option><option>Selling my home</option><option>Home valuation</option><option>Joining the VIP list</option><option>General inquiry</option></select></div>
-              <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-control" rows="3" placeholder="Tell us what you're looking for…"></textarea></div>
+              <div class="form-group"><label class="form-label" for="homepage-contact-email">Email *</label><input id="homepage-contact-email" type="email" name="email" class="form-control" placeholder="you@email.com" required></div>
+              <div class="form-group"><label class="form-label" for="homepage-contact-interest">I'm interested in…</label><select id="homepage-contact-interest" name="interest" class="form-control"><option value="">Select</option><option>Buying a luxury home</option><option>Selling my home</option><option>Home valuation</option><option>Joining the VIP list</option><option>General inquiry</option></select></div>
+              <div class="form-group"><label class="form-label" for="homepage-contact-message">Message</label><textarea id="homepage-contact-message" name="message" class="form-control" rows="3" placeholder="Tell us what you're looking for…"></textarea></div>
               <button type="submit" class="btn btn-gold btn-full btn-lg">Send Message <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
               <p class="form-note">Your information is 100% confidential. No spam, ever.</p>
             </form>
@@ -439,7 +441,7 @@
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
           <a href="/contact/" class="btn btn-gold">Schedule a Call</a>
-          <a href="/about/" class="btn btn-outline-gold">Learn More</a>
+          <a href="/about/" class="btn btn-outline-gold">More About Jason</a>
         </div>
       </div>
     </div>
@@ -458,6 +460,8 @@
     <div class="faq-more fade-up"><a href="/faq/" class="btn btn-outline-gold">See All Nashville Luxury Real Estate FAQs →</a></div>
   </div>
 </section>
+
+</main>
 
 <div id="site-footer"></div>
 
