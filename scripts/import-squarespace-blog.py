@@ -177,6 +177,10 @@ HEAD = '''<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#16212B">
 <link rel="canonical" href="{canonical}">
