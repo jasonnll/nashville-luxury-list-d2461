@@ -21,9 +21,9 @@ AGENT = {
                "https://www.instagram.com/nashvilleluxurylist/", "https://www.linkedin.com/in/jasonkloess/"],
 }
 
-PHOTOS = {"davidson": "/assets/images/listings/698-sneed-rd-w.jpg",
-          "brentwood": "/assets/images/listings/8206-spring-valley-dr.jpg",
-          "williamson": "/assets/images/listings/9541-thatchbay-cir.jpg"}
+PHOTOS = {"davidson": "/assets/images/neighborhoods/belle-meade.jpg",
+          "brentwood": "/assets/images/neighborhoods/brentwood.jpg",
+          "williamson": "/assets/images/neighborhoods/franklin.jpg"}
 
 
 def strip(s):
