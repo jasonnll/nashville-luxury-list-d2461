@@ -68,7 +68,7 @@
 .ap-criteria{display:grid;gap:0;counter-reset:c}
 @media(min-width:900px){.ap-criteria{grid-template-columns:1fr 1fr;column-gap:3rem}}
 .ap-crit{display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--stone)}
-.ap-crit .n{font-family:var(--font-serif);font-size:1.5rem;color:var(--bronze);line-height:1}
+.ap-crit .n{font-family:var(--font-serif);font-size:1.5rem;color:var(--bronze-deep);line-height:1}
 .ap-crit h3{font-size:1.15rem;color:var(--ink);margin-bottom:.4rem}
 .ap-crit p{font-size:.95rem;color:#4A463F;line-height:1.7}
 .ap-crit p strong{color:var(--ink)}
@@ -183,3 +183,13 @@ body.is-typing .ap-sticky.show{transform:translateY(110%)}
 
 .ap-compliance{background:var(--ivory);padding:2rem 0;border-top:1px solid var(--stone)}
 .ap-compliance p{font-size:.75rem;color:var(--taupe);line-height:1.7;max-width:900px}
+/* stacked tables on phones (new guide pages) */
+.ap-table.ap-stack small{display:block;margin-top:.3rem;font-size:.78rem;color:var(--taupe);line-height:1.5}
+@media(max-width:699px){
+  .ap-table.ap-stack{min-width:0}
+  .ap-table.ap-stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .ap-table.ap-stack tr{display:block;border-bottom:1px solid var(--stone);padding:.4rem 0}
+  .ap-table.ap-stack th,.ap-table.ap-stack td{display:block;border:0;padding:.35rem .9rem;white-space:normal}
+  .ap-table.ap-stack tbody th{padding-top:.7rem}
+  .ap-table.ap-stack td[data-label]::before{content:attr(data-label);display:block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600;margin-bottom:.15rem}
+}

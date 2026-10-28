@@ -1,0 +1,87 @@
+{
+  "edition": "2026-10",
+  "month_label": "October 2026",
+  "data_through": "September 2026",
+  "published": "2026-10-27",
+  "headline": "More homes, fewer closings: luxury buyers have leverage heading into winter",
+  "summary": [
+    "Regional inventory reached about 16,400 homes in September, up 3% from a year earlier, while closings fell 10%.",
+    "About 2,289 homes priced at $1M+ were for sale against roughly 460 closings a month, about five months of supply.",
+    "43% of active $1M+ listings were priced below their original asking price.",
+    "Williamson County's median listing price held near $1.16M while its active listings rose about 15% year over year."
+  ],
+  "key_stats": [
+    {"value": "16.4k", "label": "Homes for sale", "note": "27-county region, Sep 2026, +3% YoY"},
+    {"value": "~5 mo", "label": "$1M+ supply", "note": "2,289 active vs ~460 closings/mo"},
+    {"value": "43%", "label": "$1M+ price cuts", "note": "Active listings below original ask"},
+    {"value": "$1.16M", "label": "Williamson median list", "note": "Sep 2026, +0.9% YoY"}
+  ],
+  "regional": {
+    "title": "The regional market (Realtracs, September 2026)",
+    "note": "Realtracs MLS, 27-county Middle Tennessee region, all price ranges.",
+    "rows": [
+      ["Homes for sale (inventory)", "16,400", "+3%"],
+      ["Closings", "2,526", "-10%"],
+      ["Median sale price", "$480,000", "+2%"],
+      ["Median days on market", "38", "+10%"]
+    ]
+  },
+  "luxury": {
+    "title": "The $1M+ market",
+    "paragraphs": [
+      "Across the region, 1,380 homes priced at $1M or more closed from June through August, about 460 a month. At the end of September roughly 2,289 were for sale. At the current pace that is about five months of supply, which leans toward buyers in the luxury tier even as the overall market stays balanced.",
+      "Pricing is the clearest signal. 43% of active $1M+ listings were below their original asking price, so sellers who priced aggressively in spring are adjusting. Well-priced homes in the best locations are still selling quickly."
+    ]
+  },
+  "counties": {
+    "title": "Davidson vs. Williamson (Realtor.com listing data)",
+    "note": "Realtor.com county listing data via the Federal Reserve Bank of St. Louis (FRED). Listing prices reflect homes for sale, not closed sales. Davidson median listing price is the latest available month (August).",
+    "rows": [
+      {"county": "Williamson", "metric": "Median listing price", "period": "Sep 2026", "value": 1155000, "prior": 1144338, "fmt": "money"},
+      {"county": "Williamson", "metric": "Active listings", "period": "Sep 2026", "value": 1677, "prior": 1461, "fmt": "count"},
+      {"county": "Davidson", "metric": "Median listing price", "period": "Aug 2026", "value": 533117, "prior": 550000, "fmt": "money"},
+      {"county": "Davidson", "metric": "Active listings", "period": "Sep 2026", "value": 4621, "prior": 4162, "fmt": "count"}
+    ]
+  },
+  "neighborhoods": {
+    "title": "Luxury neighborhood medians",
+    "note": "Medians for the three months ending August 2026, all home types. Green Hills figures are for the three months ending June 2026, the latest published. Source: Redfin calculations of MLS and public-record data.",
+    "cols": ["Area", "Median sale price", "Median days on market", "Price / sq ft", "Sale-to-list"],
+    "rows": [
+      ["<a href=\"/neighborhoods/belle-meade/\">Belle Meade</a>", "$4,297,155", "71", "$880", "96.5%"],
+      ["<a href=\"/neighborhoods/brentwood/\">Brentwood</a>", "$1,424,058", "63", "$356", "97.4%"],
+      ["<a href=\"/neighborhoods/green-hills/\">Green Hills</a>", "$1,249,565", "62", "$439", "96.9%"],
+      ["<a href=\"/neighborhoods/franklin/\">Franklin</a>", "$862,929", "49", "$317", "98.3%"],
+      ["<a href=\"/neighborhoods/east-nashville/\">East Nashville (37206)</a>", "$739,680", "56", "$340", "98.3%"],
+      ["Nashville (citywide)", "$475,538", "64", "$262", "97.6%"]
+    ]
+  },
+  "top_sales": {
+    "title": "Notable September sales",
+    "items": [
+      ["Old Hillsboro Road, Franklin", "$6.72M", "Top sale in the region for September"],
+      ["Mountaintop Drive, College Grove", "$5.50M", "One of three College Grove sales in the region's top 10"],
+      ["Native Pony Trail, College Grove", "$4.80M", "College Grove continues to draw relocating buyers"]
+    ]
+  },
+  "takeaways": {
+    "buyers": [
+      "Five months of $1M+ supply means room to negotiate, especially on homes that have already cut price.",
+      "Ask for days on market and the price history on every home; 43% have reduced.",
+      "The best-priced homes in Belle Meade, Brentwood and Franklin still move fast, so be ready."
+    ],
+    "sellers": [
+      "Price to the last 90 days of sales, not to spring's asking prices.",
+      "Presentation and launch matter more when buyers have choices.",
+      "Consider a private pre-market launch to test price before going public."
+    ]
+  },
+  "sources": [
+    ["Realtracs monthly stats", "https://realtracs.com/info/monthly-stats"],
+    ["FRED: Realtor.com median listing price, Williamson County, TN", "https://fred.stlouisfed.org/series/MEDLISPRI47187"],
+    ["FRED: Realtor.com active listings, Williamson County, TN", "https://fred.stlouisfed.org/series/ACTLISCOU47187"],
+    ["FRED: Realtor.com median listing price, Davidson County, TN", "https://fred.stlouisfed.org/series/MEDLISPRI47037"],
+    ["FRED: Realtor.com active listings, Davidson County, TN", "https://fred.stlouisfed.org/series/ACTLISCOU47037"],
+    ["Redfin housing market data", "https://www.redfin.com/news/data-center/"]
+  ]
+}

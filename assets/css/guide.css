@@ -1,0 +1,81 @@
+/* ===== Neighborhood guides (scoped: nll-) — moved from guides.nashvilleluxurylist.com =====
+   /neighborhoods/<slug>/ pages. Built on main.css + palette.css + agent-page.css tokens. */
+
+.nll-wrap{background:var(--ivory);padding:calc(var(--header-h) + clamp(1.5rem,4vw,2.5rem)) 0 clamp(3rem,7vw,5rem)}
+.nll-guide{max-width:880px;margin:0 auto}
+.nll-crumbs{font-size:.78rem;color:var(--taupe);margin-bottom:1.25rem}
+.nll-crumbs a{color:var(--taupe)}
+.nll-crumbs a:hover{color:var(--ink)}
+
+.nll-hero{padding:0 0 1.75rem;border-bottom:1px solid var(--stone);margin-bottom:2rem}
+.nll-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600}
+.nll-hero h1{font-size:clamp(2.1rem,5vw,3.2rem);color:var(--ink);line-height:1.12;margin:.6rem 0 .9rem}
+.nll-lede{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.3rem);color:#4A463F;line-height:1.55}
+
+.nll-intro p,.nll-section p{color:#4A463F;line-height:1.8;font-size:1.02rem;margin-bottom:1.1rem}
+.nll-intro p:first-child::first-letter{font-family:var(--font-serif);float:left;font-size:3.4rem;line-height:.9;padding:.3rem .5rem 0 0;color:var(--bronze-deep)}
+.nll-guide a:not(.btn){color:var(--bronze-deep);text-decoration:underline;text-underline-offset:3px}
+
+.nll-stats{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--stone);background:#fff;margin:2rem 0 2.5rem}
+@media(min-width:760px){.nll-stats{grid-template-columns:repeat(4,1fr)}}
+.nll-stat{display:flex;flex-direction:column;gap:.3rem;padding:1.25rem 1.1rem;border-right:1px solid var(--stone);border-bottom:1px solid var(--stone)}
+@media(min-width:760px){.nll-stat{border-bottom:0}.nll-stat:last-child{border-right:0}}
+@media(max-width:759px){.nll-stat:nth-child(2n){border-right:0}.nll-stat:nth-child(n+3){border-bottom:0}}
+.nll-stat-label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600}
+.nll-stat-value{font-family:var(--font-serif);font-size:clamp(1.4rem,3vw,1.8rem);color:var(--ink);line-height:1.15}
+.nll-stat-sub{font-size:.78rem;color:var(--taupe);line-height:1.45}
+
+.nll-section{padding-top:2.25rem;margin-top:.5rem;border-top:1px solid var(--stone)}
+.nll-section h3{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600;margin-bottom:.4rem}
+.nll-section h2{font-size:clamp(1.55rem,3.4vw,2.1rem);color:var(--ink);line-height:1.2;margin-bottom:1rem}
+
+.nll-list{display:grid;gap:0;margin:1.25rem 0 .5rem;border-top:1px solid var(--stone)}
+.nll-list li{display:grid;grid-template-columns:1fr;gap:.2rem;padding:1rem 0;border-bottom:1px solid var(--stone)}
+@media(min-width:700px){.nll-list li{grid-template-columns:8.5rem 1fr;column-gap:1.25rem}.nll-list li .nll-desc{grid-column:2}}
+.nll-list em{font-style:normal;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600;padding-top:.2rem}
+.nll-list strong{font-family:var(--font-serif);font-size:1.08rem;color:var(--ink);font-weight:600}
+.nll-desc{font-size:.95rem;color:#4A463F;line-height:1.65}
+
+.nll-schools{display:grid;gap:1rem;margin:1.25rem 0 1rem}
+@media(min-width:700px){.nll-schools{grid-template-columns:repeat(2,1fr)}}
+.nll-school{background:#fff;border:1px solid var(--stone);padding:1.15rem 1.25rem}
+.nll-school-type{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600;margin-bottom:.35rem}
+.nll-school strong{display:block;font-family:var(--font-serif);font-size:1.05rem;color:var(--ink);margin-bottom:.35rem}
+.nll-school p{font-size:.92rem;color:#4A463F;line-height:1.6}
+
+.nll-pull{margin:2.5rem 0;padding:1.75rem 1.75rem 1.5rem;background:var(--ink);color:var(--ivory)}
+.nll-pull p{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.5;color:var(--ivory)}
+.nll-pull span{display:block;margin-top:1rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze-light)}
+
+.nll-commute{display:grid;grid-template-columns:1fr;border:1px solid var(--stone);background:#fff;margin:1.25rem 0 .75rem}
+@media(min-width:640px){.nll-commute{grid-template-columns:repeat(3,1fr)}}
+.nll-commute-item{display:flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.2rem;border-bottom:1px solid var(--stone)}
+@media(min-width:640px){.nll-commute-item{border-bottom:0;border-right:1px solid var(--stone)}.nll-commute-item:last-child{border-right:0}}
+.nll-commute-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--taupe)}
+.nll-commute-value{font-family:var(--font-serif);font-size:1.3rem;color:var(--ink)}
+.nll-commute-note{font-size:.88rem;color:var(--taupe);line-height:1.6}
+
+.nll-faq{margin:1rem 0 0;border-top:1px solid var(--stone)}
+.nll-faq-item{padding:1.25rem 0;border-bottom:1px solid var(--stone)}
+.nll-faq-item h4{font-family:var(--font-serif);font-size:1.12rem;color:var(--ink);margin-bottom:.5rem;line-height:1.35}
+.nll-faq-item p{color:#4A463F;line-height:1.75}
+
+.nll-agent{display:grid;gap:1.25rem;align-items:center;margin:3rem 0 0;padding:1.5rem;border:1px solid var(--stone);background:#fff}
+@media(min-width:700px){.nll-agent{grid-template-columns:96px 1fr auto;gap:1.5rem}}
+.nll-agent img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--bronze)}
+.nll-agent h2{font-size:1.3rem;color:var(--ink);margin-bottom:.35rem}
+.nll-agent p{font-size:.95rem;color:#4A463F;line-height:1.6}
+.nll-agent .btn{white-space:nowrap}
+.nll-agent-sales{margin-top:.6rem;font-size:.88rem;color:var(--taupe)}
+
+.nll-kicker{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600;margin-bottom:.4rem}
+.nll-section .nll-kicker{margin-bottom:.4rem;font-size:.72rem;line-height:1.4}
+.nll-faq-item h3{font-family:var(--font-serif);font-size:1.12rem;color:var(--ink);margin-bottom:.5rem;line-height:1.35;letter-spacing:0;text-transform:none;font-weight:600}
+.nll-updated{margin-top:2.5rem;font-size:.82rem;color:var(--taupe);line-height:1.6}
+.nll-related{margin-top:2rem}
+.nll-related div{display:flex;flex-wrap:wrap;gap:.6rem}
+.nll-related a{display:inline-block;padding:.6rem 1rem;border:1px solid var(--stone);background:#fff;font-size:.9rem;color:var(--ink)!important;text-decoration:none!important}
+.nll-related a:hover{border-color:var(--bronze)}
+.nll-table-note{font-size:.82rem;color:var(--taupe);line-height:1.6;margin-top:.5rem}
+/* light-top pages: keep the header solid ink before scroll */
+body:has(.nll-wrap) #site-header{background:var(--ink);border-bottom:1px solid rgba(168,134,90,.35)}

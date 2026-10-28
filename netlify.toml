@@ -5,6 +5,20 @@
   command = "python3 scripts/import-mailchimp-blog.py"
 
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
+# Old neighborhood-guide subdomain -> guides now live at /neighborhoods/<slug>/.
+# Takes effect once guides.nashvilleluxurylist.com is added as a domain alias of this site.
+[[redirects]]
+  from   = "https://guides.nashvilleluxurylist.com/*"
+  to     = "https://www.nashvilleluxurylist.com/neighborhoods/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "http://guides.nashvilleluxurylist.com/*"
+  to     = "https://www.nashvilleluxurylist.com/neighborhoods/:splat"
+  status = 301
+  force  = true
+
 [[redirects]]
   from = "/playbook"
   to   = "/playbook/"
@@ -113,7 +127,7 @@
 
 [[redirects]]
   from = "/listings/franklin"
-  to   = "https://guides.nashvilleluxurylist.com/franklin/"
+  to   = "/neighborhoods/franklin/"
   status = 301
 
 [[redirects]]
