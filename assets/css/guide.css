@@ -77,8 +77,8 @@
 .nll-related a{display:inline-block;padding:.6rem 1rem;border:1px solid var(--stone);background:#fff;font-size:.9rem;color:var(--ink)!important;text-decoration:none!important}
 .nll-related a:hover{border-color:var(--bronze)}
 .nll-table-note{font-size:.82rem;color:var(--taupe);line-height:1.6;margin-top:.5rem}
-/* light-top pages: keep the header solid ink before scroll */
-body:has(.nll-wrap) #site-header{background:var(--ink);border-bottom:1px solid rgba(168,134,90,.35)}
+/* light-top pages: header stays solid ivory, matching the rest of the site */
+body:has(.nll-wrap) #site-header{background:var(--ivory);border-bottom:1px solid var(--stone)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .nll-photo{margin:0 0 2rem}
 .nll-photo img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;background:var(--parchment)}
