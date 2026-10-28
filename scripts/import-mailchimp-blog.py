@@ -342,15 +342,22 @@ def committed_posts():
     return posts
 
 
-def update_sitemap(slugs):
+def update_sitemap(posts):
+    """Add each new post to sitemap.xml with its send date as <lastmod>, and date the
+    /blog/ index by the newest post, so Google can tell new pages from old ones."""
     path = os.path.join(ROOT, 'sitemap.xml')
     with open(path) as f:
         xml = f.read()
-    add = ''.join('  <url><loc>%s/blog/%s/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>\n' % (sq.SITE, s)
-                  for s in slugs if '/blog/%s/<' % s not in xml)
-    if add:
-        with open(path, 'w') as f:
-            f.write(xml.replace('</urlset>', add + '</urlset>'))
+    posts = [(slug, sent.date().isoformat()) for slug, sent in posts]
+    add = ''.join('  <url><loc>%s/blog/%s/</loc><lastmod>%s</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>\n'
+                  % (sq.SITE, slug, day) for slug, day in posts if '/blog/%s/<' % slug not in xml)
+    xml = xml.replace('</urlset>', add + '</urlset>')
+    if posts:
+        newest = max(day for _, day in posts)
+        index = '<loc>%s/blog/</loc>' % sq.SITE
+        xml = re.sub(re.escape(index) + r'(<lastmod>[^<]*</lastmod>)?', index + '<lastmod>%s</lastmod>' % newest, xml, count=1)
+    with open(path, 'w') as f:
+        f.write(xml)
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -408,7 +415,7 @@ def main():
         print('No new Friday newsletter posts since %s.' % START)
         return
     sq.render(existing + new)
-    update_sitemap(p['slug'] for p in new)
+    update_sitemap((p['slug'], p['date']) for p in new)
 
 
 if __name__ == '__main__':
