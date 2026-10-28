@@ -10,8 +10,8 @@
   /* Core palette */
   --ink:          #1E2B40;  /* handsome navy: footer, interior heroes, primary buttons */
   --ink-soft:     #2C3D59;  /* hover state for ink */
-  --ivory:        #FEFCF8;  /* page base: crisp, just shy of white */
-  --parchment:    #F9F5EC;  /* cream cashmere: alternate light sections */
+  --ivory:        #FFFFFF;  /* page base: crisp white */
+  --parchment:    #F6F0E4;  /* cream cashmere: alternate sections, distinct from white */
   --stone:        #E3D9C6;  /* linen hairlines, borders */
   --taupe:        #5E584E;  /* secondary text on light */
   --charcoal:     #2B2A27;  /* body text on light */
@@ -81,7 +81,7 @@ a:hover { color: var(--ink); }
 }
 :is(.testimonials-section, #site-footer,
     .page-hero, .blog-cta) .btn-outline-gold {
-  color: var(--ivory); border-color: rgba(254, 252, 248, 0.6);
+  color: var(--ivory); border-color: rgba(255, 255, 255, 0.6);
 }
 :is(.testimonials-section, #site-footer,
     .page-hero, .blog-cta) .btn-outline-gold:hover {
@@ -121,10 +121,10 @@ a:hover { color: var(--ink); }
 .hero-bg { background: var(--parchment); }
 .hero-overlay {
   background: linear-gradient(90deg,
-    rgba(254, 252, 248, 0.97) 0%,
-    rgba(254, 252, 248, 0.92) 40%,
-    rgba(254, 252, 248, 0.45) 68%,
-    rgba(254, 252, 248, 0) 100%);
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.92) 40%,
+    rgba(255, 255, 255, 0.45) 68%,
+    rgba(255, 255, 255, 0) 100%);
 }
 .hero > .container { width: 100%; }
 .hero-content { max-width: 640px; }
@@ -167,6 +167,20 @@ a:hover { color: var(--ink); }
 /* ---------- Trust bar (ivory, quiet small caps) ---------- */
 .trust-bar { background: var(--ivory); border-bottom: 1px solid var(--stone); }
 .trust-item { color: var(--taupe); letter-spacing: 0.1em; }
+
+/* Phones: a compact two-column grid instead of five tall rows */
+@media (max-width: 768px) {
+  .trust-bar { padding: 1rem 0; }
+  .trust-bar-inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem 1rem;
+    justify-items: start;
+  }
+  .trust-item { font-size: 0.78rem; letter-spacing: 0.03em; gap: 0.45rem; line-height: 1.3; }
+  .trust-item svg { width: 14px; height: 14px; }
+  .trust-item:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; }
+}
 .trust-item svg { color: var(--bronze); }
 
 /* ---------- The difference / value props (ivory) ---------- */
@@ -209,8 +223,8 @@ a:hover { color: var(--ink); }
 .neighborhood-meta { color: var(--bronze-light); }
 
 /* ---------- Free resources / guides (ivory, parchment cards) ---------- */
-.guides-section { background: var(--ivory); }
-.guide-card { background: var(--parchment); border: 1px solid var(--stone); box-shadow: none; }
+.guides-section { background: var(--parchment); }
+.guide-card { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
 .guide-card:hover { border-color: var(--bronze); box-shadow: none; }
 .guide-header { background: var(--ink); }
 .guide-header h3 { color: var(--ivory); }
@@ -234,7 +248,7 @@ a:hover { color: var(--ink); }
 .testimonial-role { color: rgba(242, 237, 227, 0.55); }
 
 /* ---------- Contact / lead capture (parchment, light form) ---------- */
-.lead-capture-section { background: var(--parchment); color: var(--charcoal); }
+.lead-capture-section { background: var(--ivory); color: var(--charcoal); }
 .lead-capture-section::before { display: none; }
 .lead-capture-section .section-title,
 .lead-capture-section .section-title.light,
@@ -271,8 +285,8 @@ a:hover { color: var(--ink); }
 :is(.valuation-hero, .contact-hero, .newsletter-hero) .form-label { color: rgba(247, 243, 236, 0.75); }
 
 /* ---------- About Jason (ivory) ---------- */
-.agent-section { background: var(--ivory); }
-.agent-photo { background: var(--parchment); box-shadow: none; }
+.agent-section { background: var(--parchment); }
+.agent-photo { background: var(--stone); box-shadow: none; }
 .agent-name { color: var(--ink); }
 .agent-title { color: var(--bronze-deep); letter-spacing: 0.08em; }
 .agent-bio { color: #4A463F; }
