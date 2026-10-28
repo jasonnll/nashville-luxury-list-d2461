@@ -10,7 +10,7 @@
   /* Core palette */
   --ink:          #1E2B40;  /* handsome navy: footer, interior heroes, primary buttons */
   --ink-soft:     #2C3D59;  /* hover state for ink */
-  --ivory:        #FFFFFF;  /* page base: crisp white */
+  --ivory:        #FEFCF8;  /* page base: warm ivory, just shy of white */
   --parchment:    #F6F0E4;  /* cream cashmere: alternate sections, distinct from white */
   --stone:        #E3D9C6;  /* linen hairlines, borders */
   --taupe:        #5E584E;  /* secondary text on light */
@@ -121,10 +121,10 @@ a:hover { color: var(--ink); }
 .hero-bg { background: var(--parchment); }
 .hero-overlay {
   background: linear-gradient(90deg,
-    rgba(255, 255, 255, 0.97) 0%,
-    rgba(255, 255, 255, 0.92) 40%,
-    rgba(255, 255, 255, 0.45) 68%,
-    rgba(255, 255, 255, 0) 100%);
+    rgba(254, 252, 248, 0.97) 0%,
+    rgba(254, 252, 248, 0.92) 40%,
+    rgba(254, 252, 248, 0.45) 68%,
+    rgba(254, 252, 248, 0) 100%);
 }
 .hero > .container { width: 100%; }
 .hero-content { max-width: 640px; }
