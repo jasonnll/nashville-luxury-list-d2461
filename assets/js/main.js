@@ -43,7 +43,7 @@
     mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', closeNav));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
     // Rotating a phone or widening the window past the breakpoint shouldn't leave the page scroll-locked
-    const wide = window.matchMedia('(min-width: 1201px)');
+    const wide = window.matchMedia('(min-width: 1101px)');
     const onWide = (m) => { if (m.matches) closeNav(); };
     if (wide.addEventListener) wide.addEventListener('change', onWide); else if (wide.addListener) wide.addListener(onWide);
   }
