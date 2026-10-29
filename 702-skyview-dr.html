@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#16212B">
 <!--
   702 Skyview Dr listing page for Nashville Luxury List.
   - The Google tag (AW-18543435200) is added site-wide by Netlify snippet injection. Do NOT paste it here too.
@@ -45,9 +46,11 @@
 
 <style>
 :root{
-  --ivory:#F7F2E8; --cream:#EFE6D5; --paper:#FFFDF8; --navy:#1F2A44; --navy-2:#2C3A5C;
-  --green:#2F4A3A; --brass:#A8844B; --brass-dark:#8A6A37; --leather:#7A5434;
-  --ink:#24262B; --muted:#6A665E; --line:#E0D6C4; --shadow:0 10px 30px rgba(31,42,68,.10);
+  /* Same "Ink & Ivory" palette as the home page (assets/css/palette.css) */
+  --ivory:#FEFCF8; --cream:#F6F0E4; --paper:#FFFFFF; --navy:#1E2B40; --navy-2:#2C3D59;
+  --green:#2E4636; --brass:#A8894F; --brass-dark:#7A6232; --brass-light:#D9C79E; --leather:#6E4A30;
+  --ink:#2B2A27; --muted:#5E584E; --line:#E3D9C6; --on-dark:#F2EDE3; --on-dark-muted:#B9B3A6;
+  --shadow:0 10px 30px rgba(30,43,64,.08);
   --radius:14px; --serif:"Playfair Display", Georgia, serif; --sans:"Jost", system-ui, sans-serif;
 }
 *{box-sizing:border-box}
@@ -62,13 +65,13 @@ h1,h2,h3{font-family:var(--serif); font-weight:500; color:var(--navy); line-heig
 .btn:active{transform:translateY(1px)}
 .btn-outline{background:transparent; color:var(--navy)}
 .btn-outline:hover{background:var(--navy); color:var(--paper)}
-.btn-brass{background:var(--brass); border-color:var(--brass); color:#fff}
-.btn-brass:hover{background:var(--brass-dark)}
+.btn-brass{background:var(--ivory); border-color:var(--ivory); color:var(--navy)}
+.btn-brass:hover{background:#fff; color:var(--navy)}
 .btn-block{width:100%}
 .eyebrow{font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--brass-dark); font-weight:500}
 
 /* Top bar */
-.topbar{position:sticky; top:0; z-index:40; background:rgba(255,253,248,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+.topbar{position:sticky; top:0; z-index:40; background:rgba(254,252,248,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
 .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px}
 .brand{display:flex; flex-direction:column; text-decoration:none; line-height:1.1}
 .brand b{font-family:var(--serif); font-weight:500; font-size:21px; color:var(--navy)}
@@ -91,7 +94,7 @@ h1,h2,h3{font-family:var(--serif); font-weight:500; color:var(--navy); line-heig
 .g-item:first-child{grid-row:1 / span 2}
 .g-item img{width:100%; height:100%; object-fit:cover; transition:transform .5s}
 .g-item:hover img{transform:scale(1.03)}
-.ph{width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:var(--muted); font-size:13px; letter-spacing:.12em; text-transform:uppercase; background:linear-gradient(135deg,#EFE6D5 0%,#E4D8C2 100%)}
+.ph{width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:var(--muted); font-size:13px; letter-spacing:.12em; text-transform:uppercase; background:linear-gradient(135deg,var(--cream) 0%,var(--line) 100%)}
 .ph::before{content:""; display:block}
 .g-all{position:absolute; right:14px; bottom:14px; z-index:2; background:var(--paper); color:var(--navy); border:1px solid var(--line); padding:10px 16px; border-radius:999px; font-size:13px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; box-shadow:var(--shadow)}
 
@@ -135,12 +138,12 @@ section.block h2{font-size:32px; margin:6px 0 18px}
 .calc .row{margin-bottom:14px}
 .calc output{display:block; font-family:var(--serif); font-size:40px; color:var(--navy); line-height:1.1}
 .note{font-size:13px; color:var(--muted)}
-.cta-band{margin-top:56px; background:var(--green); color:#F4EEE2; border-radius:var(--radius); padding:36px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap}
-.cta-band h2{color:#fff; font-size:30px}
-.cta-band p{margin:6px 0 0; color:#DCD5C6}
-.cta-band .btn{border-color:#fff}
-.cta-band .btn-outline{color:#fff}
-.cta-band .btn-outline:hover{background:#fff; color:var(--green)}
+.cta-band{margin-top:56px; background:var(--green); color:var(--on-dark); border-radius:var(--radius); padding:36px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap}
+.cta-band h2{color:var(--on-dark); font-size:30px}
+.cta-band p{margin:6px 0 0; color:rgba(242,237,227,.7)}
+.cta-band .btn{border-color:rgba(255,255,255,.6)}
+.cta-band .btn-outline{color:var(--ivory)}
+.cta-band .btn-outline:hover{background:var(--ivory); color:var(--green)}
 
 /* Agent card */
 aside{position:relative}
@@ -160,14 +163,24 @@ aside{position:relative}
 .mbar{display:none}
 
 /* Footer */
-footer{background:var(--navy); color:#C9CCD6; font-size:13px; padding:40px 0 110px}
+footer{background:var(--navy); color:var(--on-dark-muted); border-top:1px solid var(--brass); font-size:13px; padding:40px 0 110px}
 footer .wrap{display:grid; gap:12px}
-footer b{color:#fff; font-family:var(--serif); font-weight:500; font-size:18px}
-footer a{color:#fff}
+footer b{color:var(--ivory); font-family:var(--serif); font-weight:500; font-size:18px}
+footer a{color:var(--ivory)}
+.compass-mark{font-family:var(--sans); font-weight:600; letter-spacing:.32em; text-transform:uppercase; color:var(--ink)}
+.brand-firm{display:flex; align-items:center; gap:14px}
+.brand-firm .compass-mark{font-size:15px; padding-left:14px; border-left:1px solid var(--line); line-height:1.2}
+.courtesy{font-size:13px; color:var(--muted); margin-top:10px}
+.courtesy a,.agent .firm a{white-space:nowrap}
+.agent .firm{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:12px 0; margin-bottom:6px; border-top:1px solid var(--line); font-size:13px; color:var(--muted)}
+.agent .firm .compass-mark{font-size:14px}
+footer .compass-mark{color:var(--ivory); font-size:20px}
+footer .eho{display:flex; align-items:center; gap:8px; color:var(--ivory)}
+footer .disclaimer{font-size:12px; line-height:1.6; color:rgba(247,243,236,.62)}
 
 /* Dialogs */
 dialog{border:0; padding:0; border-radius:18px; width:min(560px, calc(100vw - 24px)); max-height:calc(100vh - 24px); background:var(--paper); color:var(--ink); box-shadow:0 30px 80px rgba(0,0,0,.3)}
-dialog::backdrop{background:rgba(20,26,40,.6)}
+dialog::backdrop{background:rgba(30,43,64,.6)}
 .dlg{padding:30px 28px 24px; overflow-y:auto; max-height:calc(100vh - 24px)}
 .dlg h2{font-size:28px; margin:4px 0 6px}
 .dlg .intro{color:var(--muted); margin:0 0 18px; font-size:15px}
@@ -185,14 +198,14 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
 .form-err{display:none; color:#9B2C2C; font-size:14px; margin:0 0 10px}
 
 /* Lightbox */
-#lightbox{width:min(1200px, 96vw); background:#0E1220; color:#fff}
+#lightbox{width:min(1200px, 96vw); background:#141C2B; color:var(--ivory)}
 #lightbox .lb{position:relative; display:flex; align-items:center; justify-content:center; min-height:60vh}
 #lightbox .lb-media{width:100%; height:80vh; display:flex; align-items:center; justify-content:center}
 #lightbox .lb-media img{max-height:80vh; width:auto; object-fit:contain}
 #lightbox .lb-media .ph{height:70vh}
 .lb-nav{position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:0; background:rgba(255,255,255,.9); color:var(--navy); font-size:24px; cursor:pointer}
 .lb-prev{left:12px} .lb-next{right:12px}
-.lb-bar{display:flex; justify-content:space-between; align-items:center; padding:12px 18px; font-size:14px; color:#C9CCD6}
+.lb-bar{display:flex; justify-content:space-between; align-items:center; padding:12px 18px; font-size:14px; color:var(--on-dark-muted)}
 #lightbox .x{background:rgba(255,255,255,.9); z-index:2}
 
 @media (max-width:1000px){
@@ -202,6 +215,7 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
   .cards{grid-template-columns:1fr 1fr}
 }
 @media (max-width:720px){
+  .brand-firm .compass-mark{display:none}
   body{font-size:16px}
   .top-phone,.top-actions .btn-outline{display:none}
   .top-actions .btn{padding:10px 14px; font-size:12px}
@@ -228,7 +242,7 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="/"><b>Nashville Luxury List</b><span>Jason Kloess · Compass</span></a>
+    <div class="brand-firm"><a class="brand" href="/"><b>Nashville Luxury List</b><span>Jason Kloess · Compass</span></a><span class="compass-mark" aria-label="Compass">Compass</span></div>
     <div class="top-actions">
       <a class="top-phone" href="tel:+16154570768" data-track="call">615-457-0768</a>
       <button class="btn btn-outline" data-open="contact">Contact Agent</button>
@@ -260,6 +274,7 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
       <div class="price" id="price">$2,250,000</div>
       <h1 class="addr">702 Skyview Dr, Nashville, TN 37206</h1>
       <div class="sub">East Nashville · Rolling Acres · <span id="mlsLine">MLS# 3270534</span></div>
+      <p class="courtesy">Listed by Jason Kloess, Compass Tennessee, LLC · <a href="tel:+16155225100">615-522-5100</a></p>
       <div class="stats">
         <div class="stat"><b>5</b><span>Beds</span></div>
         <div class="stat"><b>5 | 2</b><span>Full | Half Baths</span></div>
@@ -351,6 +366,7 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
         <li><a href="tel:+16154570768" data-track="call">615-457-0768</a> · call or text</li>
         <li><a href="mailto:jason@nashvilleluxurylist.com" data-track="email">jason@nashvilleluxurylist.com</a></li>
       </ul>
+      <div class="firm"><span>Compass Tennessee, LLC<br><a href="tel:+16155225100">615-522-5100</a> · office</span><span class="compass-mark">Compass</span></div>
       <button class="btn btn-block" data-open="showing">Request Showing</button>
       <button class="btn btn-outline btn-block" data-open="contact">Contact Agent</button>
       <p class="fine">Relocating to Nashville? I'll set up a virtual tour.</p>
@@ -360,10 +376,13 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
 
 <footer>
   <div class="wrap">
+    <span class="compass-mark">Compass</span>
     <b>Nashville Luxury List</b>
-    <div>Jason Kloess · REALTOR® #357138 · <a href="tel:+16154570768" data-track="call">615-457-0768</a> · <a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a></div>
-    <div>Compass · 1610 West End Ave, Ste 115, Nashville, TN 37203 · Office 615-522-5100</div>
-    <div>Compass is a licensed real estate broker and abides by Equal Housing Opportunity laws. Information is deemed reliable but not guaranteed and should be independently verified, including square footage, schools, zoning and rental permitting. Price, condition and availability are subject to change without notice.</div>
+    <div>Jason Kloess · REALTOR® · TN License #357138 · <a href="tel:+16154570768" data-track="call">615-457-0768</a> · <a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a></div>
+    <div>Compass Tennessee, LLC · 1610 West End Ave, Ste 115, Nashville, TN 37203 · Office <a href="tel:+16155225100">615-522-5100</a></div>
+    <div class="eho"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M9 13h6M9 16h6"/></svg><span>Equal Housing Opportunity</span></div>
+    <p class="disclaimer">Compass is a real estate broker licensed by the State of Tennessee and abides by federal, state and local Equal Housing Opportunity laws. All material presented herein is intended for informational purposes only. Information is compiled from sources deemed reliable but is subject to errors, omissions, changes in price, condition, sale or withdrawal without notice. No statement is made as to the accuracy of any description. All measurements and square footages are approximate and should be independently verified, as should schools, zoning and rental permitting. This is not intended to solicit property already listed. Nothing herein shall be construed as legal, accounting or other professional advice outside the realm of real estate brokerage. Listing information and photos provided by the listing broker, Compass Tennessee, LLC.</p>
+    <div>© <span id="yr">2026</span> Nashville Luxury List · <a href="/privacy-policy/">Privacy Policy</a></div>
   </div>
 </footer>
 
@@ -402,7 +421,7 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
         <div class="field"><label for="s-msg">Anything I should know? (optional)</label><textarea id="s-msg" name="message" placeholder="Relocating from out of state, timeline, questions about the apartment..."></textarea></div>
         <p class="form-err">Something went wrong. Please call or text 615-457-0768.</p>
         <button class="btn btn-block" type="submit">Request Showing</button>
-        <p class="consent">By submitting, you agree that Jason Kloess may contact you about this property by phone, text or email. No spam, ever.</p>
+        <p class="consent">By submitting, you agree that Jason Kloess of Compass may contact you about this property by phone, text or email. Message and data rates may apply. Reply STOP to opt out of texts. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
       </div>
       <div class="done"><div class="eyebrow">Request received</div><h2>Thank you</h2><p class="intro">I'll reach out shortly to confirm your showing. Need me sooner? Call or text <a href="tel:+16154570768" data-track="call">615-457-0768</a>.</p><button class="btn btn-outline" type="button" data-close>Close</button></div>
     </form>
@@ -439,7 +458,7 @@ dialog::backdrop{background:rgba(20,26,40,.6)}
         <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message">I'm interested in 702 Skyview Dr and would like more information.</textarea></div>
         <p class="form-err">Something went wrong. Please call or text 615-457-0768.</p>
         <button class="btn btn-block" type="submit">Send Message</button>
-        <p class="consent">By submitting, you agree that Jason Kloess may contact you about this property by phone, text or email. No spam, ever.</p>
+        <p class="consent">By submitting, you agree that Jason Kloess of Compass may contact you about this property by phone, text or email. Message and data rates may apply. Reply STOP to opt out of texts. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
       </div>
       <div class="done"><div class="eyebrow">Message sent</div><h2>Thank you</h2><p class="intro">I'll be in touch shortly. For a faster answer, call or text <a href="tel:+16154570768" data-track="call">615-457-0768</a>.</p><button class="btn btn-outline" type="button" data-close>Close</button></div>
     </form>
@@ -503,6 +522,8 @@ const CONFIG = {
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const money = n => '$' + Math.round(n).toLocaleString('en-US');
+
+$('#yr').textContent = new Date().getFullYear();
 
 /* Price + facts */
 $('#price').textContent = money(CONFIG.price);
@@ -620,8 +641,8 @@ $$('dialog').forEach(d => {
 const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
 $('#s-date').min = today.toISOString().slice(0, 10);
 
-/* Form submit (Netlify Forms) */
-$$('form[data-netlify]').forEach(f => {
+/* Form submit (Netlify Forms). Select by data-kind: Netlify strips data-netlify from the published HTML. */
+$$('form[data-kind]').forEach(f => {
   Object.entries(attr).forEach(([k, v]) => { const i = $(`[name="${k}"]`, f); if (i) i.value = v; });
   f.addEventListener('submit', async e => {
     e.preventDefault();
