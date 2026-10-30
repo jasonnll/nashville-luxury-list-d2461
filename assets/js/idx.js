@@ -11,7 +11,7 @@
  * the vendor widget is shown as-is and the buttons fall back to /search/ links.
  */
 (function () {
-  const CFG = Object.assign({ minPrice: 1500000, neighborhoods: {} }, window.NLL_IDX || {});
+  const CFG = Object.assign({ minPrice: 1000000, neighborhoods: {} }, window.NLL_IDX || {});
 
   // slug, display name, city, zip, county group
   const AREAS = [
@@ -192,8 +192,8 @@
 
   /* ── Listing feed: this site's cards, filtered by price and bedroom buttons ── */
   const BANDS = [
-    ['All homes $1.5M+', {}],
-    ['$1.5M – $3M', { min: 1500000, max: 3000000 }],
+    ['All homes $1M+', {}],
+    ['$1M – $3M', { min: 1000000, max: 3000000 }],
     ['$3M – $5M', { min: 3000000, max: 5000000 }],
     ['$5M+', { min: 5000000 }],
     ['4+ bedrooms', { beds: 4 }],
@@ -375,7 +375,7 @@
       if (req) {
         req.elements.areas.value = summary(crit);
         // Same bands as the Off-Market Access form, so lead routing treats them alike.
-        req.elements.price_range.value = crit.minPrice >= 5e6 ? '$5M+' : crit.minPrice >= 2.5e6 ? '$2.5M to $5M' : '$1.5M to $2.5M';
+        req.elements.price_range.value = crit.minPrice >= 5e6 ? '$5M+' : crit.minPrice >= 2.5e6 ? '$2.5M to $5M' : crit.minPrice >= 1.5e6 ? '$1.5M to $2.5M' : 'Under $1.5M';
       }
       if (form) {
         form.elements.min.value = String(crit.minPrice);

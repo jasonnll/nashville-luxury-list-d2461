@@ -1,7 +1,7 @@
 /* IDX settings — IDX Broker (account 71686, RealTracs MLS).
  *
  * Widgets are managed at middleware.idxbroker.com → Design → Widgets (new widget system).
- * Every widget is set to Active, $1.5M+, newest first, with Nashville Luxury List colors.
+ * Every widget is set to Active, $1M+, newest first, with Nashville Luxury List colors.
  * Searches stay on this site: forms and links open /search/, and the price/bedroom buttons filter
  * the listings a widget shows. Set each carousel widget to show as many listings as IDX Broker
  * allows, since the buttons can only filter what the widget returns.
@@ -26,17 +26,17 @@
     provider: 'RealTracs MLS via IDX Broker',
 
     // Default price floor for every search and widget.
-    minPrice: 1500000,
+    minPrice: 1000000,
 
     // IDX Broker results page for Nashville (reference only).
     resultsUrl: IDX + '&city[]=32035',
 
-    // Full map search on /search/ ("NLL – Map Search $1.5M+").
+    // Full map search on /search/ ("NLL – Map Search $1M+").
     searchEmbed: widget(182416),
 
     // "Homepage showcase" widget: the "All areas" results on /search/. (Removed from the home page;
     // add a data-idx="showcase" block back to index.html to show it there again.)
-    // Nashville, Brentwood, Franklin, College Grove, Thompson's Station — $1.5M+, newest first.
+    // Nashville, Brentwood, Franklin, College Grove, Thompson's Station — $1M+, newest first.
     showcaseEmbed: widget(183279),
 
     // The carousel is market-wide, so Jason's hand-built listing cards stay in front of it.
