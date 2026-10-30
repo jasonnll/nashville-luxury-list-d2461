@@ -30,6 +30,7 @@
 <link rel="preload" as="image" href="/.netlify/images?url=/assets/images/listings/698-sneed-rd-w.jpg&amp;w=1600&amp;q=60" imagesrcset="/.netlify/images?url=/assets/images/listings/698-sneed-rd-w.jpg&amp;w=800&amp;q=60 800w, /.netlify/images?url=/assets/images/listings/698-sneed-rd-w.jpg&amp;w=1200&amp;q=60 1200w, /.netlify/images?url=/assets/images/listings/698-sneed-rd-w.jpg&amp;w=1600&amp;q=60 1600w, /.netlify/images?url=/assets/images/listings/698-sneed-rd-w.jpg&amp;w=2000&amp;q=60 2000w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="/assets/css/main.css?v=20261008e">
 <link rel="stylesheet" href="/assets/css/palette.css?v=20261028c">
+<link rel="stylesheet" href="/assets/css/idx.css?v=20261030a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -188,9 +189,11 @@
       <p class="hero-eyebrow">Jason Kloess &middot; REALTOR&reg; &middot; Compass</p>
       <h1>Nashville <em>Luxury Real Estate</em> for $1.5M+ Buyers &amp; Sellers</h1>
       <p class="hero-description">Access off-market estates, private showings, and curated listings in Belle Meade, Brentwood, Green Hills, and beyond — before they ever hit Zillow.</p>
-      <div class="hero-actions">
-        <a href="/home-valuation/" class="btn btn-gold btn-lg">What's My Home Worth? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="/neighborhoods/" class="btn btn-outline-white btn-lg">Explore Neighborhoods</a>
+      <form class="idx-search" action="/search/" method="get" role="search" aria-label="Search homes for sale" data-idx="search-form"><div class="idx-field"><label for="hero-area">Location</label><select id="hero-area" name="area"><optgroup label="Cities"><option value="nashville">All of Nashville</option><option value="brentwood">Brentwood</option><option value="franklin">Franklin</option></optgroup><optgroup label="Davidson County"><option value="belle-meade">Belle Meade</option><option value="green-hills">Green Hills</option><option value="forest-hills-oak-hill">Forest Hills &amp; Oak Hill</option><option value="12-south">12 South</option><option value="east-nashville">East Nashville</option><option value="sylvan-park">Sylvan Park</option></optgroup><optgroup label="Williamson County"><option value="governors-club">Governors Club</option><option value="annandale">Annandale</option><option value="laurelbrooke">Laurelbrooke</option><option value="westhaven">Westhaven</option><option value="leipers-fork">Leiper&#39;s Fork</option><option value="legends-ridge">Legends Ridge</option><option value="college-grove">College Grove</option><option value="the-grove">The Grove</option><option value="troubadour">Troubadour</option></optgroup></select></div><div class="idx-field"><label for="hero-min">Min price</label><select id="hero-min" name="min"><option value="1500000">$1.5M</option><option value="2000000">$2M</option><option value="3000000">$3M</option><option value="5000000">$5M</option><option value="7500000">$7.5M</option><option value="10000000">$10M</option></select></div><div class="idx-field"><label for="hero-max">Max price</label><select id="hero-max" name="max"><option value="">No max</option><option value="2000000">$2M</option><option value="3000000">$3M</option><option value="5000000">$5M</option><option value="7500000">$7.5M</option><option value="10000000">$10M</option><option value="15000000">$15M</option><option value="20000000">$20M</option></select></div><div class="idx-field"><label for="hero-beds">Beds</label><select id="hero-beds" name="beds"><option value="">Any</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option><option value="6">6+</option></select></div><button type="submit" class="idx-go"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>Search</button></form>
+      <div class="hero-links">
+        <a href="/home-valuation/">What's my home worth?</a>
+        <a href="/neighborhoods/">Explore neighborhoods</a>
+        <a href="/access/">Off-market homes</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-value" data-target="45" data-suffix="+">45+</div><div class="hero-stat-label">Transactions</div></div>
@@ -257,8 +260,10 @@
   <div class="container">
     <div class="flex-between fade-up" style="margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
       <div><span class="eyebrow">On the Market</span><h2 class="section-title">Featured Luxury Homes</h2></div>
-      <a href="/contact/" class="btn btn-outline-gold">Request Private Access →</a>
+      <a href="/search/" class="btn btn-outline-gold">Search All $1.5M+ Homes →</a>
     </div>
+    <div data-idx-my-listings>
+    <div class="idx-sub"><h3>Jason's Listings</h3><a href="/past-sales/">Past sales &amp; active listings →</a></div>
     <div class="grid-3">
       <article class="listing-card fade-up">
         <a href="/702-skyview-dr" class="listing-img" aria-label="View the 702 Skyview Dr listing">
@@ -320,6 +325,12 @@
           </div>
         </div>
       </article>
+    </div>
+    </div>
+    <div class="idx-market" data-idx="showcase" hidden>
+      <div class="idx-sub"><h3>New on the Market &middot; $1.5M+</h3><a href="/search/">Search all homes →</a></div>
+      <div class="idx-embed"></div>
+      <p class="idx-note"><span data-idx-provider></span>Listing data from Realtracs, deemed reliable but not guaranteed.</p>
     </div>
     <div class="text-center" style="margin-top:3rem;">
       <p style="color:var(--gray-500);margin-bottom:1.25rem;font-size:0.95rem;">Access dozens more listings — many not available to the public.</p>
@@ -471,6 +482,8 @@
 
 <script src="/assets/js/partials.js?v=20261008e"></script>
 <script src="/assets/js/main.js?v=20261008e"></script>
+<script src="/assets/js/idx-config.js?v=20261030a"></script>
+<script src="/assets/js/idx.js?v=20261030a"></script>
 <script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/";});}});}</script>
 </body>
 </html>

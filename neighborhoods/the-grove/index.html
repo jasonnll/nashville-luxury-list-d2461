@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="/assets/css/main.css?v=20261008e">
 <link rel="stylesheet" href="/assets/css/palette.css?v=20261028c">
 <link rel="stylesheet" href="/assets/css/agent-page.css?v=20261027c">
+<link rel="stylesheet" href="/assets/css/idx.css?v=20261030a">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -341,6 +342,18 @@
     </div>
   </div>
 </section>
+<section class="section idx-nb" data-idx="neighborhood" data-area="the-grove" aria-labelledby="idx-nb-h">
+  <div class="container">
+    <div class="idx-nb-head">
+      <div><span class="eyebrow">Homes for Sale</span><h2 class="section-title" id="idx-nb-h">The Grove homes for sale</h2><p>Current $1.5M+ listings in The Grove. Pick a price range to see what's on the market now.</p></div>
+      <a class="btn btn-dark idx-all" href="/search/?area=the-grove">See All The Grove Homes →</a>
+    </div>
+    <div class="idx-chips"><a class="idx-chip" href="/search/?area=the-grove">All homes $1.5M+</a><a class="idx-chip" href="/search/?area=the-grove&amp;min=1500000&amp;max=3000000">$1.5M – $3M</a><a class="idx-chip" href="/search/?area=the-grove&amp;min=3000000&amp;max=5000000">$3M – $5M</a><a class="idx-chip" href="/search/?area=the-grove&amp;min=5000000">$5M+</a><a class="idx-chip" href="/search/?area=the-grove&amp;beds=4">4+ bedrooms</a><a class="idx-chip" href="/search/?area=the-grove&amp;beds=5">5+ bedrooms</a></div>
+    <div class="idx-embed" hidden></div>
+    <p class="idx-note"><span data-idx-provider></span>Listing data from Realtracs, deemed reliable but not guaranteed.</p>
+  </div>
+</section>
+
 <section class="ap-sec ap-book" id="book-call" aria-labelledby="ap-book">
   <div class="container">
     <div class="ap-head center">
@@ -382,6 +395,8 @@
 
 <script src="/assets/js/partials.js?v=20261008e"></script>
 <script src="/assets/js/main.js?v=20261008e"></script>
+<script src="/assets/js/idx-config.js?v=20261030a"></script>
+<script src="/assets/js/idx.js?v=20261030a"></script>
 <script>
 (function(){
   var book=document.getElementById('book-call'),calLoaded=false;
