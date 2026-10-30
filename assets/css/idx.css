@@ -61,6 +61,10 @@
 }
 .idx-search .idx-go:hover { background: var(--ink-soft); }
 .idx-search .idx-go:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+/* Home hero: let the bar run wider than the 960px headline column. */
+@media (min-width: 901px) {
+  .hero-content .idx-search { width: min(1160px, calc(100vw - 2 * clamp(1.25rem, 4vw, 2rem))); }
+}
 
 .hero-links {
   display: flex;
