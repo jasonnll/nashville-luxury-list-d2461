@@ -23,6 +23,7 @@ TODAY = "2026-10-29"
 UPDATED = "Updated October 2026 &middot; By Jason Kloess, REALTOR&reg;, Compass"
 NB = "/assets/images/neighborhoods/"
 CL = "/assets/images/clubs/"
+CG = "/assets/images/city-guides/"
 
 GUIDES = [
  {
@@ -42,6 +43,13 @@ GUIDES = [
   "photos": [(NB + "12-south.jpg", 1200, 800, "The flower truck outside White's Mercantile in 12 South", "12 South"),
              (NB + "germantown.jpg", 1600, 900, "A Victorian home beside brick buildings in Germantown", "Germantown"),
              (NB + "green-hills.jpg", 1920, 1327, "A tree-lined shopping street in Green Hills", "Green Hills")],
+  "bands": {"explore": (CG + "nashville-downtown-fireworks.jpg", 1800, 1201, "Fireworks over Lower Broadway and the downtown Nashville skyline", "Downtown Nashville")},
+  "gallery": {"eat": [(NB + "sylvan-park.jpg", 1600, 1000, "A brick-and-timber neighborhood restaurant lit up at dusk", "Neighborhood dining")],
+              "live": [(NB + "belle-meade.jpg", 1920, 1200, "A white French-style estate home in Belle Meade", "Belle Meade"),
+                       (NB + "oak-hill.jpg", 1670, 941, "A white colonial estate on a wooded lot in Oak Hill", "Oak Hill"),
+                       (NB + "east-nashville.jpg", 1280, 800, "A Victorian house with a wraparound porch in East Nashville", "East Nashville")],
+              "clubs": [(CL + "belle-meade-country-club.jpg", 1600, 1199, "The clubhouse and fairway at Belle Meade Country Club", "Belle Meade Country Club"),
+                        (CL + "hillwood-country-club.jpg", 1440, 719, "A bunkered green below the clubhouse at Hillwood Country Club", "Hillwood Country Club")]},
   "explore": ("Things to do", "Where do Nashville locals spend the weekend?",
               "Music is the headline, but Nashville's real charm is in its parks, markets and walkable pockets.",
               [("Music &amp; culture", "TouristAttraction", [("Ryman Auditorium", "The Mother Church of Country Music, downtown"), ("Grand Ole Opry", "The long-running live radio show, at Opryland"), ("Country Music Hall of Fame", "Downtown, beside the Music City Center"), ("Frist Art Museum", "Rotating exhibitions in a restored post office"), ("Schermerhorn Symphony Center", "Home of the Nashville Symphony")]),
@@ -86,6 +94,8 @@ GUIDES = [
   "photos": [(NB + "annandale.jpg", 1600, 1066, "A French chateau-style estate home in Annandale", "Annandale"),
              (CL + "brentwood-country-club.jpg", 1600, 670, "The white-columned clubhouse at Brentwood Country Club", "Brentwood Country Club"),
              (NB + "governors-club.jpg", 1600, 1067, "A gated estate home lit at dusk in Governors Club", "Governors Club")],
+  "bands": {"explore": (CG + "brentwood-estate-at-dusk.jpg", 1280, 853, "A white estate home with lit windows at dusk in Brentwood", "Brentwood estates")},
+  "gallery": {},
   "explore": ("Things to do", "What is there to do in Brentwood?",
               "Brentwood puts real effort into its green space: paved greenways connect the parks, and summer evenings mean live music on the lawn.",
               [("Parks &amp; nature", "Park", [("Crockett Park", "Concerts at the Eddy Arnold Amphitheater and the city's July 4th fireworks"), ("Marcella Vivrette Smith Park", "About 400 acres around historic Ravenswood Mansion"), ("Tower Park", "Trails and the Barkwood dog park"), ("Deerwood Arboretum &amp; Nature Area", "Quiet trails and a creekside boardwalk"), ("Radnor Lake State Park", "Just north, on the Nashville line")]),
@@ -130,6 +140,11 @@ GUIDES = [
   "photos": [(NB + "leipers-fork.jpg", 1600, 1000, "A white farmhouse barn and lavender garden in Leiper's Fork", "Leiper's Fork"),
              (NB + "college-grove.jpg", 1600, 1073, "New estate homes overlooking the hills in College Grove", "College Grove"),
              (NB + "legends-ridge.jpg", 1300, 731, "A stone manor home at sunset in Legends Ridge", "Legends Ridge")],
+  "bands": {"explore": (CG + "franklin-main-street.jpg", 1800, 1201, "Historic brick storefronts and the Gray's sign on Main Street in downtown Franklin", "Main Street, downtown Franklin"),
+            "clubs": (CG + "franklin-countryside.jpg", 1800, 1200, "Stone-and-timber buildings beside a lake in the hills outside Franklin", "The Franklin countryside")},
+  "gallery": {"live": [(NB + "troubadour.jpg", 1600, 1200, "Homes along a golf course in Troubadour, College Grove", "Troubadour")],
+              "clubs": [(CL + "the-grove.jpg", 1200, 630, "The clubhouse at The Grove reflected in a lake at sunset", "The Grove"),
+                        (CL + "westhaven-golf-club.jpg", 1200, 630, "An aerial view of the Westhaven Golf Club clubhouse", "Westhaven Golf Club")]},
   "explore": ("Things to do", "What is there to do in Franklin?",
               "History you can walk through, farmland you can drive into, and festivals that fill the square most weekends.",
               [("Downtown", "TouristAttraction", [("Historic Main Street", "Boutiques, galleries and the town square"), ("The Franklin Theatre", "Restored 1937 theater with films and concerts"), ("The Factory at Franklin", "Shops, studios and food in a historic factory")]),
@@ -166,6 +181,31 @@ def place_groups(groups, three=False):
         li = "\n".join(f"          <li><b>{n}</b>" + (f"<span>{d}</span>" if d else "") + "</li>" for n, d in items)
         out.append(f'      <div class="cg-group">\n        <h3>{title}</h3>\n        <ul>\n{li}\n        </ul>\n      </div>')
     return f'    <div class="cg-groups{" three" if three else ""}">\n' + "\n".join(out) + "\n    </div>"
+
+
+def figure(src, w, h, alt, cap, sizes="(max-width: 900px) 100vw, 380px"):
+    return f'      <figure class="ap-photo"><img src="{img(src, 960, 72)}" srcset="{img(src, 640, 72)} 640w, {img(src, 960, 72)} 960w, {img(src, 1400, 72)} 1400w" sizes="{sizes}" width="{w}" height="{h}" alt="{alt}" loading="lazy" decoding="async"><figcaption>{cap}</figcaption></figure>'
+
+
+def gallery(g, key):
+    """Photos from the printable guide, shown under a section's content (1 = wide, 2 = pair, 3 = row)."""
+    photos = g["gallery"].get(key, [])
+    if not photos:
+        return ""
+    sizes = "(max-width: 720px) 100vw, " + ("1100px" if len(photos) == 1 else f"{100 // len(photos)}vw")
+    return f'\n    <div class="cg-gallery n{len(photos)}">\n' + "\n".join(figure(*p, sizes=sizes) for p in photos) + "\n    </div>"
+
+
+def band(g, key):
+    """Full-width photo between sections."""
+    if key not in g["bands"]:
+        return ""
+    src, w, h, alt, cap = g["bands"][key]
+    return f"""
+<figure class="cg-band">
+  <img src="{img(src, 1600, 72)}" srcset="{img(src, 800, 72)} 800w, {img(src, 1600, 72)} 1600w, {img(src, 2000, 72)} 2000w" sizes="100vw" width="{w}" height="{h}" alt="{alt}" loading="lazy" decoding="async">
+  <figcaption><span class="container">{cap}</span></figcaption>
+</figure>"""
 
 
 def photo_grid(photos):
@@ -288,13 +328,15 @@ def build(g):
     page += section("intro", f"Welcome to {city}", f"A note before you arrive", body=prose(g["intro"]))
     ex = g["explore"]
     page += section("explore", ex[0], ex[1], ex[2], place_groups(ex[3]), alt=True)
+    page += band(g, "explore")
     eat = g["eat"]
-    page += section("eat", eat[0], eat[1], eat[2], place_groups(eat[3], three=True) + "\n" + callout(eat[4]))
+    page += section("eat", eat[0], eat[1], eat[2], place_groups(eat[3], three=True) + gallery(g, "eat") + "\n" + callout(eat[4]))
     hoods = cards([(s, n, t, h, f"{strip(n)} guide" if h else "") for s, n, t, h in g["hoods"]])
     page += section("live", "Where to live", f"Neighborhoods in and around {city}",
-                    "Each has its own pace. Jason can walk you through how they compare for your budget and schedule.", hoods, alt=True)
-    page += section("clubs", "Clubs &amp; schools", f"Clubs and schools near {city}", body=place_groups(g["clubs"]) +
+                    "Each has its own pace. Jason can walk you through how they compare for your budget and schedule.", hoods + gallery(g, "live"), alt=True)
+    page += section("clubs", "Clubs &amp; schools", f"Clubs and schools near {city}", body=place_groups(g["clubs"]) + gallery(g, "clubs") +
                     "\n" + note("Membership terms and school zoning change. Confirm directly, and see the <a href=\"/country-clubs/\">country club guide</a> for details on each club."))
+    page += band(g, "clubs")
     page += section("saturday", "A perfect Saturday", f"How to spend a Saturday in {city}",
                     "A first weekend that feels like you already live here.", saturday(g["saturday"]), dark=True)
     others = [x for x in GUIDES if x is not g]
