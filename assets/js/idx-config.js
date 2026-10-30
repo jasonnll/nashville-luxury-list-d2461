@@ -2,7 +2,11 @@
  *
  * Widgets are managed at middleware.idxbroker.com → Design → Widgets (new widget system).
  * Every widget is set to Active, $1.5M+, newest first, with Nashville Luxury List colors.
- * Search and filter buttons open IDX Broker's results pages on nashvilleluxurylist.idxbroker.com.
+ * Searches stay on this site: forms and links open /search/, and the price/bedroom buttons filter
+ * the listings a widget shows. Set each carousel widget to show as many listings as IDX Broker
+ * allows, since the buttons can only filter what the widget returns.
+ * resultsUrl is IDX Broker's own results page for an area. The site doesn't link to it; it's kept
+ * as the reference query each widget was built from.
  *
  * Neighborhoods: zip-based for Davidson County areas, exact RealTracs subdivision names
  * for master-planned communities. When a community adds a new section/phase name in the MLS,
@@ -24,20 +28,21 @@
     // Default price floor for every search and widget.
     minPrice: 1500000,
 
-    // Fallback results page (Nashville). Each area below has its own link.
+    // IDX Broker results page for Nashville (reference only).
     resultsUrl: IDX + '&city[]=32035',
 
     // Full map search on /search/ ("NLL – Map Search $1.5M+").
     searchEmbed: widget(182416),
 
-    // Home page "New on the Market" carousel ("Homepage showcase"):
+    // "Homepage showcase" widget: the "All areas" results on /search/. (Removed from the home page;
+    // add a data-idx="showcase" block back to index.html to show it there again.)
     // Nashville, Brentwood, Franklin, College Grove, Thompson's Station — $1.5M+, newest first.
     showcaseEmbed: widget(183279),
 
     // The carousel is market-wide, so Jason's hand-built listing cards stay in front of it.
     showcaseIncludesMyListings: false,
 
-    // Per-area results: carousel on each guide page + filter buttons that open IDX Broker results.
+    // Per-area listings: carousel on each guide page and that area's results on /search/.
     neighborhoods: {
       'nashville': area('city[]=32035', 183285),
       'brentwood': area('city[]=5494', 183286),
