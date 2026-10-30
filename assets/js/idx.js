@@ -10,7 +10,7 @@
  * without leaving the page. /search/ also shows the area's own IDX Broker map.
  */
 (function () {
-  const CFG = Object.assign({ minPrice: 1500000, idxHost: 'nashvilleluxurylist.idxbroker.com', areas: {} }, window.NLL_IDX || {});
+  const CFG = Object.assign({ minPrice: 1000000, idxHost: 'nashvilleluxurylist.idxbroker.com', areas: {} }, window.NLL_IDX || {});
 
   // slug, display name, city, zip, county group
   const AREAS = [
@@ -113,8 +113,8 @@
 
   /* ── Price/bedroom tiers: each button shows its own IDX Broker carousel, in place ── */
   const BANDS = [
-    ['all', 'All homes $1.5M+', {}],
-    ['1.5-3', '$1.5M – $3M', { min: 1500000, max: 3000000 }],
+    ['all', 'All homes $1M+', {}],
+    ['1.5-3', '$1M – $3M', { min: 1000000, max: 3000000 }],
     ['3-5', '$3M – $5M', { min: 3000000, max: 5000000 }],
     ['5', '$5M+', { min: 5000000 }],
     ['bd4', '4+ bedrooms', { beds: 4 }],

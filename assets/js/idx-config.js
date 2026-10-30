@@ -1,7 +1,7 @@
 /* IDX settings — IDX Broker (account 71686, RealTracs MLS), widgets at nashvilleluxurylist.idxbroker.com.
  *
  * Every area has six carousel widgets, one per button on its listings section:
- *   all ($1.5M+), 1.5-3 ($1.5M–$3M), 3-5 ($3M–$5M), 5 ($5M+), bd4 (4+ beds, $1.5M+), bd5 (5+ beds, $1.5M+)
+ *   all ($1M+), 1.5-3 ($1M–$3M), 3-5 ($3M–$5M), 5 ($5M+), bd4 (4+ beds, $1M+), bd5 (5+ beds, $1M+)
  * plus one map widget shown on /search/?area=<slug>. Clicking a button swaps carousels in place.
  *
  * All widgets: active listings, newest first, property types Residential + Farms + Land only
@@ -24,7 +24,7 @@
   window.NLL_IDX = {
     provider: 'RealTracs MLS via IDX Broker',
     idxHost: 'nashvilleluxurylist.idxbroker.com',
-    minPrice: 1500000,
+    minPrice: 1000000,
 
     // Home page showcase (only used if a data-idx="showcase" block is on the page).
     showcaseEmbed: widget(183279),
