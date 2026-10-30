@@ -223,3 +223,9 @@ a.idx-card:hover, a.idx-card:focus-visible { box-shadow: var(--shadow-lg); borde
 .idx-request .btn { width: 100%; justify-content: center; }
 .idx-request .idx-fine { font-size: 0.8rem; color: var(--taupe); margin-top: 0.75rem; text-align: center; }
 @media (max-width: 600px) { .idx-request .form-row { grid-template-columns: 1fr; } }
+
+/* Price/bedroom tiers: one IDX Broker carousel per button, swapped in place */
+.idx-tier[hidden] { display: none; }
+.idx-tier .idx-empty { border: 0; padding: 1.5rem 1rem; }
+.idx-loading { margin: 0; padding: 3rem 1rem; text-align: center; color: var(--text-mid); font-size: 0.95rem; letter-spacing: 0.02em; }
+.idx-map-sec .idx-embed { min-height: 520px; }

@@ -5,13 +5,12 @@
  *   data-idx="neighborhood" data-area="belle-meade"
  *   data-idx="search-page"            the /search/ page body
  *
- * Every search stays on this site: forms and links go to /search/, and the price/bedroom buttons
- * filter the listings already on the page. The vendor widget is rendered off screen, its listings
- * are read from it and shown in this site's own cards. If that can't be done (vendor markup changed),
- * the vendor widget is shown as-is and the buttons fall back to /search/ links.
+ * Every search stays on this site. On neighborhood pages and /search/, the price and bedroom
+ * buttons switch between IDX Broker carousels, one per area per tier (ids in idx-config.js),
+ * without leaving the page. /search/ also shows the area's own IDX Broker map.
  */
 (function () {
-  const CFG = Object.assign({ minPrice: 1500000, neighborhoods: {} }, window.NLL_IDX || {});
+  const CFG = Object.assign({ minPrice: 1500000, idxHost: 'nashvilleluxurylist.idxbroker.com', areas: {} }, window.NLL_IDX || {});
 
   // slug, display name, city, zip, county group
   const AREAS = [
@@ -36,7 +35,6 @@
     ['troubadour', 'Troubadour', 'College Grove', '37046', 'Williamson County'],
   ].map(([slug, name, city, zip, group]) => ({ slug, name, city, zip, group }));
   const areaBy = (slug) => AREAS.find((a) => a.slug === slug) || AREAS[0];
-  const embedFor = (area) => (area.slug === 'all' ? CFG.showcaseEmbed : (CFG.neighborhoods[area.slug] || {}).embed);
   const guideFor = (area) => (area.slug === 'all' ? '/neighborhoods/' : area.slug === 'nashville' ? '/nashville-luxury-realtor/' : `/neighborhoods/${area.slug}/`);
 
   const money = (n) => {
@@ -113,207 +111,107 @@
     run();
   }
 
-  /* ── Reading listings out of a rendered vendor widget ── */
-  const PRICE = /\$\s?(\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?\s?[MK])(?![\w.,]*\d)/gi;
-  const toNumber = (p) => {
-    p = p.replace(/[$\s,]/g, '');
-    const unit = p.slice(-1).toUpperCase();
-    return unit === 'M' ? parseFloat(p) * 1e6 : unit === 'K' ? parseFloat(p) * 1e3 : Number(p);
-  };
-  const pricesIn = (text) => new Set(Array.from(text.matchAll(PRICE), (m) => toNumber(m[1])).filter((n) => n >= 50000));
-  const linkOf = (a) => { const h = a.getAttribute('href') || ''; return h && h[0] !== '#' && !/^javascript:/i.test(h) ? a.href : ''; };
-  // Listing links only: sign-up, save and map links inside a card don't count.
-  const isListingLink = (h) => h && !/^(mailto|tel):|signup|login|register|save|favorite|map/i.test(h);
-  const linksIn = (el) => new Set([el.matches('a[href]') ? el : null, ...el.querySelectorAll('a[href]')].filter(Boolean).map(linkOf).filter(isListingLink));
-  const textOf = (el) => (el.tagName === 'SCRIPT' || el.tagName === 'STYLE' ? '' : el.textContent || '');
-
-  function imageOf(card) {
-    const imgs = Array.from(card.querySelectorAll('img')).map((img) => {
-      const src = img.getAttribute('data-src') || img.getAttribute('data-lazy-src') || img.getAttribute('data-original')
-        || img.getAttribute('data-lazy') || img.currentSrc || img.getAttribute('src')
-        || (img.getAttribute('srcset') || img.getAttribute('data-srcset') || '').split(/[\s,]/)[0] || '';
-      const w = img.naturalWidth || Number(img.getAttribute('width')) || 0;
-      return { src, w, logo: /logo|icon|badge|spacer|pixel/i.test(src + ' ' + (img.alt || '') + ' ' + img.className) || (w > 0 && w < 80) };
-    }).filter((i) => i.src && !/^data:/.test(i.src) && !i.logo);
-    if (imgs.length) return imgs.sort((a, b) => b.w - a.w)[0].src;
-    for (const el of [card, ...card.querySelectorAll('*')]) {
-      const m = (el.getAttribute('style') || '').match(/background(?:-image)?\s*:[^;]*url\(\s*['"]?([^'")]+)/i);
-      if (m && !/^data:/.test(m[1])) return m[1];
-    }
-    return '';
-  }
-
-  function readListing(card) {
-    const lines = [];
-    const walk = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, {
-      acceptNode: (n) => (/^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
-    });
-    for (let n; (n = walk.nextNode());) { const t = n.nodeValue.replace(/\s+/g, ' ').trim(); if (t) lines.push(t); }
-    const all = lines.join(' | ');
-    const flat = lines.join(' ');
-    const price = Array.from(pricesIn(all))[0];
-    const num = (re) => { const m = flat.match(re); return m ? Number(m[1].replace(/,/g, '')) : 0; };
-    const beds = num(/(\d+)\s*(?:bd|bds|beds?|bedrooms?|br)\b/i) || num(/\b(?:beds?|bedrooms?)\s*:?\s*(\d+)/i);
-    const fullBaths = num(/(\d+(?:\.\d+)?)\s*(?:ba|baths?|bathrooms?|full baths?)\b/i) || num(/\b(?:baths?|bathrooms?)\s*:?\s*(\d+(?:\.\d+)?)/i);
-    const half = num(/(\d+)\s*(?:half|partial)/i);
-    const sqft = num(/([\d,]{3,})\s*(?:sq\.?\s?ft\.?|sqft|square feet|sf)\b/i) || num(/\b(?:sq\.?\s?ft\.?|sqft)\s*:?\s*([\d,]{3,})/i);
-    const factish = /\$|\b(bd|beds?|bedrooms?|ba|baths?|sq\.?\s?ft|sqft|acres?|mls|listing|courtesy|provided)\b/i;
-    const street = lines.find((l) => /^\d+[A-Za-z]?\s+[A-Za-z]/.test(l) && !factish.test(l) && l.length < 90) || '';
-    const city = lines.find((l) => l !== street && /,\s*(TN|Tennessee)\b|\b3[78]\d{3}\b/.test(l) && !factish.test(l) && l.length < 90) || '';
-    const status = lines.find((l) => l.length < 28 && /^(new|active|coming soon|under contract|pending|price (reduced|change|improvement)|reduced|open house|just listed|back on market)/i.test(l)) || '';
-    const links = Array.from(linksIn(card));
-    const href = links.find((h) => /detail/i.test(h)) || links[0] || '';
-    return { price, beds, baths: fullBaths + (half ? half * 0.5 : 0), sqft, street, city, status, href, img: imageOf(card) };
-  }
-
-  // Each listing card is the largest element around a price that holds one price and one link.
-  function readWidget(root) {
-    const leaves = Array.from(root.querySelectorAll('*')).filter((el) =>
-      pricesIn(textOf(el)).size && !Array.from(el.children).some((ch) => pricesIn(textOf(ch)).size));
-    const cards = new Set();
-    leaves.forEach((el) => {
-      let card = el;
-      for (let p = card.parentElement; p && p !== root && root.contains(p); p = p.parentElement) {
-        if (pricesIn(textOf(p)).size > 1 || linksIn(p).size > 1) break;
-        card = p;
-      }
-      cards.add(card);
-    });
-    const seen = new Set();
-    return Array.from(cards).filter((c) => !Array.from(cards).some((o) => o !== c && o.contains(c)))
-      .map(readListing)
-      .filter((l) => {
-        const key = l.href || l.img + l.price;
-        if (!l.price || !(l.href || l.img) || seen.has(key)) return false; // carousels often clone their slides
-        seen.add(key);
-        return true;
-      });
-  }
-
-  /* ── Listing feed: this site's cards, filtered by price and bedroom buttons ── */
+  /* ── Price/bedroom tiers: each button shows its own IDX Broker carousel, in place ── */
   const BANDS = [
-    ['All homes $1.5M+', {}],
-    ['$1.5M – $3M', { min: 1500000, max: 3000000 }],
-    ['$3M – $5M', { min: 3000000, max: 5000000 }],
-    ['$5M+', { min: 5000000 }],
-    ['4+ bedrooms', { beds: 4 }],
-    ['5+ bedrooms', { beds: 5 }],
+    ['all', 'All homes $1.5M+', {}],
+    ['1.5-3', '$1.5M – $3M', { min: 1500000, max: 3000000 }],
+    ['3-5', '$3M – $5M', { min: 3000000, max: 5000000 }],
+    ['5', '$5M+', { min: 5000000 }],
+    ['bd4', '4+ bedrooms', { beds: 4 }],
+    ['bd5', '5+ bedrooms', { beds: 5 }],
   ];
   const bandCriteria = (area, p) => criteria(Object.assign({ area: area.slug }, p, { min: p.min || CFG.minPrice }));
   const sameBand = (a, b) => a.minPrice === b.minPrice && a.maxPrice === b.maxPrice && a.beds === b.beds;
+  // The tier that matches a search exactly, or the closest one when it doesn't.
+  function bandFor(c) {
+    const exact = BANDS.find(([, , p]) => sameBand(bandCriteria(c.area, p), c));
+    if (exact) return exact[0];
+    if (c.beds >= 5) return 'bd5';
+    if (c.beds >= 4) return 'bd4';
+    if (c.minPrice >= 5000000) return '5';
+    if (c.minPrice >= 3000000) return '3-5';
+    if (c.maxPrice && c.maxPrice <= 3000000) return '1.5-3';
+    return 'all';
+  }
+  const areaCfg = (area) => (CFG.areas || {})[area.slug] || {};
+  const widgetCode = (id) =>
+    `<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-${id}" src="https://${CFG.idxHost}/idx/widgets/${id}"></script>`;
 
-  function cardHtml(l) {
-    const facts = [l.beds ? `${l.beds} bd` : '', l.baths ? `${l.baths} ba` : '', l.sqft ? `${l.sqft.toLocaleString('en-US')} sq ft` : ''].filter(Boolean).join(' · ');
-    const tag = l.href ? 'a' : 'div';
-    const attrs = l.href ? ` href="${esc(l.href)}" target="_blank" rel="noopener"` : '';
-    return `<${tag} class="idx-card"${attrs}>
-      <div class="idx-card-img">${l.img ? `<img src="${esc(l.img)}" alt="${esc(l.street || 'Home for sale')}" loading="lazy" decoding="async">` : ''}${l.status ? `<span class="idx-card-tag">${esc(l.status)}</span>` : ''}</div>
-      <div class="idx-card-body">
-        <p class="idx-card-price">$${Math.round(l.price).toLocaleString('en-US')}</p>
-        ${facts ? `<p class="idx-card-facts">${esc(facts)}</p>` : ''}
-        ${l.street || l.city ? `<p class="idx-card-addr">${esc(l.street)}${l.street && l.city ? '<br>' : ''}<span>${esc(l.city)}</span></p>` : ''}
-      </div>
-    </${tag}>`;
+  // IDX Broker draws its widgets inside shadow roots; count the listing cards it rendered.
+  function countCards(el) {
+    let n = 0;
+    const walk = (node) => {
+      if (node.shadowRoot) walk(node.shadowRoot);
+      if (node.classList && node.classList.contains('idx-listing-card')) n++;
+      (node.children || []).length && Array.from(node.children).forEach(walk);
+    };
+    walk(el);
+    return n;
   }
 
-  /* host: the section. chips: container for the buttons. layout: 'carousel' | 'grid'.
-     onChange(c) runs after a button or form changes the filter. */
-  function listingFeed(host, area, embed, { layout = 'carousel', start, onChange } = {}) {
-    let current = start || criteria({ area: area.slug });
-    let listings = null;
+  /* host: the section with .idx-chips and .idx-embed. onChange(c) runs when a button changes the tier. */
+  function tierFeed(host, area, { start, onChange } = {}) {
+    const tiers = areaCfg(area).tiers || {};
     const chipsBox = host.querySelector('.idx-chips');
-    const source = host.querySelector('.idx-embed');
+    const box = host.querySelector('.idx-embed');
+    if (!chipsBox || !box) return { apply() {}, ready: () => false };
 
-    chipsBox.innerHTML = BANDS.map(([label, p]) => {
+    chipsBox.innerHTML = BANDS.map(([key, label, p]) => {
       const c = bandCriteria(area, p);
-      return `<a class="idx-chip" href="${esc(resultsHref(c))}" data-min="${c.minPrice}" data-max="${c.maxPrice}" data-beds="${c.beds}">${label}</a>`;
+      return `<a class="idx-chip" href="${esc(resultsHref(c))}" data-band="${key}">${label}</a>`;
     }).join('');
     const chips = Array.from(chipsBox.querySelectorAll('.idx-chip'));
+    if (!Object.keys(tiers).length) { box.hidden = true; return { apply() {}, ready: () => false }; }
 
-    const feed = document.createElement('div');
-    feed.className = `idx-feed idx-feed-${layout}`;
-    feed.hidden = true;
-    feed.innerHTML = `
-      <div class="idx-feed-bar"><p class="idx-count" aria-live="polite"></p>${layout === 'carousel' ? '<div class="idx-arrows"><button type="button" class="idx-arrow" data-dir="-1" aria-label="Previous homes">&larr;</button><button type="button" class="idx-arrow" data-dir="1" aria-label="More homes">&rarr;</button></div>' : ''}</div>
-      <div class="idx-track" tabindex="0" aria-label="${esc(area.name)} homes for sale"></div>
-      <div class="idx-empty" hidden></div>`;
-    chipsBox.after(feed);
-    const track = feed.querySelector('.idx-track');
-    const count = feed.querySelector('.idx-count');
-    const empty = feed.querySelector('.idx-empty');
-    feed.querySelectorAll('.idx-arrow').forEach((b) => b.addEventListener('click', () => {
-      track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth * 0.9, behavior: 'smooth' });
-    }));
+    box.hidden = false;
+    box.innerHTML = '';
+    box.classList.add('idx-tiers');
+    const panes = {};
 
-    const matches = (l, c) => l.price >= c.minPrice && (!c.maxPrice || l.price <= c.maxPrice) && (!c.beds || l.beds >= c.beds);
-
-    function render() {
+    function show(key) {
       chips.forEach((ch) => {
-        const on = sameBand(current, criteria({ min: ch.dataset.min, max: ch.dataset.max, beds: ch.dataset.beds }));
+        const on = ch.dataset.band === key;
         ch.classList.toggle('is-active', on);
         if (on) ch.setAttribute('aria-current', 'true'); else ch.removeAttribute('aria-current');
       });
-      if (!listings) return;
-      const shown = listings.filter((l) => matches(l, current));
-      track.innerHTML = shown.map(cardHtml).join('');
-      track.scrollLeft = 0;
-      track.hidden = !shown.length;
-      feed.querySelectorAll('.idx-arrow').forEach((b) => { b.hidden = shown.length < 4; });
-      const label = summary(current).replace(area.name + ' · ', '');
-      count.textContent = shown.length
-        ? `${shown.length} ${shown.length === 1 ? 'home' : 'homes'} · ${label}`
-        : `No homes · ${label}`;
-      empty.hidden = !!shown.length;
-      empty.innerHTML = `<p>No ${esc(label)} homes in ${esc(area.name)} are on the market right now. Homes in this range often sell before they're listed.</p>
-        <a class="btn btn-dark" href="/access/">Ask Jason about off-market homes</a>`;
+      Object.entries(panes).forEach(([k, p]) => { p.hidden = k !== key; });
+      if (panes[key] || !tiers[key]) return;
+      const pane = document.createElement('div');
+      pane.className = 'idx-tier';
+      pane.innerHTML = '<p class="idx-loading">Loading homes…</p><div class="idx-tier-widget"></div><div class="idx-empty" hidden></div>';
+      box.appendChild(pane);
+      panes[key] = pane;
+      const widget = pane.querySelector('.idx-tier-widget');
+      mount(widget, widgetCode(tiers[key]));
+      // Drop the loading line once homes appear; say so if this tier has none right now.
+      let tries = 0;
+      const check = () => {
+        const n = countCards(widget);
+        if (n) { pane.querySelector('.idx-loading').remove(); return; }
+        if (++tries < 24) { setTimeout(check, 500); return; }
+        pane.querySelector('.idx-loading').remove();
+        const label = BANDS.find((b) => b[0] === key)[1].replace('All homes ', '');
+        const empty = pane.querySelector('.idx-empty');
+        empty.hidden = false;
+        empty.innerHTML = `<p>No ${esc(label)} homes in ${esc(area.name)} are on the market right now. Homes in this range often sell before they're listed.</p>
+          <a class="btn btn-dark" href="/access/">Ask Jason about off-market homes</a>`;
+      };
+      setTimeout(check, 500);
     }
 
-    function apply(c) {
-      current = c;
-      render();
-      if (onChange) onChange(c);
-    }
-
+    let current = start ? bandFor(start) : 'all';
     chips.forEach((ch) => ch.addEventListener('click', (e) => {
-      if (!listings) return; // the vendor widget couldn't be read, so the link opens /search/
       e.preventDefault();
-      apply(criteria({ area: area.slug, min: ch.dataset.min, max: ch.dataset.max, beds: ch.dataset.beds }));
+      current = ch.dataset.band;
+      show(current);
+      if (onChange) onChange(bandCriteria(area, BANDS.find((b) => b[0] === current)[2]));
     }));
+    show(current);
 
-    render();
-    if (!embed) { source.hidden = true; return { apply, ready: () => false }; }
-
-    source.hidden = false;
-    source.classList.add('idx-source');
-    source.setAttribute('aria-hidden', 'true');
-    mount(source, embed);
-
-    // Read the widget once it settles, and again if it loads more listings.
-    let timer, lastKey = '';
-    const read = () => {
-      const found = readWidget(source);
-      const key = found.map((l) => l.href + l.price).join();
-      if (!found.length || key === lastKey) return;
-      lastKey = key;
-      listings = found;
-      feed.hidden = false;
-      // Hide bedroom buttons if the widget doesn't show bedrooms.
-      if (!found.some((l) => l.beds)) chips.forEach((ch) => { if (Number(ch.dataset.beds)) ch.hidden = true; });
-      render();
+    return {
+      apply(c) { current = bandFor(c); show(current); if (onChange) onChange(bandCriteria(area, BANDS.find((b) => b[0] === current)[2])); },
+      ready: () => true,
     };
-    const obs = new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(read, 400); });
-    obs.observe(source, { childList: true, subtree: true, characterData: true });
-    timer = setTimeout(read, 400); // in case the widget rendered while mounting
-    setTimeout(() => obs.disconnect(), 30000);
-    setTimeout(() => {
-      read();
-      if (listings) return;
-      // Couldn't read the listings: show the vendor widget itself.
-      source.classList.remove('idx-source');
-      source.removeAttribute('aria-hidden');
-    }, 12000);
-
-    return { apply, ready: () => !!listings };
   }
 
   /* ── Search form (home page hero, /search/ refine form) ── */
@@ -343,7 +241,7 @@
     const area = areaBy(el.dataset.area);
     const all = el.querySelector('.idx-all');
     if (all) all.href = resultsHref(criteria({ area: area.slug }));
-    listingFeed(el, area, embedFor(area), { layout: 'carousel' });
+    tierFeed(el, area);
   }
 
   /* ── /search/ page ── */
@@ -386,13 +284,16 @@
     show(c);
 
     const results = el.querySelector('[data-idx-results]');
-    const feed = listingFeed(results, area, embedFor(area), {
-      layout: 'grid',
+    const feed = tierFeed(results, area, {
       start: c,
       onChange: (next) => { c = next; show(c); history.replaceState(null, '', resultsHref(c)); },
     });
+    // The search lands on the closest tier, so show and link that tier.
+    c = bandCriteria(area, BANDS.find((b) => b[0] === bandFor(c))[2]);
+    show(c);
+    history.replaceState(null, '', resultsHref(c));
 
-    // Same area: filter in place instead of reloading.
+    // Same area: switch tiers in place instead of reloading.
     if (form) form.addEventListener('submit', (e) => {
       const next = criteria(new FormData(form));
       if (next.area.slug !== area.slug || !feed.ready()) return;
@@ -401,10 +302,12 @@
       feed.apply(next);
     }, true);
 
+    // This area's own map, limited to its zip codes or subdivisions.
     const map = el.querySelector('[data-idx-map]');
-    if (map && CFG.searchEmbed) {
+    const mapId = areaCfg(area).map;
+    if (map && mapId) {
       map.hidden = false;
-      mount(map.querySelector('.idx-embed'), CFG.searchEmbed);
+      mount(map.querySelector('.idx-embed'), widgetCode(mapId));
     }
   }
 

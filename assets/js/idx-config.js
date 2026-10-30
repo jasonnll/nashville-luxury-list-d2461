@@ -1,93 +1,56 @@
-/* IDX settings — IDX Broker (account 71686, RealTracs MLS).
+/* IDX settings — IDX Broker (account 71686, RealTracs MLS), widgets at nashvilleluxurylist.idxbroker.com.
  *
- * Widgets are managed at middleware.idxbroker.com → Design → Widgets (new widget system).
- * Every widget is set to Active, $1.5M+, newest first, with Nashville Luxury List colors.
- * Searches stay on this site: forms and links open /search/, and the price/bedroom buttons filter
- * the listings a widget shows. Set each carousel widget to show as many listings as IDX Broker
- * allows, since the buttons can only filter what the widget returns.
- * resultsUrl is IDX Broker's own results page for an area. The site doesn't link to it; it's kept
- * as the reference query each widget was built from.
+ * Every area has six carousel widgets, one per button on its listings section:
+ *   all ($1.5M+), 1.5-3 ($1.5M–$3M), 3-5 ($3M–$5M), 5 ($5M+), bd4 (4+ beds, $1.5M+), bd5 (5+ beds, $1.5M+)
+ * plus one map widget shown on /search/?area=<slug>. Clicking a button swaps carousels in place.
  *
- * Neighborhoods: zip-based for Davidson County areas, exact RealTracs subdivision names
- * for master-planned communities. When a community adds a new section/phase name in the MLS,
- * add it to that neighborhood's resultsUrl here AND to its widget's "Edit by hand query".
+ * All widgets: active listings, newest first, property types Residential + Farms + Land only
+ * (hand query pt[]=1&pt[]=6&pt[]=7), so Commercial Sale/Lease never shows. Land zoned commercial
+ * can't be filtered out in IDX Broker (RealTracs land has no sub-type).
  *
- * The site's Content-Security-Policy in netlify.toml must allow *.idxbroker.com and s3.amazonaws.com.
+ * Areas: zip codes for Davidson County neighborhoods, exact RealTracs subdivision names for
+ * master-planned communities. When a community adds a new section name in the MLS, add it to the
+ * "Edit by hand query" of that area's 6 carousels and its map (middleware.idxbroker.com → Design → Widgets,
+ * names start "NLL – <Area>").
+ *
+ * netlify.toml's Content-Security-Policy must allow *.idxbroker.com, atlas.microsoft.com (map tiles)
+ * and blob: workers, or the widgets are blocked.
  */
 (function () {
-  const IDX = 'https://nashvilleluxurylist.idxbroker.com/idx/results/listings?pt=1&lp={minPrice}&hp={maxPrice}&bd={beds}&ba={baths}';
+  const tiers = (all, b15to3, b3to5, b5, bd4, bd5) => ({ all, '1.5-3': b15to3, '3-5': b3to5, '5': b5, bd4, bd5 });
   const widget = (id) =>
     `<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-${id}" src="https://nashvilleluxurylist.idxbroker.com/idx/widgets/${id}"></script>`;
-  const sub = (names) => names.map((n) => 'a_subdivision[]=' + encodeURIComponent(n)).join('&');
-  const area = (query, widgetId) => ({ resultsUrl: IDX + '&' + query, embed: widget(widgetId) });
 
   window.NLL_IDX = {
-    // Shown in the small "Listings provided by" note.
     provider: 'RealTracs MLS via IDX Broker',
-
-    // Default price floor for every search and widget.
+    idxHost: 'nashvilleluxurylist.idxbroker.com',
     minPrice: 1500000,
 
-    // IDX Broker results page for Nashville (reference only).
-    resultsUrl: IDX + '&city[]=32035',
-
-    // Full map search on /search/ ("NLL – Map Search $1.5M+").
-    searchEmbed: widget(182416),
-
-    // "Homepage showcase" widget: the "All areas" results on /search/. (Removed from the home page;
-    // add a data-idx="showcase" block back to index.html to show it there again.)
-    // Nashville, Brentwood, Franklin, College Grove, Thompson's Station — $1.5M+, newest first.
+    // Home page showcase (only used if a data-idx="showcase" block is on the page).
     showcaseEmbed: widget(183279),
-
-    // The carousel is market-wide, so Jason's hand-built listing cards stay in front of it.
     showcaseIncludesMyListings: false,
 
-    // Per-area listings: carousel on each guide page and that area's results on /search/.
-    neighborhoods: {
-      'nashville': area('city[]=32035', 183285),
-      'brentwood': area('city[]=5494', 183286),
-      'franklin': area('city[]=16896', 183287),
-
-      'belle-meade': area('zipcode[]=37205', 183284),
-      'green-hills': area('zipcode[]=37215', 183288),
-      'forest-hills-oak-hill': area('zipcode[]=37220', 183289),
-      '12-south': area('zipcode[]=37204', 183290),
-      'east-nashville': area('zipcode[]=37206&zipcode[]=37216', 183291),
-      'sylvan-park': area('zipcode[]=37209', 183292),
-
-      'governors-club': area(sub([
-        'Governors Club', 'Governors Club Ph 9-B', 'Governors Club Ph 12',
-        'Governors Club The Ph 1', 'Governors Club The Ph 2', 'Governors Club The Ph 3',
-        'Governors Club The Ph 4', 'Governors Club The Ph 8', 'Governors Club The Ph 9A',
-      ]), 183293),
-      'annandale': area(sub([
-        'Annandale', 'Annandale Park', 'Annandale Sec 2', 'Annandale Sec 4', 'Annandale Sec 7',
-      ]), 183294),
-      'laurelbrooke': area(sub([
-        'Laurelbrooke Sec 4', 'Laurelbrooke Sec 6', 'Laurelbrooke Sec 7', 'Laurelbrooke Sec 8',
-        'Laurelbrooke Sec 11E', 'Laurelbrooke Sec 11F', 'Laurelbrooke Sec 10-B #10',
-      ]), 183295),
-      'westhaven': area(sub([
-        'Westhaven', 'Westhaven Sec 1', 'Westhaven Sec 4', 'Westhaven Sec 7', 'Westhaven Sec 11',
-        'Westhaven Sec 13', 'Westhaven Sec 14', 'Westhaven Sec 16', 'Westhaven Sec 23',
-        'Westhaven Sec 24', 'Westhaven Sec 26', 'Westhaven Section 27', 'Westhaven Sec33',
-        'Westhaven Sec 44', 'Westhaven Sec49', 'Westhaven Sec50', 'Westhaven Sec51',
-        'Westhaven Sec52', 'Westhaven Sec 58', 'Westhaven Sec63', 'Westhaven Sec66',
-      ]), 183296),
-      'leipers-fork': area(sub([
-        'Leipers Fork', 'Leipers Fork Franklin', 'Leipers Fork Village',
-      ]), 183297),
-      'legends-ridge': area(sub([
-        'Legends Ridge Sec 4-A', 'Legends Ridge Sec 7-A', 'Legends Ridge Add Sec 3',
-      ]), 183298),
-      'college-grove': area('city[]=9682', 183299),
-      'the-grove': area(sub([
-        'The Grove', 'The Grove Sec 4', 'The Grove Sec 5', 'The Grove Sec15', 'The Grove, Grove',
-        'Grove', 'Grove Sec 2', 'Grove Sec 4', 'Grove Sec 6 Ph 4', 'Grove Sec7', 'Grove Sec13', 'Grove Sec15',
-      ]), 183300),
-      'troubadour': area(sub([
-        'Troubadour Golf & Field Club', 'Troubadour Golf & Field', 'Troubadour Golf and Field Club',
-      ]), 183301),
+    // Widget ids per area: six tier carousels and the /search/ map.
+    areas: {
+    'all': { tiers: tiers(183279, 183308, 183309, 183310, 183311, 183312), map: 183403 }, // Nashville, Brentwood, Franklin, College Grove, Thompson's Station
+    'nashville': { tiers: tiers(183285, 183313, 183314, 183315, 183316, 183317), map: 183404 }, // city of Nashville
+    'brentwood': { tiers: tiers(183286, 183318, 183319, 183320, 183321, 183322), map: 183405 }, // city of Brentwood
+    'franklin': { tiers: tiers(183287, 183323, 183324, 183325, 183326, 183327), map: 183406 }, // city of Franklin
+    'belle-meade': { tiers: tiers(183284, 183328, 183329, 183330, 183331, 183332), map: 183407 }, // zip 37205
+    'green-hills': { tiers: tiers(183288, 183333, 183307, 183334, 183335, 183336), map: 183402 }, // zip 37215
+    'forest-hills-oak-hill': { tiers: tiers(183289, 183337, 183338, 183339, 183340, 183341), map: 183408 }, // zip 37220
+    '12-south': { tiers: tiers(183290, 183342, 183343, 183344, 183345, 183346), map: 183409 }, // zip 37204
+    'east-nashville': { tiers: tiers(183291, 183347, 183348, 183349, 183350, 183351), map: 183410 }, // zips 37206, 37216
+    'sylvan-park': { tiers: tiers(183292, 183352, 183353, 183354, 183355, 183356), map: 183411 }, // zip 37209
+    'governors-club': { tiers: tiers(183293, 183357, 183358, 183359, 183360, 183361), map: 183412 }, // RealTracs subdivision names (see the widget's hand query)
+    'annandale': { tiers: tiers(183294, 183362, 183363, 183364, 183365, 183366), map: 183413 }, // RealTracs subdivision names (see the widget's hand query)
+    'laurelbrooke': { tiers: tiers(183295, 183367, 183368, 183369, 183370, 183371), map: 183414 }, // RealTracs subdivision names (see the widget's hand query)
+    'westhaven': { tiers: tiers(183296, 183372, 183373, 183374, 183375, 183376), map: 183415 }, // RealTracs subdivision names (see the widget's hand query)
+    'leipers-fork': { tiers: tiers(183297, 183377, 183378, 183379, 183380, 183381), map: 183416 }, // RealTracs subdivision names (see the widget's hand query)
+    'legends-ridge': { tiers: tiers(183298, 183382, 183383, 183384, 183385, 183386), map: 183417 }, // RealTracs subdivision names (see the widget's hand query)
+    'college-grove': { tiers: tiers(183299, 183387, 183388, 183389, 183390, 183391), map: 183418 }, // city of College Grove
+    'the-grove': { tiers: tiers(183300, 183392, 183393, 183394, 183395, 183396), map: 183419 }, // RealTracs subdivision names (see the widget's hand query)
+    'troubadour': { tiers: tiers(183301, 183397, 183398, 183399, 183400, 183401), map: 183420 }, // RealTracs subdivision names (see the widget's hand query)
     },
   };
 })();
