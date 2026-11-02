@@ -504,3 +504,72 @@ a:hover { color: var(--ink); }
 /* Neighborhood hub photos */
 .ndc-photo{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--parchment)}
 .mg-photo{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:var(--parchment)}
+
+/* ---------- Section bands ----------
+   scripts/bake_site_chrome.py tags each full-width section data-band="ivory|sand|white|anchor".
+   Light bands rotate ivory → sand → white → sand, so every boundary is a visible step on a phone.
+   Navy is kept for the contact anchor; the newsletter band above the footer is hunter green. */
+:root { --band-sand: #EFE6D3; }
+section[data-band="ivory"] { background: var(--ivory) !important; }
+section[data-band="white"] { background: #FFFFFF !important; }
+section[data-band="sand"]  { background: var(--band-sand) !important; }
+section[data-band="sand"] .ap-strip, section[data-band="sand"].ap-strip { border-color: #DCCFB5; }
+
+/* Sections that used to be navy mid-page now sit in the light rotation */
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) { color: var(--charcoal); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.section-title, h3) { color: var(--ink); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .section-title em { color: var(--leather); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .eyebrow { color: var(--bronze-deep); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.ap-lede, .rl-lede, p, li, span) { color: #4A463F; }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.ap-note, .rl-note, .muted, small, time) { color: var(--taupe); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.ap-step, .ap-sales li, .rl-step, .rl-day li, .cg-day li) { border-color: var(--stone); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.ap-step .n, .rl-step .n, h3.ap-sub, .ap-sub) { color: var(--bronze-deep); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .ap-sales li b { color: var(--ink); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .ap-sales li span { color: var(--bronze-deep); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) a:not(.btn) { color: var(--bronze-deep); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .btn-gold { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .ap-outline-light { color: var(--ink) !important; border-color: var(--bronze) !important; }
+
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(div, strong, b, .bg-tags, .rl-bar-label, .rl-bar-val, .rl-callout) { color: inherit; }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.bg-tags, .rl-bar-label small, .rl-bar-val) { color: #4A463F; }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.rl-callout, .rl-panel) { background: rgba(30, 43, 64, 0.04); border-color: var(--stone); color: var(--charcoal); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .rl-bar-track { background: rgba(30, 43, 64, 0.08); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) em { color: var(--leather); }
+
+/* The home page testimonials band, also formerly dark */
+body .testimonials-section[data-band] .section-title { color: var(--ink); }
+body .testimonials-section[data-band] .testimonial-card { background: #FFFFFF; border-color: var(--stone); }
+body .testimonials-section[data-band] .testimonial-quote { color: var(--charcoal); }
+body .testimonials-section[data-band] .testimonial-name { color: var(--ink); }
+body .testimonials-section[data-band] .testimonial-role { color: var(--taupe); }
+body .testimonials-section[data-band] .testimonial-stars { color: var(--bronze); }
+body .testimonials-section[data-band] .btn-gold { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+body .testimonials-section[data-band] .btn-outline-gold { color: var(--ink); border-color: var(--bronze); }
+
+/* Inline light-on-dark colors inside those formerly dark bands */
+body :is(:is(.ap-sec, .rl-sec).dark, .testimonials-section):is([data-band="ivory"], [data-band="white"], [data-band="sand"]) [style*="color:var(--bronze-light)"] { color: var(--bronze-deep) !important; }
+body :is(:is(.ap-sec, .rl-sec).dark, .testimonials-section):is([data-band="ivory"], [data-band="white"], [data-band="sand"]) [style*="color:var(--ivory)"] { color: var(--ink) !important; }
+body :is(:is(.ap-sec, .rl-sec).dark, .testimonials-section):is([data-band="ivory"], [data-band="white"], [data-band="sand"]) [style*="color:var(--ivory-muted)"] { color: var(--taupe) !important; }
+
+/* Contact anchor on the home page ("Let's Connect"): navy, with the form card staying white */
+body .lead-capture-section[data-band="anchor"] { background: var(--ink) !important; }
+body .lead-capture-section[data-band="anchor"] .grid-2 > div:first-child :is(h2, .section-title, .section-title.light) { color: var(--ivory); }
+body .lead-capture-section[data-band="anchor"] .grid-2 > div:first-child .eyebrow { color: var(--bronze-light); }
+body .lead-capture-section[data-band="anchor"] .grid-2 > div:first-child :is(p, p[style], .trust-item, .trust-item span) { color: rgba(247, 243, 236, 0.8) !important; }
+body .lead-capture-section[data-band="anchor"] .grid-2 > div:first-child :is(a, a[style]) { color: var(--ivory) !important; }
+body .lead-capture-section[data-band="anchor"] .grid-2 > div:first-child svg { color: var(--bronze-light); }
+
+/* Newsletter anchor: hunter green */
+body .newsletter-section { background: var(--hunter); border-top: 0; }
+body .newsletter-section .eyebrow { color: var(--bronze-light); }
+body .newsletter-section .newsletter-text h2 { color: #F2EDE3; }
+body .newsletter-section .newsletter-text p, .newsletter-section .newsletter-note { color: rgba(242, 237, 227, 0.8); }
+body .newsletter-section .newsletter-form input { border-color: transparent; }
+body .newsletter-section .btn-dark { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+body .newsletter-section .btn-dark:hover { background: #FFFFFF; color: var(--ink); }
+body .newsletter-section .form-success { background: rgba(255, 255, 255, 0.08) !important; }
+body .newsletter-section .form-success :is(h3, h3[style]) { color: #F2EDE3 !important; }
+body .newsletter-section .form-success :is(p, p[style], div[style]) { color: rgba(242, 237, 227, 0.8) !important; }
+body section[data-band="sand"] .section-title em { color: var(--leather); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .bg-tags { color: var(--bronze-deep) !important; }
+body section[data-band="sand"] .section-title em[style*="color:var(--bronze)"] { color: var(--leather) !important; }

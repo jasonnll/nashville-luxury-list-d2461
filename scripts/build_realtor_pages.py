@@ -296,7 +296,7 @@ def new_page(p, data):
     if nearby:
         rec_body += f'\n    <h3 class="ap-sub" style="margin-top:2rem">{p["nearby_label"]}</h3>\n' + record_table(nearby, data)
     if active:
-        rec_body += ('\n    <h3 class="ap-sub" style="margin-top:2rem">Currently listed by Jason</h3>\n    <ul class="ap-points">'
+        rec_body += ('\n    <h3 class="ap-sub" style="margin-top:2rem">Currently listed by Jason</h3>\n    <ul class="ap-listed" style="list-style:none;margin:0;padding:0;color:#4A463F">'
                      + ''.join(f"<li>{E(a['address'])}, {E(place(a))}: {money(a['price'])} ({E(a['status'])})"
                                + (' &middot; <a href="/702-skyview-dr" style="color:var(--bronze-deep)">See the home</a>' if a['address'].startswith('702 Skyview') else '')
                                + '</li>' for a in active) + '</ul>')

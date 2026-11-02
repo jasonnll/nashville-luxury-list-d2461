@@ -20,6 +20,7 @@ import os
 import re
 import sys
 from datetime import date
+from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'node_modules', '.git', '.netlify', 'admin'}
@@ -29,8 +30,18 @@ PHONE_RAW = '16154570768'
 EMAIL = 'jason@nashvilleluxurylist.com'
 WHATSAPP = '16154570768'
 
-# Set this once the IDX property search is live; a "Search Homes" button then replaces "Get Started".
-IDX_SEARCH_URL = ''
+# The IDX property search page. When set, a "Search Homes" button replaces "Get Started" in the header,
+# and it leads the mobile menu.
+IDX_SEARCH_URL = '/search/'
+
+# Phones get a short menu: these five first, then everything else folded under "More".
+MOBILE_PRIMARY = [
+    ('/search/', 'Search Homes'),
+    ('/neighborhoods/', 'Neighborhoods'),
+    ('/sellers/', 'Sell'),
+    ('/relocation/', 'Relocate'),
+    ('/contact/', 'Contact'),
+]
 
 STATES = [('california', 'California'), ('new-york', 'New York'), ('new-jersey', 'New Jersey'),
           ('illinois', 'Illinois'), ('washington', 'Washington'), ('massachusetts', 'Massachusetts'),
@@ -225,27 +236,29 @@ def header(pg):
 
 
 def mobile_nav(pg):
-    parts = []
+    """Five primary links, then one collapsed "More" panel with the full menu (same links as desktop)."""
+    def link(h, t):
+        on = pg.is_here(h) or (h != '/' and pg.here.startswith(norm(h)))
+        return f'<a href="{h}" class="mnav-link{" active" if on else ""}"{pg.cur(h)}>{t}</a>'
+    primary = '\n        '.join(link(h, t) for h, t in MOBILE_PRIMARY)
+    groups = []
     for g in MENU:
         if not g.get('columns'):
-            parts.append(f'<a href="{g["href"]}" class="mnav-link{" active" if pg.is_here(g["href"]) else ""}"{pg.cur(g["href"])}>{g["label"]}</a>')
+            groups.append(f'\n        <p class="mnav-h">{g["label"]}</p>\n        <ul><li><a href="{g["href"]}"{pg.cur(g["href"])}>{g["label"]}</a></li></ul>')
             continue
-        is_open = pg.group_active(g)
-        body = f'<a class="mnav-overview" href="{g["href"]}"{pg.cur(g["href"])}>{g["overview"]} &rarr;</a>' + ''.join(
-            f'\n        <p class="mnav-h">{c["heading"]}</p>\n        <ul>'
-            + ''.join(f'<li><a href="{h}"{pg.cur(h)}>{t}</a></li>' for h, t, _d, _k in c['links']) + '</ul>'
-            for c in g['columns'])
-        parts.append(f'''
-      <div class="mnav-group">
-        <button type="button" class="mnav-trigger" aria-expanded="{"true" if is_open else "false"}" aria-controls="mnav-{g["id"]}">{g["label"]}{CHEV}</button>
-        <div class="mnav-panel" id="mnav-{g["id"]}"{"" if is_open else " hidden"}>{body}</div>
-      </div>''')
+        groups.append(f'\n        <p class="mnav-h">{g["label"]}</p>\n        <ul><li><a href="{g["href"]}"{pg.cur(g["href"])}>{g["overview"]}</a></li>'
+                      + ''.join(f'<li><a href="{h}"{pg.cur(h)}>{t}</a></li>' for c in g['columns'] for h, t, _d, _k in c['links']) + '</ul>')
+    primary_hrefs = {norm(h) for h, _ in MOBILE_PRIMARY}
+    more_open = not any(pg.here.startswith(h) for h in primary_hrefs) and pg.here != '/' and any(pg.group_active(g) for g in MENU)
     return f'''<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
       <button class="mobile-nav-close" type="button" aria-label="Close Menu">✕</button>
       <div class="mnav">
-        <a href="/" class="mnav-link{" active" if pg.is_here("/") else ""}">Home</a>
-        {"".join(parts)}
-        {cta("btn-lg mnav-cta")}
+        {primary}
+      <div class="mnav-group">
+        <button type="button" class="mnav-trigger" aria-expanded="{"true" if more_open else "false"}" aria-controls="mnav-more">More{CHEV}</button>
+        <div class="mnav-panel" id="mnav-more"{"" if more_open else " hidden"}><a class="mnav-overview" href="/"{pg.cur("/")}>Home &rarr;</a>{"".join(groups)}</div>
+      </div>
+        <a href="/contact/" class="btn btn-gold btn-lg mnav-cta">Get Started</a>
         <a href="tel:+{PHONE_RAW}" class="mobile-nav-phone">Call or text {PHONE}</a>
       </div>
 </nav><!-- /site-mobile-nav -->'''
@@ -375,10 +388,67 @@ def url_path(rel):
     return '/' + rel[:-len('.html')]  # pretty URLs: /foo.html is served as /foo
 
 
-def bake(html, path):
+# ── Section bands ─────────────────────────────────────────────────────────────
+# Full-width page sections alternate ivory / sand / white / sand so each one reads as distinct when
+# scrolling on a phone. The bake tags every top-level <section> with data-band="ivory|sand|white";
+# palette.css colors them. Navy is kept for the contact anchor (the closing "Next step" band, and the
+# "Let's Connect" block on the home page, tagged data-band="anchor"); the newsletter band above the
+# footer is hunter green (styled in palette.css). Mid-page sections that used to be navy join the
+# light rotation. Heroes keep their own look.
+BAND_CYCLE = ['ivory', 'sand', 'white', 'sand']
+BAND_SKIP_FILES = {'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html'}
+HERO_CLASSES = {'hero', 'ap-hero', 'page-hero', 'rl-hero', 'booking-hero'}
+ANCHOR_CLASSES = {'ap-final', 'rl-final', 'lead-capture-section'}
+NO_BAND_CLASSES = {'newsletter-section'}
+
+
+class _Sections(HTMLParser):
+    """Collects (offset, classes) for every <section> that isn't nested inside another <section>."""
+
+    def __init__(self, src):
+        super().__init__(convert_charrefs=False)
+        self.lines = [0]
+        for line in src.split('\n')[:-1]:
+            self.lines.append(self.lines[-1] + len(line) + 1)
+        self.depth, self.found = 0, []
+
+    def handle_starttag(self, tag, attrs):
+        if tag != 'section':
+            return
+        if self.depth == 0:
+            line, col = self.getpos()
+            self.found.append((self.lines[line - 1] + col, set((dict(attrs).get('class') or '').split())))
+        self.depth += 1
+
+    def handle_endtag(self, tag):
+        if tag == 'section':
+            self.depth = max(0, self.depth - 1)
+
+
+def band_sections(html):
+    html = re.sub(r'(<section)\s+data-band="[a-z]+"', r'\1', html)
+    p = _Sections(html)
+    p.feed(html)
+    marks, i = [], 0
+    for offset, classes in p.found:
+        if classes & (HERO_CLASSES | NO_BAND_CLASSES):
+            continue
+        if classes & ANCHOR_CLASSES:
+            marks.append((offset, 'anchor'))
+            continue
+        marks.append((offset, BAND_CYCLE[i % len(BAND_CYCLE)]))
+        i += 1
+    for offset, tone in reversed(marks):
+        html = html[:offset + len('<section')] + f' data-band="{tone}"' + html[offset + len('<section'):]
+    return html
+
+
+def bake(html, path, rel=''):
     pg = Page(path)
     for rx, render in REGIONS:
         html = rx.sub(lambda _m: render(pg), html, count=1)
+    if rel.replace(os.sep, '/') not in BAND_SKIP_FILES:
+        html = band_sections(html)
     return html
 
 
@@ -395,7 +465,8 @@ def main():
             if 'id="site-header"' not in src and 'id="site-footer"' not in src:
                 continue
             total += 1
-            out = bake(src, url_path(os.path.relpath(full, ROOT)))
+            rel = os.path.relpath(full, ROOT)
+            out = bake(src, url_path(rel), rel)
             if out != src:
                 with open(full, 'w', encoding='utf-8') as f:
                     f.write(out)
