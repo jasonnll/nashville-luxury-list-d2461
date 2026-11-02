@@ -121,13 +121,15 @@ a:hover { color: var(--ink); }
 .mobile-nav-phone:hover { color: var(--ink); }
 
 /* ---------- Hero (cream wash over photography, navy type) ---------- */
-.hero-bg { background: var(--parchment); }
+/* Sand wash (not ivory) so the hero reads as its own band under the ivory header */
+.hero { background: #EFE6D3; }
+.hero-bg { background: #EFE6D3; }
 .hero-overlay {
   background: linear-gradient(90deg,
-    rgba(254, 252, 248, 0.97) 0%,
-    rgba(254, 252, 248, 0.92) 40%,
-    rgba(254, 252, 248, 0.45) 68%,
-    rgba(254, 252, 248, 0) 100%);
+    rgba(239, 230, 211, 0.97) 0%,
+    rgba(239, 230, 211, 0.92) 40%,
+    rgba(239, 230, 211, 0.45) 68%,
+    rgba(239, 230, 211, 0) 100%);
 }
 .hero > .container { width: 100%; }
 .hero-content { max-width: 640px; }
@@ -149,7 +151,7 @@ a:hover { color: var(--ink); }
     display: block;
     min-height: 0;
     padding: var(--header-h) 0 3rem;
-    background: var(--ivory);
+    background: #EFE6D3;
   }
   .hero-bg {
     position: relative;
@@ -161,14 +163,15 @@ a:hover { color: var(--ink); }
 }
 
 /* ---------- Valuation bar (parchment) ---------- */
-.valuation-bar { background: var(--parchment); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
+/* Home bands alternate: ivory header → sand hero → white valuation → sand trust → ivory listings → sand → white */
+.valuation-bar { background: #FFFFFF; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
 .valuation-bar-text { color: var(--ink); }
-.valuation-bar input { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; color: var(--charcoal); }
+.valuation-bar input { background: var(--ivory); border: 1px solid var(--stone); box-shadow: none; color: var(--charcoal); }
 .valuation-bar .btn { background: var(--ink); color: var(--ivory); }
 .valuation-bar .btn:hover { background: var(--ink-soft); color: var(--ivory); }
 
 /* ---------- Trust bar (ivory, quiet small caps) ---------- */
-.trust-bar { background: var(--ivory); border-bottom: 1px solid var(--stone); }
+.trust-bar { background: #EFE6D3; border-bottom: 1px solid #DCCFB5; }
 .trust-item { color: var(--taupe); letter-spacing: 0.1em; }
 
 /* Phones: a compact two-column grid instead of five tall rows */
