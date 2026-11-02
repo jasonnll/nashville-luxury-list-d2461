@@ -85,3 +85,9 @@ body:has(.nll-wrap) #site-header{background:var(--ivory);border-bottom:1px solid
 .nll-photo figcaption{margin-top:.6rem;font-size:.85rem;color:#4A463F;line-height:1.5}
 .nll-photo figcaption span{display:block;font-size:.72rem;color:var(--taupe);margin-top:.15rem}
 .nll-photo figcaption a{color:var(--taupe)!important}
+
+/* Inset content inside colored info bands so text doesn't touch the band edges */
+.nll-guide .nll-intro,.nll-guide .nll-section{padding-left:clamp(1.25rem,4vw,2.75rem);padding-right:clamp(1.25rem,4vw,2.75rem)}
+.nll-guide .nll-section{padding-top:clamp(1.75rem,4vw,2.5rem);padding-bottom:clamp(1rem,3vw,1.75rem)}
+.nll-guide .nll-intro{padding-top:clamp(1.5rem,4vw,2.25rem);padding-bottom:clamp(.75rem,2.5vw,1.25rem)}
+.nll-guide .nll-intro p:last-child,.nll-guide .nll-section > p:last-child{margin-bottom:.75rem}
