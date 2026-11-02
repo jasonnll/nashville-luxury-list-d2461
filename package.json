@@ -1,0 +1,10 @@
+{
+  "name": "nashville-luxury-list",
+  "private": true,
+  "description": "Static site; these dependencies are only for the Netlify Functions in netlify/functions.",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.7",
+    "@netlify/functions": "^6.0.3"
+  }
+}

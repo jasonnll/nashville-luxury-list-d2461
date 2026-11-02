@@ -6,7 +6,9 @@
   # don't run JavaScript see them (scripts/bake_site_chrome.py is the one place to edit the menu/footer).
   # Then refreshes Jason's closed sales from his Compass profile (never fails the build; keeps the committed
   # record if Compass can't be reached) and rebuilds the record-backed "luxury realtor in [area]" pages from it.
-  command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_realtor_pages.py && python3 scripts/bake_site_chrome.py"
+  # Last, sets each sitemap <lastmod> to when the page really changed. After a production deploy,
+  # netlify/functions/indexnow.mts submits new and changed pages to IndexNow (Bing, Yandex and others).
+  command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_realtor_pages.py && python3 scripts/bake_site_chrome.py && python3 scripts/update_sitemap_lastmod.py"
 
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 # Old neighborhood-guide subdomain -> guides now live at /neighborhoods/<slug>/.
