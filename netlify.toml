@@ -2,7 +2,11 @@
   publish = "."
   # Turns each week's Friday Mailchimp campaign into a blog post (see the script for the rules).
   # A Zapier "campaign sent" Zap calls this site's build hook so the post goes live right away.
-  command = "python3 scripts/import-mailchimp-blog.py"
+  # Then bakes the shared header, menu and footer into every page as plain HTML, so AI crawlers that
+  # don't run JavaScript see them (scripts/bake_site_chrome.py is the one place to edit the menu/footer).
+  # Then refreshes Jason's closed sales from his Compass profile (never fails the build; keeps the committed
+  # record if Compass can't be reached) and rebuilds the record-backed "luxury realtor in [area]" pages from it.
+  command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_realtor_pages.py && python3 scripts/bake_site_chrome.py"
 
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 # Old neighborhood-guide subdomain -> guides now live at /neighborhoods/<slug>/.

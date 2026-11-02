@@ -193,10 +193,10 @@ HEAD = '''<!DOCTYPE html>
 <link rel="stylesheet" href="/assets/css/palette.css?v=20261008e">
 {jsonld}<!-- Meta Pixel -->
 <script>(window.__nll3p=window.__nll3p||[]).push('https://www.googletagmanager.com/gtag/js?id=G-W9WQYY6MS5');</script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-W9WQYY6MS5");</script>
-<script>!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];(f.__nll3p=f.__nll3p||[]).push(v)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1367479611783678');fbq('track','PageView');</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-W9WQYY6MS5");gtag("config","AW-18543435200");</script>
+<script>!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];(f.__nll3pLate=f.__nll3pLate||[]).push(v)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1367479611783678');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1367479611783678&ev=PageView&noscript=1"/></noscript>
-<script>(function(w,d){{if(w.__nll3pInit)return;w.__nll3pInit=1;var done=0;function go(){{if(done)return;done=1;(w.__nll3p||[]).forEach(function(u){{var s=d.createElement('script');s.async=true;s.src=u;d.head.appendChild(s);}});}}['pointerdown','keydown','touchstart','scroll'].forEach(function(t){{w.addEventListener(t,go,{{once:true,passive:true}});}});w.addEventListener('load',function(){{setTimeout(go,2500);}});}})(window,document);</script>
+<script>(function(w,d){{if(w.__nll3pInit)return;w.__nll3pInit=1;function add(l){{(l||[]).forEach(function(u){{var s=d.createElement('script');s.async=true;s.src=u;d.head.appendChild(s);}});}}var g=0,m=0;function google(){{if(g)return;g=1;add(w.__nll3p);}}function meta(){{if(m)return;m=1;add(w.__nll3pLate);}}function first(){{google();setTimeout(meta,3000);}}['pointerdown','keydown','touchstart','scroll'].forEach(function(t){{w.addEventListener(t,first,{{once:true,passive:true}});}});w.addEventListener('load',function(){{setTimeout(google,2500);setTimeout(meta,10000);}});}})(window,document);</script>
 </head>
 <body>
 
@@ -208,7 +208,7 @@ HEAD = '''<!DOCTYPE html>
 FOOT = '''
 <div id="site-footer"></div>
 
-<script src="/assets/js/partials.js?v=20261008e"></script>
+<script src="/assets/js/partials.js?v=20261102a"></script>
 <script src="/assets/js/main.js?v=20261008e"></script>
 </body>
 </html>
@@ -294,6 +294,22 @@ def render(built):
         with open(os.path.join(ROOT, 'blog', b['slug'], 'index.html'), 'w') as f:
             f.write(page)
 
+    render_index(built)
+    print('Imported %d posts' % len(built))
+    for b in built:
+        print('  /blog/%s/' % b['slug'])
+
+
+def render_index(built):
+    """Write blog/index.html (the post listing) in the site's agent-page template.
+
+    import-mailchimp-blog.committed_posts() re-reads this page, so every card must keep
+    <a href="/blog/SLUG/" class="blog-card-img"> and <p class="blog-card-excerpt">.
+    """
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import nll_layout as L
+
+    built = sorted(built, key=lambda b: b['date'], reverse=True)
     cards = []
     for i, b in enumerate(built):
         cls = 'blog-card featured' if i == 0 else 'blog-card'
@@ -302,7 +318,7 @@ def render(built):
         <a href="/blog/{slug}/" class="blog-card-img">{img}</a>
         <div class="blog-card-body">
           <p class="blog-card-date"><time datetime="{iso}">{date}</time></p>
-          <h2 class="blog-card-title"><a href="/blog/{slug}/">{title}</a></h2>
+          <h3 class="blog-card-title"><a href="/blog/{slug}/">{title}</a></h3>
           <p class="blog-card-excerpt">{excerpt}</p>
           <a href="/blog/{slug}/" class="blog-card-link">Read Article →</a>
         </div>
@@ -310,32 +326,66 @@ def render(built):
                            iso=b['date'].date().isoformat(), date=b['date'].strftime('%B %-d, %Y'),
                            img=responsive_img(b['cover'], b['title'], FEATURED_SIZES if i == 0 else CARD_SIZES,
                                               widths=(400, 640, 960, 1280) if i == 0 else (400, 640, 960), eager=i == 0) if b['cover'] else ''))
-    desc = 'Nashville luxury real estate insights from Jason Kloess — weekly home roundups, neighborhood guides, off-market tips and market updates.'
-    index = HEAD.format(title='Blog | Nashville Luxury Real Estate Insights | Nashville Luxury List', desc=desc,
-                        canonical=SITE + '/blog/', og_type='website', og_title='Nashville Luxury List Blog', og_image='', jsonld='')
-    index += '''
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow">The Nashville Luxury List Blog</span>
-    <h1 class="page-hero-title">Market Insights &amp; Luxury Home Roundups</h1>
-    <p style="color:rgba(255,255,255,0.75);font-size:clamp(1rem,1.6vw,1.1rem);line-height:1.75;">Weekly roundups of Middle Tennessee's finest homes, neighborhood guides and insider advice for buying and selling luxury real estate in Nashville.</p>
-  </div>
-</section>
 
-<section class="section blog-index">
+    path = '/blog/'
+    title = 'Blog | Nashville Luxury Real Estate Insights | Nashville Luxury List'
+    desc = 'Nashville luxury real estate insights from Jason Kloess — weekly home roundups, neighborhood guides, off-market tips and market updates.'
+    crumbs = [('Home', '/'), ('Blog', path)]
+    newest = built[0] if built else None
+    modified = max([b['date'].date().isoformat() for b in built] + ['2026-11-02'])
+    item_list = {'@type': 'ItemList', '@id': SITE + path + '#posts', 'name': 'Weekly Luxury List and blog posts',
+                 'itemListOrder': 'https://schema.org/ItemListOrderDescending', 'numberOfItems': len(built),
+                 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': '%s/blog/%s/' % (SITE, b['slug']),
+                                      'name': b['title']} for i, b in enumerate(built)]}
+    blog = {'@type': 'Blog', '@id': SITE + path + '#blog', 'url': SITE + path, 'name': 'Nashville Luxury List Blog',
+            'description': desc, 'inLanguage': 'en-US', 'author': L.AGENT_REF, 'publisher': {'@id': SITE + '/#brand'},
+            'blogPost': [{'@type': 'BlogPosting', 'headline': b['title'], 'url': '%s/blog/%s/' % (SITE, b['slug']),
+                          'datePublished': b['date'].isoformat()} for b in built]}
+    graph = L.graph_base(path, 'Nashville Luxury List Blog', desc, crumbs, page_type='CollectionPage',
+                         extra=[blog, item_list])
+    graph[0]['dateModified'] = modified
+    graph[0]['mainEntity'] = {'@id': SITE + path + '#blog'}
+    og_image = newest['cover'] if newest and newest['cover'] else '/assets/images/neighborhoods/belle-meade.jpg'
+
+    index = L.head(title, desc, path, og_image, graph, pixel_name='Blog')
+    index += L.hero([('Home', '/'), ('Blog', None)], 'The Weekly Luxury List &middot; Blog',
+                    'Market Insights &amp; <em>Luxury Home Roundups</em>',
+                    'Every Friday, Jason Kloess of Compass publishes the Weekly Luxury List: the most compelling $1.5M+ homes across Nashville and Williamson County, including off-market and coming-soon properties, with a short note on the market. Past issues, neighborhood guides and buying and selling advice are all here.',
+                    ['A new luxury home roundup every week',
+                     'Off-market and coming-soon homes, first',
+                     'Neighborhood guides and market notes',
+                     'Free to subscribe, unsubscribe anytime'],
+                    '/assets/images/neighborhoods/green-hills.jpg',
+                    'Want each week&rsquo;s homes before they&rsquo;re posted here? Join the list, or talk to Jason about what you&rsquo;re looking for.',
+                    updated='Updated %s &middot; By Jason Kloess, REALTOR&reg;, Compass' % (
+                        datetime.fromisoformat(modified).strftime('%B %Y')))
+    index += '''
+<section class="ap-sec blog-index" aria-labelledby="posts-h">
   <div class="container">
+    <div class="ap-head">
+      <span class="eyebrow">Newest first</span>
+      <h2 class="section-title" id="posts-h">Latest roundups &amp; articles</h2>
+    </div>
     <div class="blog-grid">
 %s
     </div>
   </div>
-</section>
-''' % '\n'.join(cards)
-    index += FOOT
+</section>''' % '\n'.join(cards)
+    index += L.section('sub-h', 'The Weekly Luxury List', 'Get each week&rsquo;s homes in your inbox', alt=True,
+                       lede='New listings, off-market opportunities and market notes from Jason, delivered every Friday. One email a week.',
+                       body='    <p><a href="/newsletter/" class="btn btn-gold btn-lg">Subscribe to the Newsletter →</a></p>')
+    index += L.section('more-h', 'Keep exploring', 'Go deeper on the market', body=L.areas([
+        ('/market-report/', 'Data', 'Monthly Market Report', 'Dated luxury data for both counties.'),
+        ('/neighborhoods/', 'Areas', 'Neighborhood Guides', 'Compare every luxury area.'),
+        ('/access/', 'Off-market', 'Off-Market Access', 'Private and pre-market homes, first.'),
+        ('/faq/', 'Answers', 'Market FAQ', 'Prices and answers by neighborhood.'),
+    ]))
+    index += L.booking('')
+    index += L.final_cta('Looking for something specific?', 'Tell Jason what you want and he&rsquo;ll send matching homes, including ones that never reach this list.')
+    index += L.COMPLIANCE
+    index += L.tail('blog')
     with open(os.path.join(ROOT, 'blog', 'index.html'), 'w') as f:
         f.write(index)
-    print('Imported %d posts' % len(built))
-    for b in built:
-        print('  /blog/%s/' % b['slug'])
 
 
 if __name__ == '__main__':
