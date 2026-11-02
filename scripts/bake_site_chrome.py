@@ -64,6 +64,7 @@ MENU = [
             L('/market-report/', 'Monthly Market Report', 'Dated luxury data for both counties'),
             L('/blog/', 'Weekly Luxury List', 'Each week’s $1.5M+ homes'),
             L('/faq/', 'Market FAQ', 'Prices and answers by neighborhood'),
+            L('/guides/', 'Free Guides', 'Buyer, seller and valuation guides'),
         ]),
     ], feature=dict(eyebrow='Weekly', title='Off-market homes, first',
                     text='Join 600+ buyers who get private and pre-market listings every week.',
@@ -133,7 +134,7 @@ FOOTER_NAV = [
     ('/home-valuation/', 'Home Valuation'), ('/sellers/compass-concierge/', 'Compass Concierge'),
     ('/market-report/', 'Monthly Market Report'), ('/country-clubs/', 'Country Clubs'),
     ('/golf-tennis/', 'Golf &amp; Tennis'), ('/blog/', 'Blog'), ('/newsletter/', 'Weekly Newsletter'),
-    ('/faq/', 'FAQ'), ('/contact/', 'Contact'),
+    ('/guides/', 'Free Guides'), ('/faq/', 'FAQ'), ('/contact/', 'Contact'),
 ]
 FOOTER_AREAS = [
     ('/nashville-luxury-realtor/', 'Nashville Luxury Realtor'), ('/brentwood-tn-luxury-realtor/', 'Brentwood TN Luxury Realtor'),
@@ -326,7 +327,7 @@ def footer(pg):
             <div class="footer-brand">
               <div style="margin-bottom:1rem;">
                 <span style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);">Nashville Luxury List</span><br>
-                <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Compass Luxury Division</span>
+                <span class="footer-sub" style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.9);">Compass Luxury Division</span>
               </div>
               <p style="font-size:0.875rem;line-height:1.75;margin:0 0 1.5rem;">Connecting discerning buyers and sellers with Nashville's most exclusive properties.</p>
               <div class="footer-social">
@@ -443,12 +444,23 @@ def band_sections(html):
     return html
 
 
+# Links that stand alone in their paragraph, list item or cell (not links inside running text) get
+# data-tap, so palette.css can give them a 44px tap height on phones.
+_STANDALONE = re.compile(r'(<(p|li|dd|td|div)\b[^>]*>\s*)<a\b(?![^>]*\bdata-tap)([^>]*>(?:(?!</?a\b).)*?</a>)(\s*</\2>)', re.S)
+
+
+def tag_standalone_links(html):
+    html = html.replace('<a data-tap ', '<a ')
+    return _STANDALONE.sub(lambda m: f'{m.group(1)}<a data-tap{m.group(3)}{m.group(4)}', html)
+
+
 def bake(html, path, rel=''):
     pg = Page(path)
     for rx, render in REGIONS:
         html = rx.sub(lambda _m: render(pg), html, count=1)
     if rel.replace(os.sep, '/') not in BAND_SKIP_FILES:
         html = band_sections(html)
+        html = tag_standalone_links(html)
     return html
 
 

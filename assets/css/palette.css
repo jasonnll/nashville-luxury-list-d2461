@@ -573,3 +573,64 @@ body .newsletter-section .form-success :is(p, p[style], div[style]) { color: rgb
 body section[data-band="sand"] .section-title em { color: var(--leather); }
 body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .bg-tags { color: var(--bronze-deep) !important; }
 body section[data-band="sand"] .section-title em[style*="color:var(--bronze)"] { color: var(--leather) !important; }
+
+/* ---------- Mobile usability ----------
+   Floors on phones: 12px for labels, eyebrows and badges; 14px for anything a buyer reads.
+   Tap targets: 44px for standalone links, buttons and form controls. */
+#site-header { transition: transform .25s ease, box-shadow .25s ease; }
+#site-header.header-hidden { transform: translateY(-100%); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { #site-header { transition: none; } }
+
+/* Testimonials: one swipeable carousel on phones and tablets */
+@media (max-width: 1024px) {
+  .testimonial-grid { display: flex !important; grid-template-columns: none !important; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; padding: 0 0 1rem; margin: 0 calc(-1 * clamp(1.25rem, 4vw, 2rem)); padding-inline: clamp(1.25rem, 4vw, 2rem); scroll-padding-inline: clamp(1.25rem, 4vw, 2rem); scrollbar-width: thin; }
+  .testimonial-grid > .testimonial-card { flex: 0 0 86%; scroll-snap-align: start; }
+}
+
+@media (max-width: 768px) {
+  /* 12px floor: labels, eyebrows, badges, small caps */
+  .site-logo .logo-sub, .footer-sub, .eyebrow, .hero-eyebrow, .listing-badge, .nll-kicker, .ap-sub, h3.ap-sub,
+  .idx-field label, .form-label, .ap-updated, .cg-card-head p, .ps-badge, .nav-col-h, .mnav-h, .faq-chevron,
+  .ap-stat small, .nll-stat-label, .nll-school-type, .bg-tags, .access-step-label, .footer-col h3 { font-size: 12px !important; }
+  /* 14px: text a buyer reads */
+  .listing-location, .listing-spec, .neighborhood-meta, .testimonial-role, .form-note, .newsletter-note, .trust-item,
+  .hero-stat-label, .agent-title, .credential, .ap-crumbs, .ap-crumbs a, .ap-note, .ap-stat span, .ap-sales li small,
+  .ap-quote figcaption, .ap-hood small, .ap-area small, .ap-area span, .ap-card-contact, .ap-card-contact a, .ap-card-contact span,
+  .nll-stat-sub, .nll-desc, .nll-school p, .nll-updated, .cg-consent, .cg-card-alt, .footer-disclaimer, .footer-legal a,
+  .idx-summary, .blog-card-meta, .blog-card-excerpt, .ap-table td, .ap-table th, .ap-table caption, .ap-faq-a,
+  .newsletter-card-sub, .ps-loc, .ps-spec, .guide-secondary-link, main small, main figcaption, main time { font-size: 14px !important; }
+  .btn-sm, .idx-go, .social-link { font-size: 14px !important; }
+
+  /* 44px tap targets */
+  .site-logo, .hamburger, .mobile-nav-close { min-height: 44px; }
+  .hamburger { min-width: 44px; justify-content: center; align-items: center; }
+  .idx-field select { min-height: 44px; font-size: 16px; }
+  .idx-search .idx-go, .btn, .btn-sm { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  .footer-links { gap: 0; }
+  .footer-links a { display: flex !important; align-items: center; min-height: 44px; padding: 0 !important; }
+  .footer-col:nth-child(2) .footer-links, .footer-col:nth-child(3) .footer-links { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; }
+  .footer-legal a, .ap-crumbs a, .guide-secondary-link, .faq-more a, .ap-card-contact a, .idx-sub a, .mnav-panel a, .mnav-overview,
+  .ap-note a, .nll-faq a, .listing-actions a, .neighborhood-card a, .ps-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .ap-crumbs { line-height: 1.2; }
+  details > summary { min-height: 44px; }
+}
+@media (max-width: 768px) {
+  a[data-tap], .ap-hood a.go, .nh-body a.go, .rl-hood .go, .blog-card-link, .blog-back, .blog-card-title a, .hero-links a,
+  .trust-item a, .nll-crumbs a, .rl-crumbs a, .idx-area, .ap-faq-a > a:only-child { display: inline-flex; align-items: center; min-height: 44px; }
+  .filter-btn, .tab-btn, .idx-area { min-height: 44px; }
+  /* 12px floor, part 2 */
+  .nll-section em, .nh-tags span, .neighborhoods dt, dt, .nll-commute-label, .cg-group h3, .ap-creds span, .rl-creds span, .rl-meta span,
+  .nll-eyebrow, .nll-pull span, .rl-table th, th, .span.tag, span.tag, .nh-group, .rl-fit h3, .mc-k, .rl-cover b, .rl-cover i,
+  .idx-areas-title, .form-label .opt, .ap-card-head p, .mobile-bar a, body .bg-tags, .relocation-num, sup { font-size: 12px !important; }
+  /* 14px, part 2 */
+  .ap-compliance p, .faqp-compliance p, .idx-note, .idx-note span, p.src, .nh-body a.go, .ap-hood a.go, .rl-hood .go, .rl-day p,
+  .rl-consent, .rl-consent a, .rl-sms, .rl-note, .rl-table caption, .rl-bar-label, .idx-fine, .nll-crumbs, .nll-crumbs a, .rl-crumbs, .rl-crumbs a,
+  .faqp-author p, .ap-sticky .btn, .idx-area, .ps-links a, .nh-body p, .rl-bar-val { font-size: 14px !important; }
+}
+@media (max-width: 768px) {
+  main p[style*="font-size:.72rem"], main p[style*="font-size:.7rem"], main p[style*="font-size:.68rem"], main span[style*="font-size:.7"] { font-size: 12px !important; }
+  .rl-steps span, .rl-step span, .rl-num, .rl-index span { font-size: 12px !important; }
+}
+@media (max-width: 768px) { .rl-toc li > span { font-size: 12px !important; } }
+@media (max-width: 768px) { body .rl-card-head p { font-size: 12px !important; } }

@@ -19,6 +19,21 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    /* Phones and tablets: hide the header while scrolling down, bring it back on any scroll up,
+       so the fixed header and the bottom action bar don't eat the screen. */
+    const compact = window.matchMedia('(max-width: 1100px)');
+    let lastY = window.scrollY, ticking = false;
+    const onDirection = () => {
+      ticking = false;
+      const y = Math.max(0, window.scrollY);
+      const keep = !compact.matches || y < 120 || document.body.classList.contains('nav-open') || header.contains(document.activeElement);
+      if (keep || y < lastY - 4) header.classList.remove('header-hidden');
+      else if (y > lastY + 4) header.classList.add('header-hidden');
+      if (Math.abs(y - lastY) > 4 || keep) lastY = y;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onDirection); } }, { passive: true });
+    header.addEventListener('focusin', () => header.classList.remove('header-hidden'));
   }
 
   /* ── MOBILE NAV ── */
