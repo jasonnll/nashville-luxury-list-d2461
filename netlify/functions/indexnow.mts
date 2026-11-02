@@ -10,13 +10,13 @@
 // retried on the next deploy.
 //
 // The key below is public by design: IndexNow checks it against the key file at the site root
-// (/7bde7100093cf3934b4172d5654f68df.txt). To rotate it, rename that file and change KEY.
+// (/39f9dcd187fa411e825c44e589a27502.txt). To rotate it, rename that file and change KEY.
 import { getStore } from '@netlify/blobs'
 import type { DeploySucceededEvent } from '@netlify/functions'
 
 const SITE = 'https://www.nashvilleluxurylist.com'
 const HOST = new URL(SITE).host
-const KEY = '7bde7100093cf3934b4172d5654f68df'
+const KEY = '39f9dcd187fa411e825c44e589a27502'
 const ENDPOINT = 'https://api.indexnow.org/indexnow'
 const MANIFEST = 'manifest'
 
