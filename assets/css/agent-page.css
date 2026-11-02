@@ -203,3 +203,14 @@ body.is-typing .ap-sticky.show{transform:translateY(110%)}
 .ap-photo figcaption a{color:var(--taupe);text-decoration:underline}
 .ap-photo-grid{display:grid;gap:1.25rem}
 @media(min-width:900px){.ap-photo-grid{grid-template-columns:repeat(3,1fr)}.ap-photo-grid .ap-photo img{aspect-ratio:4/3;max-height:none}}
+
+/* Current listing card on an area page (e.g. Green Hills: a listing, no closings yet) */
+.ap-listing{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0;background:#fff;border:1px solid var(--stone);margin:0 0 1.5rem}
+.ap-listing img{display:block;width:100%;height:100%;min-height:240px;object-fit:cover;background:var(--parchment)}
+.ap-listing > div{padding:1.6rem 1.75rem;display:flex;flex-direction:column;justify-content:center;color:var(--charcoal)}
+.ap-listing small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600}
+.ap-listing h3{font-size:1.5rem;color:var(--ink);margin:.45rem 0 .2rem}
+.ap-listing p{margin:0 0 .35rem;color:#4A463F;font-size:.95rem}
+.ap-listing .ap-listing-price{font-family:var(--font-serif);font-size:1.35rem;color:var(--ink);margin:.35rem 0 .5rem}
+.ap-listing .btn{align-self:flex-start;margin-top:.9rem}
+@media (max-width:760px){.ap-listing{grid-template-columns:1fr}.ap-listing img{min-height:0;aspect-ratio:3/2;height:auto}.ap-listing > div{padding:1.25rem}}

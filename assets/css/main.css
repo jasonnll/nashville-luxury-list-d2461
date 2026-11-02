@@ -1254,6 +1254,16 @@ select.form-control option { color: var(--text-dark); background: var(--white); 
 }
 .footer-legal a { color: rgba(255,255,255,0.5); }
 .footer-legal a:hover { color: var(--white); }
+/* Footer layout for the baked footer markup (its colors are in palette.css) */
+.site-footer-main { padding: 4rem 0 2rem; }
+.footer-wordmark { margin-bottom: 1rem; }
+.footer-name { font-family: var(--font-serif); font-size: 1.2rem; }
+.footer-sub { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.footer-brand p.footer-tagline { font-size: 0.875rem; line-height: 1.75; margin: 0 0 1.5rem; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 2rem; padding-top: 2rem; }
+.footer-success { border-radius: 8px; padding: 2rem; text-align: center; }
+.footer-success-mark { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.footer-success h3 { font-size: 1.4rem; }
 
 /* ── FLOATING CTA ── */
 .floating-cta {

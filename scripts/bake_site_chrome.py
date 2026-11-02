@@ -102,6 +102,7 @@ MENU = [
             L('/nashville-luxury-realtor/', 'Nashville Luxury Realtor', '', 'more'),
             L('/east-nashville-luxury-realtor/', 'East Nashville Luxury Realtor', '', 'more'),
             L('/12-south-luxury-realtor/', '12 South Luxury Realtor', '', 'more'),
+            L('/green-hills-luxury-realtor/', 'Green Hills Luxury Realtor', '', 'more'),
         ]),
         dict(heading='Williamson County', links=[
             L('/neighborhoods/brentwood/', 'Brentwood'), L('/neighborhoods/franklin/', 'Franklin'),
@@ -139,7 +140,8 @@ FOOTER_NAV = [
 FOOTER_AREAS = [
     ('/nashville-luxury-realtor/', 'Nashville Luxury Realtor'), ('/brentwood-tn-luxury-realtor/', 'Brentwood TN Luxury Realtor'),
     ('/franklin-tn-luxury-realtor/', 'Franklin TN Luxury Realtor'), ('/east-nashville-luxury-realtor/', 'East Nashville Luxury Realtor'),
-    ('/12-south-luxury-realtor/', '12 South Luxury Realtor'), ('/thompsons-station-tn-luxury-realtor/', 'Thompson&rsquo;s Station Luxury Realtor'),
+    ('/12-south-luxury-realtor/', '12 South Luxury Realtor'), ('/green-hills-luxury-realtor/', 'Green Hills Luxury Realtor'),
+    ('/thompsons-station-tn-luxury-realtor/', 'Thompson&rsquo;s Station Luxury Realtor'),
     ('/neighborhoods/belle-meade/', 'Belle Meade'),
     ('/neighborhoods/green-hills/', 'Green Hills'), ('/neighborhoods/forest-hills-oak-hill/', 'Forest Hills &amp; Oak Hill'),
     ('/neighborhoods/12-south/', '12 South'), ('/neighborhoods/east-nashville/', 'East Nashville'),
@@ -308,10 +310,10 @@ def footer(pg):
                   </div>
                   <p class="newsletter-note">No spam. Unsubscribe anytime. $1.5M+ properties only.</p>
                 </form>
-                <div class="form-success" style="display:none;background:rgba(22,33,43,0.08);border-radius:8px;padding:2rem;text-align:center;">
-                  <div style="font-size:2.5rem;margin-bottom:0.75rem;">✓</div>
-                  <h3 style="color:var(--navy);font-size:1.4rem;">You're on the List!</h3>
-                  <p style="color:rgba(22,33,43,0.65);">Check your inbox for a confirmation email.</p>
+                <div class="form-success footer-success" style="display:none;">
+                  <div class="footer-success-mark">✓</div>
+                  <h3>You're on the List!</h3>
+                  <p>Check your inbox for a confirmation email.</p>
                 </div>
               </div>
             </div>
@@ -321,15 +323,15 @@ def footer(pg):
     nav = '\n'.join(f'                <a href="{h}">{t}</a>' for h, t in FOOTER_NAV)
     areas = '\n'.join(f'                <a href="{h}">{t}</a>' for h, t in FOOTER_AREAS)
     return f'''<div id="site-footer">{newsletter}
-      <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:4rem 0 2rem;">
+      <footer class="site-footer-main">
         <div class="container">
           <div class="footer-grid">
             <div class="footer-brand">
-              <div style="margin-bottom:1rem;">
-                <span style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);">Nashville Luxury List</span><br>
-                <span class="footer-sub" style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.9);">Compass Luxury Division</span>
+              <div class="footer-wordmark">
+                <span class="footer-name">Nashville Luxury List</span><br>
+                <span class="footer-sub">Compass Luxury Division</span>
               </div>
-              <p style="font-size:0.875rem;line-height:1.75;margin:0 0 1.5rem;">Connecting discerning buyers and sellers with Nashville's most exclusive properties.</p>
+              <p class="footer-tagline">Connecting discerning buyers and sellers with Nashville's most exclusive properties.</p>
               <div class="footer-social">
                 <a href="https://instagram.com/nashvilleluxurylist" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
                 <a href="https://facebook.com/nashvilleluxurylist" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
@@ -359,7 +361,7 @@ def footer(pg):
               </div>
             </div>
           </div>
-          <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:2rem;">
+          <div class="footer-bottom">
             <p class="footer-disclaimer">© {date.today().year} Nashville Luxury List. Jason Kloess, REALTOR®, Compass Tennessee, LLC. License #357138. 1610 West End Ave, Suite 115, Nashville, TN 37203. All information deemed reliable but not guaranteed. Equal Housing Opportunity.</p>
             <div class="footer-legal">
               <a href="/privacy-policy/">Privacy</a>

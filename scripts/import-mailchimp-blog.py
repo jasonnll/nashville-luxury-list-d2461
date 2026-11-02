@@ -23,6 +23,11 @@ Environment:
     MAILCHIMP_LIST_ID     optional; only import campaigns sent to this audience
     MAILCHIMP_BLOG_START  optional; first send date to import (default 2026-10-09)
 
+Posts already in the repo are checked too: if any image a post uses is missing from
+assets/images/blog/<slug>/ (for example because the post page was committed without its
+image files), the images are downloaded again from that week's Mailchimp email. Image file
+names come from the email's image URLs, so the re-downloaded files match the page.
+
 If the API key is set but Mailchimp can't be reached the build fails on purpose, so the
 previous deploy (with all its posts) stays live instead of publishing a blog missing them.
 """
@@ -360,6 +365,38 @@ def update_sitemap(posts):
         f.write(xml)
 
 
+def missing_images(slug):
+    """Local blog images a committed post (or its card on /blog/) points to that aren't on disk."""
+    page = open(os.path.join(ROOT, 'blog', slug, 'index.html'), encoding='utf-8').read()
+    page += open(os.path.join(ROOT, 'blog', 'index.html'), encoding='utf-8').read()
+    refs = set(re.findall(r'/assets/images/blog/%s/([^"&\s?]+)' % re.escape(slug), page))
+    return sorted(r for r in refs if not os.path.exists(os.path.join(sq.IMG_DIR, slug, urllib.parse.unquote(r))))
+
+
+def repair_images(existing, campaigns):
+    """Re-download the images of committed newsletter posts whose image files are missing."""
+    by_title = {}
+    for c in campaigns:
+        settings = c.get('settings') or {}
+        title = re.sub(r'\*\|.*?\|\*', '', settings.get('subject_line') or settings.get('title') or '').strip().lower()
+        if title and c['sent'].weekday() == FRIDAY and not c.get('parent_campaign_id'):
+            by_title.setdefault(title, c)
+    for p in existing:
+        missing = missing_images(p['slug'])
+        if not missing:
+            continue
+        c = by_title.get(p['title'].strip().lower())
+        if not c:
+            print('  ! %s is missing %d image(s) and no matching Mailchimp campaign was found' % (p['slug'], len(missing)))
+            continue
+        content = api('/campaigns/%s/content' % c['id'], fields='html')
+        EmailCleaner(p['slug']).feed(content.get('html') or '')
+        still = missing_images(p['slug'])
+        print('  ~ restored %d of %d missing image(s) for /blog/%s/' % (len(missing) - len(still), len(missing), p['slug']))
+        for name in still:
+            print('    ! still missing: %s' % name)
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     if not API_KEY:
@@ -373,7 +410,10 @@ def main():
     texts = [sq.text_of(p['body']) for p in existing]
     weeks, new = set(), []
 
-    for c in sent_campaigns():
+    campaigns = sent_campaigns()
+    repair_images(existing, campaigns)
+
+    for c in campaigns:
         sent = c['sent']
         week = sent.isocalendar()[:2]
         settings = c.get('settings') or {}
