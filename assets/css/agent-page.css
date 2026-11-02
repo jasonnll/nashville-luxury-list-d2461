@@ -214,3 +214,12 @@ body.is-typing .ap-sticky.show{transform:translateY(110%)}
 .ap-listing .ap-listing-price{font-family:var(--font-serif);font-size:1.35rem;color:var(--ink);margin:.35rem 0 .5rem}
 .ap-listing .btn{align-self:flex-start;margin-top:.9rem}
 @media (max-width:760px){.ap-listing{grid-template-columns:1fr}.ap-listing img{min-height:0;aspect-ratio:3/2;height:auto}.ap-listing > div{padding:1.25rem}}
+
+/* Luxury designations (About page) */
+.ap-designations{display:grid;gap:1rem;margin:1.5rem 0 .6rem}
+@media(min-width:640px){.ap-designations{grid-template-columns:1fr 1fr}}
+.ap-designation{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--stone);border-top:2px solid var(--bronze);padding:1.15rem 1.25rem}
+.ap-seal{flex:0 0 64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--bronze-light);font-family:var(--font-serif);font-weight:700;font-size:.72rem;letter-spacing:.08em;box-shadow:inset 0 0 0 3px var(--ink),inset 0 0 0 4px var(--bronze-light)}
+.ap-designation h3{font-size:1.02rem;line-height:1.3;color:var(--ink);margin:0 0 .35rem}
+.ap-agent .ap-designation p{font-size:.88rem;line-height:1.55;margin:0}
+.ap-agent .ap-designation-src{font-size:.75rem;color:#6B6558;margin:0 0 .5rem}
