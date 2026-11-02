@@ -5,6 +5,7 @@ SITE = "https://www.nashvilleluxurylist.com"
 TODAY = "2026-10-27"
 CAL = "https://calendly.com/jason-nashvilleluxurylist/strategy-session"
 GA = "G-W9WQYY6MS5"
+ADS = "AW-18543435200"  # Google Ads, configured through the same (single) Google tag as GA4
 E = html.escape
 
 AGENT_REF = {"@id": f"{SITE}/#jason-kloess"}
@@ -74,11 +75,11 @@ def head(title, desc, path, og_image, graph, css=("agent-page",), og_type="websi
 {ld}
 </script>
 <script>(window.__nll3p=window.__nll3p||[]).push('https://www.googletagmanager.com/gtag/js?id={GA}');</script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","{GA}");</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","{GA}");gtag("config","{ADS}");</script>
 <!-- Meta Pixel -->
-<script>!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];(f.__nll3p=f.__nll3p||[]).push(v)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1367479611783678');fbq('track','PageView');fbq('track','ViewContent',{{content_name:'{pixel_name}'}});</script>
+<script>!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];(f.__nll3pLate=f.__nll3pLate||[]).push(v)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1367479611783678');fbq('track','PageView');fbq('track','ViewContent',{{content_name:'{pixel_name}'}});</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1367479611783678&ev=PageView&noscript=1"/></noscript>
-<script>(function(w,d){{if(w.__nll3pInit)return;w.__nll3pInit=1;var done=0;function go(){{if(done)return;done=1;(w.__nll3p||[]).forEach(function(u){{var s=d.createElement('script');s.async=true;s.src=u;d.head.appendChild(s);}});}}['pointerdown','keydown','touchstart','scroll'].forEach(function(t){{w.addEventListener(t,go,{{once:true,passive:true}});}});w.addEventListener('load',function(){{setTimeout(go,2500);}});}})(window,document);</script>
+<script>(function(w,d){{if(w.__nll3pInit)return;w.__nll3pInit=1;function add(l){{(l||[]).forEach(function(u){{var s=d.createElement('script');s.async=true;s.src=u;d.head.appendChild(s);}});}}var g=0,m=0;function google(){{if(g)return;g=1;add(w.__nll3p);}}function meta(){{if(m)return;m=1;add(w.__nll3pLate);}}function first(){{google();setTimeout(meta,3000);}}['pointerdown','keydown','touchstart','scroll'].forEach(function(t){{w.addEventListener(t,first,{{once:true,passive:true}});}});w.addEventListener('load',function(){{setTimeout(google,2500);setTimeout(meta,10000);}});}})(window,document);</script>
 </head>
 <body class="ap-has-sticky">
 
@@ -98,7 +99,7 @@ def tail(slug_event):
   <a class="btn btn-outline-gold ap-outline-light" href="tel:+16154570768" style="flex:0 0 auto" aria-label="Call Jason">Call</a>
 </nav>
 
-<script src="/assets/js/partials.js?v=20261008e"></script>
+<script src="/assets/js/partials.js?v=20261102a"></script>
 <script src="/assets/js/main.js?v=20261008e"></script>
 <script>
 (function(){{
