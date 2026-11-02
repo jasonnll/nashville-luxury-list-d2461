@@ -182,15 +182,15 @@ HEAD = '''<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#16212B">
+<meta name="theme-color" content="#F6F0E4">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{og_title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canonical}">
 {og_image}<link rel="preload" href="/assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=20261008e">
-<link rel="stylesheet" href="/assets/css/palette.css?v=20261008e">
+<link rel="stylesheet" href="/assets/css/main.css?v=20261102a">
+<link rel="stylesheet" href="/assets/css/palette.css?v=20261102b">
 {jsonld}<!-- Meta Pixel -->
 <script>(window.__nll3p=window.__nll3p||[]).push('https://www.googletagmanager.com/gtag/js?id=G-W9WQYY6MS5');</script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-W9WQYY6MS5");gtag("config","AW-18543435200");</script>

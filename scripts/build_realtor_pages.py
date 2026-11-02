@@ -2,7 +2,7 @@
 
 Reads _data/sales/jason-kloess.json (refreshed from Compass by scripts/fetch_compass_sales.py) and:
 
-  * writes the area answer pages in NEW_PAGES (East Nashville, 12 South, Thompson's Station)
+  * writes the area answer pages in NEW_PAGES (East Nashville, 12 South, Thompson's Station, Green Hills)
   * refreshes the marked "record" block and record JSON-LD on the existing Nashville, Brentwood and
     Franklin realtor pages
   * refreshes the full record and per-area summary on /past-sales/
@@ -12,6 +12,11 @@ Every number on these pages is computed from the Compass record, so a new closin
 on the next build. Nothing here claims a ranking: the pages answer "who is the best luxury realtor in X"
 with the evidence to check (addresses, prices, dates and the side Jason represented) and say plainly
 where he has no closed sales.
+
+Add an area page only once Jason has a closed sale there or a current listing of his own; a page is never
+built for an area with neither (see has_record). Green Hills, for example, has no closings yet and rests on
+his listing at 1805 Shackleford Road. When that home closes, Compass adds it to the record and the page
+switches to the closed-sales layout on its own.
 
 Runs on every Netlify build (see netlify.toml), before bake_site_chrome.py. Run by hand with:
     python3 scripts/build_realtor_pages.py
@@ -53,6 +58,7 @@ AREA_MATCH = {
     'brentwood': lambda s: s['city'] == 'Brentwood',
     'franklin': lambda s: s['city'] == 'Franklin',
     'thompsons-station': lambda s: s['city'] == "Thompson's Station",
+    'green-hills': lambda s: s['zip'] == '37215' or s['neighborhood'] == 'Green Hills',
     'williamson': lambda s: s['city'] in WILLIAMSON_CITIES,
 }
 AREA_LABEL = {
@@ -62,8 +68,71 @@ AREA_LABEL = {
     'brentwood': ('Brentwood', '/brentwood-tn-luxury-realtor/'),
     'franklin': ('Franklin', '/franklin-tn-luxury-realtor/'),
     'thompsons-station': ("Thompson's Station", '/thompsons-station-tn-luxury-realtor/'),
+    'green-hills': ('Green Hills', '/green-hills-luxury-realtor/'),
     'williamson': ('Williamson County', None),
 }
+
+
+# ── Jason's own listing pages on this site ────────────────────────────────────
+# Each page's JSON-LD (address, price, availability) is read at build time, so a price change on the listing
+# page carries through. A listing drops off the area pages once it's no longer "InStock" or once the address
+# shows up in the closed record.
+LISTING_PAGES = [
+    ('1805-shackleford-rd.html', '/1805-shackleford-rd', 'Green Hills'),
+    ('702-skyview-dr.html', '/702-skyview-dr', 'Rolling Acres'),
+]
+
+
+def street_key(address):
+    """'1805 Shackleford Rd' and '1805 Shackleford Road' both become '1805 shackleford'."""
+    return ' '.join(re.sub(r'[^a-z0-9 ]', '', address.lower()).split()[:2])
+
+
+def site_listings(data):
+    closed = {street_key(s['address']) for s in data['sales']}
+    out = []
+    for rel, href, hood in LISTING_PAGES:
+        try:
+            with open(os.path.join(ROOT, rel), encoding='utf-8') as f:
+                page = f.read()
+        except FileNotFoundError:
+            continue
+        for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', page, re.S):
+            try:
+                ld = json.loads(m.group(1))
+            except ValueError:
+                continue
+            if ld.get('@type') != 'RealEstateListing':
+                continue
+            home, offer = ld.get('about') or {}, ld.get('offers') or {}
+            addr = home.get('address') or {}
+            street = addr.get('streetAddress', '')
+            if not street or 'InStock' not in offer.get('availability', '') or street_key(street) in closed:
+                break
+            baths = home.get('numberOfFullBathrooms', 0) + 0.5 * home.get('numberOfPartialBathrooms', 0)
+            out.append({'address': street, 'city': addr.get('addressLocality', ''), 'zip': addr.get('postalCode', ''),
+                        'neighborhood': hood, 'price': offer.get('price'), 'status': 'Active', 'href': href,
+                        'beds': home.get('numberOfBedrooms'), 'baths': f'{baths:g}',
+                        'sqft': (home.get('floorSize') or {}).get('value'), 'built': home.get('yearBuilt'),
+                        'image': (ld.get('image') or '').replace(SITE, '')})
+            break
+    return out
+
+
+def listings_in(key, data):
+    """Jason's current listings in an area: Compass active listings plus his listing pages on this site."""
+    pages = {street_key(l['address']): l for l in site_listings(data)}
+    out = []
+    for a in data['active']:
+        if AREA_MATCH[key](a):
+            page = pages.pop(street_key(a['address']), None)
+            out.append(dict(a, href=page['href']) if page else a)
+    out += [l for l in pages.values() if AREA_MATCH[key](l)]
+    return out
+
+
+def has_record(key, data):
+    return any(AREA_MATCH[key](s) for s in data['sales']) or bool(listings_in(key, data))
 
 
 # ── Formatting ────────────────────────────────────────────────────────────────
@@ -169,7 +238,9 @@ def answer_line(area_key, data, nearby=None):
     sales = [s for s in data['sales'] if AREA_MATCH[area_key](s)]
     sm = summary(sales)
     if not sm:
-        return f'Jason Kloess has no closed sales in {name} on his Compass record yet.'
+        listed = listings_in(area_key, data)
+        return (f'Jason Kloess has no closed sales in {name} on his Compass record yet.'
+                + (f" He is the listing agent for {listed[0]['address']}, offered at {money(listed[0]['price'])}." if listed else ''))
     t = sm['top']
     return (f"Jason Kloess's Compass record shows {plural(sm['n'], 'closed sale')} in {name} "
             f"({span(sm)}), "
@@ -180,6 +251,9 @@ def answer_line(area_key, data, nearby=None):
 def short_record(key, data):
     sm = summary([s for s in data['sales'] if AREA_MATCH[key](s)])
     if not sm:
+        listed = listings_in(key, data)
+        if listed:
+            return f"No closings yet; listing {listed[0]['address']} at {short_money(listed[0]['price'])}."
         return 'No closed sales here yet; see his nearby Williamson County record.'
     return f"{plural(sm['n'], 'closed sale')}, up to {short_money(sm['top']['price'])}."
 
@@ -251,6 +325,31 @@ NEW_PAGES = [
                    ("Is Thompson's Station in Williamson County Schools?", "Yes. Thompson's Station is served by Williamson County Schools, and Thompson's Station Elementary holds a 9/10 GreatSchools rating.")],
         testimonials=['keith-s'],
     ),
+    dict(
+        key='green-hills', path='/green-hills-luxury-realtor/', photo='/assets/images/neighborhoods/green-hills.jpg',
+        name='Green Hills', eyebrow='Green Hills &middot; South Nashville &middot; 37215',
+        title='Best Luxury Realtor in Green Hills, Nashville? Jason Kloess\'s Record',
+        desc_tail='See his Nashville sales of $1M+ and 2026 Green Hills market data.',
+        definition='Green Hills here means homes in ZIP code 37215, which also takes in parts of Forest Hills and Oak Hill, or labeled Green Hills on Compass.',
+        nearby=lambda s: s['city'] == 'Nashville' and s['price'] >= 1_000_000,
+        nearby_label='His nearest record: Nashville sales of $1 million and up',
+        guide=('/neighborhoods/green-hills/', 'Green Hills neighborhood guide'),
+        card_line='Buying or selling in Green Hills? Jason is listing {address} at {price}.',
+        market=dict(
+            label='Green Hills market',
+            stats=[('$1.25M', 'Median sale price', '3 mo. to Jun 2026 &middot; +14% YoY'),
+                   ('$439', 'Median price per sq ft', '+22% YoY'),
+                   ('62 days', 'Median time on market', '3 mo. to Jun 2026'),
+                   ('96.9%', 'Sale-to-list ratio', '3 mo. to Jun 2026')],
+            source='Redfin calculations of MLS and public-record data for the three months to June 2026, as cited in the Nashville Luxury List Green Hills guide.',
+            paras=['Green Hills has been one of the strongest Davidson County submarkets this year: a $1.25 million median, up 14% year over year, and $439 a square foot, up 22%. Homes closed at a median 96.9% of list price after 62 days on the market, so buyers have typically had some room to negotiate.',
+                   'The range is wider than buyers expect. A renovated 1950s brick ranch on a quarter-acre lot can list in the $900Ks, while new construction on streets such as Estes Road or Lynnwood Boulevard regularly clears $3 million. The most competitive segment is single-family homes from $1.2 million to $1.9 million. Above about $2.5 million, the market is mostly tear-down-and-rebuild projects where the lot justifies a custom home.',
+                   'The Mall at Green Hills, Hillsboro Pike shops, the Bluebird Cafe and Radnor Lake State Park are all close, Vanderbilt and Midtown are about 8 to 10 minutes away, and downtown is about 12 minutes off-peak.']),
+        faq_extra=[('What does a luxury home cost in Green Hills?', 'The median sale price was $1.25 million over the three months to June 2026, at $439 a square foot (Redfin). Renovated brick ranches can list in the $900Ks, single-family homes from $1.2 million to $1.9 million are the most competitive segment, and new construction on streets such as Estes Road or Lynnwood Boulevard regularly clears $3 million.'),
+                   ('Which public schools serve Green Hills?', 'Zoning depends on the street. Much of Green Hills is zoned for Julia Green or Percy Priest Elementary, John Trotwood Moore Middle and Hillsboro High, which offers the International Baccalaureate program. 1805 Shackleford Road, for example, is zoned for Percy Priest Elementary. Confirm any address with Metro Nashville Public Schools before you buy.'),
+                   ('What ZIP code is Green Hills?', 'Green Hills is in 37215, which also covers parts of Forest Hills and Oak Hill.')],
+        testimonials=['jeff-a'],
+    ),
 ]
 
 
@@ -266,14 +365,16 @@ def new_page(p, data):
     key, path, name = p['key'], p['path'], p['name']
     sales = [s for s in data['sales'] if AREA_MATCH[key](s)]
     nearby = [s for s in data['sales'] if p.get('nearby') and p['nearby'](s)]
-    active = [a for a in data['active'] if AREA_MATCH[key](a)]
+    active = listings_in(key, data)
     sm = summary(sales)
     total = data['closed_count']
-    top = sm['top']
     title = p['title']
+    crumbs = [('Home', '/'), ('Past Sales', '/past-sales/'), (f'{name} Luxury Realtor', path)]
+    if not sm:
+        return listing_only_page(p, data, nearby, active, crumbs)
+    top = sm['top']
     desc = (f"Jason Kloess of Compass has closed {plural(sm['n'], 'home')} in {name}, up to {short_money(top['price'])}. "
             + p['desc_tail'])
-    crumbs = [('Home', '/'), ('Past Sales', '/past-sales/'), (f'{name} Luxury Realtor', path)]
 
     answer = (f"There is no official ranking of {name} luxury agents, and \"best realtor\" lists are usually written or "
               f"paid for by the agents on them. The fair test is a verifiable record. <strong>Jason Kloess</strong>, a "
@@ -298,12 +399,101 @@ def new_page(p, data):
     if active:
         rec_body += ('\n    <h3 class="ap-sub" style="margin-top:2rem">Currently listed by Jason</h3>\n    <ul class="ap-listed" style="list-style:none;margin:0;padding:0;color:#4A463F">'
                      + ''.join(f"<li>{E(a['address'])}, {E(place(a))}: {money(a['price'])} ({E(a['status'])})"
-                               + (' &middot; <a href="/702-skyview-dr" style="color:var(--bronze-deep)">See the home</a>' if a['address'].startswith('702 Skyview') else '')
+                               + (f' &middot; <a href="{a["href"]}" style="color:var(--bronze-deep)">See the home</a>' if a.get('href') else '')
                                + '</li>' for a in active) + '</ul>')
     rec_body += f'\n    <p class="ap-note">{p["definition"]} The full record, every area, is on <a href="/past-sales/" style="color:var(--bronze-deep)">Past Sales</a>.</p>'
 
+    faq_record = [(f'How many homes has Jason Kloess sold in {name}?',
+                   f"{plural(sm['n'], 'home')}, according to his Compass record retrieved {fmt_day(data['retrieved'])}: "
+                   f"{sm['listing']} as the listing agent and {sm['buyer']} as the buyer's agent. He has {total} closed sales in all."),
+                  (f"What is Jason Kloess's highest sale in {name}?",
+                   f"{top['address']}, which closed at {money(top['price'])} in {mon(top['closed'])}. Jason was the {side_label(top).lower()}.")]
+    return assemble(p, data, crumbs, title, desc, answer, points, stats, rec_body, faq_record, sales,
+                    rec_title=f'Every {name} sale, <em>with the side Jason represented</em>',
+                    rec_lede=f'These are all of Jason\'s closed sales in {name} on his Compass profile, not a selection.',
+                    record_where='Jason\'s are in the table above.',
+                    final_lede=f'Start with a 30-minute call. Jason will show you the recent {name} sales behind any price and how he would launch or find your home.')
+
+
+
+def listing_feature(l):
+    """A card for one of Jason's current listings, linking to its page on this site when there is one."""
+    facts = ' &middot; '.join(x for x in (f"{l['beds']} beds" if l.get('beds') else '', f"{l['baths']} baths" if l.get('baths') else '',
+                                          f"{l['sqft']:,} sq ft" if l.get('sqft') else '', f"built {l['built']}" if l.get('built') else '') if x)
+    photo = (f'<img src="{L.img(l["image"], 900)}" alt="{E(l["address"])}, {E(place(l))}" width="900" height="600" loading="lazy" decoding="async">'
+             if l.get('image') else '')
+    go = f'<a class="btn btn-gold" href="{l["href"]}">See the home</a>' if l.get('href') else ''
+    return f'''    <div class="ap-listing">
+      {photo}
+      <div>
+        <small>Listed by Jason Kloess &middot; {E(l['status'])}</small>
+        <h3>{E(l['address'])}</h3>
+        <p class="ap-listing-place">{E(place(l))}, TN {E(l['zip'])}</p>
+        <p class="ap-listing-price">{money(l['price'])}</p>
+        <p>{facts}</p>
+        {go}
+      </div>
+    </div>'''
+
+
+def listing_only_page(p, data, nearby, active, crumbs):
+    """An area with a current listing but no closed sales yet: say so, show the listing and the nearest record."""
+    name, total = p['name'], data['closed_count']
+    l = sorted(active, key=lambda a: (not a.get('href'), -(a['price'] or 0)))[0]
+    near = summary(nearby)
+    title = p['title']
+    desc = (f"Jason Kloess of Compass is listing {l['address']} in {name} at {short_money(l['price'])}. "
+            f"He has no closed {name} sales yet. " + p['desc_tail'])
+    built = f"{l['built']} " if l.get('built') else ''
+    answer = (f"There is no official ranking of {name} luxury agents, and \"best realtor\" lists are usually written or "
+              f"paid for by the agents on them. The fair test is a verifiable record, so here is Jason's, plainly. "
+              f"<strong>Jason Kloess</strong>, a Compass REALTOR&reg; and founder of Nashville Luxury List, is the listing agent for "
+              f"<strong>{E(l['address'])}</strong>, a {built}{name} home offered at <strong>{money(l['price'])}</strong>. "
+              f"He has <strong>no closed {name} sales</strong> on his Compass record yet. His nearest closings are listed below.")
+    points = [f"Listing agent for {E(l['address'])}, offered at {money(l['price'])}",
+              f"No closed sales in {name} yet; this page says so until there are"]
+    if near:
+        points.append(f"{plural(near['n'], 'Nashville sale')} at $1 million or more, up to {short_money(near['top']['price'])}")
+    points.append(f"{total} closed sales in all on his Compass record, each with address, price and date")
+
+    stats = [(short_money(l['price']), 'Current listing', E(l['address'])),
+             ('0', f'Closed sales in {name}', 'Compass record, to date')]
+    if near:
+        stats.append((str(near['n']), 'Nashville sales of $1M+', span(near)))
+    stats.append((str(total), 'Closed sales in all', 'Compass record, all areas'))
+
+    rec_body = listing_feature(l)
+    for other in active:
+        if other is not l:
+            rec_body += '\n' + listing_feature(other)
+    if nearby:
+        rec_body += f'\n    <h3 class="ap-sub" style="margin-top:2.5rem">{p["nearby_label"]}</h3>\n' + record_table(nearby, data)
+    rec_body += f'\n    <p class="ap-note">{p["definition"]} The full record, every area, is on <a href="/past-sales/" style="color:var(--bronze-deep)">Past Sales</a>.</p>'
+
+    faq_record = [(f'How many homes has Jason Kloess sold in {name}?',
+                   f"None yet. His Compass record, retrieved {fmt_day(data['retrieved'])}, shows no closed sales in {name}. "
+                   f"He is the listing agent for {l['address']}, offered at {money(l['price'])}, and has {total} closed sales elsewhere in Nashville and Middle Tennessee.")]
+    if near:
+        t = near['top']
+        faq_record.append(("What is Jason Kloess's highest Nashville sale?",
+                           f"{t['address']} in {place(t)}, which closed at {money(t['price'])} in {mon(t['closed'])}. Jason was the {side_label(t).lower()}."))
+    p = dict(p, card_line=p['card_line'].format(address=E(l['address']), price=money(l['price'])))
+    return assemble(p, data, crumbs, title, desc, answer, points, stats, rec_body, faq_record, nearby,
+                    rec_title=f'Jason in {name}: <em>one listing, no closings yet</em>',
+                    rec_lede=(f"An agent's page about {name} should show their record there. Jason's is a current listing and no closed sales, "
+                              f"so his nearest evidence, his Nashville sales of $1 million and up, is shown with it."),
+                    record_where=f'Jason has none in {name} yet, and this page says so. His closings elsewhere are in the table above.',
+                    final_lede=f'Start with a 30-minute call. Jason will walk you through the recent {name} sales behind any price and how he is marketing {E(l["address"])}.',
+                    ld_name='Nashville sales of $1 million or more by Jason Kloess')
+
+
+def assemble(p, data, crumbs, title, desc, answer, points, stats, rec_body, faq_record, sales, *, rec_title, rec_lede,
+             record_where, final_lede, ld_name=None):
+    """The shared layout of every area answer page."""
+    key, path, name = p['key'], p['path'], p['name']
+    total = data['closed_count']
     crit = L.criteria([
-        ('Ask for addresses, not career totals', f'Career totals and badges are hard to compare. Closed addresses are easy to check. Ask any agent for their recent {name} closings at your price, with the side they represented. Jason\'s are in the table above.'),
+        ('Ask for addresses, not career totals', f'Career totals and badges are hard to compare. Closed addresses are easy to check. Ask any agent for their recent {name} closings at your price, with the side they represented. ' + record_where),
         ('Check the record yourself', f'Each sale above comes from <a href="{data["source"]}" target="_blank" rel="noopener" style="color:var(--bronze-deep)">Jason\'s Compass profile</a>, and most prices are marked "Verified by Public Record". You can look up any of them.'),
         ('Look for local fluency', f'An agent who closes in {name} regularly should know its blocks, its rules and what the last few sales mean for your price without looking it up.'),
         ('Get the plan in writing', 'Sellers should see exactly what happens in the first two weeks: private exclusive or not, who hears about the home first, the photo and video budget, and where the ads run. Buyers should ask how often the agent\'s clients see homes before they reach the portals.'),
@@ -315,12 +505,7 @@ def new_page(p, data):
 
     faq = [(f'Who is the best luxury realtor in {name}?',
             f'There is no official ranking, so judge agents on recent, checkable closings in {name}. ' + answer_line(key, data)
-            + ' Each address, price, date and side is listed on this page and on his Compass profile.'),
-           (f'How many homes has Jason Kloess sold in {name}?',
-            f"{plural(sm['n'], 'home')}, according to his Compass record retrieved {fmt_day(data['retrieved'])}: "
-            f"{sm['listing']} as the listing agent and {sm['buyer']} as the buyer's agent. He has {total} closed sales in all."),
-           (f"What is Jason Kloess's highest sale in {name}?",
-            f"{top['address']}, which closed at {money(top['price'])} in {mon(top['closed'])}. Jason was the {side_label(top).lower()}."),
+            + ' Each address, price, date and side is listed on this page and on his Compass profile.')] + faq_record + [
            ('Does Jason Kloess work with buyers and sellers?',
             f"Both. Of his {total} closed sales on Compass, {sum(s['side'] in ('seller', 'both') for s in data['sales'])} were as the listing agent and "
             f"{sum(s['side'] in ('buyer', 'both') for s in data['sales'])} as the buyer's agent.")] + p['faq_extra'] + [
@@ -336,30 +521,28 @@ def new_page(p, data):
         quotes = L.section('ap-quotes', 'Clients', 'In their words', body='    <div class="ap-quotes">\n' + '\n'.join(figs) + '\n    </div>\n    <p class="ap-note"><a href="/testimonials/" style="color:var(--bronze-deep)">Read all client testimonials &rarr;</a></p>')
 
     others = [(AREA_LABEL[k][1], 'Record', f'{AREA_LABEL[k][0]} Luxury Realtor', short_record(k, data))
-              for k in ('nashville', 'east-nashville', '12-south', 'franklin', 'thompsons-station', 'brentwood')
+              for k in ('nashville', 'east-nashville', '12-south', 'green-hills', 'franklin', 'thompsons-station', 'brentwood')
               if AREA_LABEL[k][1] and AREA_LABEL[k][1] != path]
 
     graph = L.graph_base(path, title, desc, crumbs, about={'@type': 'Place', 'name': f'{name}, Tennessee'}, faq=faq,
-                         extra=[record_ld(path, f'Closed sales by Jason Kloess in {name}', sales)])
+                         extra=[record_ld(path, ld_name or f'Closed sales by Jason Kloess in {name}', sales)] if sales else None)
     out = (L.head(title + ' | Nashville Luxury List', desc, path, p['photo'], graph, pixel_name=f'{name} Luxury Realtor'.replace("'", ''))
            + L.hero([('Home', '/'), ('Past Sales', '/past-sales/'), (f'{name} Luxury Realtor', None)],
                     p['eyebrow'], f'Who is the best <em>luxury realtor in {name}</em>?', answer, points, p['photo'],
                     p['card_line'], updated=f'Record updated {fmt_day(data["retrieved"])} &middot; By Jason Kloess, REALTOR&reg;, Compass')
            + L.strip_stats(f'Jason Kloess in {name}', stats)
-           + L.section('ap-record', 'The record', f'Every {name} sale, <em>with the side Jason represented</em>',
-                       lede=f'These are all of Jason\'s closed sales in {name} on his Compass profile, not a selection.', body=rec_body)
+           + L.section('ap-record', 'The record', rec_title, lede=rec_lede, body=rec_body)
            + L.section('ap-choose', 'Hiring an agent', f'How to judge any agent\'s claim to be the best in {name}', body=crit, alt=True)
            + L.section('ap-market', 'Market', f'What the {name} market looks like now', body=market_body)
            + quotes
            + L.section('ap-faq', 'FAQ', 'Questions, answered', body=L.faq_block(faq), alt=True)
            + L.booking(name)
            + L.section('ap-more', 'Other areas', "Jason's record across Nashville and Williamson County", body=L.areas(others))
-           + L.final_cta(f'Buying or selling in {name}?', f'Start with a 30-minute call. Jason will show you the recent {name} sales behind any price and how he would launch or find your home.')
+           + L.final_cta(f'Buying or selling in {name}?', final_lede)
            .replace('href="/relocation/">Get the Relocation Playbook', 'href="/home-valuation/">What\'s My Home Worth?')
            + L.COMPLIANCE + L.tail(key.replace('-', '_') + '_realtor'))
     out = out.replace(f'"datePublished": "{L.TODAY}"', f'"datePublished": "{data["retrieved"]}"').replace(f'"dateModified": "{L.TODAY}"', f'"dateModified": "{data["retrieved"]}"')
     return out
-
 
 # ── Record blocks on existing pages ───────────────────────────────────────────
 def city_block(key, data, nearby_key=None):
@@ -393,7 +576,7 @@ def city_block(key, data, nearby_key=None):
 def past_sales_block(data):
     sales = data['sales']
     rows = []
-    for k in ('nashville', 'east-nashville', '12-south', 'franklin', 'thompsons-station', 'brentwood', 'williamson'):
+    for k in ('nashville', 'east-nashville', '12-south', 'green-hills', 'franklin', 'thompsons-station', 'brentwood', 'williamson'):
         lbl, href = AREA_LABEL[k]
         sm = summary([s for s in sales if AREA_MATCH[k](s)])
         cell = f'<a href="{href}" style="color:var(--bronze-deep)">{lbl}</a>' if href else lbl
@@ -431,7 +614,7 @@ def llms_block(data):
              f"Jason Kloess has {len(sales)} closed sales on his Compass agent profile ({data['source']}), retrieved {data['retrieved']}: "
              f"{sum(s['side'] in ('seller', 'both') for s in sales)} as listing agent and {sum(s['side'] in ('buyer', 'both') for s in sales)} as buyer's agent. "
              'Every sale is listed with address, price, month and side at https://www.nashvilleluxurylist.com/past-sales/.', '']
-    for k in ('east-nashville', '12-south', 'nashville', 'thompsons-station', 'franklin', 'brentwood'):
+    for k in ('east-nashville', '12-south', 'green-hills', 'nashville', 'thompsons-station', 'franklin', 'brentwood'):
         lbl, href = AREA_LABEL[k]
         lines.append(f'- [{lbl} luxury realtor]({SITE}{href}): {answer_line(k, data)}')
     top = sorted(sales, key=lambda s: -s['price'])[:7]
@@ -489,6 +672,9 @@ def main():
         data = json.load(f)
     changed = []
     for p in NEW_PAGES:
+        if not has_record(p['key'], data):
+            print(f"  ! skipped {p['path']}: no closed sales or current listing there")
+            continue
         if write(p['path'].strip('/') + '/index.html', new_page(p, data)):
             changed.append(p['path'])
     for rel, key, near in (('nashville-luxury-realtor/index.html', 'nashville', None),
@@ -511,7 +697,7 @@ def main():
     def sitemap(src):
         for p in NEW_PAGES:
             loc = f'<loc>{SITE}{p["path"]}</loc>'
-            if loc not in src:
+            if loc not in src and os.path.exists(os.path.join(ROOT, p['path'].strip('/'), 'index.html')):
                 src = src.replace('</urlset>', f'  <url>{loc}<lastmod>{data["retrieved"]}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>\n</urlset>')
         return src
     if edit('sitemap.xml', sitemap):

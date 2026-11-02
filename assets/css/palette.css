@@ -68,22 +68,25 @@ a:hover { color: var(--ink); }
 .btn-dark { background: var(--ink); color: var(--ivory); }
 .btn-dark:hover { background: var(--ink-soft); color: var(--ivory); box-shadow: none; }
 
-/* Dark contexts (navy footer, navy interior heroes, hunter testimonials, photo hovers) */
-:is(.testimonials-section, #site-footer, .neighborhood-card-hover,
+/* Dark contexts (navy footer, navy interior heroes, hunter testimonials, photo hovers).
+   The home page testimonials band is light now (it carries data-band), so it's left out with :not([data-band]);
+   otherwise the #site-footer ID in this list outranks the light-band button rules and turns the
+   "Read all client reviews" button ivory on white. */
+:is(.testimonials-section:not([data-band]), #site-footer, .neighborhood-card-hover,
     .page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero,
     .contact-hero, .blog-cta, .newsletter-hero) .btn-gold {
   background: var(--ivory); color: var(--ink); border-color: var(--ivory);
 }
-:is(.testimonials-section, #site-footer, .neighborhood-card-hover,
+:is(.testimonials-section:not([data-band]), #site-footer, .neighborhood-card-hover,
     .page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero,
     .contact-hero, .blog-cta, .newsletter-hero) .btn-gold:hover {
   background: #FFFFFF; color: var(--ink);
 }
-:is(.testimonials-section, #site-footer,
+:is(.testimonials-section:not([data-band]), #site-footer,
     .page-hero, .blog-cta) .btn-outline-gold {
   color: var(--ivory); border-color: rgba(255, 255, 255, 0.6);
 }
-:is(.testimonials-section, #site-footer,
+:is(.testimonials-section:not([data-band]), #site-footer,
     .page-hero, .blog-cta) .btn-outline-gold:hover {
   background: var(--ivory); color: var(--ink);
 }
@@ -310,17 +313,38 @@ a:hover { color: var(--ink); }
 .newsletter-form input { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
 .newsletter-form input:focus { border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
 
-/* ---------- Footer (ink, single bronze rule) ---------- */
-#site-footer { background: var(--ink); color: var(--ivory-muted); border-top: 1px solid var(--bronze); }
-.footer-grid { border-bottom-color: rgba(247, 243, 236, 0.08); }
-.footer-brand .logo-main { color: var(--ivory); }
-.footer-col h3, .footer-col h4 { color: var(--bronze-light); letter-spacing: 0.14em; }
-.footer-links a { color: var(--ivory-muted); }
-.footer-links a:hover { color: var(--ivory); }
-.social-link { border-color: rgba(247, 243, 236, 0.18); color: var(--ivory-muted); }
-.social-link:hover { color: var(--ivory); background: transparent; border-color: var(--bronze-light); }
-.footer-disclaimer { color: rgba(247, 243, 236, 0.62); }
-.footer-legal a { color: rgba(247, 243, 236, 0.66); }
+/* ---------- Footer (ink, single bronze rule) ----------
+   Every footer color lives here. The footer markup (scripts/bake_site_chrome.py) carries no inline
+   colors, so change a value below and it updates on every page. */
+:root {
+  --footer-bg:         var(--ink);
+  --footer-text:       var(--ivory-muted);          /* tagline and body copy */
+  --footer-name:       var(--ivory);                /* "Nashville Luxury List" wordmark */
+  --footer-sub:        rgba(247, 243, 236, 0.9);    /* "Compass Luxury Division" */
+  --footer-heading:    var(--bronze-light);         /* column headings */
+  --footer-link:       var(--ivory-muted);
+  --footer-link-hover: var(--ivory);
+  --footer-rule:       rgba(247, 243, 236, 0.08);   /* hairlines between footer rows */
+  --footer-border:     var(--bronze);               /* single rule along the top of the footer */
+  --footer-social:     rgba(247, 243, 236, 0.18);
+  --footer-fine-print: rgba(247, 243, 236, 0.62);   /* copyright and broker disclaimer */
+  --footer-legal:      rgba(247, 243, 236, 0.66);
+}
+#site-footer { background: var(--parchment); color: var(--footer-text); border-top: 0; } /* navy lives on the inner <footer>; no navy strip above the newsletter band */
+#site-footer > footer, .site-footer-main { background: var(--footer-bg); color: var(--footer-text); border-top: 1px solid var(--footer-border); }
+.footer-grid { border-bottom-color: var(--footer-rule); }
+.footer-bottom { border-top-color: var(--footer-rule); }
+.footer-brand .logo-main, .footer-name { color: var(--footer-name); }
+.footer-sub { color: var(--footer-sub); }
+.footer-tagline { color: var(--footer-text); }
+.footer-col h3, .footer-col h4 { color: var(--footer-heading); letter-spacing: 0.14em; }
+.footer-links a { color: var(--footer-link); }
+.footer-links a:hover { color: var(--footer-link-hover); }
+.social-link { border-color: var(--footer-social); color: var(--footer-link); }
+.social-link:hover { color: var(--footer-link-hover); background: transparent; border-color: var(--footer-heading); }
+.footer-disclaimer { color: var(--footer-fine-print); }
+.footer-legal a { color: var(--footer-legal); }
+.footer-legal a:hover { color: var(--footer-link-hover); }
 
 /* ---------- Floating contact buttons ---------- */
 .fcta-phone { background: var(--ink); color: var(--ivory); box-shadow: 0 0 0 1px rgba(247, 243, 236, 0.3), var(--shadow-lg); }
@@ -382,9 +406,6 @@ a:hover { color: var(--ink); }
 .newsletter-benefits li span { color: var(--bronze-light); }
 .newsletter-lede { color: rgba(247, 243, 236, 0.8); }
 
-/* Bronze rule sits on the footer itself, not above the newsletter band */
-#site-footer { border-top: 0; background: var(--parchment); } /* navy lives on the inner <footer>; no navy strip above the newsletter band */
-#site-footer > footer { border-top: 1px solid var(--bronze); }
 
 /* Blog: back link and meta on the ink hero */
 .blog-back { color: var(--bronze-light); }
@@ -544,7 +565,8 @@ body .testimonials-section[data-band] .testimonial-name { color: var(--ink); }
 body .testimonials-section[data-band] .testimonial-role { color: var(--taupe); }
 body .testimonials-section[data-band] .testimonial-stars { color: var(--bronze); }
 body .testimonials-section[data-band] .btn-gold { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
-body .testimonials-section[data-band] .btn-outline-gold { color: var(--ink); border-color: var(--bronze); }
+body .testimonials-section[data-band] .btn-outline-gold { color: var(--ink); border-color: var(--ink); background: transparent; }
+body .testimonials-section[data-band] .btn-outline-gold:hover { background: var(--ink); color: var(--ivory); }
 
 /* Inline light-on-dark colors inside those formerly dark bands */
 body :is(:is(.ap-sec, .rl-sec).dark, .testimonials-section):is([data-band="ivory"], [data-band="white"], [data-band="sand"]) [style*="color:var(--bronze-light)"] { color: var(--bronze-deep) !important; }
@@ -567,9 +589,9 @@ body .newsletter-section .newsletter-text p, .newsletter-section .newsletter-not
 body .newsletter-section .newsletter-form input { border-color: transparent; }
 body .newsletter-section .btn-dark { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 body .newsletter-section .btn-dark:hover { background: #FFFFFF; color: var(--ink); }
-body .newsletter-section .form-success { background: rgba(255, 255, 255, 0.08) !important; }
-body .newsletter-section .form-success :is(h3, h3[style]) { color: #F2EDE3 !important; }
-body .newsletter-section .form-success :is(p, p[style], div[style]) { color: rgba(242, 237, 227, 0.8) !important; }
+body .newsletter-section .form-success { background: rgba(255, 255, 255, 0.08); }
+body .newsletter-section .form-success h3 { color: #F2EDE3; }
+body .newsletter-section .form-success :is(p, .footer-success-mark) { color: rgba(242, 237, 227, 0.8); }
 body section[data-band="sand"] .section-title em { color: var(--leather); }
 body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .bg-tags { color: var(--bronze-deep) !important; }
 body section[data-band="sand"] .section-title em[style*="color:var(--bronze)"] { color: var(--leather) !important; }
@@ -634,3 +656,11 @@ body section[data-band="sand"] .section-title em[style*="color:var(--bronze)"] {
 }
 @media (max-width: 768px) { .rl-toc li > span { font-size: 12px !important; } }
 @media (max-width: 768px) { body .rl-card-head p { font-size: 12px !important; } }
+
+/* FAQ page: each answer section sits on its own colored band inside the reading column, so inset the
+   text from the band's edges (same spacing as the neighborhood guides). */
+.faqp section[data-band] {
+  padding-left: clamp(1.25rem, 4vw, 2.75rem);
+  padding-right: clamp(1.25rem, 4vw, 2.75rem);
+  padding-bottom: clamp(1.5rem, 4vw, 2.25rem);
+}

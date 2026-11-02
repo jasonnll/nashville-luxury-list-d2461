@@ -40,7 +40,7 @@ def head(title, desc, path, og_image, graph, css=("agent-page",), og_type="websi
     title, desc = html.unescape(title), html.unescape(desc)
     if len(title) > 65 and title.endswith(" | Nashville Luxury List"):
         title = title[: -len(" | Nashville Luxury List")]
-    css_links = "\n".join(f'<link rel="stylesheet" href="/assets/css/{c}.css?v=20261027c">' for c in css)
+    css_links = "\n".join(f'<link rel="stylesheet" href="/assets/css/{c}.css?v=20261102a">' for c in css)
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=1)
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -53,7 +53,7 @@ def head(title, desc, path, og_image, graph, css=("agent-page",), og_type="websi
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
 <meta name="description" content="{E(desc)}">
-<meta name="theme-color" content="#16212B">
+<meta name="theme-color" content="#F6F0E4">
 <meta name="author" content="Jason Kloess">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="{url}">
@@ -68,8 +68,8 @@ def head(title, desc, path, og_image, graph, css=("agent-page",), og_type="websi
 <meta name="twitter:description" content="{E(desc)}">
 <meta name="twitter:image" content="{SITE + og_image}">
 <link rel="preload" href="/assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=20261008e">
-<link rel="stylesheet" href="/assets/css/palette.css?v=20261008e">
+<link rel="stylesheet" href="/assets/css/main.css?v=20261102a">
+<link rel="stylesheet" href="/assets/css/palette.css?v=20261102b">
 {css_links}
 <script type="application/ld+json">
 {ld}
