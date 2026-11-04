@@ -56,7 +56,7 @@ MENU = [
     dict(id='about', label='About', href='/about/', overview='About Nashville Luxury List', columns=[
         dict(heading='Nashville Luxury List', links=[
             L('/about/why-nashville-luxury-list/', 'Why Nashville Luxury List', 'Luxury homes, estates and off-market listings'),
-            L('/about/', 'Meet Jason Kloess', 'Compass REALTOR&reg;, 6+ years in Middle Tennessee'),
+            L('/about/', 'Meet Jason Kloess', 'Compass REALTOR&reg;, 7+ years in Middle Tennessee'),
             L('/testimonials/', 'Client Testimonials', 'In their words'),
             L('/past-sales/', 'Past Sales &amp; Active Listings', 'Closed sales and homes on the market now'),
         ]),

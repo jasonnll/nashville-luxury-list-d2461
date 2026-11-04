@@ -100,7 +100,7 @@ def tail(slug_event):
 </nav>
 
 <script src="/assets/js/partials.js?v=20261102a"></script>
-<script src="/assets/js/main.js?v=20261008e"></script>
+<script src="/assets/js/main.js?v=20261104a"></script>
 <script>
 (function(){{
   var book=document.getElementById('book-call'),calLoaded=false;

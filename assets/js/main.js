@@ -187,27 +187,6 @@
     });
   });
 
-  /* ── COUNTER ANIMATION ── */
-  if ('IntersectionObserver' in window) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el = e.target;
-        const target = parseInt(el.dataset.target, 10);
-        const prefix = el.dataset.prefix || '';
-        const suffix = el.dataset.suffix || '';
-        const start = performance.now();
-        const tick = (now) => {
-          const p = Math.min((now - start) / 1600, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = prefix + Math.round(eased * target).toLocaleString() + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        cio.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-target]').forEach(el => cio.observe(el));
-  }
+  /* Stats render as static final numbers (no count-up animation). */
 
 })();

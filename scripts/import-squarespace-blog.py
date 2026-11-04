@@ -209,7 +209,7 @@ FOOT = '''
 <div id="site-footer"></div>
 
 <script src="/assets/js/partials.js?v=20261102a"></script>
-<script src="/assets/js/main.js?v=20261008e"></script>
+<script src="/assets/js/main.js?v=20261104a"></script>
 </body>
 </html>
 '''
