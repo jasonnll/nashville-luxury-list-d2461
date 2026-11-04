@@ -137,6 +137,26 @@ a:hover { color: var(--ink); }
     rgba(236, 225, 204, 0.28) 64%,
     rgba(236, 225, 204, 0) 100%);
 }
+/* A see-through cream over green grass mixes to olive. Where supported, strip the photo's colour
+   behind the text first (fading out toward the house), then lay the cream on top, so the wash stays
+   a true warm cream while the photo stays visible and in full colour on the right. */
+@supports ((backdrop-filter: grayscale(1)) or (-webkit-backdrop-filter: grayscale(1))) {
+  .hero-overlay { background: none; }
+  .hero-overlay::before, .hero-overlay::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+  .hero-overlay::before {
+    -webkit-backdrop-filter: grayscale(1) sepia(0.35) brightness(1.08);
+    backdrop-filter: grayscale(1) sepia(0.35) brightness(1.08);
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 40%, rgba(0, 0, 0, 0.45) 60%, transparent 76%);
+    mask-image: linear-gradient(90deg, #000 0%, #000 40%, rgba(0, 0, 0, 0.45) 60%, transparent 76%);
+  }
+  .hero-overlay::after {
+    background: linear-gradient(90deg,
+      rgba(236, 225, 204, 0.8) 0%,
+      rgba(236, 225, 204, 0.66) 38%,
+      rgba(236, 225, 204, 0.24) 64%,
+      rgba(236, 225, 204, 0) 100%);
+  }
+}
 /* Soft cream halo behind hero type so it stays crisp over the lighter wash */
 .hero-eyebrow, .hero h1, .hero-description, .hero-links, .hero-stat-value, .hero-stat-label {
   text-shadow: 0 0 18px rgba(236, 225, 204, 0.9), 0 0 2px rgba(236, 225, 204, 0.6);
