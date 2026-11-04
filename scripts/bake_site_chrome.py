@@ -16,6 +16,8 @@ and the off-market popup.
 
 Edit the menu or footer here, then run:  python3 scripts/bake_site_chrome.py
 """
+import html as htmllib
+import json
 import os
 import re
 import sys
@@ -402,7 +404,7 @@ BAND_CYCLE = ['ivory', 'sand', 'white', 'sand']
 BAND_SKIP_FILES = {'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html'}
 HERO_CLASSES = {'hero', 'ap-hero', 'page-hero', 'rl-hero', 'booking-hero'}
 ANCHOR_CLASSES = {'ap-final', 'rl-final', 'lead-capture-section'}
-NO_BAND_CLASSES = {'newsletter-section'}
+NO_BAND_CLASSES = {'newsletter-section', 'stats-bar'}  # stats-bar: navy strip under the home hero
 
 
 class _Sections(HTMLParser):
@@ -456,6 +458,64 @@ def tag_standalone_links(html):
     return _STANDALONE.sub(lambda m: f'{m.group(1)}<a data-tap{m.group(3)}{m.group(4)}', html)
 
 
+# ── Structured data safety net ────────────────────────────────────────────────
+# Every page must carry schema.org JSON-LD in its raw HTML so search engines and AI agents that
+# fetch the page without running JavaScript can read it. Most pages ship their own, richer block.
+# Any page without one gets a baseline WebPage graph here, built from its <title>, meta
+# description and canonical URL, plus an FAQPage when the page has .faq-item questions.
+SITE = 'https://www.nashvilleluxurylist.com/'
+_LD_RX = re.compile(r'<script[^>]+type=["\']application/ld\+json["\']', re.I)
+_FAQ_RX = re.compile(r'<button class="faq-question"[^>]*>(.*?)<span[^>]*faq-chevron.*?</button>\s*'
+                     r'<div class="faq-answer">(.*?)</div>', re.S)
+
+
+def _text(fragment):
+    return re.sub(r'\s+', ' ', htmllib.unescape(re.sub(r'<[^>]+>', ' ', fragment))).strip()
+
+
+def _meta(src, rx):
+    m = re.search(rx, src, re.I | re.S)
+    return _text(m.group(1)) if m else ''
+
+
+def ensure_jsonld(src):
+    if _LD_RX.search(src) or not re.search(r'</head>', src, re.I):
+        return src
+    title = _meta(src, r'<title[^>]*>(.*?)</title>')
+    desc = _meta(src, r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']*)')
+    url = _meta(src, r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)') or SITE
+    name = re.split(r'\s+[|·]\s+', title)[0] if title else 'Nashville Luxury List'
+    page = {'@type': 'WebPage', '@id': url + '#webpage', 'url': url, 'name': title or name,
+            'isPartOf': {'@id': SITE + '#website'}, 'about': {'@id': SITE + '#jason-kloess'},
+            'publisher': {'@id': SITE + '#brand'}, 'inLanguage': 'en-US'}
+    if desc:
+        page['description'] = desc
+    graph = [
+        page,
+        {'@type': 'WebSite', '@id': SITE + '#website', 'url': SITE, 'name': 'Nashville Luxury List',
+         'publisher': {'@id': SITE + '#brand'}},
+        {'@type': 'Organization', '@id': SITE + '#brand', 'name': 'Nashville Luxury List', 'url': SITE,
+         'email': EMAIL, 'founder': {'@id': SITE + '#jason-kloess'}},
+        {'@type': 'RealEstateAgent', '@id': SITE + '#jason-kloess', 'name': 'Jason Kloess', 'url': SITE,
+         'image': SITE + 'assets/images/jason-kloess.jpg', 'telephone': '+1-' + PHONE, 'email': EMAIL,
+         'priceRange': '$1,500,000+', 'brand': {'@id': SITE + '#brand'},
+         'parentOrganization': {'@type': 'RealEstateAgent', 'name': 'Compass RE', 'url': 'https://www.compass.com/'},
+         'address': {'@type': 'PostalAddress', 'streetAddress': '1610 West End Ave, Suite 115',
+                     'addressLocality': 'Nashville', 'addressRegion': 'TN', 'postalCode': '37203', 'addressCountry': 'US'}},
+    ]
+    if url.startswith(SITE) and url != SITE:
+        graph.append({'@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE},
+            {'@type': 'ListItem', 'position': 2, 'name': name, 'item': url}]})
+    faqs = [(_text(q), _text(a)) for q, a in _FAQ_RX.findall(src)]
+    if faqs:
+        graph.append({'@type': 'FAQPage', '@id': url + '#faq', 'mainEntity': [
+            {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faqs]})
+    block = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('</', '<\\/')
+    tag = '<script type="application/ld+json" data-ld="baseline">' + block + '</script>\n'
+    return re.sub(r'</head>', lambda _m: tag + '</head>', src, count=1, flags=re.I)
+
+
 def bake(html, path, rel=''):
     pg = Page(path)
     for rx, render in REGIONS:
@@ -467,7 +527,7 @@ def bake(html, path, rel=''):
 
 
 def main():
-    changed = total = 0
+    changed = total = ld_added = 0
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith('.')]
         for name in filenames:
@@ -476,16 +536,20 @@ def main():
             full = os.path.join(dirpath, name)
             with open(full, encoding='utf-8') as f:
                 src = f.read()
-            if 'id="site-header"' not in src and 'id="site-footer"' not in src:
-                continue
-            total += 1
-            rel = os.path.relpath(full, ROOT)
-            out = bake(src, url_path(rel), rel)
+            out = ensure_jsonld(src)
+            if out != src:
+                ld_added += 1
+            if 'id="site-header"' in out or 'id="site-footer"' in out:
+                total += 1
+                rel = os.path.relpath(full, ROOT)
+                out = bake(out, url_path(rel), rel)
             if out != src:
                 with open(full, 'w', encoding='utf-8') as f:
                     f.write(out)
                 changed += 1
     print(f'Site header/footer baked into {total} pages ({changed} updated).')
+    if ld_added:
+        print(f'Added baseline JSON-LD structured data to {ld_added} page(s) that had none.')
 
 
 if __name__ == '__main__':

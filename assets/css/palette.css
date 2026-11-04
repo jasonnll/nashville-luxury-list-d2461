@@ -768,3 +768,73 @@ body .newsletter-section { box-shadow: inset 0 1px 0 rgba(216, 197, 154, 0.35); 
 .form-control:focus, .newsletter-form input:focus { box-shadow: 0 0 0 1px var(--bronze); }
 
 ::selection { background: var(--ink); color: var(--ivory); }
+
+/* ---------- Home: stats bar under the hero (navy strip, brass hairlines) ---------- */
+/* Shorter hero on desktop so the stats bar peeks above the fold */
+@media (min-width: 769px) {
+  .hero:has(+ .stats-bar) { min-height: calc(100svh - 7.5rem); }
+}
+.stats-bar {
+  background: var(--ink);
+  border-top: 1px solid rgba(216, 197, 154, 0.45);
+  border-bottom: 1px solid rgba(216, 197, 154, 0.45);
+  box-shadow: inset 0 4px 0 -3px rgba(216, 197, 154, 0.25), inset 0 -4px 0 -3px rgba(216, 197, 154, 0.25);
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+}
+.stats-bar-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stats-bar-item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 0.55rem; padding: 0.25rem 1rem;
+}
+.stats-bar-item + .stats-bar-item { border-left: 1px solid rgba(216, 197, 154, 0.3); }
+.stats-bar-value {
+  font-family: var(--font-serif); font-weight: 400; line-height: 1;
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem); color: var(--ivory); letter-spacing: 0.01em;
+}
+.stats-bar-label {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bronze-light);
+}
+@media (max-width: 640px) {
+  .stats-bar-list { grid-template-columns: 1fr 1fr; row-gap: 1.75rem; }
+  .stats-bar-item:nth-child(3) { border-left: 0; }
+}
+
+/* ---------- Home: off-market homes ---------- */
+.off-market-lede { color: #4A463F; margin-top: 0.75rem; max-width: 34rem; }
+.off-market-note { text-align: center; margin-top: 2.5rem; font-size: 0.9rem; color: var(--taupe); }
+.off-market-note a { color: var(--bronze-deep); text-decoration: underline; text-underline-offset: 3px; }
+.off-market-section .listing-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Home: about (editorial portrait + letter) ---------- */
+.home-about-grid {
+  display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem); align-items: center; max-width: 1180px; margin: 0 auto;
+}
+.home-about-photo { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--stone); }
+.home-about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
+.home-about-text { max-width: 600px; }
+.home-about-title {
+  font-family: var(--font-serif); font-weight: 400; color: var(--ink);
+  font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.14; letter-spacing: -0.005em; margin: 0 0 1.75rem;
+}
+.home-about-body { font-family: var(--font-serif); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.65; color: #2E2B26; margin: 0 0 2rem; }
+.home-about-sig { font-family: var(--font-serif); font-style: italic; font-size: 1.6rem; color: var(--ink); margin: 0; line-height: 1.2; }
+.home-about-role { font-size: 0.92rem; color: var(--taupe); margin: 0.35rem 0 0; }
+.home-about-stats {
+  list-style: none; margin: 2rem 0 0; padding: 2rem 0 0; border-top: 1px solid var(--stone);
+  display: flex; flex-wrap: wrap; gap: 1.5rem clamp(2rem, 5vw, 4rem);
+}
+.home-about-stats li { font-size: 0.92rem; color: var(--taupe); line-height: 1.3; }
+.home-about-stats span { display: block; font-family: var(--font-serif); font-size: clamp(1.9rem, 2.8vw, 2.4rem); color: var(--ink); line-height: 1.1; margin-bottom: 0.2rem; }
+.home-about-link {
+  display: inline-block; margin-top: 2rem; padding-bottom: 3px;
+  color: var(--bronze-deep); font-weight: 500; text-decoration: none; border-bottom: 1px solid currentColor;
+}
+.home-about-link:hover { color: var(--leather); }
+@media (max-width: 768px) {
+  .home-about-grid { grid-template-columns: 1fr; }
+  .home-about-photo { max-width: 460px; }
+}
