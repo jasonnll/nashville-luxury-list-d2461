@@ -1,18 +1,20 @@
-"""Bakes the shared site header, mobile menu, floating contact buttons and footer into every page.
+"""Bakes the shared site header (with its Menu panel), phone call bar and footer into every page.
 
 This is the single source of the site menu and footer. It runs on every Netlify build (after the
 Mailchimp blog import, see netlify.toml) and fills these placeholders in each HTML file:
 
     <header id="site-header"></header>
-    <nav id="mobile-nav" class="mobile-nav"></nav>
-    <div id="floating-cta" class="floating-cta"></div>
+    <div id="floating-cta" class="floating-cta"></div>   (becomes the phone call bar)
     <div id="site-footer"></div>
+
+Already-baked pages are recognised by their newer ids (nll-top, nll-callbar, nll-foot). An old
+<nav id="mobile-nav"> placeholder is removed: the header's own Menu panel replaces it.
+The chrome is styled by /assets/css/chrome.css, which bake() links on every page it touches.
 
 Baked regions end with a <!-- /site-... --> marker, so running it again replaces them in place.
 Because the links are plain HTML, crawlers that don't run JavaScript (GPTBot, ClaudeBot,
 PerplexityBot) see the full menu, footer, contact block and broker disclosure.
-/assets/js/partials.js only adds behavior: dropdowns, the mobile accordion, the phone action bar
-and the off-market popup.
+/assets/js/partials.js adds the off-market popup; main.js submits the footer signup form.
 
 Edit the menu or footer here, then run:  python3 scripts/bake_site_chrome.py
 """
@@ -31,127 +33,52 @@ PHONE = '615-457-0768'
 PHONE_RAW = '16154570768'
 EMAIL = 'jason@nashvilleluxurylist.com'
 
-# The IDX property search page. When set, a "Search Homes" button replaces "Get Started" in the header,
-# and it leads the mobile menu.
-IDX_SEARCH_URL = '/search/'
 
-# Phones get a short menu: these five first, then everything else folded under "More".
-MOBILE_PRIMARY = [
-    ('/search/', 'Search Homes'),
+# ── Site chrome (2026 redesign) ───────────────────────────────────────────────
+# Styles live in /assets/css/chrome.css, which bake() links on every page.
+CHROME_CSS = '/assets/css/chrome.css?v=20261104r'
+SANS_FONT = '/assets/fonts/albert-sans-latin-wght-normal.woff2'
+
+# Desktop header links (left to right). The "Join the List" button follows them.
+NAV = [
+    ('/search/', 'Homes for sale'),
     ('/neighborhoods/', 'Neighborhoods'),
-    ('/sellers/', 'Sell'),
-    ('/relocation/', 'Relocate'),
-    ('/contact/', 'Contact'),
+    ('/sellers/', 'Selling'),
+    ('/relocation/', 'Moving here'),
+    ('/market-report/', 'Market report'),
+    ('/about/', 'Jason'),
 ]
 
-STATES = [('california', 'California'), ('new-york', 'New York'), ('new-jersey', 'New Jersey'),
-          ('illinois', 'Illinois'), ('washington', 'Washington'), ('massachusetts', 'Massachusetts'),
-          ('florida', 'Florida'), ('texas', 'Texas')]
-
-
-def L(href, title, desc='', kind=''):
-    return (href, title, desc, kind)
-
-
+# The "Menu" panel (tablets and phones): every key page, grouped.
 MENU = [
-    dict(id='about', label='About', href='/about/', overview='About Nashville Luxury List', columns=[
-        dict(heading='Nashville Luxury List', links=[
-            L('/about/why-nashville-luxury-list/', 'Why Nashville Luxury List', 'Luxury homes, estates and off-market listings'),
-            L('/about/', 'Meet Jason Kloess', 'Compass REALTOR&reg;, 7+ years in Middle Tennessee'),
-            L('/testimonials/', 'Client Testimonials', 'In their words'),
-            L('/past-sales/', 'Past Sales &amp; Active Listings', 'Closed sales and homes on the market now'),
-        ]),
-        dict(heading='Insights', links=[
-            L('/market-report/', 'Monthly Market Report', 'Dated luxury data for both counties'),
-            L('/blog/', 'Weekly Luxury List', 'Each week’s $1.5M+ homes'),
-            L('/faq/', 'Market FAQ', 'Prices and answers by neighborhood'),
-            L('/guides/', 'Free Guides', 'Buyer, seller and valuation guides'),
-        ]),
-    ], feature=dict(eyebrow='Weekly', title='Off-market homes, first',
-                    text='Join 600+ buyers who get private and pre-market listings every week.',
-                    href='/access/', cta='Get Off-Market Access')),
-    dict(id='buyers', label='Buyers', href='/buyers/', overview='All buyer resources', columns=[
-        dict(heading='Buying', links=[
-            L('/buyer-guide/', 'Buyer’s Guide', 'How a $1.5M+ purchase works'),
-            L('/buyers/buying-process/', 'The Buying Process', 'Seven steps from first call to keys'),
-            L('/buyers/why-work-with-us/', 'Why Work With Us', 'What you get that the apps can’t show'),
-            L('/mortgage-calculator/', 'Mortgage Calculator', 'Payment with real TN tax rates'),
-            L('/strategy/', 'Private Buyer Strategy Session', '30 minutes, one plan'),
-        ]),
-        dict(heading='Relocating', compact=True, links=[
-            L('/relocation/', 'Relocation Guide', 'Moving to Nashville, start here'),
-        ] + [L(f'/relocation/moving-from-{s}/', f'Moving from {n}') for s, n in STATES]),
-    ], feature=dict(eyebrow='Calculator', title='What will it cost each month?',
-                    text='Principal, interest, insurance and property tax at 2026 Nashville, Brentwood and Franklin rates.',
-                    href='/mortgage-calculator/', cta='Run the numbers')),
-    dict(id='sellers', label='Sellers', href='/sellers/', overview='All seller resources', columns=[
-        dict(heading='Selling', links=[
-            L('/home-valuation/', 'What’s My Home Worth?', 'A real valuation, not an algorithm'),
-            L('/seller-guide/', 'Seller’s Guide', 'How Jason markets and sells luxury homes'),
-            L('/sellers/compass-concierge/', 'Compass Concierge', 'Pre-sale improvements, paid at closing'),
-            L('/review/', 'Private Pricing Review', 'Price and positioning, before you list'),
-            L('/market-report/', 'Monthly Market Report', 'What’s selling, and for how much'),
-        ]),
-    ], feature=dict(eyebrow='Home value', title='What would your home sell for today?',
-                    text='Get a pricing read from Jason based on this month’s closed and pending sales.',
-                    href='/home-valuation/', cta='Get my home value')),
-    dict(id='communities', label='Communities', mega=True, href='/neighborhoods/', overview='All neighborhoods', columns=[
-        dict(heading='Davidson County', links=[
-            L('/neighborhoods/belle-meade/', 'Belle Meade'), L('/neighborhoods/green-hills/', 'Green Hills'),
-            L('/neighborhoods/forest-hills-oak-hill/', 'Forest Hills &amp; Oak Hill'), L('/neighborhoods/12-south/', '12 South'),
-            L('/neighborhoods/east-nashville/', 'East Nashville'), L('/neighborhoods/sylvan-park/', 'Sylvan Park'),
-            L('/nashville-luxury-realtor/', 'Nashville Luxury Realtor', '', 'more'),
-            L('/east-nashville-luxury-realtor/', 'East Nashville Luxury Realtor', '', 'more'),
-            L('/12-south-luxury-realtor/', '12 South Luxury Realtor', '', 'more'),
-            L('/green-hills-luxury-realtor/', 'Green Hills Luxury Realtor', '', 'more'),
-        ]),
-        dict(heading='Williamson County', links=[
-            L('/neighborhoods/brentwood/', 'Brentwood'), L('/neighborhoods/franklin/', 'Franklin'),
-            L('/neighborhoods/college-grove/', 'College Grove'), L('/neighborhoods/leipers-fork/', 'Leiper’s Fork'),
-            L('/brentwood-tn-luxury-realtor/', 'Brentwood Luxury Realtor', '', 'more'),
-            L('/franklin-tn-luxury-realtor/', 'Franklin Luxury Realtor', '', 'more'),
-            L('/thompsons-station-tn-luxury-realtor/', 'Thompson’s Station Luxury Realtor', '', 'more'),
-        ]),
-        dict(heading='Gated &amp; Golf Communities', links=[
-            L('/neighborhoods/governors-club/', 'Governors Club', 'Brentwood'), L('/neighborhoods/annandale/', 'Annandale', 'Brentwood'),
-            L('/neighborhoods/westhaven/', 'Westhaven', 'Franklin'), L('/neighborhoods/laurelbrooke/', 'Laurelbrooke', 'Franklin'),
-            L('/neighborhoods/legends-ridge/', 'Legends Ridge', 'Franklin'), L('/neighborhoods/the-grove/', 'The Grove', 'College Grove'),
-            L('/neighborhoods/troubadour/', 'Troubadour', 'College Grove'),
-        ]),
-        dict(heading='Clubs &amp; Lifestyle', links=[
-            L('/country-clubs/', 'Country Clubs', 'Every private club, both counties'),
-            L('/golf-tennis/', 'Golf &amp; Tennis', 'Private and public courses'),
-            L('/neighborhoods/', 'All Neighborhoods', 'Compare every area'),
-        ]),
-    ]),
-    dict(id='access', label='Off Market Access', href='/access/'),
-    dict(id='contact', label='Contact', href='/contact/'),
+    ('Buy', [('/access/', 'Join the weekly List'), ('/search/', 'Search homes from $1.5M'),
+             ('/strategy/', 'Book a private search call'), ('/buyer-guide/', 'Buyer’s guide'),
+             ('/buyers/', 'Buyer resources'), ('/mortgage-calculator/', 'Monthly cost calculator')]),
+    ('Sell', [('/home-valuation/', 'Get a pricing read'), ('/seller-guide/', 'Seller’s guide'),
+              ('/sellers/compass-concierge/', 'Compass Concierge'), ('/review/', 'Private pricing review')]),
+    ('Places', [('/neighborhoods/', 'All neighborhoods'), ('/country-clubs/', 'Country clubs'),
+                ('/golf-tennis/', 'Golf and tennis'), ('/relocation/', 'Moving to Nashville')]),
+    ('Market', [('/market-report/', 'Monthly market report'), ('/faq/', 'Market FAQ'),
+                ('/blog/', 'Past weekly lists'), ('/guides/', 'Free guides')]),
+    ('Jason', [('/about/', 'About Jason'), ('/testimonials/', 'Client reviews'),
+               ('/past-sales/', 'Past sales'), ('/contact/', 'Contact')]),
 ]
 
-FOOTER_NAV = [
-    ('/about/why-nashville-luxury-list/', 'Why Nashville Luxury List'), ('/about/', 'About Jason'),
-    ('/testimonials/', 'Testimonials'), ('/past-sales/', 'Past Sales &amp; Listings'), ('/buyers/', 'Buyers'),
-    ('/buyer-guide/', 'Buyer Guide'), ('/mortgage-calculator/', 'Mortgage Calculator'),
-    ('/relocation/', 'Relocating to Nashville'), ('/sellers/', 'Sellers'), ('/seller-guide/', 'Seller Guide'),
-    ('/home-valuation/', 'Home Valuation'), ('/sellers/compass-concierge/', 'Compass Concierge'),
-    ('/market-report/', 'Monthly Market Report'), ('/country-clubs/', 'Country Clubs'),
-    ('/golf-tennis/', 'Golf &amp; Tennis'), ('/blog/', 'Blog'), ('/newsletter/', 'Weekly Newsletter'),
-    ('/guides/', 'Free Guides'), ('/faq/', 'FAQ'), ('/contact/', 'Contact'),
+FOOTER_COLS = [
+    ('Buying', [('/access/', 'The weekly List'), ('/search/', 'Homes for sale'), ('/buyer-guide/', 'Buyer’s guide'),
+                ('/buyers/buying-process/', 'The buying process'), ('/strategy/', 'Private search call'),
+                ('/mortgage-calculator/', 'Cost calculator'), ('/relocation/', 'Moving to Nashville')]),
+    ('Selling', [('/home-valuation/', 'Pricing read'), ('/seller-guide/', 'Seller’s guide'),
+                 ('/sellers/compass-concierge/', 'Compass Concierge'), ('/review/', 'Private pricing review'),
+                 ('/past-sales/', 'Past sales')]),
+    ('Luxury realtor by area', [('/nashville-luxury-realtor/', 'Nashville'), ('/brentwood-tn-luxury-realtor/', 'Brentwood'),
+                                ('/franklin-tn-luxury-realtor/', 'Franklin'), ('/green-hills-luxury-realtor/', 'Green Hills'),
+                                ('/east-nashville-luxury-realtor/', 'East Nashville'), ('/12-south-luxury-realtor/', '12 South'),
+                                ('/thompsons-station-tn-luxury-realtor/', 'Thompson’s Station')]),
+    ('About', [('/about/', 'Jason Kloess'), ('/about/why-nashville-luxury-list/', 'Why Nashville Luxury List'),
+               ('/testimonials/', 'Reviews'), ('/market-report/', 'Market report'), ('/faq/', 'FAQ'),
+               ('/newsletter/', 'Weekly newsletter'), ('/contact/', 'Contact')]),
 ]
-FOOTER_AREAS = [
-    ('/nashville-luxury-realtor/', 'Nashville Luxury Realtor'), ('/brentwood-tn-luxury-realtor/', 'Brentwood TN Luxury Realtor'),
-    ('/franklin-tn-luxury-realtor/', 'Franklin TN Luxury Realtor'), ('/east-nashville-luxury-realtor/', 'East Nashville Luxury Realtor'),
-    ('/12-south-luxury-realtor/', '12 South Luxury Realtor'), ('/green-hills-luxury-realtor/', 'Green Hills Luxury Realtor'),
-    ('/thompsons-station-tn-luxury-realtor/', 'Thompson&rsquo;s Station Luxury Realtor'),
-    ('/neighborhoods/belle-meade/', 'Belle Meade'),
-    ('/neighborhoods/green-hills/', 'Green Hills'), ('/neighborhoods/forest-hills-oak-hill/', 'Forest Hills &amp; Oak Hill'),
-    ('/neighborhoods/12-south/', '12 South'), ('/neighborhoods/east-nashville/', 'East Nashville'),
-    ('/neighborhoods/brentwood/', 'Brentwood'), ('/neighborhoods/franklin/', 'Franklin'),
-    ('/neighborhoods/college-grove/', 'College Grove'), ('/neighborhoods/', 'All Neighborhoods'),
-]
-
-CHEV = '<svg class="nav-chev" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>'
-PHONE_SVG = '<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.27 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>'
 
 
 def norm(p):
@@ -160,7 +87,7 @@ def norm(p):
 
 
 class Page:
-    """Active-link state for one URL path (mirrors what partials.js used to compute in the browser)."""
+    """Active-link state for one URL path."""
 
     def __init__(self, path):
         self.path = path
@@ -172,208 +99,125 @@ class Page:
     def cur(self, href):
         return ' aria-current="page"' if self.is_here(href) else ''
 
-    def group_active(self, g):
-        if g.get('href') and g['href'] != '/' and self.here.startswith(norm(g['href'])):
-            return True
-        return any(self.is_here(h) for c in g.get('columns', []) for h, *_ in c['links'])
+    def in_section(self, href):
+        return href != '/' and self.here.startswith(norm(href))
 
 
-def desktop_panel(pg, g):
-    cols = []
-    for c in g['columns']:
-        compact = c.get('compact')
-        items = ''.join(
-            '<li><a href="%s"%s%s><span class="nav-t">%s</span>%s</a></li>' % (
-                h, pg.cur(h), ' class="nav-%s"' % k if k else '', t,
-                '<span class="nav-d">%s</span>' % d if d and not compact else '')
-            for h, t, d, k in c['links'])
-        cols.append(f'\n              <div class="nav-col{" compact" if compact else ""}">'
-                    f'\n                <p class="nav-col-h">{c["heading"]}</p>'
-                    f'\n                <ul>{items}</ul>\n              </div>')
-    f = g.get('feature')
-    feature = (f'\n              <a class="nav-feature" href="{f["href"]}"><span class="nav-col-h">{f["eyebrow"]}</span>'
-               f'<span class="nav-feature-t">{f["title"]}</span><span class="nav-d">{f["text"]}</span>'
-               f'<span class="nav-feature-cta">{f["cta"]} &rarr;</span></a>') if f else ''
-    if g.get('mega'):
-        foot = ('<div class="nav-menu-foot"><a href="/neighborhoods/">Explore all neighborhoods &rarr;</a>'
-                '<a href="/market-report/">Monthly market report &rarr;</a><a href="/contact/">Ask Jason about an area &rarr;</a></div>')
-    else:
-        foot = f'<div class="nav-menu-foot"><a href="{g["href"]}">{g["overview"]} &rarr;</a></div>'
-    return (f'<div class="nav-menu{" mega" if g.get("mega") else ""}" id="nav-menu-{g["id"]}" hidden>'
-            f'<div class="nav-menu-inner">{"".join(cols)}{feature}</div>{foot}</div>')
-
-
-def cta(size):
-    if IDX_SEARCH_URL:
-        return f'<a href="{IDX_SEARCH_URL}" class="btn btn-gold {size}">Search Homes</a>'
-    return f'<a href="/contact/" class="btn btn-gold {size}">Get Started</a>'
+MARK = '<b>Nashville Luxury List</b><span>Compass Luxury Division</span>'
 
 
 def header(pg):
-    home = pg.here == '/'
-    items = []
-    for g in MENU:
-        if g.get('columns'):
-            items.append(
-                f'\n            <div class="nav-item has-menu{" is-mega" if g.get("mega") else ""}" data-menu="{g["id"]}">'
-                f'\n              <a href="{g["href"]}" class="nav-link nav-top{" active" if pg.group_active(g) else ""}"{pg.cur(g["href"])}>{g["label"]}</a>'
-                f'<button type="button" class="nav-trigger" aria-expanded="false" aria-controls="nav-menu-{g["id"]}" aria-label="{g["label"]} menu">{CHEV}</button>'
-                f'\n              {desktop_panel(pg, g)}\n            </div>')
-        else:
-            items.append(f'\n            <a href="{g["href"]}" class="nav-link{" active" if pg.is_here(g["href"]) else ""}"{pg.cur(g["href"])}>{g["label"]}</a>')
-    attrs = ' data-transparent="true"' if home else ' class="scrolled" data-transparent="false"'
-    return f'''<header id="site-header"{attrs}>
-      <div class="container">
-        <div class="header-inner">
-          <a href="/" class="site-logo" aria-label="Nashville Luxury List Home">
-            <span class="logo-main">Nashville Luxury List</span>
-            <span class="logo-sub">Compass Luxury Division</span>
-          </a>
-          <nav class="site-nav" aria-label="Primary">{"".join(items)}
-            {cta("btn-sm nav-cta")}
-          </nav>
-          <button class="hamburger" type="button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+    links = ''.join(
+        f'\n      <a href="{h}"{" aria-current=\"page\"" if pg.in_section(h) else ""}>{t}</a>' for h, t in NAV)
+    panel = ''.join(
+        f'\n          <p class="nll-mlabel">{label}</p>' + ''.join(f'<a href="{h}"{pg.cur(h)}>{t}</a>' for h, t in items)
+        for label, items in MENU)
+    return f'''<header id="nll-top" class="nll-top">
+  <a class="nll-skip" href="#main">Skip to content</a>
+  <div class="nll-wrap">
+    <a class="nll-mark" href="/" aria-label="Nashville Luxury List home">{MARK}</a>
+    <nav class="nll-nav" aria-label="Main">{links}
+      <a class="nll-btn nll-btn-solid" href="/access/">Join the List</a>
+      <details class="nll-menu">
+        <summary><span><i></i><i></i><i></i></span>Menu</summary>
+        <div class="nll-menu-panel">{panel}
+          <a class="nll-mcall" href="tel:+{PHONE_RAW}">Call or text {PHONE}</a>
         </div>
-      </div>
+      </details>
+    </nav>
+  </div>
 </header><!-- /site-header -->'''
 
 
-def mobile_nav(pg):
-    """Five primary links, then one collapsed "More" panel with the full menu (same links as desktop)."""
-    def link(h, t):
-        on = pg.is_here(h) or (h != '/' and pg.here.startswith(norm(h)))
-        return f'<a href="{h}" class="mnav-link{" active" if on else ""}"{pg.cur(h)}>{t}</a>'
-    primary = '\n        '.join(link(h, t) for h, t in MOBILE_PRIMARY)
-    groups = []
-    for g in MENU:
-        if not g.get('columns'):
-            groups.append(f'\n        <p class="mnav-h">{g["label"]}</p>\n        <ul><li><a href="{g["href"]}"{pg.cur(g["href"])}>{g["label"]}</a></li></ul>')
-            continue
-        groups.append(f'\n        <p class="mnav-h">{g["label"]}</p>\n        <ul><li><a href="{g["href"]}"{pg.cur(g["href"])}>{g["overview"]}</a></li>'
-                      + ''.join(f'<li><a href="{h}"{pg.cur(h)}>{t}</a></li>' for c in g['columns'] for h, t, _d, _k in c['links']) + '</ul>')
-    primary_hrefs = {norm(h) for h, _ in MOBILE_PRIMARY}
-    more_open = not any(pg.here.startswith(h) for h in primary_hrefs) and pg.here != '/' and any(pg.group_active(g) for g in MENU)
-    return f'''<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
-      <button class="mobile-nav-close" type="button" aria-label="Close Menu">✕</button>
-      <div class="mnav">
-        {primary}
-      <div class="mnav-group">
-        <button type="button" class="mnav-trigger" aria-expanded="{"true" if more_open else "false"}" aria-controls="mnav-more">More{CHEV}</button>
-        <div class="mnav-panel" id="mnav-more"{"" if more_open else " hidden"}><a class="mnav-overview" href="/"{pg.cur("/")}>Home &rarr;</a>{"".join(groups)}</div>
-      </div>
-        <a href="/contact/" class="btn btn-gold btn-lg mnav-cta">Get Started</a>
-        <a href="tel:+{PHONE_RAW}" class="mobile-nav-phone">Call or text {PHONE}</a>
-      </div>
-</nav><!-- /site-mobile-nav -->'''
-
-
-def floating_cta(_pg):
-    return f'''<div id="floating-cta" class="floating-cta">
-      <div class="floating-cta-item">
-        <span class="floating-label">Call Jason</span>
-        <a href="tel:+{PHONE_RAW}" class="floating-cta-btn fcta-phone" aria-label="Call Jason">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">{PHONE_SVG}</svg>
-        </a>
-      </div>
-</div><!-- /site-floating-cta -->'''
+def call_bar(_pg):
+    return f'''<nav id="nll-callbar" class="nll-callbar" aria-label="Quick actions">
+  <a href="tel:+{PHONE_RAW}">Call Jason</a>
+  <a href="/search/">Search</a>
+  <a href="/access/">Join the List</a>
+</nav><!-- /site-floating-cta -->'''
 
 
 def footer(pg):
     # The newsletter form is registered with Netlify Forms by /newsletter/ (which has the full field
     # set). This copy leaves off the netlify attributes so it doesn't re-register the form with fewer
-    # fields; main.js still submits it over AJAX through the hidden form-name field.
-    hide_newsletter = '/contact' in pg.path or '/newsletter' in pg.path
+    # fields; main.js submits it over AJAX through the hidden form-name field, and the
+    # submission-created function passes vip-newsletter signups to the Zap that adds them to Mailchimp.
+    # The home page and the signup/contact pages have their own forms, so they skip this band.
+    hide_newsletter = pg.here == '/' or any(s in pg.path for s in ('/contact', '/newsletter', '/thank-you'))
     newsletter = '' if hide_newsletter else f'''
-      <section class="newsletter-section" aria-label="Weekly newsletter signup">
-        <div class="container">
-          <div class="newsletter-inner">
-            <div class="newsletter-text fade-up">
-              <span class="eyebrow">Stay Ahead of the Market</span>
-              <h2>Nashville's Most Exclusive<br>Listings, Weekly.</h2>
-              <p>Join 600+ buyers and investors who receive our curated weekly digest of off-market and pre-market luxury properties.</p>
-            </div>
-            <div class="fade-up delay-2">
-              <div class="form-wrapper">
-                <form name="vip-newsletter" method="POST" action="/newsletter/">
-                  <input type="hidden" name="form-name" value="vip-newsletter">
-                  <input type="hidden" name="source" value="Footer – {pg.path}">
-                  <p hidden><input name="bot-field" aria-hidden="true" tabindex="-1"></p>
-                  <div class="newsletter-form">
-                    <input type="email" name="email" placeholder="Your email address" required aria-label="Email Address">
-                    <button type="submit" class="btn btn-dark">Join the VIP List →</button>
-                  </div>
-                  <p class="newsletter-note">No spam. Unsubscribe anytime. $1.5M+ properties only.</p>
-                </form>
-                <div class="form-success footer-success" style="display:none;">
-                  <div class="footer-success-mark">✓</div>
-                  <h3>You're on the List!</h3>
-                  <p>Check your inbox for a confirmation email.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="nll-news" role="region" aria-label="Weekly newsletter signup">
+    <div class="nll-wrap">
+      <div>
+        <span class="nll-kicker">Every Friday, free</span>
+        <h2>The Nashville luxury homes worth knowing about</h2>
+        <p>The five best new $1.5M+ homes on the market, plus three that aren’t public yet. Read by 600+ buyers.</p>
+      </div>
+      <div class="form-wrapper">
+        <form class="nll-join" name="vip-newsletter" method="POST" action="/newsletter/">
+          <input type="hidden" name="form-name" value="vip-newsletter">
+          <input type="hidden" name="source" value="Footer – {pg.path}">
+          <p hidden><input name="bot-field" aria-hidden="true" tabindex="-1"></p>
+          <label class="nll-sr" for="foot-email">Email address</label>
+          <input id="foot-email" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+          <button class="nll-btn" type="submit">Send me Friday’s list</button>
+        </form>
+        <small>No spam. Unsubscribe in one click.</small>
+        <div class="form-success" style="display:none;">
+          <h3>You’re on the List.</h3>
+          <p>Your first Friday list is on its way. Check your inbox to confirm.</p>
         </div>
-      </section>'''
-    nav = '\n'.join(f'                <a href="{h}">{t}</a>' for h, t in FOOTER_NAV)
-    areas = '\n'.join(f'                <a href="{h}">{t}</a>' for h, t in FOOTER_AREAS)
-    return f'''<div id="site-footer">{newsletter}
-      <footer class="site-footer-main">
-        <div class="container">
-          <div class="footer-grid">
-            <div class="footer-brand">
-              <div class="footer-wordmark">
-                <span class="footer-name">Nashville Luxury List</span><br>
-                <span class="footer-sub">Compass Luxury Division</span>
-              </div>
-              <p class="footer-tagline">Connecting discerning buyers and sellers with Nashville's most exclusive properties.</p>
-              <div class="footer-social">
-                <a href="https://instagram.com/nashvilleluxurylist" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
-                <a href="https://facebook.com/nashvilleluxurylist" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
-                <a href="https://www.linkedin.com/in/jasonkloess/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">LI</a>
-              </div>
-            </div>
-            <div class="footer-col">
-              <h3>Navigate</h3>
-              <div class="footer-links">
-{nav}
-              </div>
-            </div>
-            <div class="footer-col">
-              <h3>Areas We Serve</h3>
-              <div class="footer-links">
-{areas}
-              </div>
-            </div>
-            <div class="footer-col">
-              <h3>Contact Jason</h3>
-              <div class="footer-links">
-                <a href="tel:+{PHONE_RAW}">{PHONE}</a>
-                <a href="mailto:{EMAIL}">{EMAIL}</a>
-                <a href="https://www.google.com/maps/search/1610+West+End+Ave+Nashville+TN" target="_blank" rel="noopener">1610 West End Ave, Suite 115<br>Nashville, TN 37203</a>
-                <a href="/home-valuation/">Free Home Valuation</a>
-                <a href="/contact/">Schedule a Call</a>
-              </div>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <p class="footer-disclaimer">© {date.today().year} Nashville Luxury List. Jason Kloess, REALTOR®, Compass Tennessee, LLC. License #357138. 1610 West End Ave, Suite 115, Nashville, TN 37203. All information deemed reliable but not guaranteed. Equal Housing Opportunity.</p>
-            <div class="footer-legal">
-              <a href="/privacy-policy/">Privacy</a>
-              <a href="https://compassinc.com" target="_blank" rel="noopener">Compass</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      </div>
+    </div>
+  </div>'''
+    cols = ''.join(
+        f'\n      <div><p class="nll-flabel">{label}</p><ul>' + ''.join(f'<li><a href="{h}">{t}</a></li>' for h, t in items) + '</ul></div>'
+        for label, items in FOOTER_COLS)
+    return f'''<div id="nll-foot" class="nll-foot-region">{newsletter}
+<footer class="nll-foot">
+  <div class="nll-wrap">
+    <div class="nll-foot-cols">
+      <div class="nll-contact">
+        <a class="nll-mark" href="/">{MARK}</a>
+        <p style="margin-top:16px"><a href="tel:+{PHONE_RAW}">Call or text {PHONE}</a><br><a href="mailto:{EMAIL}">{EMAIL}</a><br>1610 West End Ave, Suite 115<br>Nashville, TN 37203</p>
+        <p style="margin-top:8px"><a href="https://instagram.com/nashvilleluxurylist" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://facebook.com/nashvilleluxurylist" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.linkedin.com/in/jasonkloess/" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>{cols}
+    </div>
+    <p class="nll-legal">Jason Kloess is a real estate agent affiliated with Compass, a licensed real estate broker, and abides by Equal Housing Opportunity laws. Tennessee license #357138. Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203, 615-522-5100. Market figures are compiled from sources deemed reliable as of the dates shown and are subject to change. Listing data from RealTracs, deemed reliable but not guaranteed. <a href="/privacy-policy/">Privacy</a> &copy; {date.today().year} Nashville Luxury List.</p>
+  </div>
+</footer>
 </div><!-- /site-footer -->'''
 
 
 # Each region matches its empty placeholder or a previously baked copy (ending in its marker).
+# The older ids (site-header, mobile-nav, floating-cta, site-footer) still match, so pages that carry
+# the previous chrome are upgraded in place. The separate mobile menu is gone: the header's own
+# "Menu" panel replaces it.
 REGIONS = [
-    (re.compile(r'<header id="site-header"[^>]*>(?:</header>|.*?</header><!-- /site-header -->)', re.S), header),
-    (re.compile(r'<nav id="mobile-nav"[^>]*>(?:</nav>|.*?</nav><!-- /site-mobile-nav -->)', re.S), mobile_nav),
-    (re.compile(r'<div id="floating-cta"[^>]*>(?:</div>|.*?</div><!-- /site-floating-cta -->)', re.S), floating_cta),
-    (re.compile(r'<div id="site-footer"[^>]*>(?:</div>|.*?</div><!-- /site-footer -->)', re.S), footer),
+    (re.compile(r'<header id="(?:site-header|nll-top)"[^>]*>(?:</header>|.*?</header><!-- /site-header -->)', re.S), header),
+    (re.compile(r'\s*<nav id="mobile-nav"[^>]*>(?:</nav>|.*?</nav><!-- /site-mobile-nav -->)', re.S), lambda _pg: ''),
+    (re.compile(r'<(?:div id="floating-cta"|nav id="nll-callbar")[^>]*>(?:</div>|</nav>|.*?</(?:div|nav)><!-- /site-floating-cta -->)', re.S), call_bar),
+    (re.compile(r'<div id="(?:site-footer|nll-foot)"[^>]*>(?:</div>|.*?</div><!-- /site-footer -->)', re.S), footer),
 ]
+CHROME_MARKERS = ('id="site-header"', 'id="nll-top"', 'id="site-footer"', 'id="nll-foot"')
+
+
+def link_chrome_assets(html):
+    """Links chrome.css (last, so it wins over main.css / palette.css), preloads the text font in
+    place of the old Inter preload, and makes sure <main> carries the skip link's #main target."""
+    html = re.sub(r'<link rel="stylesheet" href="/assets/css/chrome\.css[^"]*">\n?', '', html)
+    html = re.sub(r'<link rel="preload" href="/assets/fonts/inter-latin-400-normal\.woff2"[^>]*>', '', html)
+    if SANS_FONT not in html:
+        html = re.sub(r'</head>', f'<link rel="preload" href="{SANS_FONT}" as="font" type="font/woff2" crossorigin>\n</head>', html, count=1)
+    link = f'<link rel="stylesheet" href="{CHROME_CSS}">\n'
+    # Pages built on the redesign's own stylesheet (home.css) load it after chrome.css, so its tokens win.
+    page_css = re.search(r'<link rel="stylesheet" href="/assets/css/home\.css', html)
+    if page_css:
+        html = html[:page_css.start()] + link + html[page_css.start():]
+    else:
+        html = re.sub(r'</head>', lambda _m: link + '</head>', html, count=1)
+    if 'id="main"' not in html:
+        html = re.sub(r'<main(?=[\s>])', '<main id="main"', html, count=1)
+    return html
 
 
 def url_path(rel):
@@ -393,7 +237,7 @@ def url_path(rel):
 # footer is hunter green (styled in palette.css). Mid-page sections that used to be navy join the
 # light rotation. Heroes keep their own look.
 BAND_CYCLE = ['ivory', 'sand', 'white', 'sand']
-BAND_SKIP_FILES = {'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html'}
+BAND_SKIP_FILES = {'index.html', 'thank-you/index.html', 'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html'}
 HERO_CLASSES = {'hero', 'ap-hero', 'page-hero', 'rl-hero', 'booking-hero'}
 ANCHOR_CLASSES = {'ap-final', 'rl-final', 'lead-capture-section'}
 NO_BAND_CLASSES = {'newsletter-section', 'search-bar', 'off-market-band'}  # home: navy search strip under the hero, hunter-green off-market band
@@ -512,6 +356,7 @@ def bake(html, path, rel=''):
     pg = Page(path)
     for rx, render in REGIONS:
         html = rx.sub(lambda _m: render(pg), html, count=1)
+    html = link_chrome_assets(html)
     if rel.replace(os.sep, '/') not in BAND_SKIP_FILES:
         html = band_sections(html)
         html = tag_standalone_links(html)
@@ -531,7 +376,7 @@ def main():
             out = ensure_jsonld(src)
             if out != src:
                 ld_added += 1
-            if 'id="site-header"' in out or 'id="site-footer"' in out:
+            if any(m in out for m in CHROME_MARKERS):
                 total += 1
                 rel = os.path.relpath(full, ROOT)
                 out = bake(out, url_path(rel), rel)

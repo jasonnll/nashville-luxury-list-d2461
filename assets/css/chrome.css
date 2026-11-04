@@ -1,0 +1,141 @@
+/* Nashville Luxury List — shared site chrome (header, menu, newsletter band, footer, phone call bar)
+   from the 2026 home page redesign: Caslon headlines, Albert Sans for text and controls, hunter green
+   and saddle leather on linen. Loaded on every page AFTER main.css / palette.css (the bake script adds it).
+   The markup comes from scripts/bake_site_chrome.py. Classes are prefixed nll- so they never collide
+   with the older page styles. The :root block also retunes the older palette so interior pages match. */
+
+@font-face{font-family:'Albert Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Libre Caslon Display';font-style:normal;font-weight:300 500;font-display:swap;src:url(/assets/fonts/libre-caslon-display-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  /* Redesign tokens */
+  --n-linen:#EFE8DA; --n-paper:#F8F4EC; --n-hunter:#21382C; --n-ink:#1C2330;
+  --n-saddle:#7E4F2D; --n-brass:#B09464; --n-brass-lt:#D2B988; --n-stone:#57534B; --n-rule:#D6CCB8;
+  --n-display:"Libre Caslon Display","Big Caslon",Georgia,serif;
+  --n-sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
+  --n-wrap:1240px;
+  --n-top-h:72px;
+
+  /* Retune the older palette (palette.css / main.css) toward the redesign */
+  --ink:#1C2330; --ink-soft:#2A3344;
+  --ivory:#EFE8DA; --parchment:#F8F4EC; --cream-white:#F8F4EC;
+  --stone:#D6CCB8; --taupe:#57534B; --charcoal:#1C2330;
+  --bronze:#B09464; --bronze-deep:#7E4F2D; --bronze-light:#D2B988;
+  --hunter:#21382C; --leather:#7E4F2D; --oxblood:#7E4F2D;
+  --font-sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
+  --radius-sm:0; --radius-md:0; --radius-lg:0; --radius-xl:0;
+  /* The header is sticky (in the page flow) now, so page heroes no longer pad for a fixed header */
+  --header-h:0px;
+}
+html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
+.faqp-toc{top:var(--n-top-h)}
+
+/* ── Header ── */
+.nll-skip{position:absolute;left:12px;top:-60px;z-index:1200;background:var(--n-ink);color:var(--n-paper);padding:12px 16px;font:500 15px/1 var(--n-sans);text-decoration:none}
+.nll-skip:focus{top:12px;color:var(--n-paper)}
+.nll-top{position:sticky;top:0;z-index:1000;background:var(--n-linen);border-bottom:1px solid var(--n-rule);color:var(--n-ink);font-family:var(--n-sans)}
+.nll-wrap{max-width:var(--n-wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.nll-top .nll-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:var(--n-top-h)}
+.nll-mark{text-decoration:none;display:grid;justify-items:start;line-height:1.1;color:var(--n-ink)}
+.nll-mark:hover{color:var(--n-ink)}
+.nll-mark b{font:400 24px/1.05 var(--n-display);padding-bottom:7px;border-bottom:1px solid var(--n-brass)}
+.nll-mark span{font:500 11.5px/1 var(--n-sans);letter-spacing:.18em;text-transform:uppercase;color:var(--n-saddle);margin-top:7px}
+.nll-nav{display:flex;align-items:center;gap:26px;font:500 15px/1.3 var(--n-sans)}
+.nll-nav>a:not(.nll-btn){text-decoration:none;padding-block:12px;color:var(--n-ink)}
+.nll-nav>a:not(.nll-btn):hover,.nll-nav>a[aria-current]{color:var(--n-saddle)}
+.nll-nav>a[aria-current]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.nll-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;font:500 15px/1 var(--n-sans);letter-spacing:.02em;text-decoration:none;text-transform:none;border:1px solid var(--n-ink);border-radius:0;background:transparent;color:var(--n-ink);cursor:pointer;white-space:nowrap;box-shadow:none}
+.nll-btn:hover{background:var(--n-ink);color:var(--n-paper)}
+.nll-btn-solid{background:var(--n-hunter);border-color:var(--n-hunter);color:var(--n-paper)}
+.nll-btn-solid:hover{background:var(--n-ink);border-color:var(--n-ink);color:var(--n-paper)}
+.nll-nav .nll-btn{min-height:44px;padding:0 18px}
+.nll-menu{display:none}
+.nll-menu summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:500;padding:0 4px;color:var(--n-ink)}
+.nll-menu summary::-webkit-details-marker{display:none}
+.nll-menu summary span{display:grid;gap:4px}
+.nll-menu summary i{display:block;width:20px;height:1.5px;background:var(--n-ink)}
+.nll-menu[open] summary i:nth-child(2){opacity:0}
+.nll-menu-panel{position:absolute;left:0;right:0;top:100%;background:var(--n-paper);border-bottom:1px solid var(--n-rule);max-height:calc(100vh - var(--n-top-h));max-height:calc(100dvh - var(--n-top-h));overflow:auto;padding:8px max(20px,env(safe-area-inset-right,0px)) 24px max(20px,env(safe-area-inset-left,0px))}
+.nll-menu-panel .nll-mlabel{font:600 14px/1 var(--n-sans);letter-spacing:.06em;color:var(--n-stone);margin:20px 0 6px}
+.nll-menu-panel a{display:block;padding:11px 0;text-decoration:none;border-bottom:1px solid var(--n-rule);font:400 17px/1.4 var(--n-sans);color:var(--n-ink)}
+.nll-menu-panel a:hover,.nll-menu-panel a[aria-current]{color:var(--n-saddle)}
+.nll-menu-panel .nll-mcall{border-bottom:0;margin-top:14px;font-weight:500;color:var(--n-saddle)}
+
+/* ── Newsletter band (above the footer on interior pages) ── */
+.nll-news{background:var(--n-hunter);color:var(--n-paper);padding-block:72px;font-family:var(--n-sans)}
+.nll-news .nll-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:28px 56px;align-items:center}
+.nll-news .nll-kicker{display:block;font:500 15px/1.4 var(--n-sans);color:var(--n-brass-lt);margin-bottom:12px}
+.nll-news h2{font:400 clamp(32px,3.8vw,48px)/1.08 var(--n-display);color:var(--n-paper);margin:0;text-wrap:balance;letter-spacing:0;text-transform:none}
+.nll-news p{color:#D9D3C5;margin:14px 0 0;font-size:17px;line-height:1.6;max-width:34em}
+.nll-join{display:flex;flex-wrap:wrap;gap:10px}
+.nll-join input[type=email]{flex:1 1 240px;min-height:50px;padding:0 14px;border:0;border-radius:0;background:var(--n-paper);color:var(--n-ink);font:400 16px/1.3 var(--n-sans);width:auto}
+.nll-join .nll-btn{background:var(--n-paper);border-color:var(--n-paper);color:var(--n-hunter)}
+.nll-join .nll-btn:hover{background:var(--n-brass);border-color:var(--n-brass);color:var(--n-ink)}
+.nll-news small{display:block;margin-top:12px;font-size:14px;color:#D9D3C5}
+.nll-news .form-success{color:var(--n-paper)}
+.nll-news .form-success h3{font:400 28px/1.1 var(--n-display);color:var(--n-paper);margin:0 0 6px}
+.nll-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ── Footer ── */
+.nll-foot{background:var(--n-ink);color:#D8D3C8;padding-block:64px 36px;font:400 15px/1.65 var(--n-sans)}
+.nll-foot .nll-wrap{display:grid;gap:40px}
+.nll-foot-cols{display:grid;grid-template-columns:1.2fr repeat(4,minmax(0,1fr));gap:32px}
+.nll-foot .nll-mark{display:grid;padding:0;justify-items:start}
+.nll-foot .nll-mark:hover{text-decoration:none}
+.nll-foot .nll-mark b{color:var(--n-paper)}
+.nll-foot .nll-mark span{color:var(--n-brass)}
+.nll-foot p{margin:0;color:#D8D3C8}
+.nll-foot .nll-flabel{font:600 14px/1.3 var(--n-sans);letter-spacing:.06em;color:#B9B3A7;margin:0 0 12px;text-transform:none}
+.nll-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.nll-foot a{text-decoration:none;display:inline-block;padding-block:11px;color:#D8D3C8}
+.nll-foot a:hover{color:var(--n-paper);text-decoration:underline}
+.nll-foot .nll-contact a{padding-block:4px}
+.nll-legal{border-top:1px solid rgba(248,244,236,.15);padding-top:22px;font-size:14px;line-height:1.6;color:#A9A398 !important;max-width:80em}
+.nll-legal a{padding:0;color:#D8D3C8;text-decoration:underline}
+
+/* ── Phone call bar ── */
+.nll-callbar{display:none}
+
+/* ── Off-market popup (partials.js), restyled to match ── */
+.om-popup{position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;padding:1rem;font-family:var(--n-sans)}
+.om-popup[hidden]{display:none}
+.om-popup-backdrop{position:absolute;inset:0;background:rgba(28,35,48,.62);opacity:0;transition:opacity .3s ease}
+.om-popup-card{position:relative;width:100%;max-width:460px;max-height:calc(100vh - 2rem);overflow:auto;background:var(--n-paper);border:1px solid var(--n-rule);border-radius:0;padding:2.5rem 2rem 2rem;opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .3s ease;color:var(--n-ink)}
+.om-popup.open .om-popup-backdrop,.om-popup.open .om-popup-card{opacity:1;transform:none}
+.om-popup-close{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;background:none;font-size:18px;color:var(--n-stone);cursor:pointer}
+.om-popup .eyebrow{display:block;font:500 15px/1.4 var(--n-sans);color:var(--n-saddle);letter-spacing:0;text-transform:none}
+.om-popup-title{font:400 30px/1.1 var(--n-display);color:var(--n-ink);margin:.4rem 0 .5rem}
+.om-popup-sub{color:var(--n-stone);font-size:16px;margin:0 0 1.25rem}
+.om-popup .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.om-popup .form-group{display:grid;gap:6px;margin-bottom:12px}
+.om-popup .form-label{font:500 15px/1.3 var(--n-sans);color:var(--n-ink);letter-spacing:0;text-transform:none}
+.om-popup .form-control{font:400 16px/1.3 var(--n-sans);color:var(--n-ink);background:#fff;border:1px solid #9C927F;border-radius:0;min-height:50px;padding:0 14px;width:100%}
+.om-popup .btn{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;border:1px solid var(--n-hunter);border-radius:0;background:var(--n-hunter);color:var(--n-paper);font:500 16px/1 var(--n-sans);letter-spacing:.02em;text-transform:none;cursor:pointer;margin-top:4px}
+.om-popup .btn:hover{background:var(--n-ink);border-color:var(--n-ink)}
+.om-popup .form-note{text-align:center;margin:.9rem 0 0;font-size:14px;color:var(--n-stone)}
+.om-popup-check{font-size:2.75rem;color:var(--n-saddle);margin-bottom:.5rem}
+.om-popup .form-success h3{font:400 28px/1.1 var(--n-display);margin:0 0 6px}
+
+@media (max-width:1020px){
+  .nll-nav>a:not(.nll-btn){display:none}
+  .nll-menu{display:block}
+  .nll-news .nll-wrap{grid-template-columns:1fr}
+  .nll-foot-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  :root{--n-top-h:64px}
+  .nll-mark b{font-size:20px}
+  .nll-mark span{font-size:11px;letter-spacing:.14em}
+  .nll-nav .nll-btn{display:none}
+  .nll-menu-panel{max-height:calc(100dvh - var(--n-top-h) - 56px - env(safe-area-inset-bottom,0px))}
+  .nll-news{padding-block:56px}
+  .nll-foot-cols{grid-template-columns:1fr}
+  .nll-foot{padding-bottom:120px}
+  .nll-callbar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;inset:auto 0 0;z-index:990;background:var(--n-hunter);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);font-family:var(--n-sans);transition:transform .2s ease}
+  .nll-callbar a{min-height:56px;display:grid;place-items:center;color:var(--n-paper);text-decoration:none;font-weight:500;font-size:15px}
+  .nll-callbar a+a{border-left:1px solid rgba(176,148,100,.5)}
+  body.is-typing .nll-callbar{transform:translateY(110%)}
+  body.ap-has-sticky .nll-callbar{display:none}
+  .om-popup-card{padding:2.25rem 1.25rem 1.5rem}
+}
+@media (prefers-reduced-motion:reduce){.om-popup-backdrop,.om-popup-card,.nll-callbar{transition:none}}

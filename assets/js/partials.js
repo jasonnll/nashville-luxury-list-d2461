@@ -1,4 +1,4 @@
-/* Behavior for the shared header, mobile menu and footer.
+/* Site-wide behavior that sits alongside the shared header and footer (the off-market popup).
    The markup itself is baked into every page at build time by scripts/bake_site_chrome.py
    (so crawlers that don't run JavaScript see it). Edit the menu and footer there, not here. */
 (function () {
@@ -75,7 +75,7 @@
      Posts as the "off-market-access" form, so the lead Zap adds it to Mailchimp with the
      Off-Market Access tag; submission-created.mts also sends popup signups to Compass CRM. */
   const POPUP_KEY = 'nll-offmarket-popup';
-  const popupSkip = ['/access', '/newsletter', '/contact', '/admin', '/jasonkloess'].some(p => currentPath.startsWith(p));
+  const popupSkip = ['/access', '/newsletter', '/contact', '/thank-you', '/admin', '/jasonkloess'].some(p => currentPath.startsWith(p));
   // Anyone who joins through any signup form on the site never sees the popup again
   document.addEventListener('submit', (e) => {
     if (['vip-newsletter', 'off-market-access'].includes(e.target.getAttribute('name'))) {

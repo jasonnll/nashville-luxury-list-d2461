@@ -131,7 +131,9 @@
     Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
 
   // Netlify strips the netlify/data-netlify attributes from deployed HTML, so also match the hidden form-name field.
+  // Forms marked data-native post normally, so Netlify redirects to their action page (e.g. /thank-you/).
   document.querySelectorAll('form').forEach(form => {
+    if (form.hasAttribute('data-native')) return;
     if (!form.hasAttribute('netlify') && form.getAttribute('data-netlify') !== 'true' && !form.querySelector('input[type="hidden"][name="form-name"]')) return;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
