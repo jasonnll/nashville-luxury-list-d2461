@@ -1,5 +1,7 @@
 /* ==========================================================================
    Nashville Luxury List — "Ink & Ivory" palette
+   Tuned toward a Ralph Lauren × Auberge feel: deep Polo navy, warm
+   sun-washed sand and cream, hunter green, oxblood, antique brass.
    Load AFTER main.css:
    <link rel="stylesheet" href="/assets/css/palette.css?v=1">
    Every color decision lives in :root below. Change a value there and it
@@ -8,18 +10,21 @@
 
 :root {
   /* Core palette */
-  --ink:          #1E2B40;  /* handsome navy: footer, interior heroes, primary buttons */
-  --ink-soft:     #2C3D59;  /* hover state for ink */
-  --ivory:        #FEFCF8;  /* page base: warm ivory, just shy of white */
-  --parchment:    #F6F0E4;  /* cream cashmere: alternate sections, distinct from white */
-  --stone:        #E3D9C6;  /* linen hairlines, borders */
-  --taupe:        #5E584E;  /* secondary text on light */
-  --charcoal:     #2B2A27;  /* body text on light */
-  --bronze:       #A8894F;  /* antique brass: lines and icons only, never small text */
-  --bronze-deep:  #7A6232;  /* small text and links on light (AA contrast) */
-  --bronze-light: #D9C79E;  /* accents on dark backgrounds */
-  --hunter:       #2E4636;  /* hunter green: testimonials */
-  --leather:      #6E4A30;  /* saddle leather: italic accents, hovers */
+  --ink:          #13203A;  /* handsome navy: footer, interior heroes, primary buttons */
+  --ink-soft:     #1F3152;  /* hover state for ink */
+  --ivory:        #FBF8F1;  /* page base: warm ivory, just shy of white */
+  --parchment:    #F3ECDE;  /* cream cashmere: alternate sections, distinct from white */
+  --stone:        #DDD0B8;  /* linen hairlines, borders */
+  --taupe:        #5B5347;  /* secondary text on light */
+  --charcoal:     #23211E;  /* body text on light */
+  --bronze:       #A6874E;  /* antique brass: lines and icons only, never small text */
+  --bronze-deep:  #735B2C;  /* small text and links on light (AA contrast) */
+  --bronze-light: #D8C59A;  /* accents on dark backgrounds */
+  --hunter:       #233A2C;  /* hunter green: testimonials */
+  --leather:      #6B2328;  /* oxblood: italic accents, hovers (the bold Ralph Lauren note) */
+  --oxblood:      #6B2328;
+  --clay:         #B07A55;  /* Auberge terracotta: decorative rules only */
+  --cream-white:  #FFFDF8;  /* card face: warm white instead of stark #FFF */
   --ivory-muted:  #B9B3A6;  /* secondary text on dark */
 
   /* Remap the original theme variables so every existing rule inherits */
@@ -43,8 +48,8 @@
   --radius-lg: 4px;
   --radius-xl: 6px;
   --shadow-sm:   none;
-  --shadow-md:   0 1px 2px rgba(30, 43, 64, 0.06);
-  --shadow-lg:   0 12px 32px rgba(30, 43, 64, 0.10);
+  --shadow-md:   0 1px 2px rgba(19, 32, 58, 0.06);
+  --shadow-lg:   0 12px 32px rgba(19, 32, 58, 0.10);
   --shadow-gold: none;
 }
 
@@ -80,7 +85,7 @@ a:hover { color: var(--ink); }
 :is(.testimonials-section:not([data-band]), #site-footer, .neighborhood-card-hover,
     .page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero,
     .contact-hero, .blog-cta, .newsletter-hero) .btn-gold:hover {
-  background: #FFFFFF; color: var(--ink);
+  background: var(--cream-white); color: var(--ink);
 }
 :is(.testimonials-section:not([data-band]), #site-footer,
     .page-hero, .blog-cta) .btn-outline-gold {
@@ -122,19 +127,19 @@ a:hover { color: var(--ink); }
 
 /* ---------- Hero (cream wash over photography, navy type) ---------- */
 /* Sand wash (not ivory) so the hero reads as its own band under the ivory header */
-.hero { background: #EFE6D3; }
-.hero-bg { background: #EFE6D3; }
+.hero { background: #ECE1CC; }
+.hero-bg { background: #ECE1CC; }
 .hero-overlay {
   /* Lighter cream wash: the photo shows through; text side keeps enough cream to stay readable */
   background: linear-gradient(90deg,
-    rgba(239, 230, 211, 0.86) 0%,
-    rgba(239, 230, 211, 0.74) 38%,
-    rgba(239, 230, 211, 0.28) 64%,
-    rgba(239, 230, 211, 0) 100%);
+    rgba(236, 225, 204, 0.86) 0%,
+    rgba(236, 225, 204, 0.74) 38%,
+    rgba(236, 225, 204, 0.28) 64%,
+    rgba(236, 225, 204, 0) 100%);
 }
 /* Soft cream halo behind hero type so it stays crisp over the lighter wash */
 .hero-eyebrow, .hero h1, .hero-description, .hero-links, .hero-stat-value, .hero-stat-label {
-  text-shadow: 0 0 18px rgba(239, 230, 211, 0.9), 0 0 2px rgba(239, 230, 211, 0.6);
+  text-shadow: 0 0 18px rgba(236, 225, 204, 0.9), 0 0 2px rgba(236, 225, 204, 0.6);
 }
 .hero > .container { width: 100%; }
 .hero-content { max-width: 640px; }
@@ -156,7 +161,7 @@ a:hover { color: var(--ink); }
     display: block;
     min-height: 0;
     padding: var(--header-h) 0 3rem;
-    background: #EFE6D3;
+    background: #ECE1CC;
   }
   .hero-bg {
     position: relative;
@@ -169,14 +174,14 @@ a:hover { color: var(--ink); }
 
 /* ---------- Valuation bar (parchment) ---------- */
 /* Home bands alternate: ivory header → sand hero → white valuation → sand trust → ivory listings → sand → white */
-.valuation-bar { background: #FFFFFF; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
+.valuation-bar { background: var(--cream-white); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
 .valuation-bar-text { color: var(--ink); }
 .valuation-bar input { background: var(--ivory); border: 1px solid var(--stone); box-shadow: none; color: var(--charcoal); }
 .valuation-bar .btn { background: var(--ink); color: var(--ivory); }
 .valuation-bar .btn:hover { background: var(--ink-soft); color: var(--ivory); }
 
 /* ---------- Trust bar (ivory, quiet small caps) ---------- */
-.trust-bar { background: #EFE6D3; border-bottom: 1px solid #DCCFB5; }
+.trust-bar { background: #ECE1CC; border-bottom: 1px solid #DCCFB5; }
 .trust-item { color: var(--taupe); letter-spacing: 0.1em; }
 
 /* Phones: a compact two-column grid instead of five tall rows */
@@ -204,7 +209,7 @@ a:hover { color: var(--ink); }
 
 /* ---------- Featured listings (parchment field, white cards) ---------- */
 .listings-section { background: var(--parchment); }
-.listing-card { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
+.listing-card { background: var(--cream-white); border: 1px solid var(--stone); box-shadow: none; }
 .listing-card:hover { box-shadow: var(--shadow-lg); }
 .listing-img { background: var(--parchment); }
 .listing-badge {
@@ -212,7 +217,7 @@ a:hover { color: var(--ink); }
   letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
 }
 .listing-badge.off-market { background: var(--ink); color: var(--ivory); }
-.listing-price { background: rgba(30, 43, 64, 0.88); color: var(--ivory); }
+.listing-price { background: rgba(19, 32, 58, 0.88); color: var(--ivory); }
 .listing-location { color: var(--bronze-deep); letter-spacing: 0.08em; }
 .listing-title { color: var(--ink); }
 .listing-specs { color: var(--taupe); }
@@ -227,15 +232,15 @@ a:hover { color: var(--ink); }
 .neighborhoods-section > .container > p a { color: var(--bronze-deep); }
 .neighborhood-card-bg { background-color: var(--parchment); }
 .neighborhood-card-overlay {
-  background: linear-gradient(to top, rgba(30, 43, 64, 0.85) 0%, rgba(30, 43, 64, 0.2) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(19, 32, 58, 0.85) 0%, rgba(19, 32, 58, 0.2) 55%, transparent 100%);
 }
-.neighborhood-card-hover { background: rgba(30, 43, 64, 0.82); }
+.neighborhood-card-hover { background: rgba(19, 32, 58, 0.82); }
 .neighborhood-name { color: var(--ivory); }
 .neighborhood-meta { color: var(--bronze-light); }
 
 /* ---------- Free resources / guides (ivory, parchment cards) ---------- */
 .guides-section { background: var(--parchment); }
-.guide-card { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
+.guide-card { background: var(--cream-white); border: 1px solid var(--stone); box-shadow: none; }
 .guide-card:hover { border-color: var(--bronze); box-shadow: none; }
 .guide-header { background: var(--ink); }
 .guide-header h3 { color: var(--ivory); }
@@ -271,13 +276,13 @@ a:hover { color: var(--ink); }
 .lead-capture-section .eyebrow { color: var(--bronze-deep); }
 .lead-capture-section a { color: var(--ink); }
 .lead-capture-section a:hover { color: var(--bronze-deep); }
-.lead-form-wrapper { background: #FFFFFF; border: 1px solid var(--stone); }
+.lead-form-wrapper { background: var(--cream-white); border: 1px solid var(--stone); }
 .form-label { color: #4A463F; }
 .form-control {
-  background: #FFFFFF; border: 1px solid var(--stone); color: var(--charcoal);
+  background: var(--cream-white); border: 1px solid var(--stone); color: var(--charcoal);
 }
 .form-control::placeholder { color: #A39A8C; }
-.form-control:focus { background: #FFFFFF; border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
+.form-control:focus { background: var(--cream-white); border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
 .form-note { color: var(--taupe); }
 .form-success h3 { color: var(--ink); }
 .form-success p { color: var(--taupe); }
@@ -318,7 +323,7 @@ a:hover { color: var(--ink); }
 .newsletter-text h2 { color: var(--ink); }
 .newsletter-text p { color: var(--taupe); }
 .newsletter-note { color: var(--taupe); }
-.newsletter-form input { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
+.newsletter-form input { background: var(--cream-white); border: 1px solid var(--stone); box-shadow: none; }
 .newsletter-form input:focus { border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
 
 /* ---------- Footer (ink, single bronze rule) ----------
@@ -371,12 +376,12 @@ a:hover { color: var(--ink); }
 .tab-btn.active, .filter-btn.active { background: var(--ink); color: var(--ivory); }
 .filter-btn:hover, .tab-btn:hover { color: var(--bronze-deep); background: transparent; }
 .blog-index { background: var(--ivory); }
-.blog-card { background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none; }
+.blog-card { background: var(--cream-white); border: 1px solid var(--stone); box-shadow: none; }
 .blog-card-date, .blog-card-link, .blog-pager-link span { color: var(--bronze-deep); }
 .blog-cta { background: var(--ink); }
 .neighborhood-stats, .ndc-tag, .guide-step-tags span { background: var(--parchment); }
 .neighborhood-full-card, .neighborhood-detail-card, .contact-form-box {
-  background: #FFFFFF; border: 1px solid var(--stone); box-shadow: none;
+  background: var(--cream-white); border: 1px solid var(--stone); box-shadow: none;
 }
 .text-gold { color: var(--bronze-deep); }
 .prose a { color: var(--bronze-deep); }
@@ -396,7 +401,7 @@ a:hover { color: var(--ink); }
 
 /* Form cards are white everywhere, including the one in the dark newsletter hero */
 .newsletter-hero .newsletter-card .form-control {
-  background: #FFFFFF; border: 1px solid var(--stone); color: var(--charcoal);
+  background: var(--cream-white); border: 1px solid var(--stone); color: var(--charcoal);
 }
 .newsletter-hero .newsletter-card .form-control:focus { border-color: var(--bronze); box-shadow: 0 0 0 3px rgba(168, 134, 90, 0.15); }
 .newsletter-hero .newsletter-card .form-label { color: #4A463F; }
@@ -432,7 +437,7 @@ a:hover { color: var(--ink); }
 /* ---------- Off-market signup popup ---------- */
 .om-popup { position: fixed; inset: 0; z-index: 1100; display: flex; align-items: center; justify-content: center; padding: 1rem; }
 .om-popup[hidden] { display: none; }
-.om-popup-backdrop { position: absolute; inset: 0; background: rgba(30, 43, 64, 0.6); opacity: 0; transition: opacity 0.3s ease; }
+.om-popup-backdrop { position: absolute; inset: 0; background: rgba(19, 32, 58, 0.6); opacity: 0; transition: opacity 0.3s ease; }
 .om-popup-card {
   position: relative; width: 100%; max-width: 460px; max-height: calc(100vh - 2rem); overflow-y: auto;
   background: var(--ivory); border: 1px solid var(--stone); border-top: 3px solid var(--bronze);
@@ -476,7 +481,7 @@ a:hover { color: var(--ink); }
   position: absolute; top: calc(100% + 14px); left: -1rem; z-index: 1002;
   background: var(--ivory); color: var(--ink);
   border: 1px solid var(--stone); border-top: 2px solid var(--bronze);
-  box-shadow: 0 18px 40px rgba(30, 43, 64, .18);
+  box-shadow: 0 18px 40px rgba(19, 32, 58, .18);
   min-width: 560px; text-align: left;
 }
 .nav-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; } /* hover bridge */
@@ -538,9 +543,9 @@ a:hover { color: var(--ink); }
    scripts/bake_site_chrome.py tags each full-width section data-band="ivory|sand|white|anchor".
    Light bands rotate ivory → sand → white → sand, so every boundary is a visible step on a phone.
    Navy is kept for the contact anchor; the newsletter band above the footer is hunter green. */
-:root { --band-sand: #EFE6D3; }
+:root { --band-sand: #ECE1CC; }
 section[data-band="ivory"] { background: var(--ivory) !important; }
-section[data-band="white"] { background: #FFFFFF !important; }
+section[data-band="white"] { background: var(--cream-white) !important; }
 section[data-band="sand"]  { background: var(--band-sand) !important; }
 section[data-band="sand"] .ap-strip, section[data-band="sand"].ap-strip { border-color: #DCCFB5; }
 
@@ -561,13 +566,13 @@ body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [da
 
 body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(div, strong, b, .bg-tags, .rl-bar-label, .rl-bar-val, .rl-callout) { color: inherit; }
 body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.bg-tags, .rl-bar-label small, .rl-bar-val) { color: #4A463F; }
-body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.rl-callout, .rl-panel) { background: rgba(30, 43, 64, 0.04); border-color: var(--stone); color: var(--charcoal); }
-body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .rl-bar-track { background: rgba(30, 43, 64, 0.08); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) :is(.rl-callout, .rl-panel) { background: rgba(19, 32, 58, 0.04); border-color: var(--stone); color: var(--charcoal); }
+body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) .rl-bar-track { background: rgba(19, 32, 58, 0.08); }
 body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) em { color: var(--leather); }
 
 /* The home page testimonials band, also formerly dark */
 body .testimonials-section[data-band] .section-title { color: var(--ink); }
-body .testimonials-section[data-band] .testimonial-card { background: #FFFFFF; border-color: var(--stone); }
+body .testimonials-section[data-band] .testimonial-card { background: var(--cream-white); border-color: var(--stone); }
 body .testimonials-section[data-band] .testimonial-quote { color: var(--charcoal); }
 body .testimonials-section[data-band] .testimonial-name { color: var(--ink); }
 body .testimonials-section[data-band] .testimonial-role { color: var(--taupe); }
@@ -596,7 +601,7 @@ body .newsletter-section .newsletter-text h2 { color: #F2EDE3; }
 body .newsletter-section .newsletter-text p, .newsletter-section .newsletter-note { color: rgba(242, 237, 227, 0.8); }
 body .newsletter-section .newsletter-form input { border-color: transparent; }
 body .newsletter-section .btn-dark { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
-body .newsletter-section .btn-dark:hover { background: #FFFFFF; color: var(--ink); }
+body .newsletter-section .btn-dark:hover { background: var(--cream-white); color: var(--ink); }
 body .newsletter-section .form-success { background: rgba(255, 255, 255, 0.08); }
 body .newsletter-section .form-success h3 { color: #F2EDE3; }
 body .newsletter-section .form-success :is(p, .footer-success-mark) { color: rgba(242, 237, 227, 0.8); }
@@ -672,3 +677,94 @@ body section[data-band="sand"] .section-title em[style*="color:var(--bronze)"] {
   padding-right: clamp(1.25rem, 4vw, 2.75rem);
   padding-bottom: clamp(1.5rem, 4vw, 2.25rem);
 }
+
+/* ==========================================================================
+   Signature layer: Ralph Lauren × Auberge
+   Ralph Lauren: deep navy, crisp double rules, tracked capitals, bold contrast.
+   Auberge: sun-warmed sand, generous air, light editorial serifs, quiet clay accents.
+   ========================================================================== */
+
+/* Editorial serif: lighter, more refined headline weights */
+h1, h2, h3, h4, h5 { font-weight: 500; letter-spacing: -0.005em; }
+h1, .hero h1, .page-hero-title { font-weight: 400; line-height: 1.08; letter-spacing: -0.012em; }
+.section-title { font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
+:is(h1, h2, .section-title, .page-hero-title) em { font-style: italic; font-weight: 400; }
+.hero h1 em, .section-title em { color: var(--leather); }
+.listing-title, .agent-name, .value-card h3, .guide-header h3, .testimonial-name, .faq-question { font-weight: 500; }
+body { line-height: 1.7; }
+.section-subtitle { line-height: 1.75; }
+
+/* Tracked capitals for labels, the Ralph Lauren way */
+.eyebrow, .hero-eyebrow { font-weight: 500; font-size: 0.7rem; letter-spacing: 0.3em; }
+.hero-eyebrow::before { background: var(--clay); }
+.site-logo .logo-main { font-weight: 500; letter-spacing: 0.06em; }
+.site-logo .logo-sub { letter-spacing: 0.32em; font-weight: 500; }
+.footer-col h3, .footer-col h4 { font-size: 0.7rem; letter-spacing: 0.26em; font-weight: 500; text-transform: uppercase; }
+.listing-location, .agent-title { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.2em; font-weight: 500; }
+.hero-stat-label, .trust-item { letter-spacing: 0.18em; }
+
+/* Buttons: squared, tailored, tracked capitals */
+.btn {
+  border-radius: 0;
+  border-width: 1px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease;
+}
+.btn-lg { padding: 1.15rem 2.75rem; font-size: 0.78rem; }
+.btn-sm { padding: 0.7rem 1.4rem; font-size: 0.68rem; letter-spacing: 0.18em; }
+.btn:hover { transform: none; }
+
+/* Divider: a short brass rule with a clay center, like a monogram stripe */
+.divider { width: 64px; height: 1px; background: linear-gradient(90deg, var(--bronze) 0 40%, var(--clay) 40% 60%, var(--bronze) 60% 100%); }
+
+/* Header: crisp double rule (hairline + brass pinstripe) */
+#site-header, #site-header.transparent, #site-header.scrolled {
+  border-bottom: 1px solid var(--stone);
+  box-shadow: 0 4px 0 -3px rgba(166, 135, 78, 0.55);
+}
+#site-header.header-hidden { box-shadow: none; }
+
+/* Squared, tailored cards and imagery */
+.listing-card, .guide-card, .blog-card, .value-card, .testimonial-card, .lead-form-wrapper,
+.neighborhood-card, .neighborhood-full-card, .neighborhood-detail-card, .contact-form-box,
+.listing-badge, .listing-price, .form-control, .newsletter-form input, .nav-menu, .om-popup-card,
+.agent-photo, .neighborhood-card-bg, .listing-img { border-radius: 0; }
+.listing-card { transition: box-shadow .4s ease, border-color .4s ease; }
+.listing-card:hover { border-color: var(--bronze); box-shadow: 0 18px 40px rgba(19, 32, 58, 0.10); }
+.listing-price { background: rgba(19, 32, 58, 0.92); font-family: var(--font-serif); letter-spacing: 0.02em; }
+.listing-badge.off-market { background: var(--oxblood); }
+
+/* Inset frame on the agent portrait (gallery-style mat) */
+.agent-photo { outline: 1px solid var(--bronze); outline-offset: 10px; }
+
+/* Testimonials: large italic serif quotes */
+.testimonial-quote { font-weight: 400; font-size: 1.08rem; line-height: 1.7; }
+.testimonial-stars { color: var(--bronze); }
+
+/* FAQ: serif questions */
+.faq-question { font-family: var(--font-serif); font-size: 1.12rem; }
+
+/* Interior heroes: deep navy with a brass pinstripe along the base */
+:is(.page-hero, .valuation-hero, .guide-page-hero, .neighborhood-page-hero, .contact-hero, .newsletter-hero) {
+  box-shadow: inset 0 -1px 0 rgba(216, 197, 154, 0.45);
+}
+.page-hero-title em, .newsletter-hero .page-hero-title em { color: var(--bronze-light); }
+
+/* Footer: double brass rule on top, Ralph Lauren style */
+#site-footer > footer, .site-footer-main {
+  border-top: 1px solid var(--footer-border);
+  box-shadow: inset 0 4px 0 -3px rgba(216, 197, 154, 0.35);
+}
+.social-link { border-radius: 0; }
+
+/* Newsletter band (hunter green): brass hairline frame */
+body .newsletter-section { box-shadow: inset 0 1px 0 rgba(216, 197, 154, 0.35); }
+
+/* Forms: tailored focus */
+.form-control:focus, .newsletter-form input:focus { box-shadow: 0 0 0 1px var(--bronze); }
+
+::selection { background: var(--ink); color: var(--ivory); }
