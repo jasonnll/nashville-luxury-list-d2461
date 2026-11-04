@@ -1290,7 +1290,6 @@ select.form-control option { color: var(--text-dark); background: var(--white); 
 }
 .floating-cta-btn:hover { transform: scale(1.1); }
 .fcta-phone { background: var(--gold); color: var(--navy); }
-.fcta-text { background: #25d366; color: var(--white); }
 .fcta-chat { background: var(--navy); color: var(--gold); border: 2px solid var(--gold); }
 .floating-label {
   background: var(--navy);
