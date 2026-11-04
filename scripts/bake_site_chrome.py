@@ -404,7 +404,7 @@ BAND_CYCLE = ['ivory', 'sand', 'white', 'sand']
 BAND_SKIP_FILES = {'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html'}
 HERO_CLASSES = {'hero', 'ap-hero', 'page-hero', 'rl-hero', 'booking-hero'}
 ANCHOR_CLASSES = {'ap-final', 'rl-final', 'lead-capture-section'}
-NO_BAND_CLASSES = {'newsletter-section', 'stats-bar'}  # stats-bar: navy strip under the home hero
+NO_BAND_CLASSES = {'newsletter-section', 'search-bar', 'off-market-band'}  # home: navy search strip under the hero, hunter-green off-market band
 
 
 class _Sections(HTMLParser):

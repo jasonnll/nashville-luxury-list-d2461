@@ -67,9 +67,9 @@ def head(title, desc, path, og_image, graph, css=("agent-page",), og_type="websi
 <meta name="twitter:title" content="{E(title.split(' | ')[0])}">
 <meta name="twitter:description" content="{E(desc)}">
 <meta name="twitter:image" content="{SITE + og_image}">
-<link rel="preload" href="/assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=20261104rl">
-<link rel="stylesheet" href="/assets/css/palette.css?v=20261104i">
+<link rel="preload" href="/assets/fonts/libre-caslon-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css?v=20261104lc">
+<link rel="stylesheet" href="/assets/css/palette.css?v=20261104lc">
 {css_links}
 <script type="application/ld+json">
 {ld}
