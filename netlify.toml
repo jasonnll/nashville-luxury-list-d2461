@@ -1,6 +1,7 @@
 [build]
   publish = "."
-  # Turns each week's Friday Mailchimp campaign into a blog post (see the script for the rules).
+  # Turns each week's Friday Mailchimp campaign into a blog post (see the script for the rules),
+  # then points the /newsletter/ preview card at that newest issue's photo.
   # A Zapier "campaign sent" Zap calls this site's build hook so the post goes live right away.
   # Then bakes the shared header, menu and footer into every page as plain HTML, so AI crawlers that
   # don't run JavaScript see them (scripts/bake_site_chrome.py is the one place to edit the menu/footer).
@@ -8,7 +9,7 @@
   # record if Compass can't be reached) and rebuilds the record-backed "luxury realtor in [area]" pages from it.
   # Last, sets each sitemap <lastmod> to when the page really changed. After a production deploy,
   # netlify/functions/indexnow.mts submits new and changed pages to IndexNow (Bing, Yandex and others).
-  command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_realtor_pages.py && python3 scripts/bake_site_chrome.py && python3 scripts/update_sitemap_lastmod.py"
+  command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/update_newsletter_latest.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_realtor_pages.py && python3 scripts/bake_site_chrome.py && python3 scripts/update_sitemap_lastmod.py"
 
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 # Old neighborhood-guide subdomain -> guides now live at /neighborhoods/<slug>/.
@@ -92,6 +93,17 @@
 
 [[redirects]]
   from = "/newsletter"
+  to   = "/newsletter/"
+  status = 301
+
+# /access/ (the old off-market signup page) was merged into the Friday List page at /newsletter/.
+[[redirects]]
+  from = "/access"
+  to   = "/newsletter/"
+  status = 301
+
+[[redirects]]
+  from = "/access/*"
   to   = "/newsletter/"
   status = 301
 

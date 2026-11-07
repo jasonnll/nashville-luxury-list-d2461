@@ -158,7 +158,7 @@ def hero(crumbs, eyebrow, h1, answer, points, photo, card_line, updated="Updated
       </div>
       <p>{card_line}</p>
       <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Call</a>
-      <a class="btn btn-outline-gold btn-lg" href="/access/">Get Off-Market Homes Weekly</a>
+      <a class="btn btn-outline-gold btn-lg" href="/newsletter/">Get Off-Market Homes Weekly</a>
       <div class="ap-card-contact">
         <a href="tel:+16154570768">Call or text 615-457-0768</a>
         <a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a>

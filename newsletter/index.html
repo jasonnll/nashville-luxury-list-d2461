@@ -1,184 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Weekly Luxury List Newsletter | Nashville Luxury Homes</title>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon/icon-192.png">
-<link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
-<meta name="description" content="Get Nashville&#x27;s best luxury homes in your inbox every week — new listings, off-market opportunities and market notes from Jason Kloess, Compass. Free, unsubscribe anytime.">
-<meta name="theme-color" content="#F6F0E4">
-<meta name="author" content="Jason Kloess">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nashville Luxury Homes Newsletter, Free Every Friday | Nashville Luxury List</title>
+<meta name="description" content="Every Friday: 5 new $1.5M+ Nashville and Williamson County listings, 3 private off market homes and a quick market read from Jason Kloess, Compass. Free.">
 <link rel="canonical" href="https://www.nashvilleluxurylist.com/newsletter/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Jason Kloess">
+<meta name="theme-color" content="#F6F0E4">
+
+<!-- ============================================================
+     IMAGES
+     /assets/images/neighborhoods/belle-meade.jpg  share image
+     Preview card photo + "Read last Friday's issue" link: set on every
+       build from the newest blog post by scripts/update_newsletter_latest.py
+     /assets/images/jason-kloess.jpg               headshot (400x400, square)
+
+     SETTINGS: see the NLL_CONFIG block near the bottom of this file
+     (Meta Pixel ID, GA4 ID, archive link, signup endpoint).
+     ============================================================ -->
+
 <meta property="og:type" content="website">
-<meta property="og:title" content="The Weekly Luxury List Newsletter">
-<meta property="og:description" content="Get Nashville&#x27;s best luxury homes in your inbox every week — new listings, off-market opportunities and market notes from Jason Kloess, Compass. Free, unsubscribe anytime.">
-<meta property="og:url" content="https://www.nashvilleluxurylist.com/newsletter/">
 <meta property="og:site_name" content="Nashville Luxury List">
+<meta property="og:title" content="The Friday List: Nashville's best $1.5M+ homes">
+<meta property="og:description" content="5 new luxury listings, 3 private off market homes and a quick market read, every Friday. Free.">
+<meta property="og:url" content="https://www.nashvilleluxurylist.com/newsletter/">
 <meta property="og:image" content="https://www.nashvilleluxurylist.com/assets/images/neighborhoods/belle-meade.jpg">
+<meta property="og:image:alt" content="Belle Meade, Nashville, one of the neighborhoods covered by the Friday List">
+<meta property="article:modified_time" content="2026-11-06">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Weekly Luxury List Newsletter">
-<meta name="twitter:description" content="Get Nashville&#x27;s best luxury homes in your inbox every week — new listings, off-market opportunities and market notes from Jason Kloess, Compass. Free, unsubscribe anytime.">
+<meta name="twitter:title" content="The Friday List: Nashville's best $1.5M+ homes">
+<meta name="twitter:description" content="5 new luxury listings, 3 private off market homes and a quick market read, every Friday. Free.">
 <meta name="twitter:image" content="https://www.nashvilleluxurylist.com/assets/images/neighborhoods/belle-meade.jpg">
+
+<!-- Same self-hosted fonts and shared stylesheet as the home page -->
 <link rel="preload" href="/assets/fonts/libre-caslon-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=20261104lc">
-<link rel="stylesheet" href="/assets/css/palette.css?v=20261104hc">
-<link rel="stylesheet" href="/assets/css/agent-page.css?v=20261102a">
-<link rel="stylesheet" href="/assets/css/city-guide.css?v=20261102a">
+<link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "WebPage",
-   "@id": "https://www.nashvilleluxurylist.com/newsletter/#webpage",
-   "url": "https://www.nashvilleluxurylist.com/newsletter/",
-   "name": "The Weekly Luxury List Newsletter",
-   "description": "Get Nashville's best luxury homes in your inbox every week — new listings, off-market opportunities and market notes from Jason Kloess, Compass. Free, unsubscribe anytime.",
-   "inLanguage": "en-US",
-   "datePublished": "2026-10-27",
-   "dateModified": "2026-11-02",
-   "author": {
-    "@id": "https://www.nashvilleluxurylist.com/#jason-kloess"
-   },
-   "publisher": {
-    "@id": "https://www.nashvilleluxurylist.com/#brand"
-   },
-   "isPartOf": {
-    "@id": "https://www.nashvilleluxurylist.com/#website"
-   },
-   "breadcrumb": {
-    "@id": "https://www.nashvilleluxurylist.com/newsletter/#breadcrumb"
-   }
-  },
-  {
-   "@type": "BreadcrumbList",
-   "@id": "https://www.nashvilleluxurylist.com/newsletter/#breadcrumb",
-   "itemListElement": [
+  "@context": "https://schema.org",
+  "@graph": [
     {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "Home",
-     "item": "https://www.nashvilleluxurylist.com/"
+      "@type": "WebSite",
+      "@id": "https://www.nashvilleluxurylist.com/#website",
+      "url": "https://www.nashvilleluxurylist.com/",
+      "name": "Nashville Luxury List",
+      "publisher": {"@id": "https://www.nashvilleluxurylist.com/#jason"}
     },
     {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Newsletter",
-     "item": "https://www.nashvilleluxurylist.com/newsletter/"
+      "@type": "WebPage",
+      "@id": "https://www.nashvilleluxurylist.com/newsletter/#webpage",
+      "url": "https://www.nashvilleluxurylist.com/newsletter/",
+      "name": "The Friday List: Nashville Luxury Homes Newsletter",
+      "description": "Sign up for the Friday List, a free weekly email with the 5 best new $1.5M+ homes in Nashville and Williamson County, 3 private off market homes and a short market read from Jason Kloess of Compass.",
+      "inLanguage": "en-US",
+      "isPartOf": {"@id": "https://www.nashvilleluxurylist.com/#website"},
+      "about": {"@id": "https://www.nashvilleluxurylist.com/newsletter/#series"},
+      "mainEntity": {"@id": "https://www.nashvilleluxurylist.com/newsletter/#series"},
+      "dateModified": "2026-11-06",
+      "author": {"@id": "https://www.nashvilleluxurylist.com/#jason"},
+      "breadcrumb": {"@id": "https://www.nashvilleluxurylist.com/newsletter/#breadcrumb"},
+      "primaryImageOfPage": {"@type": "ImageObject", "url": "https://www.nashvilleluxurylist.com/assets/images/neighborhoods/belle-meade.jpg"},
+      "potentialAction": {
+        "@type": "SubscribeAction",
+        "name": "Join the Friday List",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.nashvilleluxurylist.com/newsletter/#join",
+          "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+        },
+        "object": {"@id": "https://www.nashvilleluxurylist.com/newsletter/#series"}
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.nashvilleluxurylist.com/newsletter/#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nashvilleluxurylist.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Newsletter", "item": "https://www.nashvilleluxurylist.com/newsletter/"}
+      ]
+    },
+    {
+      "@type": "CreativeWorkSeries",
+      "@id": "https://www.nashvilleluxurylist.com/newsletter/#series",
+      "name": "The Friday List (Weekly Luxury List)",
+      "alternateName": ["Weekly Luxury List", "Nashville Luxury List newsletter"],
+      "description": "A free email published every Friday featuring the 5 best new $1.5M+ listings in Nashville and Williamson County (14 days on market or less, never repeated), 3 private or off market homes shared only with subscribers, and a short read on luxury pricing, inventory and days on market.",
+      "url": "https://www.nashvilleluxurylist.com/newsletter/",
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true,
+      "author": {"@id": "https://www.nashvilleluxurylist.com/#jason"},
+      "publisher": {"@id": "https://www.nashvilleluxurylist.com/#jason"},
+      "spatialCoverage": [
+        {"@type": "Place", "name": "Nashville, Davidson County, TN"},
+        {"@type": "Place", "name": "Williamson County, TN"}
+      ],
+      "audience": {"@type": "Audience", "audienceType": "Luxury home buyers, relocating families, homeowners and investors in Middle Tennessee"},
+      "keywords": "Nashville luxury homes, Nashville off market homes, Brentwood luxury homes, Franklin TN luxury homes, Belle Meade homes for sale, Green Hills homes for sale, Williamson County luxury real estate",
+      "sameAs": ["https://www.nashvilleluxurylist.com/blog/"]
+    },
+    {
+      "@type": ["RealEstateAgent", "Person"],
+      "@id": "https://www.nashvilleluxurylist.com/#jason",
+      "name": "Jason Kloess",
+      "jobTitle": "REALTOR®",
+      "url": "https://www.nashvilleluxurylist.com/about/",
+      "telephone": "+1-615-457-0768",
+      "email": "jason@nashvilleluxurylist.com",
+      "image": "https://www.nashvilleluxurylist.com/assets/images/jason-kloess.jpg",
+      "worksFor": {"@type": "RealEstateAgent", "name": "Compass Nashville", "telephone": "+1-615-522-5100"},
+      "address": {"@type": "PostalAddress", "streetAddress": "1610 West End Ave, Suite 115", "addressLocality": "Nashville", "addressRegion": "TN", "postalCode": "37203", "addressCountry": "US"},
+      "areaServed": ["Nashville, TN", "Brentwood, TN", "Franklin, TN", "Thompson's Station, TN", "Williamson County, TN", "Davidson County, TN"],
+      "knowsAbout": ["Nashville luxury real estate", "Off market homes", "Relocation to Nashville", "Williamson County real estate"],
+      "sameAs": ["https://instagram.com/nashvilleluxurylist", "https://www.instagram.com/jasonkloess", "https://facebook.com/nashvilleluxurylist", "https://www.linkedin.com/in/jasonkloess/"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What is the Friday List?", "acceptedAnswer": {"@type": "Answer", "text": "A free weekly email from Jason Kloess of Compass with the 5 best new $1.5M+ homes across Nashville and Williamson County, 3 private off market homes, and a short market read."}},
+        {"@type": "Question", "name": "How often will I hear from you?", "acceptedAnswer": {"@type": "Answer", "text": "Once a week, on Friday. Unsubscribe in one click from any email."}},
+        {"@type": "Question", "name": "Which areas does it cover?", "acceptedAnswer": {"@type": "Answer", "text": "Nashville (Belle Meade, Green Hills, Forest Hills, Oak Hill, 12 South and more) and Williamson County (Brentwood, Franklin, Leiper's Fork, College Grove and Thompson's Station)."}},
+        {"@type": "Question", "name": "Do I need to share anything besides my email?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your email is all it takes. After you join you can share your areas, price range and timeline so the list fits you, or skip it."}},
+        {"@type": "Question", "name": "Can I see an issue first?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Friday issue is published on the Weekly Luxury List archive at nashvilleluxurylist.com/blog/."}}
+      ]
     }
-   ]
-  },
-  {
-   "@type": "RealEstateAgent",
-   "@id": "https://www.nashvilleluxurylist.com/#jason-kloess",
-   "name": "Jason Kloess",
-   "jobTitle": "REALTOR®",
-   "url": "https://www.nashvilleluxurylist.com/",
-   "image": "https://www.nashvilleluxurylist.com/assets/images/jason-kloess.jpg",
-   "telephone": "+1-615-457-0768",
-   "email": "jason@nashvilleluxurylist.com",
-   "priceRange": "$1,500,000+",
-   "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "1610 West End Ave, Suite 115",
-    "addressLocality": "Nashville",
-    "addressRegion": "TN",
-    "postalCode": "37203",
-    "addressCountry": "US"
-   },
-   "parentOrganization": {
-    "@type": "RealEstateAgent",
-    "name": "Compass RE",
-    "url": "https://www.compass.com/",
-    "telephone": "+1-615-522-5100"
-   },
-   "hasCredential": {
-    "@type": "EducationalOccupationalCredential",
-    "credentialCategory": "license",
-    "name": "Tennessee Real Estate License",
-    "identifier": "357138"
-   },
-   "sameAs": [
-    "https://www.compass.com/agents/jason-kloess/",
-    "https://www.instagram.com/jasonkloess/",
-    "https://www.instagram.com/nashvilleluxurylist/",
-    "https://www.linkedin.com/in/jasonkloess/"
-   ]
-  },
-  {
-   "@type": "Organization",
-   "@id": "https://www.nashvilleluxurylist.com/#brand",
-   "name": "Nashville Luxury List",
-   "url": "https://www.nashvilleluxurylist.com/",
-   "founder": {
-    "@id": "https://www.nashvilleluxurylist.com/#jason-kloess"
-   }
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.nashvilleluxurylist.com/newsletter/#faq",
-   "mainEntityOfPage": {
-    "@id": "https://www.nashvilleluxurylist.com/newsletter/#webpage"
-   },
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "What is the Weekly Luxury List?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "A free weekly email from Jason Kloess of Compass with the most compelling $1.5M+ homes across Nashville and Williamson County, plus off-market and coming-soon properties and a short market note."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "How often will I hear from you?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "One email a week. Unsubscribe anytime."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Do I need to share anything besides my email?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "No. Your email is all it takes. Name, area, price point and timeline are optional and only help tailor what you see."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Can I see a past issue first?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Yes. Every issue is published on the Weekly Luxury List blog, including a recent issue."
-     }
-    }
-   ]
-  }
- ]
+  ]
 }
 </script>
-<script>(window.__nll3p=window.__nll3p||[]).push('https://www.googletagmanager.com/gtag/js?id=G-W9WQYY6MS5');</script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-W9WQYY6MS5");gtag("config","AW-18543435200");</script>
-<!-- Meta Pixel -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];(f.__nll3pLate=f.__nll3pLate||[]).push(v)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1367479611783678');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Newsletter'});</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1367479611783678&ev=PageView&noscript=1"/></noscript>
-<script>(function(w,d){if(w.__nll3pInit)return;w.__nll3pInit=1;function add(l){(l||[]).forEach(function(u){var s=d.createElement('script');s.async=true;s.src=u;d.head.appendChild(s);});}var g=0,m=0;function google(){if(g)return;g=1;add(w.__nll3p);}function meta(){if(m)return;m=1;add(w.__nll3pLate);}function first(){google();setTimeout(meta,3000);}['pointerdown','keydown','touchstart','scroll'].forEach(function(t){w.addEventListener(t,first,{once:true,passive:true});});w.addEventListener('load',function(){setTimeout(google,2500);setTimeout(meta,10000);});})(window,document);</script>
+
 <style>
-/* Newsletter signup card: optional preferences on the light card */
-.cg-card .newsletter-prefs{border-color:var(--stone)}
-.cg-card .newsletter-prefs summary{color:var(--bronze-deep)}
-.cg-card .newsletter-prefs summary span{color:var(--taupe)}
-.cg-card .form-note{font-size:.78rem;color:var(--taupe);margin-top:.9rem;text-align:center}
+:root{
+  /* Home page tokens (assets/css/home.css): linen, paper, hunter, ink, saddle, brass */
+  --ivory:#EFE8DA; --cream:#E6DECD; --paper:#F8F4EC; --field:#F8F4EC;
+  --navy:#1C2330; --green:#21382C; --green-dark:#1C2330; --brass:#7E4F2D; --brass-lt:#D2B988;
+  --ink-2:#2A3344; --muted:#57534B; --line:#D6CCB8; --line-soft:#E2D9C7; --tile:#D6CCB8;
+  --serif:"Libre Caslon Display","Big Caslon",Georgia,serif; --sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--navy);font:400 17px/1.65 var(--sans)}
+img{max-width:100%;display:block}
+a{color:var(--brass);text-decoration-thickness:1px;text-underline-offset:4px} a:hover{color:var(--navy)}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance}
+.serif{font-family:var(--serif)}
+.eyebrow{font:500 15px/1.4 var(--sans);color:var(--brass)}
+.muted{color:var(--muted)}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;padding-top:28px;padding-bottom:40px}
+.hero > div{flex:1 1 340px;min-width:0}
+#join{scroll-margin-top:16px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;margin-right:8px;vertical-align:middle;position:relative;top:-1px}
+h1{margin-top:14px;font-family:var(--serif);font-weight:400;font-size:clamp(36px,6vw,64px);line-height:1.08}
+h1 em{font-style:normal;color:var(--brass)}
+.lede{margin-top:16px;font-size:17px;color:var(--ink-2);max-width:520px}
+.byline{margin-top:18px;font-size:13px;color:var(--muted)}
+
+/* forms */
+.signup{margin-top:22px;display:flex;flex-direction:column;gap:10px;max-width:520px}
+label,.legend{font:500 15px/1.3 var(--sans)}
+.field{width:100%;min-height:54px;padding:14px 16px;font:400 16px var(--sans);color:var(--navy);background:var(--field);border:1px solid #9C927F;border-radius:0;outline:none;-webkit-appearance:none;appearance:none}
+.field:focus{border-color:var(--navy);outline:2px solid var(--brass);outline-offset:2px}
+.field::placeholder{color:#7D776B}
+.field[aria-invalid="true"]{border-color:#8A2E1F}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:14px 20px;font:500 16px/1 var(--sans);letter-spacing:.02em;color:var(--paper);background:var(--green);border:1px solid var(--green);border-radius:0;cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.cta:hover{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.cta[disabled]{opacity:.7;cursor:progress}
+.cta-light{color:var(--navy);background:var(--paper);border-color:var(--paper)}.cta-light:hover{background:var(--navy);border-color:var(--paper);color:var(--paper)}
+.cta:focus-visible,.chip:focus-visible,.linkbtn:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.error{font-size:14px;color:#8A2E1F}
+.trust{margin-top:2px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* step panels */
+.panel{margin-top:22px;max-width:520px;background:var(--paper);border:1px solid var(--line);border-radius:0;padding:22px 18px}
+.panel-head{display:flex;align-items:center;gap:12px}
+.check{width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex:none}
+.panel h2{font-family:var(--serif);font-size:22px;font-weight:400}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{min-height:44px;padding:10px 14px;font:500 15px var(--sans);color:var(--navy);background:var(--field);border:1px solid #9C927F;border-radius:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--paper)}
+.prefs{display:flex;flex-direction:column;gap:18px;margin-top:14px}
+.linkbtn{background:none;border:0;padding:12px 8px;min-height:44px;font:500 15px var(--sans);color:var(--muted);text-decoration:underline;cursor:pointer;align-self:center}
+[hidden]{display:none!important}
+
+/* issue preview */
+.preview-col{display:flex;flex-direction:column;gap:12px}
+.issue{background:var(--paper);border:1px solid var(--line);border-radius:0;overflow:hidden}
+.issue-meta{padding:12px 16px;border-bottom:1px solid var(--line-soft);display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted)}
+.issue-meta strong{color:var(--navy);font-weight:600}
+.issue-logo{padding:18px 16px 6px;text-align:center;font-family:var(--serif);font-size:20px;font-weight:400;letter-spacing:.02em}
+.issue-body{padding:10px 16px 18px;display:flex;flex-direction:column;gap:18px}
+.issue-block + .issue-block{border-top:1px solid var(--line-soft);padding-top:16px}
+.issue-label{margin:12px 0 2px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.issue-block:last-child .issue-label{margin-top:0}
+.photo{height:170px;border-radius:0;background:#E4DAC6;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.locks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.locks div{height:64px;border-radius:0;background:var(--tile);display:flex;align-items:center;justify-content:center}
+
+/* stats */
+.band{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px;padding-top:22px;padding-bottom:22px}
+@media (min-width:760px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat b{display:block;font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.1}
+.stat span{font-size:14px;color:var(--muted)}
+
+/* sections */
+.section{padding-top:40px;padding-bottom:12px}
+h2.h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,5.5vw,36px);line-height:1.15;margin-bottom:20px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.about-copy{max-width:760px;color:var(--ink-2);font-size:17px}
+.glance{margin:24px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:0;overflow:hidden}
+.glance div{background:var(--paper);padding:14px 16px}
+.glance dt{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.glance dd{margin:4px 0 0;font-size:16px}
+.related{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 14px;padding:0;list-style:none;font-size:14px}
+.reason{display:flex;gap:14px}
+.reason .num{flex:none;width:30px;font-family:var(--serif);font-size:22px;font-weight:400;color:var(--brass)}
+.reason h3{font:400 21px/1.25 var(--serif);margin-bottom:6px}
+.reason p{color:var(--ink-2)}
+.quote{margin:36px 0 0;padding:22px 20px;background:var(--paper);border:1px solid var(--line);border-radius:0}
+.quote blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.4}
+.quote figcaption{margin-top:10px;font-size:14px;color:var(--muted)}
+.who{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.who li{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);border-radius:0}
+.who svg{flex:none;margin-top:4px}
+.author{display:flex;gap:16px;align-items:center;padding:20px;background:var(--cream);border-radius:0}
+.headshot{flex:none;width:76px;height:76px;border-radius:0;background:var(--tile);overflow:hidden}
+.headshot img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.author .name{margin:2px 0 4px;font-family:var(--serif);font-size:22px;font-weight:400}
+.author p.bio{font-size:15px;color:var(--ink-2)}
+.faq{border-top:1px solid var(--navy)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;min-height:44px;font:400 21px/1.3 var(--serif);cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq .plus{font-size:24px;font-weight:400;color:var(--green);transition:transform .2s}
+.faq details[open] .plus{transform:rotate(45deg)}
+.faq p{padding-bottom:16px;color:var(--ink-2)}
+
+/* final cta */
+.final{background:var(--green);color:var(--paper);margin-top:56px}
+.final .inner{max-width:640px;margin:0 auto;padding:72px 20px;text-align:center}
+.final h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,6vw,40px);line-height:1.15}
+.final .sub{margin-top:12px;color:#E9E2D4}
+.final .signup{margin-left:auto;margin-right:auto;text-align:left}
+.final label{color:var(--ivory)}
+.final .error{color:#F2C3B6}
+.final .small{margin-top:2px;font-size:14px;color:#E9E2D4;text-align:center}
+.final .done{margin-top:22px;font-size:17px;font-weight:500}
+
+/* sticky mobile bar */
+.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:10;padding:10px 16px calc(14px + env(safe-area-inset-bottom));background:rgba(239,232,218,.97);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s ease}
+.sticky-bar.show{transform:none}
+@media (min-width:760px){.sticky-bar{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky-bar,.faq .plus{transition:none}}
 </style>
-<link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/chrome.css?v=20261104r">
 </head>
-<body class="ap-has-sticky">
+<body>
 
 <header id="nll-top" class="nll-top">
   <a class="nll-skip" href="#main">Skip to content</a>
@@ -191,11 +277,11 @@
       <a href="/relocation/">Moving here</a>
       <a href="/market-report/">Market report</a>
       <a href="/about/">Jason</a>
-      <a class="nll-btn nll-btn-solid" href="/access/">Join the List</a>
+      <a class="nll-btn nll-btn-solid" href="/newsletter/">Join the List</a>
       <details class="nll-menu">
         <summary><span><i></i><i></i><i></i></span>Menu</summary>
         <div class="nll-menu-panel">
-          <p class="nll-mlabel">Buy</p><a href="/access/">Join the weekly List</a><a href="/search/">Search homes from $1.5M</a><a href="/strategy/">Book a private search call</a><a href="/buyer-guide/">Buyer’s guide</a><a href="/buyers/">Buyer resources</a><a href="/mortgage-calculator/">Monthly cost calculator</a>
+          <p class="nll-mlabel">Buy</p><a href="/newsletter/" aria-current="page">Join the weekly List</a><a href="/search/">Search homes from $1.5M</a><a href="/strategy/">Book a private search call</a><a href="/buyer-guide/">Buyer’s guide</a><a href="/buyers/">Buyer resources</a><a href="/mortgage-calculator/">Monthly cost calculator</a>
           <p class="nll-mlabel">Sell</p><a href="/home-valuation/">Get a pricing read</a><a href="/seller-guide/">Seller’s guide</a><a href="/sellers/compass-concierge/">Compass Concierge</a><a href="/review/">Private pricing review</a>
           <p class="nll-mlabel">Places</p><a href="/neighborhoods/">All neighborhoods</a><a href="/country-clubs/">Country clubs</a><a href="/golf-tennis/">Golf and tennis</a><a href="/relocation/">Moving to Nashville</a>
           <p class="nll-mlabel">Market</p><a href="/market-report/">Monthly market report</a><a href="/faq/">Market FAQ</a><a href="/blog/">Past weekly lists</a><a href="/guides/">Free guides</a>
@@ -206,187 +292,233 @@
     </nav>
   </div>
 </header><!-- /site-header -->
-<nav id="nll-callbar" class="nll-callbar" aria-label="Quick actions">
-  <a href="tel:+16154570768">Call Jason</a>
-  <a href="/search/">Search</a>
-  <a href="/access/">Join the List</a>
-</nav><!-- /site-floating-cta -->
 
 <main id="main">
-<section class="ap-hero" id="subscribe" aria-labelledby="ap-h1">
-  <img class="ap-hero-bg" src="/.netlify/images?url=/assets/images/neighborhoods/belle-meade.jpg&amp;w=1600&amp;q=60" srcset="/.netlify/images?url=/assets/images/neighborhoods/belle-meade.jpg&amp;w=800&amp;q=60 800w, /.netlify/images?url=/assets/images/neighborhoods/belle-meade.jpg&amp;w=1600&amp;q=60 1600w" sizes="100vw" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
-  <div class="container">
-    <div>
-      <nav class="ap-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; Newsletter</nav>
-      <span class="eyebrow">The Weekly Luxury List &middot; Free</span>
-      <h1 id="ap-h1">Nashville's Best Luxury Homes, <em>in Your Inbox Weekly</em></h1>
-      <p class="ap-answer">Every week Jason hand-picks the most compelling $1.5M+ homes across Nashville and Williamson County — plus the off-market and coming-soon properties you won't find on Zillow.</p>
-      <ul class="ap-points">
-        <li>Top 5 luxury homes of the week, with photos &amp; details</li>
-        <li>Off-market &amp; pre-market opportunities</li>
-        <li>Quick market notes: pricing, inventory &amp; days on market</li>
-        <li>One email a week. Unsubscribe anytime.</li>
-      </ul>
-      <p class="ap-updated">Updated November 2026 &middot; By Jason Kloess, REALTOR&reg;, Compass</p>
-    </div>
-    <aside class="cg-card" id="talk" aria-label="Join the Weekly Luxury List">
-      <div class="form-wrapper">
-        <div class="cg-card-head">
-          <div class="cg-cover" aria-hidden="true"><small>Weekly</small>Luxury List<small>Free</small></div>
+  <section class="wrap hero">
+    <div id="join">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>The Friday List · Free</p>
+      <h1>Nashville's best $1.5M+ homes, <em>plus the ones not on Zillow.</em></h1>
+      <p class="lede">Every Friday: 5 hand picked new listings across Nashville and Williamson County, 3 private off market homes, and a 60 second market read. One email. Always free.</p>
+
+      <!-- STEP 1: email only -->
+      <!-- Works without JavaScript too (agents, text browsers): plain POST to the function, which redirects back. -->
+      <form class="signup" data-signup="top" action="/.netlify/functions/subscribe" method="post" novalidate>
+        <input type="hidden" name="form_location" value="top">
+        <label for="email-top">Your email</label>
+        <input id="email-top" class="field" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@email.com" required aria-describedby="err-top">
+        <div class="hp" aria-hidden="true"><label for="company-top">Company</label><input id="company-top" name="company" tabindex="-1" autocomplete="off"></div>
+        <p id="err-top" class="error" role="alert" hidden></p>
+        <button type="submit" class="cta">Send me Friday's list
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="trust">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21382C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Read by 600+ Nashville buyers. Unsubscribe anytime.
+        </p>
+      </form>
+
+      <!-- STEP 2: optional personalization -->
+      <div class="panel" id="step-prefs" role="region" aria-labelledby="prefs-title" hidden>
+        <div class="panel-head">
+          <span class="check"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F8F4EC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
           <div>
-            <h2>Join the List</h2>
-            <p>One email a week &middot; Free</p>
+            <h2 id="prefs-title" tabindex="-1">You're in.</h2>
+            <p class="muted" style="font-size:15px">Your first issue arrives Friday morning.</p>
           </div>
         </div>
-        <form name="vip-newsletter" method="POST" action="/newsletter/" netlify data-netlify="true" data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="vip-newsletter">
-          <input type="hidden" name="source" value="Newsletter page">
-          <p hidden><label>Leave blank <input name="bot-field"></label></p>
-          <div class="form-group">
-            <label class="form-label" for="nl-email">Email *</label>
-            <input type="email" id="nl-email" name="email" class="form-control" placeholder="you@email.com" autocomplete="email" required>
+        <p style="margin-top:18px;font-size:15px;font-weight:600">Want it tailored to you? Optional, takes 10 seconds.</p>
+        <form class="prefs" id="prefs-form">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <label for="fname">First name</label>
+            <input id="fname" class="field" type="text" name="fname" autocomplete="given-name" placeholder="First name" maxlength="50">
           </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label" for="nl-first">First Name</label><input type="text" id="nl-first" name="first_name" class="form-control" placeholder="First" autocomplete="given-name"></div>
-            <div class="form-group"><label class="form-label" for="nl-last">Last Name</label><input type="text" id="nl-last" name="last_name" class="form-control" placeholder="Last" autocomplete="family-name"></div>
-          </div>
-          <details class="newsletter-prefs">
-            <summary>Personalize my list <span>(optional)</span></summary>
-            <div class="newsletter-prefs-body">
-              <div class="form-group">
-                <label class="form-label" for="nl-area">Area of Interest</label>
-                <select id="nl-area" name="area_of_interest" class="form-control">
-                  <option value="">All of Middle Tennessee</option>
-                  <option>Belle Meade</option>
-                  <option>Brentwood</option>
-                  <option>Green Hills</option>
-                  <option>Forest Hills</option>
-                  <option>Oak Hill</option>
-                  <option>Franklin</option>
-                  <option>Williamson County (College Grove, Leiper's Fork)</option>
-                  <option>12 South / Downtown</option>
-                </select>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="nl-price">Price Point</label>
-                  <select id="nl-price" name="price_point" class="form-control">
-                    <option value="">Any price</option>
-                    <option>$1.5M – $2M</option>
-                    <option>$2M – $3M</option>
-                    <option>$3M – $5M</option>
-                    <option>$5M+</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="nl-timeline">Timeline</label>
-                  <select id="nl-timeline" name="timeline" class="form-control">
-                    <option value="">Just exploring</option>
-                    <option>ASAP (0–3 months)</option>
-                    <option>3–6 months</option>
-                    <option>6–12 months</option>
-                    <option>12+ months</option>
-                  </select>
-                </div>
-              </div>
+          <fieldset data-group="areas" data-multi>
+            <legend class="legend">Areas you're watching</legend>
+            <div class="chips">
+              <button type="button" class="chip" aria-pressed="false">Belle Meade</button>
+              <button type="button" class="chip" aria-pressed="false">Green Hills</button>
+              <button type="button" class="chip" aria-pressed="false">Forest Hills</button>
+              <button type="button" class="chip" aria-pressed="false">Oak Hill</button>
+              <button type="button" class="chip" aria-pressed="false">Brentwood</button>
+              <button type="button" class="chip" aria-pressed="false">Franklin</button>
+              <button type="button" class="chip" aria-pressed="false">Leiper's Fork and College Grove</button>
+              <button type="button" class="chip" aria-pressed="false">12 South and Downtown</button>
+              <button type="button" class="chip" aria-pressed="false">All of Middle Tennessee</button>
             </div>
-          </details>
-          <button type="submit" class="btn btn-gold btn-full btn-lg">Send Me the Weekly List →</button>
-          <p class="form-note">Free. No spam — one email a week, unsubscribe anytime.</p>
+          </fieldset>
+          <fieldset data-group="price">
+            <legend class="legend">Price range</legend>
+            <div class="chips">
+              <button type="button" class="chip" aria-pressed="false">$1.5M to $2M</button>
+              <button type="button" class="chip" aria-pressed="false">$2M to $3M</button>
+              <button type="button" class="chip" aria-pressed="false">$3M to $5M</button>
+              <button type="button" class="chip" aria-pressed="false">$5M+</button>
+            </div>
+          </fieldset>
+          <fieldset data-group="timeline">
+            <legend class="legend">Timeline</legend>
+            <div class="chips">
+              <button type="button" class="chip" aria-pressed="false">Just watching</button>
+              <button type="button" class="chip" aria-pressed="false">0 to 3 months</button>
+              <button type="button" class="chip" aria-pressed="false">3 to 12 months</button>
+              <button type="button" class="chip" aria-pressed="false">12+ months</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="visually-hidden">Relocation</legend>
+            <div class="chips" style="margin-top:0">
+              <button type="button" class="chip" id="reloc" aria-pressed="false">I'm moving to Nashville</button>
+            </div>
+          </fieldset>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <button type="submit" class="cta">Save my preferences</button>
+            <button type="button" class="linkbtn" id="skip-prefs">Skip for now</button>
+          </div>
         </form>
-        <div class="form-success" role="status" aria-live="polite" style="display:none">
-          <div class="cg-check">&#10003;</div>
-          <h3>You're on the List!</h3>
-          <p>Look for your first issue in your inbox this week. In the meantime, catch up on the latest roundup.</p>
-          <a class="btn btn-gold btn-full" href="/blog/">Read the Latest Roundup →</a>
+      </div>
+
+      <!-- STEP 3: done -->
+      <div class="panel" id="step-done" role="region" aria-labelledby="done-title" hidden>
+        <h2 id="done-title" tabindex="-1" style="font-size:24px">You're all set.</h2>
+        <p style="margin-top:10px;font-size:15px;color:var(--ink-2)">Look for Nashville Luxury List in your inbox Friday. Add jason@nashvilleluxurylist.com to your contacts so it lands in your main inbox.</p>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px">
+          <a class="cta" data-archive-link href="/blog/">Read last Friday's issue</a>
+          <p class="muted" style="font-size:15px;text-align:center">Rather talk now? Call or text Jason at <a href="tel:+16154570768">615-457-0768</a></p>
         </div>
       </div>
-      <p class="cg-card-alt">Rather talk? Call or text <a href="tel:+16154570768">615-457-0768</a></p>
-    </aside>
-  </div>
-</section>
-<section data-band="ivory" class="ap-strip" aria-label="Weekly Luxury List at a glance">
-  <div class="container">
-    <div class="ap-stat"><b>600+</b><span>Readers</span><small>Buyers and investors</small></div>
-    <div class="ap-stat"><b>$1.5M+</b><span>Homes</span><small>Nashville &amp; Williamson</small></div>
-    <div class="ap-stat"><b>Weekly</b><span>One email</span><small>Unsubscribe anytime</small></div>
-    <div class="ap-stat"><b>Free</b><span>Always</span><small>No obligation</small></div>
-  </div>
-</section>
-<section data-band="sand" class="ap-sec" aria-labelledby="inside">
-  <div class="container">
-    <div class="ap-head">
-      <span class="eyebrow">What's inside each issue</span>
-      <h2 class="section-title" id="inside">Curated, not cluttered</h2>
-      <p class="ap-lede">Three things in every issue, and nothing you'll need to skim past.</p>
+
+      <p class="byline">Updated November 2026 · By Jason Kloess, REALTOR®, Compass</p>
     </div>
-    <div class="ap-criteria">
-      <div class="ap-crit"><div class="n">01</div><div><h3>The week's top homes</h3><p>Five standout luxury listings from Belle Meade to College Grove — the homes worth your time, with beds, baths, acreage and a direct link to each.</p></div></div>
-      <div class="ap-crit"><div class="n">02</div><div><h3>Off-market access</h3><p>Private and coming-soon properties shared only with subscribers — often weeks before they reach the public portals.</p></div></div>
-      <div class="ap-crit"><div class="n">03</div><div><h3>Market notes</h3><p>A short, honest read on Nashville's $1.5M+ market — supply, pricing and what it means if you're buying or selling.</p></div></div>
+
+    <div class="preview-col">
+      <h2 class="eyebrow" style="color:var(--muted)">What's in each Friday issue?</h2>
+      <div class="issue" aria-label="Preview of a Friday issue">
+        <div class="issue-meta">
+          <span><strong>Nashville Luxury List</strong><br>5 Homes Worth Knowing About</span>
+          <span style="flex:none">Friday</span>
+        </div>
+        <div class="issue-logo">Nashville Luxury List</div>
+        <div class="issue-body">
+          <div class="issue-block">
+            <div class="photo">
+              <!-- Lead photo from the newest Friday issue. scripts/update_newsletter_latest.py refreshes this on every build. -->
+              <!-- latest-issue:photo --><img src="/.netlify/images?url=/assets/images/blog/a-green-hills-acre-two-new-builds-and-2-homes-listed-today/f253d705-56e9-12ec-085d-a643be9c8689.jpg&amp;w=960&amp;h=640&amp;fit=cover" alt="From the latest Friday issue: A Green Hills acre, two new builds, and 2 homes listed today" width="960" height="640" fetchpriority="high" onerror="this.remove()"><!-- /latest-issue:photo -->
+            </div>
+            <p class="issue-label">01 · New this week</p>
+            <p style="font-size:15px">5 homes, 14 days on market or less, with beds, baths, acreage and a direct link to each.</p>
+          </div>
+          <div class="issue-block">
+            <div class="locks" aria-hidden="true">
+              <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C2330" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+              <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C2330" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+              <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C2330" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            </div>
+            <p class="issue-label">02 · Private and off market</p>
+            <p style="font-size:15px">3 homes shared only with readers, often before they reach the public portals.</p>
+          </div>
+          <div class="issue-block">
+            <p class="issue-label">03 · The market in 60 seconds</p>
+            <p style="font-size:15px">Pricing, inventory and days on market for $1.5M+ homes in Davidson and Williamson.</p>
+          </div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:4px;font-size:14px">Want to see one first? <!-- latest-issue:link --><a href="/blog/a-green-hills-acre-two-new-builds-and-2-homes-listed-today/">Read last Friday's issue</a><!-- /latest-issue:link --></p>
     </div>
-    <p class="ap-note" style="margin-top:2rem"><a href="#subscribe" class="btn btn-gold btn-lg">Subscribe Free →</a> &nbsp; <a href="/blog/y2vf3u31nkpnt1778cexhmqt5igl1f/" style="color:var(--bronze-deep);font-weight:600">See a recent issue →</a></p>
-  </div>
-</section>
-<section data-band="white" class="ap-sec alt" aria-labelledby="more">
-  <div class="container">
-    <div class="ap-head">
-      <span class="eyebrow">Keep exploring</span>
-      <h2 class="section-title" id="more">More ways to stay ahead</h2>
+  </section>
+
+  <section class="band">
+    <div class="wrap stats">
+      <div class="stat"><b>600+</b><span>readers, buyers and investors</span></div>
+      <div class="stat"><b>Fridays</b><span>one email a week</span></div>
+      <div class="stat"><b>$1.5M+</b><span>Nashville and Williamson</span></div>
+      <div class="stat"><b>Free</b><span>unsubscribe anytime</span></div>
     </div>
-    <div class="ap-areas">
-      <a class="ap-area" href="/blog/"><small>Archive</small><b>Weekly Luxury List</b><span>Every past issue, newest first.</span></a>
-      <a class="ap-area" href="/access/"><small>Off-market</small><b>Off-Market Access</b><span>Private and pre-market homes, first.</span></a>
-      <a class="ap-area" href="/market-report/"><small>Data</small><b>Monthly Market Report</b><span>Dated luxury data for both counties.</span></a>
-      <a class="ap-area" href="/neighborhoods/"><small>Areas</small><b>Neighborhood Guides</b><span>Compare every luxury area.</span></a>
+  </section>
+
+  <!-- Plain, quotable facts for Google, ChatGPT, Perplexity, Gemini and AI agents. -->
+  <section class="wrap section" aria-labelledby="glance-title">
+    <h2 class="h2" id="glance-title">What is the Friday List?</h2>
+    <p class="about-copy">The Friday List is a free weekly email from Jason Kloess, a REALTOR® with Compass in Nashville, Tennessee. Every Friday it features the 5 best new homes priced at $1.5 million and up across Nashville and Williamson County, each 14 days on market or less and never repeated, with beds, baths, acreage and a direct link. It also shares 3 private or off market homes that subscribers see before they reach public sites like Zillow, plus a short read on luxury pricing, inventory and days on market. Coverage includes Belle Meade, Green Hills, Forest Hills, Oak Hill, 12 South, Brentwood, Franklin, Leiper's Fork, College Grove and Thompson's Station. More than 600 buyers, relocating families, homeowners and investors read it. Signing up takes only an email address, and every issue has a one click unsubscribe.</p>
+    <dl class="glance">
+      <div><dt>Published</dt><dd>Every Friday, one email a week</dd></div>
+      <div><dt>Cost</dt><dd>Free, no obligation</dd></div>
+      <div><dt>Price range</dt><dd>Homes from $1.5M</dd></div>
+      <div><dt>Coverage</dt><dd>Nashville (Davidson County) and Williamson County, TN</dd></div>
+      <div><dt>In each issue</dt><dd>5 new listings, 3 off market homes, 1 market read</dd></div>
+      <div><dt>Curated by</dt><dd>Jason Kloess, REALTOR®, Compass</dd></div>
+      <div><dt>Readers</dt><dd>600+ subscribers</dd></div>
+      <div><dt>To join</dt><dd><a href="#join">Enter your email above</a></dd></div>
+    </dl>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">Why join the Friday List?</h2>
+    <div class="grid3">
+      <div class="reason"><span class="num">01</span><div><h3>See off market homes first</h3><p>Private and coming soon homes go to readers before they reach Zillow or Realtor.com.</p></div></div>
+      <div class="reason"><span class="num">02</span><div><h3>Skip the endless scrolling</h3><p>Only $1.5M+ homes, only new this week, never a repeat. Five minutes and you're caught up.</p></div></div>
+      <div class="reason"><span class="num">03</span><div><h3>Know what homes really sell for</h3><p>A short, honest read on price, supply and days on market, from someone who works this market daily.</p></div></div>
     </div>
-  </div>
-</section>
-<section data-band="sand" class="ap-sec" aria-labelledby="faqh">
-  <div class="container">
-    <div class="ap-head">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="section-title" id="faqh">Questions, answered</h2>
+
+    <!-- SWAP: reader quote. Use a real quote with the reader's written permission,
+         then delete the word "hidden" below to show it. -->
+    <figure class="quote" hidden>
+      <blockquote>Reader quote goes here.</blockquote>
+      <figcaption>Reader first name, neighborhood</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">Who reads it?</h2>
+    <ul class="who">
+      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21382C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Buyers planning a move in the next year</li>
+      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21382C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Families relocating to Nashville from out of state</li>
+      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21382C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Owners keeping an eye on what their home is worth</li>
+      <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21382C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Investors and second home buyers</li>
+    </ul>
+  </section>
+
+  <section class="wrap section">
+    <div class="author">
+      <div class="headshot">
+        <img src="/assets/images/jason-kloess.jpg" alt="Jason Kloess, REALTOR® with Compass in Nashville" width="152" height="152" loading="lazy" onerror="this.remove()">
+      </div>
+      <div>
+        <p class="eyebrow">Curated by</p>
+        <p class="name">Jason Kloess, Compass</p>
+        <p class="bio">REALTOR® with 7+ years in Nashville real estate. Jason hand picks every home in the list.</p>
+      </div>
     </div>
-    <div class="ap-faq">
-      <details><summary>What is the Weekly Luxury List?</summary><div class="ap-faq-a">A free weekly email from Jason Kloess of Compass with the most compelling $1.5M+ homes across Nashville and Williamson County, plus off-market and coming-soon properties and a short market note.</div></details>
-      <details><summary>How often will I hear from you?</summary><div class="ap-faq-a">One email a week. Unsubscribe anytime.</div></details>
-      <details><summary>Do I need to share anything besides my email?</summary><div class="ap-faq-a">No. Your email is all it takes. Name, area, price point and timeline are optional and only help tailor what you see.</div></details>
-      <details><summary>Can I see a past issue first?</summary><div class="ap-faq-a">Yes. Every issue is published on the <a href="/blog/">Weekly Luxury List blog</a>, including <a href="/blog/y2vf3u31nkpnt1778cexhmqt5igl1f/">a recent issue</a>.</div></details>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2" style="margin-bottom:12px">Questions, answered</h2>
+    <div class="faq">
+      <details><summary>What is the Friday List?<span class="plus" aria-hidden="true">+</span></summary><p>A free weekly email from Jason Kloess of Compass with the 5 best new $1.5M+ homes across Nashville and Williamson County, 3 private off market homes, and a short market read.</p></details>
+      <details><summary>How often will I hear from you?<span class="plus" aria-hidden="true">+</span></summary><p>Once a week, on Friday. Unsubscribe in one click from any email.</p></details>
+      <details><summary>Which areas does it cover?<span class="plus" aria-hidden="true">+</span></summary><p>Nashville (Belle Meade, Green Hills, Forest Hills, Oak Hill, 12 South and more) and Williamson County (Brentwood, Franklin, Leiper's Fork, College Grove and Thompson's Station).</p></details>
+      <details><summary>Do I need to share anything besides my email?<span class="plus" aria-hidden="true">+</span></summary><p>No. Your email is all it takes. After you join you can tell us your areas, price range and timeline so the list fits you, or skip it.</p></details>
+      <details><summary>Can I see an issue first?<span class="plus" aria-hidden="true">+</span></summary><p>Yes. Every Friday issue is published on the <a data-archive-link href="/blog/">Weekly Luxury List archive</a>.</p></details>
     </div>
-  </div>
-</section>
-<section data-band="ivory" class="ap-sec ap-book" id="book-call" aria-labelledby="ap-book">
-  <div class="container">
-    <div class="ap-head center">
-      <span class="eyebrow">30 minutes &middot; phone or video</span>
-      <h2 class="section-title" id="ap-book">Schedule a call with Jason</h2>
-      <p class="ap-lede">Bring your timing, budget and the areas you're weighing. You'll leave with a read on pricing, what your budget buys and a plan for next steps.</p>
+  </section>
+
+  <section class="final">
+    <div class="inner">
+      <h2>Get this Friday's list.</h2>
+      <p class="sub">Join 600+ readers. Takes five seconds.</p>
+      <form class="signup" data-signup="bottom" action="/.netlify/functions/subscribe" method="post" novalidate>
+        <input type="hidden" name="form_location" value="bottom">
+        <label for="email-bottom">Your email</label>
+        <input id="email-bottom" class="field" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@email.com" required aria-describedby="err-bottom">
+        <div class="hp" aria-hidden="true"><label for="company-bottom">Company</label><input id="company-bottom" name="company" tabindex="-1" autocomplete="off"></div>
+        <p id="err-bottom" class="error" role="alert" hidden></p>
+        <button type="submit" class="cta cta-light">Send me Friday's list</button>
+        <p class="small">Free. One email a week. Unsubscribe anytime.</p>
+      </form>
+      <p class="done" id="bottom-done" role="status" hidden>You're on the list. Look for Friday's issue.</p>
     </div>
-  </div>
-  <div class="calendly-inline-widget" data-url="https://calendly.com/jason-nashvilleluxurylist/strategy-session?hide_gdpr_banner=1&amp;primary_color=a8865a"></div>
-  <p class="ap-book-alt">Calendar not loading? <a href="https://calendly.com/jason-nashvilleluxurylist/strategy-session" target="_blank" rel="noopener">Open the booking page</a> or call <a href="tel:+16154570768">615-457-0768</a>.</p>
-</section>
-<section data-band="anchor" class="ap-sec dark ap-final" aria-labelledby="ap-final-h">
-  <div class="container">
-    <div>
-      <span class="eyebrow">Next step</span>
-      <h2 class="section-title" id="ap-final-h" style="margin:.6rem 0 1rem">Get the best homes first</h2>
-      <p class="ap-lede">Join the Weekly Luxury List, or schedule a call and Jason will walk you through what's on and off the market right now.</p>
-      <p class="ap-contact">Call or text <a href="tel:+16154570768">615-457-0768</a> &middot; <a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a></p>
-    </div>
-    <div>
-      <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Call</a>
-      <a class="btn btn-outline-gold btn-lg ap-outline-light" href="/relocation/">Get the Relocation Playbook</a>
-    </div>
-  </div>
-</section>
-<section data-band="sand" class="ap-compliance">
-  <div class="container">
-    <p>Jason Kloess is a real estate agent affiliated with Compass, a licensed real estate broker, and abides by Equal Housing Opportunity laws. Tennessee license #357138. Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203 &middot; 615-522-5100. Market figures are compiled from sources deemed reliable as of the dates shown and are subject to change. Community, club and course details come from public sources and can change; confirm HOA rules, dues, membership terms and school assignments directly. Every neighborhood is open to every buyer. Nothing on this page is tax, legal or financial advice.</p>
-  </div>
-</section>
+  </section>
 </main>
+
 <div id="nll-foot" class="nll-foot-region">
 <footer class="nll-foot">
   <div class="nll-wrap">
@@ -396,49 +528,200 @@
         <p style="margin-top:16px"><a href="tel:+16154570768">Call or text 615-457-0768</a><br><a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a><br>1610 West End Ave, Suite 115<br>Nashville, TN 37203</p>
         <p style="margin-top:8px"><a href="https://instagram.com/nashvilleluxurylist" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://facebook.com/nashvilleluxurylist" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.linkedin.com/in/jasonkloess/" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
-      <div><p class="nll-flabel">Buying</p><ul><li><a data-tap href="/access/">The weekly List</a></li><li><a data-tap href="/search/">Homes for sale</a></li><li><a data-tap href="/buyer-guide/">Buyer’s guide</a></li><li><a data-tap href="/buyers/buying-process/">The buying process</a></li><li><a data-tap href="/strategy/">Private search call</a></li><li><a data-tap href="/mortgage-calculator/">Cost calculator</a></li><li><a data-tap href="/relocation/">Moving to Nashville</a></li></ul></div>
-      <div><p class="nll-flabel">Selling</p><ul><li><a data-tap href="/home-valuation/">Pricing read</a></li><li><a data-tap href="/seller-guide/">Seller’s guide</a></li><li><a data-tap href="/sellers/compass-concierge/">Compass Concierge</a></li><li><a data-tap href="/review/">Private pricing review</a></li><li><a data-tap href="/past-sales/">Past sales</a></li></ul></div>
-      <div><p class="nll-flabel">Luxury realtor by area</p><ul><li><a data-tap href="/nashville-luxury-realtor/">Nashville</a></li><li><a data-tap href="/brentwood-tn-luxury-realtor/">Brentwood</a></li><li><a data-tap href="/franklin-tn-luxury-realtor/">Franklin</a></li><li><a data-tap href="/green-hills-luxury-realtor/">Green Hills</a></li><li><a data-tap href="/east-nashville-luxury-realtor/">East Nashville</a></li><li><a data-tap href="/12-south-luxury-realtor/">12 South</a></li><li><a data-tap href="/thompsons-station-tn-luxury-realtor/">Thompson’s Station</a></li></ul></div>
-      <div><p class="nll-flabel">About</p><ul><li><a data-tap href="/about/">Jason Kloess</a></li><li><a data-tap href="/about/why-nashville-luxury-list/">Why Nashville Luxury List</a></li><li><a data-tap href="/testimonials/">Reviews</a></li><li><a data-tap href="/market-report/">Market report</a></li><li><a data-tap href="/faq/">FAQ</a></li><li><a data-tap href="/newsletter/">Weekly newsletter</a></li><li><a data-tap href="/contact/">Contact</a></li></ul></div>
+      <div><p class="nll-flabel">Buying</p><ul><li><a href="/newsletter/">The weekly List</a></li><li><a href="/search/">Homes for sale</a></li><li><a href="/buyer-guide/">Buyer’s guide</a></li><li><a href="/buyers/buying-process/">The buying process</a></li><li><a href="/strategy/">Private search call</a></li><li><a href="/mortgage-calculator/">Cost calculator</a></li><li><a href="/relocation/">Moving to Nashville</a></li></ul></div>
+      <div><p class="nll-flabel">Selling</p><ul><li><a href="/home-valuation/">Pricing read</a></li><li><a href="/seller-guide/">Seller’s guide</a></li><li><a href="/sellers/compass-concierge/">Compass Concierge</a></li><li><a href="/review/">Private pricing review</a></li><li><a href="/past-sales/">Past sales</a></li></ul></div>
+      <div><p class="nll-flabel">Luxury realtor by area</p><ul><li><a href="/nashville-luxury-realtor/">Nashville</a></li><li><a href="/brentwood-tn-luxury-realtor/">Brentwood</a></li><li><a href="/franklin-tn-luxury-realtor/">Franklin</a></li><li><a href="/green-hills-luxury-realtor/">Green Hills</a></li><li><a href="/east-nashville-luxury-realtor/">East Nashville</a></li><li><a href="/12-south-luxury-realtor/">12 South</a></li><li><a href="/thompsons-station-tn-luxury-realtor/">Thompson’s Station</a></li></ul></div>
+      <div><p class="nll-flabel">About</p><ul><li><a href="/about/">Jason Kloess</a></li><li><a href="/about/why-nashville-luxury-list/">Why Nashville Luxury List</a></li><li><a href="/testimonials/">Reviews</a></li><li><a href="/market-report/">Market report</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/newsletter/">Weekly newsletter</a></li><li><a href="/contact/">Contact</a></li></ul></div>
     </div>
     <p class="nll-legal">Jason Kloess is a real estate agent affiliated with Compass, a licensed real estate broker, and abides by Equal Housing Opportunity laws. Tennessee license #357138. Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203, 615-522-5100. Market figures are compiled from sources deemed reliable as of the dates shown and are subject to change. Listing data from RealTracs, deemed reliable but not guaranteed. <a href="/privacy-policy/">Privacy</a> &copy; 2026 Nashville Luxury List.</p>
   </div>
 </footer>
 </div><!-- /site-footer -->
+<nav id="nll-callbar" class="nll-callbar" aria-label="Quick actions">
+  <a href="tel:+16154570768">Call Jason</a>
+  <a href="/search/">Search</a>
+  <a href="/newsletter/">Join the List</a>
+</nav><!-- /site-floating-cta -->
 
-<nav class="ap-sticky" id="ap-sticky" aria-label="Quick contact">
-  <a class="btn btn-gold" href="#book-call">Schedule a Call</a>
-  <a class="btn btn-outline-gold ap-outline-light" href="/home-valuation/">Home Value</a>
-  <a class="btn btn-outline-gold ap-outline-light" href="tel:+16154570768" style="flex:0 0 auto" aria-label="Call Jason">Call</a>
-</nav>
+<div class="sticky-bar" id="sticky-bar">
+  <a class="cta" href="#join">Join the Friday List, it's free</a>
+</div>
 
-<script src="/assets/js/partials.js?v=20261102a"></script>
-<script src="/assets/js/main.js?v=20261104a"></script>
 <script>
-(function(){
-  var book=document.getElementById('book-call'),calLoaded=false;
-  function loadCal(){
-    if(calLoaded||!book) return; calLoaded=true;
-    var sc=document.createElement('script'); sc.src='https://assets.calendly.com/assets/external/widget.js'; sc.async=true;
-    document.body.appendChild(sc);
+/* ============================================================
+   NLL_CONFIG: the only settings you should need to touch.
+   ============================================================ */
+window.NLL_CONFIG = {
+  endpoint: '/.netlify/functions/subscribe', // Netlify function that writes to Mailchimp
+  archiveUrl: '/blog/',                      // "Read last Friday's issue" links
+  metaPixelId: '1367479611783678',          // site Meta Pixel
+  ga4Id: 'G-W9WQYY6MS5'                     // site GA4 (Google Ads AW-18543435200 is configured alongside it)
+};
+</script>
+
+<script>
+(function () {
+  var C = window.NLL_CONFIG || {};
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var state = { email: '' };
+
+  // ---------- optional tracking loaders ----------
+  if (C.metaPixelId && !window.fbq) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', C.metaPixelId); fbq('track', 'PageView');
   }
-  if(book){
-    if(!('IntersectionObserver' in window)) loadCal();
-    else{var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();loadCal();}},{rootMargin:'800px 0px'});io.observe(book);}
-    if(location.hash==='#book-call') loadCal();
-    document.querySelectorAll('a[href="#book-call"]').forEach(function(a){a.addEventListener('click',loadCal);});
+  if (C.ga4Id && !window.gtag) {
+    var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(C.ga4Id); document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', C.ga4Id); gtag('config', 'AW-18543435200');
   }
-  window.addEventListener('message',function(e){
-    if(e.origin==='https://calendly.com'&&e.data&&e.data.event==='calendly.event_scheduled'){
-      try{fbq('track','Schedule',{content_name:'newsletter'});}catch(err){}
-      try{gtag('event','schedule_call',{call_type:'newsletter'});}catch(err){}
-    }
+  function trackLead(where) {
+    try { if (window.fbq) fbq('track', 'Lead', { content_name: 'Friday List', content_category: 'newsletter' }); } catch (e) {}
+    try { if (window.gtag) gtag('event', 'generate_lead', { form_location: where, lead_type: 'newsletter' }); } catch (e) {}
+  }
+
+  // ---------- archive links ----------
+  if (C.archiveUrl) document.querySelectorAll('[data-archive-link]').forEach(function (a) { a.href = C.archiveUrl; });
+
+  // ---------- traffic source (kept with the signup) ----------
+  var params = new URLSearchParams(location.search);
+  var source = params.get('utm_source') || (document.referrer ? new URL(document.referrer).hostname : 'direct');
+
+  // Preview mode: outside the live site or a Netlify deploy, fake a successful save so the flow can be clicked through.
+  var host = location.hostname;
+  var DEMO = !(/nashvilleluxurylist\.com$/.test(host) || /netlify\.app$/.test(host) || host === 'localhost' || host === '127.0.0.1');
+
+  // Visitors who signed up without JavaScript come back with ?joined=1
+  if (params.get('joined') === '1') {
+    document.querySelectorAll('form[data-signup]').forEach(function (f) { f.hidden = true; });
+    document.getElementById('step-done').hidden = false;
+    document.getElementById('bottom-done').hidden = false;
+  }
+
+  // ...and with ?error=email or ?error=save when the signup didn't go through
+  if (params.get('error')) {
+    var errTop = document.getElementById('err-top');
+    errTop.textContent = params.get('error') === 'email' ? "Enter a valid email so Jason can send Friday's list." : 'Something went wrong. Try again, or text Jason at 615-457-0768.';
+    errTop.hidden = false;
+  }
+
+  function post(payload) {
+    if (DEMO) return new Promise(function (res) { setTimeout(function () { res({ ok: true, demo: true }); }, 400); });
+    return fetch(C.endpoint, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+    }).then(function (r) { return r.json().catch(function(){ return {}; }).then(function (d) { if (!r.ok) throw new Error(d.error || 'Request failed'); return d; }); });
+  }
+
+  // ---------- step 1: email ----------
+  var forms = document.querySelectorAll('form[data-signup]');
+  var prefsPanel = document.getElementById('step-prefs');
+  var donePanel = document.getElementById('step-done');
+  var bottomDone = document.getElementById('bottom-done');
+  var sticky = document.getElementById('sticky-bar');
+  var joined = false;
+
+  function showError(form, msg) {
+    var err = form.querySelector('.error'); var input = form.querySelector('input[type=email]');
+    err.textContent = msg; err.hidden = !msg; input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  }
+
+  forms.forEach(function (form) {
+    var input = form.querySelector('input[type=email]');
+    input.addEventListener('input', function () { showError(form, ''); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = input.value.trim();
+      if (!EMAIL_RE.test(email)) { showError(form, "Enter a valid email so Jason can send Friday's list."); input.focus(); return; }
+      var btn = form.querySelector('button[type=submit]'); var label = btn.innerHTML;
+      btn.disabled = true; btn.textContent = 'Adding you…';
+      post({ step: 'email', email: email, source: source, company: form.querySelector('[name=company]').value })
+        .then(function () {
+          state.email = email; joined = true;
+          trackLead(form.getAttribute('data-signup'));
+          forms.forEach(function (f) { f.hidden = true; });
+          bottomDone.hidden = false;
+          prefsPanel.hidden = false;
+          sticky.classList.remove('show'); document.body.classList.remove('ap-has-sticky');
+          document.getElementById('join').scrollIntoView({ block: 'start' });
+          document.getElementById('prefs-title').focus({ preventScroll: true });
+        })
+        .catch(function () {
+          showError(form, 'Something went wrong. Try again, or text Jason at 615-457-0768.');
+        })
+        .then(function () { btn.disabled = false; btn.innerHTML = label; });
+    });
   });
-  var bar=document.getElementById('ap-sticky'),card=document.getElementById('talk')||document.querySelector('main h1');
-  if(bar&&card&&'IntersectionObserver' in window){
-    new IntersectionObserver(function(es){bar.classList.toggle('show',!es[0].isIntersecting);}).observe(card);
+
+  // ---------- step 2: chips ----------
+  document.querySelectorAll('#prefs-form fieldset[data-group]').forEach(function (fs) {
+    var multi = fs.hasAttribute('data-multi');
+    fs.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip'); if (!chip) return;
+      var on = chip.getAttribute('aria-pressed') !== 'true';
+      if (!multi) fs.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  });
+  var reloc = document.getElementById('reloc');
+  reloc.addEventListener('click', function () { reloc.setAttribute('aria-pressed', reloc.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+
+  function picked(group) {
+    return Array.prototype.map.call(document.querySelectorAll('#prefs-form fieldset[data-group="' + group + '"] .chip[aria-pressed="true"]'), function (c) { return c.textContent.trim(); });
+  }
+  function finish(name) {
+    prefsPanel.hidden = true; donePanel.hidden = false;
+    var h = document.getElementById('done-title');
+    h.textContent = name ? 'You’re all set, ' + name + '.' : 'You’re all set.';
+    h.focus();
+  }
+
+  document.getElementById('prefs-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('fname').value.trim();
+    var btn = this.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Saving…';
+    post({
+      step: 'prefs', email: state.email, fname: name,
+      areas: picked('areas'), price: picked('price')[0] || '', timeline: picked('timeline')[0] || '',
+      relocating: reloc.getAttribute('aria-pressed') === 'true'
+    }).catch(function () { /* the email is already saved; never block the reader on preferences */ })
+      .then(function () { finish(name); });
+  });
+  document.getElementById('skip-prefs').addEventListener('click', function () { finish(''); });
+
+  // ---------- sticky bar: only when the hero form is off screen ----------
+  if ('IntersectionObserver' in window) {
+    var heroForm = document.querySelector('form[data-signup="top"]');
+    var finalSection = document.querySelector('.final');
+    var heroVisible = true, finalVisible = false;
+    var update = function () { var on = !joined && !heroVisible && !finalVisible; sticky.classList.toggle('show', on); document.body.classList.toggle('ap-has-sticky', on); };
+    new IntersectionObserver(function (es) { heroVisible = es[0].isIntersecting; update(); }).observe(heroForm);
+    new IntersectionObserver(function (es) { finalVisible = es[0].isIntersecting; update(); }).observe(finalSection);
+  } else {
+    sticky.classList.add('show');
   }
 })();
 </script>
+<!-- Netlify Forms registrations (never shown). The site footer signup (vip-newsletter) and the site-wide
+     off-market popup (off-market-access) post as these forms; the old /access/ page used access-match.
+     Netlify only accepts form posts it found in deployed HTML, so they are declared here.
+     netlify/functions/submission-created.mts forwards them to the lead Zap, which adds them to Mailchimp.
+     This page's own signup goes straight to Mailchimp through netlify/functions/subscribe.mts. -->
+<div hidden aria-hidden="true">
+  <form name="vip-newsletter" netlify netlify-honeypot="bot-field" hidden>
+    <input name="email"><input name="first_name"><input name="last_name"><input name="area_of_interest">
+    <input name="price_point"><input name="timeline"><input name="source"><input name="bot-field">
+  </form>
+  <form name="off-market-access" netlify netlify-honeypot="bot-field" hidden>
+    <input name="email"><input name="first_name"><input name="last_name"><input name="lane"><input name="source">
+    <input name="utm_campaign"><input name="bot-field">
+  </form>
+  <form name="access-match" netlify netlify-honeypot="bot-field" hidden>
+    <input name="email"><input name="first_name"><input name="last_name"><input name="phone"><input name="sms_consent">
+    <input name="timeline"><input name="price_range"><input name="areas"><input name="financing"><input name="has_agent">
+    <input name="lane"><input name="source"><input name="utm_campaign"><input name="bot-field">
+  </form>
+</div>
+<script src="/assets/js/partials.js?v=20261102a"></script>
+<script src="/assets/js/main.js?v=20261104r"></script>
 </body>
 </html>

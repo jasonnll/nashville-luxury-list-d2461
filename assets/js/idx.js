@@ -194,7 +194,7 @@
         const empty = pane.querySelector('.idx-empty');
         empty.hidden = false;
         empty.innerHTML = `<p>No ${esc(label)} homes in ${esc(area.name)} are on the market right now. Homes in this range often sell before they're listed.</p>
-          <a class="btn btn-dark" href="/access/">Ask Jason about off-market homes</a>`;
+          <a class="btn btn-dark" href="/newsletter/">Ask Jason about off-market homes</a>`;
       };
       setTimeout(check, 500);
     }

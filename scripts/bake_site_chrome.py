@@ -51,7 +51,7 @@ NAV = [
 
 # The "Menu" panel (tablets and phones): every key page, grouped.
 MENU = [
-    ('Buy', [('/access/', 'Join the weekly List'), ('/search/', 'Search homes from $1.5M'),
+    ('Buy', [('/newsletter/', 'Join the weekly List'), ('/search/', 'Search homes from $1.5M'),
              ('/strategy/', 'Book a private search call'), ('/buyer-guide/', 'Buyer’s guide'),
              ('/buyers/', 'Buyer resources'), ('/mortgage-calculator/', 'Monthly cost calculator')]),
     ('Sell', [('/home-valuation/', 'Get a pricing read'), ('/seller-guide/', 'Seller’s guide'),
@@ -65,7 +65,7 @@ MENU = [
 ]
 
 FOOTER_COLS = [
-    ('Buying', [('/access/', 'The weekly List'), ('/search/', 'Homes for sale'), ('/buyer-guide/', 'Buyer’s guide'),
+    ('Buying', [('/newsletter/', 'The weekly List'), ('/search/', 'Homes for sale'), ('/buyer-guide/', 'Buyer’s guide'),
                 ('/buyers/buying-process/', 'The buying process'), ('/strategy/', 'Private search call'),
                 ('/mortgage-calculator/', 'Cost calculator'), ('/relocation/', 'Moving to Nashville')]),
     ('Selling', [('/home-valuation/', 'Pricing read'), ('/seller-guide/', 'Seller’s guide'),
@@ -117,7 +117,7 @@ def header(pg):
   <div class="nll-wrap">
     <a class="nll-mark" href="/" aria-label="Nashville Luxury List home">{MARK}</a>
     <nav class="nll-nav" aria-label="Main">{links}
-      <a class="nll-btn nll-btn-solid" href="/access/">Join the List</a>
+      <a class="nll-btn nll-btn-solid" href="/newsletter/">Join the List</a>
       <details class="nll-menu">
         <summary><span><i></i><i></i><i></i></span>Menu</summary>
         <div class="nll-menu-panel">{panel}
@@ -133,7 +133,7 @@ def call_bar(_pg):
     return f'''<nav id="nll-callbar" class="nll-callbar" aria-label="Quick actions">
   <a href="tel:+{PHONE_RAW}">Call Jason</a>
   <a href="/search/">Search</a>
-  <a href="/access/">Join the List</a>
+  <a href="/newsletter/">Join the List</a>
 </nav><!-- /site-floating-cta -->'''
 
 
@@ -237,7 +237,7 @@ def url_path(rel):
 # footer is hunter green (styled in palette.css). Mid-page sections that used to be navy join the
 # light rotation. Heroes keep their own look.
 BAND_CYCLE = ['ivory', 'sand', 'white', 'sand']
-BAND_SKIP_FILES = {'index.html', 'thank-you/index.html', 'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html'}
+BAND_SKIP_FILES = {'index.html', 'thank-you/index.html', 'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html', 'newsletter/index.html'}
 HERO_CLASSES = {'hero', 'ap-hero', 'page-hero', 'rl-hero', 'booking-hero'}
 ANCHOR_CLASSES = {'ap-final', 'rl-final', 'lead-capture-section'}
 NO_BAND_CLASSES = {'newsletter-section', 'search-bar', 'off-market-band'}  # home: navy search strip under the hero, hunter-green off-market band

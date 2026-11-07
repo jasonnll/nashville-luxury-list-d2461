@@ -75,7 +75,7 @@ def edition_page(d, prev, nxt):
     if nxt: nav.append(f'<a class="ap-area" href="/market-report/{nxt["edition"]}/"><small>Newer</small><b>{nxt["month_label"]}</b><span>Read &rarr;</span></a>')
     if prev: nav.append(f'<a class="ap-area" href="/market-report/{prev["edition"]}/"><small>Older</small><b>{prev["month_label"]}</b><span>Read &rarr;</span></a>')
     nav.append('<a class="ap-area" href="/market-report/"><small>Archive</small><b>All market reports</b><span>Browse &rarr;</span></a>')
-    nav.append('<a class="ap-area" href="/access/"><small>Weekly</small><b>Off-market homes</b><span>Get the list &rarr;</span></a>')
+    nav.append('<a class="ap-area" href="/newsletter/"><small>Weekly</small><b>Off-market homes</b><span>Get the list &rarr;</span></a>')
     out += section("more", "More", "Keep tracking the market", body=f'    <div class="ap-areas">{"".join(nav)}</div>' + "\n" + sources(d["sources"]) + "\n" +
                    note("Figures come from the sources listed, as published at the time of this report; MLS and listing data are revised after publication. Realtracs regional figures cover its 27-county service area. Listing prices are asking prices, not sale prices."))
     out += booking("")
