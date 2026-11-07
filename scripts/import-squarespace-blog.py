@@ -377,7 +377,7 @@ def render_index(built):
     index += L.section('more-h', 'Keep exploring', 'Go deeper on the market', body=L.areas([
         ('/market-report/', 'Data', 'Monthly Market Report', 'Dated luxury data for both counties.'),
         ('/neighborhoods/', 'Areas', 'Neighborhood Guides', 'Compare every luxury area.'),
-        ('/access/', 'Off-market', 'Off-Market Access', 'Private and pre-market homes, first.'),
+        ('/newsletter/', 'Off-market', 'Off-Market Access', 'Private and pre-market homes, first.'),
         ('/faq/', 'Answers', 'Market FAQ', 'Prices and answers by neighborhood.'),
     ]))
     index += L.booking('')
