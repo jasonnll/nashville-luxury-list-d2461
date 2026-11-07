@@ -75,7 +75,7 @@ AREA_LABEL = {
 
 # ── Jason's own listing pages on this site ────────────────────────────────────
 # Each page's JSON-LD (address, price, availability) is read at build time, so a price change on the listing
-# page carries through. A listing drops off the area pages once it's no longer "InStock" or once the address
+# page carries through. "PreOrder" availability shows as "Coming Soon", "InStock" as "Active". A listing drops off the area pages once it's neither, or once the address
 # shows up in the closed record.
 LISTING_PAGES = [
     ('1805-shackleford-rd.html', '/1805-shackleford-rd', 'Green Hills'),
@@ -107,11 +107,12 @@ def site_listings(data):
             home, offer = ld.get('about') or {}, ld.get('offers') or {}
             addr = home.get('address') or {}
             street = addr.get('streetAddress', '')
-            if not street or 'InStock' not in offer.get('availability', '') or street_key(street) in closed:
+            availability = offer.get('availability', '')
+            if not street or not ('InStock' in availability or 'PreOrder' in availability) or street_key(street) in closed:
                 break
             baths = home.get('numberOfFullBathrooms', 0) + 0.5 * home.get('numberOfPartialBathrooms', 0)
             out.append({'address': street, 'city': addr.get('addressLocality', ''), 'zip': addr.get('postalCode', ''),
-                        'neighborhood': hood, 'price': offer.get('price'), 'status': 'Active', 'href': href,
+                        'neighborhood': hood, 'price': offer.get('price'), 'status': 'Coming Soon' if 'PreOrder' in availability else 'Active', 'href': href,
                         'beds': home.get('numberOfBedrooms'), 'baths': f'{baths:g}',
                         'sqft': (home.get('floorSize') or {}).get('value'), 'built': home.get('yearBuilt'),
                         'image': (ld.get('image') or '').replace(SITE, '')})
