@@ -41,7 +41,7 @@
   "name": "1805 Shackleford Rd, Nashville, TN 37215",
   "url": "https://www.nashvilleluxurylist.com/1805-shackleford-rd",
   "image": "https://www.nashvilleluxurylist.com/images/1805-shackleford/01.jpg",
-  "offers": { "@type": "Offer", "price": 1924990, "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+  "offers": { "@type": "Offer", "price": 1924990, "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
   "about": {
     "@type": "SingleFamilyResidence",
     "address": { "@type": "PostalAddress", "streetAddress": "1805 Shackleford Rd", "addressLocality": "Nashville", "addressRegion": "TN", "postalCode": "37215", "addressCountry": "US" },
@@ -287,7 +287,7 @@ dialog::backdrop{background:rgba(30,43,64,.6)}
 <div class="wrap layout">
   <main>
     <div class="headline">
-      <div class="chips"><span class="chip">For Sale</span><span class="chip alt">Built 2022</span><span class="chip alt">Main-Level Primary</span></div>
+      <div class="chips"><span class="chip">Coming Soon</span><span class="chip alt">Built 2022</span><span class="chip alt">Main-Level Primary</span></div>
       <div class="price" id="price">$1,924,990</div>
       <h1 class="addr">1805 Shackleford Rd, Nashville, TN 37215</h1>
       <div class="sub">Green Hills · McKenzie Construction · Interiors by P. Shea</div>
@@ -521,18 +521,15 @@ const CONFIG = {
   // Add or remove lines to match however many photos you have; the first one is the big hero image.
   photos: [
     { src: '/images/1805-shackleford/01.jpg', alt: 'Front exterior' },
+    { src: '/images/1805-shackleford/living-room.jpg', alt: 'Living room with fireplace, open to kitchen and dining' },
+    { src: '/images/1805-shackleford/kitchen.jpg', alt: "Chef's kitchen" },
+    { src: '/images/1805-shackleford/entry-staircase.jpg', alt: 'Entry and floating staircase' },
+    { src: '/images/1805-shackleford/kitchen-island.jpg', alt: 'Kitchen island and gas range' },
     { src: '/images/1805-shackleford/private-exclusive.jpg', alt: 'Private exclusive' },
-    { src: '/images/1805-shackleford/02.jpg', alt: 'Living room' },
-    { src: '/images/1805-shackleford/03.jpg', alt: "Chef's kitchen" },
-    { src: '/images/1805-shackleford/04.jpg', alt: 'Thermador appliances' },
-    { src: '/images/1805-shackleford/05.jpg', alt: 'Dining' },
-    { src: '/images/1805-shackleford/06.jpg', alt: 'Main-level primary suite' },
-    { src: '/images/1805-shackleford/07.jpg', alt: 'Primary bath' },
-    { src: '/images/1805-shackleford/08.jpg', alt: 'Bonus room and wet bar' },
-    { src: '/images/1805-shackleford/09.jpg', alt: 'Home office' },
-    { src: '/images/1805-shackleford/10.jpg', alt: 'Guest bedroom' },
-    { src: '/images/1805-shackleford/11.jpg', alt: 'Covered patio and outdoor fireplace' },
-    { src: '/images/1805-shackleford/12.jpg', alt: 'Fenced backyard' }
+    { src: '/images/1805-shackleford/powder-room.jpg', alt: 'Powder room' },
+    { src: '/images/1805-shackleford/bedroom.jpg', alt: 'Bedroom' },
+    { src: '/images/1805-shackleford/double-vanity.jpg', alt: 'Double vanity' },
+    { src: '/images/1805-shackleford/soaking-tub.jpg', alt: 'Freestanding soaking tub and glass shower' }
   ],
   facts: [
     ['List price', null],
@@ -572,7 +569,7 @@ $('#facts').innerHTML = CONFIG.facts.map(([k, v]) => `<div class="fact"><span>${
 /* Photos */
 function photoEl(p, i) {
   const img = new Image();
-  img.src = p.src; img.alt = p.alt; img.loading = i === 0 ? 'eager' : 'lazy';
+  img.src = '/.netlify/images?url=' + encodeURIComponent(p.src) + '&w=' + (i === 0 ? 1600 : 1200) + '&q=75'; img.alt = p.alt; img.loading = i === 0 ? 'eager' : 'lazy';
   img.onerror = () => { const d = document.createElement('div'); d.className = 'ph'; d.textContent = p.alt; img.replaceWith(d); };
   return img;
 }
