@@ -173,6 +173,68 @@
   to   = "/blog/"
   status = 301
 
+# Oct 2 roundup moved from its auto-generated slug to a readable one
+[[redirects]]
+  from = "/blog/y2vf3u31nkpnt1778cexhmqt5igl1f"
+  to   = "/blog/oct-2-luxury-home-roundup/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/y2vf3u31nkpnt1778cexhmqt5igl1f/*"
+  to   = "/blog/oct-2-luxury-home-roundup/"
+  status = 301
+
+# Generic 2025 filler posts were removed; send old links to the blog index
+[[redirects]]
+  from = "/blog/12-most-expensive-houses-around-the-world-in-2025"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/12-most-expensive-houses-around-the-world-in-2025/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-elegant-homes-in-2025"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-elegant-homes-in-2025/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-modern-luxury-houses-in-2025"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-modern-luxury-houses-in-2025/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/exclusive-real-estate-guide-discover-luxury-in-2025"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/exclusive-real-estate-guide-discover-luxury-in-2025/*"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/explore-8-stunning-10-million-dollar-homes-in-2025"
+  to   = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/explore-8-stunning-10-million-dollar-homes-in-2025/*"
+  to   = "/blog/"
+  status = 301
+
 [[redirects]]
   from = "/api-webhook"
   to   = "/"

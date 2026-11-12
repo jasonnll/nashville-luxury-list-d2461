@@ -33,14 +33,9 @@ SITE = 'https://www.nashvilleluxurylist.com'
 
 # Generic 2025 posts from the old Squarespace blog. They stay on the site but aren't offered to search engines.
 SITEMAP_EXCLUDE = {
-    '12-most-expensive-houses-around-the-world-in-2025',
     '7-best-brentwood-tn-luxury-homes-to-explore-in-2025',
     '7-best-williamson-county-homes-to-explore-in-2025',
-    'exclusive-real-estate-guide-discover-luxury-in-2025',
-    'explore-8-stunning-10-million-dollar-homes-in-2025',
     'off-market-properties-guide-insider-tips-for-2025-success',
-    'the-ultimate-guide-to-elegant-homes-in-2025',
-    'the-ultimate-guide-to-modern-luxury-houses-in-2025',
 }
 NOINDEX = re.compile(r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex', re.I)
 URL_BLOCK = re.compile(r'[ \t]*<url>.*?</url>\n?', re.S)
