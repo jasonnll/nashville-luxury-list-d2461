@@ -128,6 +128,7 @@
 @media(min-width:900px){.ap-agent{grid-template-columns:.6fr 1.4fr;gap:4rem}}
 .ap-portrait{position:relative;max-width:320px}
 .ap-portrait img{width:100%;aspect-ratio:1/1;object-fit:cover;position:relative;z-index:1}
+.ap-portrait-family img{aspect-ratio:4/5;object-position:50% 20%}
 .ap-portrait::after{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--bronze)}
 .ap-agent p{color:#4A463F;margin-bottom:1rem;line-height:1.75}
 .ap-creds{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.25rem 0 1.75rem}
