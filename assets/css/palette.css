@@ -709,7 +709,7 @@ body section[data-band="sand"] .section-title em[style*="color:var(--bronze)"] {
 h1, h2, h3, h4, h5 { font-weight: 500; letter-spacing: -0.005em; }
 h1, .hero h1, .page-hero-title { font-weight: 400; line-height: 1.08; letter-spacing: -0.012em; }
 .section-title { font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
-:is(h1, h2, .section-title, .page-hero-title) em { font-style: italic; font-weight: 400; }
+:is(h1, h2, .section-title, .page-hero-title) em { font-style: normal; font-weight: 400; }
 .hero h1 em, .section-title em { color: var(--leather); }
 .listing-title, .agent-name, .value-card h3, .guide-header h3, .testimonial-name, .faq-question { font-weight: 500; }
 body { line-height: 1.7; }

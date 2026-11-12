@@ -275,7 +275,7 @@ def hero_block(g):
           <h3>Your guide is ready</h3>
           <p>Open it now. Jason will also follow up personally.</p>
           <a class="btn btn-gold btn-full" id="cg-open-pdf" href="{pdf}" target="_blank" rel="noopener">Open the {city} Guide (PDF)</a>
-          <a class="btn btn-outline-gold btn-full" href="#book-call">Schedule a Relocation Call</a>
+          <a class="btn btn-outline-gold btn-full" href="/contact/">Talk to Jason about your move</a>
         </div>
       </div>
       <p class="cg-card-alt">Rather talk? Call or text <a href="tel:+16154570768">615-457-0768</a></p>

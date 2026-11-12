@@ -3,7 +3,6 @@ import json, html, re
 
 SITE = "https://www.nashvilleluxurylist.com"
 TODAY = "2026-10-27"
-CAL = "https://calendly.com/jason-nashvilleluxurylist/strategy-session"
 GA = "G-W9WQYY6MS5"
 ADS = "AW-18543435200"  # Google Ads, configured through the same (single) Google tag as GA4
 E = html.escape
@@ -108,7 +107,7 @@ def tail(slug_event):
 <div id="site-footer"></div>
 
 <nav class="ap-sticky" id="ap-sticky" aria-label="Quick contact">
-  <a class="btn btn-gold" href="#book-call">Schedule a Call</a>
+  <a class="btn btn-gold" href="/contact/">Contact Jason</a>
   <a class="btn btn-outline-gold ap-outline-light" href="/home-valuation/">Home Value</a>
   <a class="btn btn-outline-gold ap-outline-light" href="tel:+16154570768" style="flex:0 0 auto" aria-label="Call Jason">Call</a>
 </nav>
@@ -117,24 +116,6 @@ def tail(slug_event):
 <script src="/assets/js/main.js?v=20261104a"></script>
 <script>
 (function(){{
-  var book=document.getElementById('book-call'),calLoaded=false;
-  function loadCal(){{
-    if(calLoaded||!book) return; calLoaded=true;
-    var sc=document.createElement('script'); sc.src='https://assets.calendly.com/assets/external/widget.js'; sc.async=true;
-    document.body.appendChild(sc);
-  }}
-  if(book){{
-    if(!('IntersectionObserver' in window)) loadCal();
-    else{{var io=new IntersectionObserver(function(es){{if(es[0].isIntersecting){{io.disconnect();loadCal();}}}},{{rootMargin:'800px 0px'}});io.observe(book);}}
-    if(location.hash==='#book-call') loadCal();
-    document.querySelectorAll('a[href="#book-call"]').forEach(function(a){{a.addEventListener('click',loadCal);}});
-  }}
-  window.addEventListener('message',function(e){{
-    if(e.origin==='https://calendly.com'&&e.data&&e.data.event==='calendly.event_scheduled'){{
-      try{{fbq('track','Schedule',{{content_name:'{slug_event}'}});}}catch(err){{}}
-      try{{gtag('event','schedule_call',{{call_type:'{slug_event}'}});}}catch(err){{}}
-    }}
-  }});
   var bar=document.getElementById('ap-sticky'),card=document.getElementById('talk')||document.querySelector('main h1');
   if(bar&&card&&'IntersectionObserver' in window){{
     new IntersectionObserver(function(es){{bar.classList.toggle('show',!es[0].isIntersecting);}}).observe(card);
@@ -171,7 +152,7 @@ def hero(crumbs, eyebrow, h1, answer, points, photo, card_line, updated="Updated
         <div><h2>Talk to Jason</h2><p>REALTOR&reg; &middot; Compass &middot; TN #357138</p></div>
       </div>
       <p>{card_line}</p>
-      <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Call</a>
+      <a class="btn btn-gold btn-lg" href="/contact/">Contact Jason</a>
       <a class="btn btn-outline-gold btn-lg" href="/newsletter/">Get Off-Market Homes Weekly</a>
       <div class="ap-card-contact">
         <a href="tel:+16154570768">Call or text 615-457-0768</a>
@@ -280,18 +261,8 @@ def sources(items):
 
 
 def booking(place):
-    return f"""
-<section class="ap-sec ap-book" id="book-call" aria-labelledby="ap-book">
-  <div class="container">
-    <div class="ap-head center">
-      <span class="eyebrow">30 minutes &middot; phone or video</span>
-      <h2 class="section-title" id="ap-book">Schedule a call with Jason</h2>
-      <p class="ap-lede">Bring your timing, budget and the areas you're weighing. You'll leave with a read on pricing{(' in ' + place) if place else ''}, what your budget buys and a plan for next steps.</p>
-    </div>
-  </div>
-  <div class="calendly-inline-widget" data-url="{CAL}?hide_gdpr_banner=1&amp;primary_color=a8865a"></div>
-  <p class="ap-book-alt">Calendar not loading? <a href="{CAL}" target="_blank" rel="noopener">Open the booking page</a> or call <a href="tel:+16154570768">615-457-0768</a>.</p>
-</section>"""
+    """The Calendly booking section was removed in Nov 2026; booking links now go to /contact/."""
+    return ""
 
 
 def final_cta(title_html, lede):
@@ -305,7 +276,7 @@ def final_cta(title_html, lede):
       <p class="ap-contact">Call or text <a href="tel:+16154570768">615-457-0768</a> &middot; <a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a></p>
     </div>
     <div>
-      <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Call</a>
+      <a class="btn btn-gold btn-lg" href="/contact/">Contact Jason</a>
       <a class="btn btn-outline-gold btn-lg ap-outline-light" href="/relocation/">Get the Relocation Playbook</a>
     </div>
   </div>
