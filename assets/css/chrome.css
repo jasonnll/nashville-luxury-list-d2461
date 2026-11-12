@@ -144,3 +144,20 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .rv-g{display:inline-flex;align-items:center;gap:.35em;margin-left:.6em;font-size:.72rem;font-weight:500;letter-spacing:.02em;text-transform:none;color:inherit;opacity:.75;text-decoration:none;white-space:nowrap;vertical-align:baseline}
 .rv-g:hover,.rv-g:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:2px}
 .rv-g svg{flex:none}
+
+/* Desktop header dropdowns (hover or keyboard focus). Hidden below 1020px, where the Menu panel takes over. */
+.nll-dd{position:relative}
+.nll-dd-top{display:inline-flex;align-items:center;gap:6px;text-decoration:none;padding-block:12px;color:var(--n-ink)}
+.nll-dd-top svg{opacity:.55;transition:transform .15s}
+.nll-dd:hover .nll-dd-top,.nll-dd:focus-within .nll-dd-top,.nll-dd-top[aria-current]{color:var(--n-saddle)}
+.nll-dd-top[aria-current]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.nll-dd:hover .nll-dd-top svg,.nll-dd:focus-within .nll-dd-top svg{transform:rotate(180deg)}
+.nll-dd-panel{position:absolute;top:100%;left:-18px;z-index:1001;min-width:236px;padding:10px 0;background:var(--n-paper);border:1px solid var(--n-rule);box-shadow:0 14px 34px rgba(32,56,45,.12);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .15s,transform .15s,visibility 0s .15s}
+.nll-dd-panel::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.nll-dd:hover .nll-dd-panel,.nll-dd:focus-within .nll-dd-panel{opacity:1;visibility:visible;transform:none;transition:opacity .15s,transform .15s}
+.nll-dd-panel a{display:block;padding:9px 18px;text-decoration:none;font:400 15px/1.35 var(--n-sans);color:var(--n-ink);white-space:nowrap}
+.nll-dd-panel a:hover,.nll-dd-panel a:focus-visible,.nll-dd-panel a[aria-current]{color:var(--n-saddle);background:var(--n-linen)}
+.nll-dd-label{margin:8px 18px 2px;padding-top:10px;border-top:1px solid var(--n-rule);font:600 12px/1.2 var(--n-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--n-stone)}
+.nll-nav>.nll-dd:last-of-type .nll-dd-panel{left:auto;right:-18px}
+@media (max-width:1020px){.nll-dd{display:none}}
+@media (prefers-reduced-motion:reduce){.nll-dd-panel,.nll-dd-top svg{transition:none}}

@@ -39,17 +39,36 @@ EMAIL = 'jason@nashvilleluxurylist.com'
 
 # ── Site chrome (2026 redesign) ───────────────────────────────────────────────
 # Styles live in /assets/css/chrome.css, which bake() links on every page.
-CHROME_CSS = '/assets/css/chrome.css?v=20261112g'
+CHROME_CSS = '/assets/css/chrome.css?v=20261112d'
 SANS_FONT = '/assets/fonts/albert-sans-latin-wght-normal.woff2'
 
-# Desktop header links (left to right). The "Join the List" button follows them.
+# Desktop header: each top link opens a dropdown on hover (and on keyboard focus); clicking the top link goes to
+# its hub page. Below 1020px the "Menu" panel (MENU) replaces these. The "Join the List" button follows them.
+AREA_PAGES = [('/nashville-luxury-realtor/', 'Nashville'), ('/brentwood-tn-luxury-realtor/', 'Brentwood'),
+              ('/franklin-tn-luxury-realtor/', 'Franklin'), ('/green-hills-luxury-realtor/', 'Green Hills'),
+              ('/east-nashville-luxury-realtor/', 'East Nashville'), ('/12-south-luxury-realtor/', '12 South'),
+              ('/thompsons-station-tn-luxury-realtor/', 'Thompson’s Station')]
 NAV = [
-    ('/search/', 'Homes for sale'),
-    ('/neighborhoods/', 'Neighborhoods'),
-    ('/sellers/', 'Selling'),
-    ('/relocation/', 'Moving here'),
-    ('/market-report/', 'Market report'),
-    ('/about/', 'Jason'),
+    ('/buyers/', 'Buy', [('/search/', 'Homes for sale'), ('/newsletter/', 'The weekly List'),
+                         ('/answers/how-to-see-off-market-homes-in-nashville/', 'Off-market homes'),
+                         ('/buyer-guide/', 'Buyer’s guide'), ('/buyers/buying-process/', 'The buying process'),
+                         ('/strategy/', 'Private search call'), ('/mortgage-calculator/', 'Cost calculator')]),
+    ('/sellers/', 'Sell', [('/home-valuation/', 'What’s my home worth?'), ('/sellers/', 'How Jason sells a home'),
+                           ('/past-sales/', 'Past sales'), ('/seller-guide/', 'Seller’s guide'),
+                           ('/answers/cost-to-sell-a-luxury-home-in-nashville/', 'What it costs to sell'),
+                           ('/sellers/compass-concierge/', 'Compass Concierge')]),
+    ('/neighborhoods/', 'Neighborhoods', [('/neighborhoods/', 'All neighborhood guides'), ('/compare/', 'Compare areas side by side'),
+                                          ('/neighborhoods/belle-meade/', 'Belle Meade'), ('/neighborhoods/green-hills/', 'Green Hills'),
+                                          ('/neighborhoods/brentwood/', 'Brentwood'), ('/neighborhoods/franklin/', 'Franklin'),
+                                          ('/neighborhoods/east-nashville/', 'East Nashville'), ('/country-clubs/', 'Country clubs'),
+                                          ('/golf-tennis/', 'Golf and tennis')]),
+    ('/relocation/', 'Moving here', [('/relocation/', 'Relocation guide'), ('/compare/davidson-vs-williamson-county/', 'Davidson vs Williamson County'),
+                                     ('/answers/how-to-buy-a-nashville-home-remotely/', 'Buying from out of state'),
+                                     ('/compare/brentwood-vs-franklin/', 'Brentwood vs Franklin')]),
+    ('/market-report/', 'Market', [('/market-report/', 'Monthly market report'), ('/answers/', 'Questions answered'),
+                                   ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'), ('/blog/', 'Past weekly lists')]),
+    ('/about/', 'Jason', [('/about/', 'About Jason'), ('/past-sales/', 'Past sales'), ('/testimonials/', 'Client reviews'),
+                          ('/contact/', 'Contact')], AREA_PAGES),
 ]
 
 # The "Menu" panel (tablets and phones): every key page, grouped.
@@ -57,15 +76,16 @@ MENU = [
     ('Buy', [('/newsletter/', 'Join the weekly List'), ('/search/', 'Search homes from $1.5M'),
              ('/strategy/', 'Book a private search call'), ('/buyer-guide/', 'Buyer’s guide'),
              ('/buyers/', 'Buyer resources'), ('/mortgage-calculator/', 'Monthly cost calculator')]),
-    ('Sell', [('/home-valuation/', 'Get a pricing read'), ('/seller-guide/', 'Seller’s guide'),
+    ('Sell', [('/home-valuation/', 'Get a pricing read'), ('/past-sales/', 'Past sales'), ('/seller-guide/', 'Seller’s guide'),
               ('/sellers/compass-concierge/', 'Compass Concierge'), ('/review/', 'Private pricing review')]),
-    ('Places', [('/neighborhoods/', 'All neighborhoods'), ('/country-clubs/', 'Country clubs'),
+    ('Places', [('/neighborhoods/', 'All neighborhoods'), ('/compare/', 'Compare areas'), ('/country-clubs/', 'Country clubs'),
                 ('/golf-tennis/', 'Golf and tennis'), ('/relocation/', 'Moving to Nashville')]),
     ('Market', [('/market-report/', 'Monthly market report'), ('/answers/', 'Questions answered'),
                 ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'),
                 ('/blog/', 'Past weekly lists'), ('/guides/', 'Free guides')]),
     ('Jason', [('/about/', 'About Jason'), ('/testimonials/', 'Client reviews'),
                ('/past-sales/', 'Past sales'), ('/contact/', 'Contact')]),
+    ('Jason’s record by area', AREA_PAGES),
 ]
 
 FOOTER_COLS = [
@@ -111,8 +131,15 @@ MARK = '<b>Nashville Luxury List</b><span>Compass Luxury Division</span>'
 
 
 def header(pg):
-    links = ''.join(
-        f'\n      <a href="{h}"{" aria-current=\"page\"" if pg.in_section(h) else ""}>{t}</a>' for h, t in NAV)
+    def dropdown(h, t, items, extra=None):
+        here = pg.in_section(h) or any(pg.is_here(x) for x, _ in items + (extra or []))
+        sub = ''.join(f'<a href="{x}"{pg.cur(x)}>{y}</a>' for x, y in items)
+        if extra:
+            sub += '<p class="nll-dd-label">Jason’s record by area</p>' + ''.join(f'<a href="{x}"{pg.cur(x)}>{y}</a>' for x, y in extra)
+        return (f'\n      <div class="nll-dd"><a class="nll-dd-top" href="{h}"{" aria-current=\"page\"" if here else ""}>{t}'
+                f'<svg viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>'
+                f'<div class="nll-dd-panel{" nll-dd-wide" if extra else ""}">{sub}</div></div>')
+    links = ''.join(dropdown(*n) for n in NAV)
     panel = ''.join(
         f'\n          <p class="nll-mlabel">{label}</p>' + ''.join(f'<a href="{h}"{pg.cur(h)}>{t}</a>' for h, t in items)
         for label, items in MENU)
