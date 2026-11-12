@@ -634,8 +634,10 @@ def past_sales_block(data):
       <p class="ap-lede">Every closed sale on Jason Kloess's Compass profile: {n_list} as the listing agent and {len(sales) - n_list} as the buyer's agent, from {mon(min(s['closed'] for s in sales))} to {mon(max(s['closed'] for s in sales))}. Some homes appear twice because Jason represented the buyer and later the seller.</p>
     </div>
 {by_area}
-    <h3 class="ap-sub" style="margin-top:2.5rem">Every sale, highest price first</h3>
+    <details class="ap-fold">
+      <summary>See all {len(sales)} sales, highest price first</summary>
 {record_table(sales, data)}
+    </details>
   </div>
 </section>'''
 

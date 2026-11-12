@@ -39,7 +39,7 @@ EMAIL = 'jason@nashvilleluxurylist.com'
 
 # ── Site chrome (2026 redesign) ───────────────────────────────────────────────
 # Styles live in /assets/css/chrome.css, which bake() links on every page.
-CHROME_CSS = '/assets/css/chrome.css?v=20261112f'
+CHROME_CSS = '/assets/css/chrome.css?v=20261112h'
 SANS_FONT = '/assets/fonts/albert-sans-latin-wght-normal.woff2'
 
 # Desktop header: each top link opens a dropdown on hover (and on keyboard focus); clicking the top link goes to
@@ -178,7 +178,9 @@ def footer(pg):
     # fields; main.js submits it over AJAX through the hidden form-name field, and the
     # submission-created function passes vip-newsletter signups to the Zap that adds them to Mailchimp.
     # The home page and the signup/contact pages have their own forms, so they skip this band.
-    hide_newsletter = pg.here == '/' or any(s in pg.path for s in ('/contact', '/newsletter', '/thank-you'))
+    # Pages with a closing "Next step" band carry the signup inside it (see merge_final_band), so they skip this one too.
+    hide_newsletter = (pg.here == '/' or getattr(pg, 'has_final', False)
+                       or any(s in pg.path for s in ('/contact', '/newsletter', '/thank-you')))
     newsletter = '' if hide_newsletter else f'''
   <div class="nll-news" role="region" aria-label="Weekly newsletter signup">
     <div class="nll-wrap">
@@ -218,7 +220,7 @@ def footer(pg):
         <p style="margin-top:4px"><a href="{_profile('Instagram')}" target="_blank" rel="noopener">Instagram</a> &middot; <a href="{_profile('Facebook')}" target="_blank" rel="noopener">Facebook</a> &middot; <a href="{_profile('LinkedIn')}" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>{cols}
     </div>
-    <p class="nll-legal">Jason Kloess is a real estate agent affiliated with Compass, a licensed real estate broker, and abides by Equal Housing Opportunity laws. Tennessee license #357138. Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203, 615-522-5100. Market figures are compiled from sources deemed reliable as of the dates shown and are subject to change. Listing data from RealTracs, deemed reliable but not guaranteed. <a href="/privacy-policy/">Privacy</a> &copy; {date.today().year} Nashville Luxury List.</p>
+    <p class="nll-legal">Jason Kloess is a real estate agent affiliated with Compass, a licensed real estate broker, and abides by Equal Housing Opportunity laws. Tennessee license #357138. Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203, 615-522-5100. Market figures are compiled from sources deemed reliable as of the dates shown and are subject to change. Listing data from RealTracs, deemed reliable but not guaranteed. Community, club and school details come from public sources and can change; confirm HOA terms, dues and school zoning for any address. Every neighborhood is open to every buyer. Nothing on this site is tax, legal or financial advice. <a href="/privacy-policy/">Privacy</a> &copy; {date.today().year} Nashville Luxury List.</p>
   </div>
 </footer>
 </div><!-- /site-footer -->'''
@@ -568,8 +570,134 @@ def review_ld(src, path):
     return rx.sub(lambda _m: tag, src, count=1) if rx.search(src) else src.replace('</head>', tag + '\n</head>', 1)
 
 
+# ── End-of-page cleanup (Nov 2026) ──
+# Each interior page used to end with a "Next step" band, a compliance paragraph, the newsletter band and the
+# footer (with its own legal line). Now: one closing band (the page's next step plus the newsletter signup),
+# then the footer, whose legal line is the only disclaimer.
+COMPLIANCE_RX = re.compile(r'\s*<section[^>]*class="(?:ap-compliance|faqp-compliance)"[^>]*>.*?</section>', re.S)
+FINAL_RX = re.compile(r'(<section[^>]*class="[^"]*\b(?:ap-final|rl-final)\b[^"]*"[^>]*>)(.*?)(</section>)', re.S)
+CTA_COL_RX = re.compile(r'<div>\s*((?:<a class="btn[^"]*"[^>]*>.*?</a>\s*)+)</div>(?=\s*</div>\s*$)', re.S)
+
+
+def final_join(pg):
+    return f"""<div class="nll-final-join form-wrapper">
+        <p class="nll-final-join-h">Or get the weekly List</p>
+        <form class="nll-join" name="vip-newsletter" method="POST" action="/newsletter/">
+          <input type="hidden" name="form-name" value="vip-newsletter">
+          <input type="hidden" name="source" value="Next step – {pg.path}">
+          <p hidden><input name="bot-field" aria-hidden="true" tabindex="-1"></p>
+          <label class="nll-sr" for="final-email">Email address</label>
+          <input id="final-email" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+          <button class="nll-btn" type="submit">Send me Friday’s list</button>
+        </form>
+        <small>The best new $1.5M+ homes every Friday. Unsubscribe in one click.</small>
+        <div class="form-success" style="display:none;"><h3>You’re on the List.</h3><p>Your first Friday list is on its way.</p></div>
+      </div>"""
+
+
+def merge_final_band(html, pg):
+    m = FINAL_RX.search(html)
+    if not m or 'nll-final-join' in m.group(2):
+        return html
+    body = m.group(2)
+    col = CTA_COL_RX.search(body)
+    if not col:
+        return html
+    first = re.match(r'<a class="btn[^"]*"[^>]*>.*?</a>', col.group(1).strip(), re.S).group(0)
+    new_col = f'<div class="nll-final-cta">\n      {first}\n      {final_join(pg)}\n    </div>'
+    body = body[:col.start()] + new_col + body[col.end():]
+    return html[:m.start()] + m.group(1) + body + m.group(3) + html[m.end():]
+
+
+# ── Jump links on long pages ──
+JUMP_RX = re.compile(r'\s*<nav class="nll-jump"[^>]*>.*?</nav><!-- /nll-jump -->', re.S)
+SKIP_H2 = ('ap-final-h', 'rl-final-h', 'ap-book', 'idx-nb-h')
+
+
+def _slug(text):
+    return re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')[:40]
+
+
+def _plain(fragment):
+    return htmllib.unescape(re.sub(r'<[^>]+>', '', fragment)).strip()
+
+
+def _short_label(text):
+    """A few words for a jump link from a long heading: "Dining Near Belle Meade" -> "Dining"."""
+    t = re.split(r'[?:,.]', text)[0]
+    if re.match(r'(?i)frequently asked questions', t):
+        return 'FAQ'
+    if re.match(r'(?i)the .* market$', t):
+        return 'The market'
+    t = re.sub(r'(?i)\s+(near|about|from|in|around)\s+.*$', '', t)
+    return ' '.join(t.split()[:4])
+
+
+def _hero_end(main):
+    """Index just past the page's hero block, or just past the <main> tag when there is none."""
+    hero = re.search(r'<(section|div)[^>]*class="[^"]*\b(?:ap-hero|rl-hero|page-hero|cg-cover)\b[^"]*"[^>]*>', main)
+    if not hero:
+        # No hero block (the neighborhood guides): go after the first top-level block, the page intro
+        hero = re.compile(r'<(section|div|header|article)\b[^>]*>').search(main, main.find('>') + 1)
+        if not hero:
+            return main.find('>') + 1
+    tag, depth = hero.group(1), 0
+    for t in re.finditer(rf'<{tag}\b[^>]*>|</{tag}>', main[hero.start():]):
+        depth += -1 if t.group(0).startswith('</') else 1
+        if depth == 0:
+            return hero.start() + t.end()
+    return main.find('>') + 1
+
+
+def jump_nav(html, pg):
+    """Adds an "On this page" bar of jump links under the hero on pages with four or more sections."""
+    html = JUMP_RX.sub('', html)
+    if pg.here == '/' or 'faqp-toc' in html or '<main' not in html:
+        return html
+    start = html.find('<main')
+    end = html.find('</main>', start)
+    end = end if end > 0 else len(html)
+    main = html[start:end]
+    cut = _hero_end(main)
+    head, body = main[:cut], main[cut:]
+    items, seen = [], set()
+
+    def visit(m):
+        attrs, inner = m.group(1), m.group(2)
+        text = _plain(inner)
+        idm = re.search(r'\bid="([^"]+)"', attrs)
+        before = body[:m.start()]
+        in_aside = before.rfind('<aside') > before.rfind('</aside>')
+        if not text or in_aside or (idm and idm.group(1) in SKIP_H2):
+            return m.group(0)
+        hid = idm.group(1) if idm else 'sec-' + _slug(text)
+        if hid in seen:
+            return m.group(0)
+        seen.add(hid)
+        # Short label: the section's eyebrow when there is one, otherwise the first words of the heading
+        eb = re.findall(r'<span class="(?:eyebrow|nll-kicker|kicker)"[^>]*>(.*?)</span>', before[-500:], re.S)
+        parts = [p.strip() for p in _plain(eb[-1]).split('·')] if eb else []
+        parts = [p for p in parts if p and not re.match(r'(?i)chapters?\b', p) and not re.search(r'\b20\d\d\b', p)]
+        label = parts[0] if parts and len(parts[0]) <= 30 else _short_label(text)
+        items.append((hid, label))
+        return m.group(0) if idm else f'<h2{attrs} id="{hid}">{inner}</h2>'
+
+    body = re.sub(r'<h2((?:(?!>).)*)>(.*?)</h2>', visit, body, flags=re.S)
+    if len(items) < 4:
+        return html
+    links = ''.join(f'<a href="#{h}">{htmllib.escape(l)}</a>' for h, l in items)
+    nav = (f'\n<nav class="nll-jump" aria-label="On this page"><div class="nll-jump-in"><span>On this page</span>'
+           f'{links}</div></nav><!-- /nll-jump -->')
+    return html[:start] + head + nav + body + html[end:]
+
 def bake(html, path, rel=''):
     pg = Page(path)
+    html = COMPLIANCE_RX.sub('', html)
+    pg.has_final = bool(FINAL_RX.search(html))
+    if pg.has_final:
+        html = merge_final_band(html, pg)
+    if rel.replace(os.sep, '/') not in BAND_SKIP_FILES:
+        html = jump_nav(html, pg)
     for rx, render in REGIONS:
         html = rx.sub(lambda _m: render(pg), html, count=1)
     html = link_chrome_assets(html)

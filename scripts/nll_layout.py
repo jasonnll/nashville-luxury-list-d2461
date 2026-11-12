@@ -283,12 +283,8 @@ def final_cta(title_html, lede):
 </section>"""
 
 
+# The compliance paragraph moved into the site footer (one disclaimer per page), Nov 2026.
 COMPLIANCE = """
-<section class="ap-compliance">
-  <div class="container">
-    <p>Jason Kloess is a real estate agent affiliated with Compass, a licensed real estate broker, and abides by Equal Housing Opportunity laws. Tennessee license #357138. Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203 &middot; 615-522-5100. Market figures are compiled from sources deemed reliable as of the dates shown and are subject to change. Community, club and course details come from public sources and can change; confirm HOA rules, dues, membership terms and school assignments directly. Every neighborhood is open to every buyer. Nothing on this page is tax, legal or financial advice.</p>
-  </div>
-</section>
 </main>"""
 
 
