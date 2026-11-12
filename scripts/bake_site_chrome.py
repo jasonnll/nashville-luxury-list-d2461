@@ -49,11 +49,11 @@ AREA_PAGES = [('/nashville-luxury-realtor/', 'Nashville'), ('/brentwood-tn-luxur
               ('/east-nashville-luxury-realtor/', 'East Nashville'), ('/12-south-luxury-realtor/', '12 South'),
               ('/thompsons-station-tn-luxury-realtor/', 'Thompson’s Station')]
 NAV = [
-    ('/buyers/', 'Buy', [('/search/', 'Homes for sale'), ('/newsletter/', 'The weekly List'),
+    ('/buyers/', 'Buyers', [('/search/', 'Homes for sale'), ('/newsletter/', 'The weekly List'),
                          ('/answers/how-to-see-off-market-homes-in-nashville/', 'Off-market homes'),
                          ('/buyer-guide/', 'Buyer’s guide'), ('/buyers/buying-process/', 'The buying process'),
                          ('/strategy/', 'Private search call'), ('/mortgage-calculator/', 'Cost calculator')]),
-    ('/sellers/', 'Sell', [('/home-valuation/', 'What’s my home worth?'), ('/sellers/', 'How Jason sells a home'),
+    ('/sellers/', 'Sellers', [('/home-valuation/', 'What’s my home worth?'), ('/sellers/', 'How Jason sells a home'),
                            ('/past-sales/', 'Past sales'), ('/seller-guide/', 'Seller’s guide'),
                            ('/answers/cost-to-sell-a-luxury-home-in-nashville/', 'What it costs to sell'),
                            ('/sellers/compass-concierge/', 'Compass Concierge')]),
@@ -73,10 +73,10 @@ NAV = [
 
 # The "Menu" panel (tablets and phones): every key page, grouped.
 MENU = [
-    ('Buy', [('/newsletter/', 'Join the weekly List'), ('/search/', 'Search homes from $1.5M'),
+    ('Buyers', [('/newsletter/', 'Join the weekly List'), ('/search/', 'Search homes from $1.5M'),
              ('/strategy/', 'Book a private search call'), ('/buyer-guide/', 'Buyer’s guide'),
              ('/buyers/', 'Buyer resources'), ('/mortgage-calculator/', 'Monthly cost calculator')]),
-    ('Sell', [('/home-valuation/', 'Get a pricing read'), ('/past-sales/', 'Past sales'), ('/seller-guide/', 'Seller’s guide'),
+    ('Sellers', [('/home-valuation/', 'Get a pricing read'), ('/past-sales/', 'Past sales'), ('/seller-guide/', 'Seller’s guide'),
               ('/sellers/compass-concierge/', 'Compass Concierge'), ('/review/', 'Private pricing review')]),
     ('Places', [('/neighborhoods/', 'All neighborhoods'), ('/compare/', 'Compare areas'), ('/country-clubs/', 'Country clubs'),
                 ('/golf-tennis/', 'Golf and tennis'), ('/relocation/', 'Moving to Nashville')]),
