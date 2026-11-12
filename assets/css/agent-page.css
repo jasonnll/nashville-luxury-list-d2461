@@ -11,7 +11,7 @@
 .ap-crumbs a:hover{color:var(--ivory)}
 .ap-hero .eyebrow{color:var(--bronze-light)}
 .ap-hero h1{font-size:clamp(2.1rem,4.8vw,3.4rem);color:var(--ivory);margin:.75rem 0 1.25rem;line-height:1.12}
-.ap-hero h1 em{color:var(--bronze-light);font-style:italic}
+.ap-hero h1 em{color:var(--bronze-light);font-style:normal}
 .ap-answer{color:rgba(247,243,236,.86);font-size:1.075rem;line-height:1.75;max-width:640px}
 .ap-answer strong{color:var(--ivory);font-weight:600}
 .ap-points{margin:1.5rem 0 0;display:grid;gap:.65rem}
@@ -52,7 +52,7 @@
 .ap-head{max-width:780px;margin-bottom:2.5rem}
 .ap-head.center{margin-left:auto;margin-right:auto;text-align:center}
 .ap-head .section-title{margin:.6rem 0 .9rem}
-.ap-head .section-title em{color:var(--bronze-deep);font-style:italic}
+.ap-head .section-title em{color:var(--bronze-deep);font-style:normal}
 .ap-sec.dark .ap-head .section-title em{color:var(--bronze-light)}
 .ap-lede{font-size:1.06rem;color:#4A463F;line-height:1.75}
 .ap-lede + .ap-lede{margin-top:1rem}
@@ -157,7 +157,6 @@
 
 /* Booking */
 .ap-book{background:#fff;border-top:1px solid var(--stone)}
-.ap-book .calendly-inline-widget{min-width:320px;height:700px}
 .ap-book-alt{text-align:center;font-size:.9rem;color:var(--taupe);margin-top:1rem}
 .ap-book-alt a{color:var(--bronze-deep)}
 

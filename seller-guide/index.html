@@ -334,7 +334,7 @@
         <div><h2>Talk to Jason</h2><p>REALTOR&reg; &middot; Compass &middot; TN #357138</p></div>
       </div>
       <p>Thinking about selling? Download the guide, or schedule a seller consultation with Jason.</p>
-      <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Seller Consultation</a>
+      <a class="btn btn-gold btn-lg" href="/contact/">Talk to Jason about selling</a>
       <a class="btn btn-outline-gold btn-lg" href="https://jasonkloess.nashvilleluxurylist.com/assets/guides/seller-guide.pdf" download="Nashville-Luxury-Sellers-Guide-2026-Jason-Kloess.pdf" target="_blank" rel="noopener">Download the Seller's Guide (PDF) &darr;</a>
       <div class="ap-card-contact">
         <a href="tel:+16154570768">Call or text 615-457-0768</a>
@@ -434,11 +434,11 @@
             <div class="cg-check">&#10003;</div>
             <h3>We'll Be in Touch!</h3>
             <p>Jason will reach out within 2 hours. Want to lock in a time now?</p>
-            <a class="btn btn-gold btn-full" href="#book-call">Schedule your consultation</a>
+            <a class="btn btn-gold btn-full" href="/contact/">Contact Jason</a>
             <a class="btn btn-outline-gold btn-full" href="https://jasonkloess.nashvilleluxurylist.com/assets/guides/seller-guide.pdf" download="Nashville-Luxury-Sellers-Guide-2026-Jason-Kloess.pdf" target="_blank" rel="noopener">Download the Seller's Guide (PDF) &darr;</a>
           </div>
         </div>
-        <p class="cg-card-alt">Rather pick a time? <a href="#book-call">Open Jason's calendar</a> or call <a href="tel:+16154570768">615-457-0768</a></p>
+        <p class="cg-card-alt">Rather pick a time? <a href="/contact/">Contact Jason</a> or call <a href="tel:+16154570768">615-457-0768</a></p>
       </div>
     </div>
   </div>
@@ -459,17 +459,6 @@
   </div>
 </section>
 <span id="book-consultation" aria-hidden="true"></span>
-<section data-band="white" class="ap-sec ap-book" id="book-call" aria-labelledby="ap-book">
-  <div class="container">
-    <div class="ap-head center">
-      <span class="eyebrow">30 minutes &middot; phone or video</span>
-      <h2 class="section-title" id="ap-book">Schedule a seller consultation</h2>
-      <p class="ap-lede">Pick a time to talk with Jason about your home, your timing and your options, from a quiet off-market sale to a full launch. No obligation.</p>
-    </div>
-  </div>
-  <div class="calendly-inline-widget" data-url="https://calendly.com/jason-nashvilleluxurylist/strategy-session?hide_gdpr_banner=1&amp;primary_color=a8865a"></div>
-  <p class="ap-book-alt">Calendar not loading? <a href="https://calendly.com/jason-nashvilleluxurylist/strategy-session" target="_blank" rel="noopener">Open the booking page</a> or call <a href="tel:+16154570768">615-457-0768</a>.</p>
-</section>
 <section data-band="anchor" class="ap-sec dark ap-final" aria-labelledby="ap-final-h">
   <div class="container">
     <div>
@@ -479,7 +468,7 @@
       <p class="ap-contact">Call or text <a href="tel:+16154570768">615-457-0768</a> &middot; <a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a></p>
     </div>
     <div>
-      <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Call</a>
+      <a class="btn btn-gold btn-lg" href="/contact/">Contact Jason</a>
       <a class="btn btn-outline-gold btn-lg ap-outline-light" href="/home-valuation/">Get My Home Value</a>
     </div>
   </div>
@@ -535,7 +524,7 @@
 </div><!-- /site-footer -->
 
 <nav class="ap-sticky" id="ap-sticky" aria-label="Quick contact">
-  <a class="btn btn-gold" href="#book-call">Schedule a Call</a>
+  <a class="btn btn-gold" href="/contact/">Contact Jason</a>
   <a class="btn btn-outline-gold ap-outline-light" href="/home-valuation/">Home Value</a>
   <a class="btn btn-outline-gold ap-outline-light" href="tel:+16154570768" style="flex:0 0 auto" aria-label="Call Jason">Call</a>
 </nav>
@@ -544,44 +533,10 @@
 <script src="/assets/js/main.js?v=20261104a"></script>
 <script>
 (function(){
-  var book=document.getElementById('book-call'),calLoaded=false;
-  function loadCal(){
-    if(calLoaded||!book) return; calLoaded=true;
-    var sc=document.createElement('script'); sc.src='https://assets.calendly.com/assets/external/widget.js'; sc.async=true;
-    document.body.appendChild(sc);
-  }
-  if(book){
-    if(!('IntersectionObserver' in window)) loadCal();
-    else{var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();loadCal();}},{rootMargin:'800px 0px'});io.observe(book);}
-    if(location.hash==='#book-call') loadCal();
-    document.querySelectorAll('a[href="#book-call"]').forEach(function(a){a.addEventListener('click',loadCal);});
-  }
-  window.addEventListener('message',function(e){
-    if(e.origin==='https://calendly.com'&&e.data&&e.data.event==='calendly.event_scheduled'){
-      try{fbq('track','Schedule',{content_name:'seller_consultation'});}catch(err){}
-      try{gtag('event','schedule_call',{call_type:'seller_consultation'});}catch(err){}
-    }
-  });
   var bar=document.getElementById('ap-sticky'),card=document.getElementById('talk')||document.querySelector('main h1');
   if(bar&&card&&'IntersectionObserver' in window){
     new IntersectionObserver(function(es){bar.classList.toggle('show',!es[0].isIntersecting);}).observe(card);
   }
-})();
-</script>
-<script>
-(function(){
-  var form=document.querySelector('form[name="seller-inquiry"]'),w=document.querySelector('#book-call .calendly-inline-widget');
-  if(!form||!w) return;
-  var base=w.getAttribute('data-url');
-  function sync(){
-    if(w.querySelector('iframe')) return;
-    var p=[];['name','email'].forEach(function(k){var el=form.querySelector('[name="'+k+'"]');if(el&&el.value)p.push(k+'='+encodeURIComponent(el.value));});
-    var a=form.querySelector('[name="address"]');if(a&&a.value)p.push('a1='+encodeURIComponent(a.value));
-    w.setAttribute('data-url',base+(p.length?'&'+p.join('&'):''));
-  }
-  form.addEventListener('input',sync);form.addEventListener('submit',sync);
-  document.querySelectorAll('a[href="#book-consultation"]').forEach(function(l){l.setAttribute('href','#book-call');});
-  if(location.hash==='#book-consultation'){var b=document.getElementById('book-call');if(b)b.scrollIntoView();}
 })();
 </script>
 <script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/";});}});}</script>
