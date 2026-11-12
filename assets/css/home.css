@@ -1,11 +1,11 @@
 /* Home page (2026 redesign). Header, footer and call bar styles live in chrome.css.
    Concept: an estate catalogue that also works as the market's reference desk.
-   Caslon headlines, a plain modern sans for data and controls, hunter green and saddle leather on linen.
+   Caudex headlines, a plain modern sans for data and controls, hunter green and saddle leather on linen.
    Photography leads, data follows, and every section ends in one clear next step. */
 :root{
   --linen:#FAF7EF; --paper:#FFFFFF; --hunter:#21382C; --ink:#1C2330;
   --saddle:#7E4F2D; --brass:#B09464; --brass-lt:#D2B988; --stone:#57534B; --rule:#D6CCB8;
-  --display:"Libre Caslon Display","Big Caslon",Georgia,serif;
+  --display:"Caudex",Georgia,serif;
   --sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
   --wrap:1240px;
   color-scheme:light;

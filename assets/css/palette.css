@@ -902,7 +902,7 @@ body .newsletter-section { box-shadow: inset 0 1px 0 rgba(216, 197, 154, 0.35); 
   .home-about-photo { max-width: 460px; }
 }
 
-/* ---------- Libre Caslon: Display cut for large titles, Text cut (with real italic and bold) elsewhere ---------- */
+/* ---------- Headline face: Caudex (Nov 2026) ---------- */
 h1, .hero h1, .page-hero-title, .section-title { font-family: var(--font-display); }
 /* Display has no italic, so italic accents inside titles use the Text italic */
 :is(h1, .section-title, .page-hero-title, .home-about-title, .om-title) :is(em, i) { font-family: var(--font-serif); }

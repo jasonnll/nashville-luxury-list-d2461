@@ -1,17 +1,17 @@
 /* Nashville Luxury List — shared site chrome (header, menu, newsletter band, footer, phone call bar)
-   from the 2026 home page redesign: Caslon headlines, Albert Sans for text and controls, hunter green
+   from the 2026 home page redesign: Caudex headlines, Albert Sans for text and controls, hunter green
    and saddle leather on linen. Loaded on every page AFTER main.css / palette.css (the bake script adds it).
    The markup comes from scripts/bake_site_chrome.py. Classes are prefixed nll- so they never collide
    with the older page styles. The :root block also retunes the older palette so interior pages match. */
 
+@font-face{font-family:"Caudex";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/caudex-latin-400-normal.woff2) format("woff2")}@font-face{font-family:"Caudex";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/caudex-latin-700-normal.woff2) format("woff2")}
 @font-face{font-family:'Albert Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Libre Caslon Display';font-style:normal;font-weight:300 500;font-display:swap;src:url(/assets/fonts/libre-caslon-display-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 :root{
   /* Redesign tokens */
   --n-linen:#FAF7EF; --n-paper:#FFFFFF; --n-hunter:#21382C; --n-ink:#1C2330;
   --n-saddle:#7E4F2D; --n-brass:#B09464; --n-brass-lt:#D2B988; --n-stone:#57534B; --n-rule:#D6CCB8;
-  --n-display:"Libre Caslon Display","Big Caslon",Georgia,serif;
+  --n-display:"Caudex",Georgia,serif;
   --n-sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
   --n-wrap:1240px;
   --n-top-h:72px;
@@ -25,7 +25,7 @@
   --navy:#21382C; --navy-mid:#21382C; --navy-light:#142A1F;
   --font-sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
   /* One serif everywhere: the Display cut used on the home page */
-  --font-serif:"Libre Caslon Display","Big Caslon",Georgia,serif; --font-display:"Libre Caslon Display","Big Caslon",Georgia,serif;
+  --font-serif:"Caudex",Georgia,serif; --font-display:"Caudex",Georgia,serif;
   --radius-sm:0; --radius-md:0; --radius-lg:0; --radius-xl:0;
   /* The header is sticky (in the page flow) now, so page heroes no longer pad for a fixed header */
   --header-h:0px;
@@ -171,7 +171,7 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .nll-lede,.cg-callout b,.rl-day b,.nh-tag{font-style:normal!important}
 
 /* ── One look on every page (Nov 2026) ──
-   Matches the home page: ivory and white surfaces, hunter green as the only dark color, Libre Caslon Display
+   Matches the home page: ivory and white surfaces, hunter green as the only dark color, Caudex
    headlines at one scale, Albert Sans for everything else, sentence-case labels and buttons, square corners. */
 html{font-synthesis:none}
 body{font-family:var(--n-sans);color:var(--n-ink)}
