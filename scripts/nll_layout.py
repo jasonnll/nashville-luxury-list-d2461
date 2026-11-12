@@ -53,7 +53,7 @@ def head(title, desc, path, og_image, graph, css=("agent-page",), og_type="websi
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
 <meta name="description" content="{E(desc)}">
-<meta name="theme-color" content="#F6F0E4">
+<meta name="theme-color" content="#FAF7EF">
 <meta name="author" content="Jason Kloess">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="{url}">
