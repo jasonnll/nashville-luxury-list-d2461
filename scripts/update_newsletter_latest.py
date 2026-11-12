@@ -2,7 +2,7 @@
 
 Runs on every Netlify build right after the Mailchimp blog import (see netlify.toml). It finds the
 newest post in blog/*/index.html (by the BlogPosting datePublished) and rewrites two marked spots in
-newsletter/index.html:
+newsletter/index.html (and fills the "From the weekly List" card on the home page, see update_home):
 
     <!-- latest-issue:photo -->...<!-- /latest-issue:photo -->   the post's cover image
     <!-- latest-issue:link -->...<!-- /latest-issue:link -->     "Read last Friday's issue" link
@@ -19,6 +19,7 @@ from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGE = os.path.join(ROOT, 'newsletter', 'index.html')
+HOME = os.path.join(ROOT, 'index.html')
 SITE = 'https://www.nashvilleluxurylist.com'
 
 
@@ -74,7 +75,27 @@ def main():
                  lambda m: m.group(1) + link + m.group(2), new, count=1, flags=re.S)
     if new != page:
         open(PAGE, 'w', encoding='utf-8').write(new)
+    update_home(post, title)
     print('Newsletter preview: using "%s" (%s).' % (post['title'], post['when'].date()))
+
+
+def update_home(post, title):
+    """Fills <!-- latest-issue:home -->...<!-- /latest-issue:home --> on the home page with the
+    newest issue's lead photo, date and headline, linked to the issue."""
+    page = open(HOME, encoding='utf-8').read()
+    img = quote(post['image'], safe='/')
+    base = '/.netlify/images?url=%s&amp;fit=cover&amp;q=72' % img
+    when = post['when'].strftime('%A, %B %-d, %Y')
+    card = ('<a class="issue-card" href="/blog/%s/">'
+            '<figure><img src="%s&amp;w=720&amp;h=480" srcset="%s&amp;w=480&amp;h=320 480w, %s&amp;w=960&amp;h=640 960w" '
+            'sizes="(max-width:1020px) 100vw, 560px" width="960" height="640" alt="Lead photo from the %s issue" '
+            'loading="lazy" decoding="async" onerror="this.remove()"></figure>'
+            '<span class="issue-date">%s</span><b>%s</b></a>') % (
+                post['slug'], base, base, base, html.escape(when), html.escape(when), title)
+    new = re.sub(r'(<!-- latest-issue:home -->).*?(<!-- /latest-issue:home -->)',
+                 lambda m: m.group(1) + card + m.group(2), page, count=1, flags=re.S)
+    if new != page:
+        open(HOME, 'w', encoding='utf-8').write(new)
 
 
 if __name__ == '__main__':
