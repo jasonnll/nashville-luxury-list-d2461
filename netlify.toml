@@ -9,7 +9,89 @@
   # record if Compass can't be reached) and rebuilds the record-backed "luxury realtor in [area]" pages from it.
   # Last, sets each sitemap <lastmod> to when the page really changed. After a production deploy,
   # netlify/functions/indexnow.mts submits new and changed pages to IndexNow (Bing, Yandex and others).
-  command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/update_newsletter_latest.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_realtor_pages.py && python3 scripts/bake_site_chrome.py && python3 scripts/update_sitemap_lastmod.py"
+  command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/update_newsletter_latest.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_answer_pages.py && python3 scripts/build_realtor_pages.py && python3 scripts/bake_site_chrome.py && python3 scripts/update_sitemap_lastmod.py"
+
+# ── Removed blog posts
+# Generic 2025 Squarespace posts, removed Nov 2026: unrelated to Nashville or to Jason's market.
+[[redirects]]
+  from = "/blog/12-most-expensive-houses-around-the-world-in-2025/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/12-most-expensive-houses-around-the-world-in-2025"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/7-best-brentwood-tn-luxury-homes-to-explore-in-2025/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/7-best-brentwood-tn-luxury-homes-to-explore-in-2025"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/7-best-williamson-county-homes-to-explore-in-2025/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/7-best-williamson-county-homes-to-explore-in-2025"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/exclusive-real-estate-guide-discover-luxury-in-2025/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/exclusive-real-estate-guide-discover-luxury-in-2025"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/explore-8-stunning-10-million-dollar-homes-in-2025/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/explore-8-stunning-10-million-dollar-homes-in-2025"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/off-market-properties-guide-insider-tips-for-2025-success/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/off-market-properties-guide-insider-tips-for-2025-success"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-elegant-homes-in-2025/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-elegant-homes-in-2025"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-modern-luxury-houses-in-2025/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-ultimate-guide-to-modern-luxury-houses-in-2025"
+  to = "/blog/"
+  status = 301
 
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 # Old neighborhood-guide subdomain -> guides now live at /neighborhoods/<slug>/.
