@@ -8,6 +8,21 @@ GA = "G-W9WQYY6MS5"
 ADS = "AW-18543435200"  # Google Ads, configured through the same (single) Google tag as GA4
 E = html.escape
 
+# Jason's profiles on other sites: the one list behind every page's schema.org sameAs (bake_site_chrome.py
+# writes it into the JSON-LD of every page on each build) and the "Find Jason on" links in the footer.
+# Review sites first, since those are what buyers and AI assistants check.
+GOOGLE_PROFILE = "https://www.google.com/maps?cid=2793428563790459930"  # Google Business Profile
+PROFILES = [
+    ("Google reviews", GOOGLE_PROFILE),
+    ("Zillow", "https://www.zillow.com/profile/jasonkloess1"),
+    ("RateMyAgent", "https://www.ratemyagent.com/real-estate-agent/jason-kloess-b1gs40/sales/overview"),
+    ("Compass", "https://www.compass.com/agents/jason-kloess/"),
+    ("Instagram", "https://www.instagram.com/jasonkloess/"),
+    ("Instagram (Nashville Luxury List)", "https://www.instagram.com/nashvilleluxurylist/"),
+    ("Facebook", "https://www.facebook.com/nashvilleluxurylist"),
+    ("LinkedIn", "https://www.linkedin.com/in/jasonkloess/"),
+]
+
 AGENT_REF = {"@id": f"{SITE}/#jason-kloess"}
 AGENT = {
     "@type": "RealEstateAgent", "@id": f"{SITE}/#jason-kloess", "name": "Jason Kloess", "jobTitle": "REALTOR®",
@@ -18,8 +33,7 @@ AGENT = {
     "parentOrganization": {"@type": "RealEstateAgent", "name": "Compass RE", "url": "https://www.compass.com/", "telephone": "+1-615-522-5100"},
     "hasCredential": {"@type": "EducationalOccupationalCredential", "credentialCategory": "license",
                       "name": "Tennessee Real Estate License", "identifier": "357138"},
-    "sameAs": ["https://www.compass.com/agents/jason-kloess/", "https://www.instagram.com/jasonkloess/",
-               "https://www.instagram.com/nashvilleluxurylist/", "https://www.linkedin.com/in/jasonkloess/"],
+    "sameAs": [u for _, u in PROFILES],
 }
 
 PHOTOS = {"davidson": "/assets/images/neighborhoods/belle-meade.jpg",
