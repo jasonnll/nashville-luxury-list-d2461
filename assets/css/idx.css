@@ -9,7 +9,7 @@
   background: var(--white);
   border: 1px solid var(--stone);
   border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(30, 43, 64, 0.08);
+  box-shadow: 0 10px 30px rgba(20,34,26, 0.08);
   padding: 0.4rem;
   margin-bottom: 1.25rem;
 }
@@ -23,10 +23,10 @@
 }
 .idx-field:nth-last-child(2) { border-right: 0; }
 .idx-field label {
-  font-size: 0.62rem;
+  font-size:.875rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing:.01em;
+  text-transform:none;
   color: var(--bronze-deep);
 }
 .idx-field select {
@@ -50,16 +50,16 @@
   gap: 0.5rem;
   border: 0;
   border-radius: var(--radius-sm);
-  background: var(--ink);
+  background: var(--hunter);
   color: var(--white);
-  font: 600 0.85rem var(--font-sans);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font: 600 .875rem var(--font-sans);
+  letter-spacing:.01em;
+  text-transform:none;
   padding: 0 1.4rem;
   cursor: pointer;
   transition: var(--transition);
 }
-.idx-search .idx-go:hover { background: var(--ink-soft); }
+.idx-search .idx-go:hover { background: var(--hunter-deep); }
 .idx-search .idx-go:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
 /* Home hero: let the bar run wider than the 960px headline column. */
 @media (min-width: 901px) {
@@ -109,7 +109,7 @@
 .idx-embed { min-height: 120px; }
 .idx-embed[hidden] { display: none; }
 .idx-slot { display: contents; }
-.idx-note { font-size: 0.75rem; color: var(--taupe); margin-top: 1rem; }
+.idx-note { font-size:.875rem; color: var(--taupe); margin-top: 1rem; }
 
 /* ---------- Neighborhood quick search ---------- */
 .idx-nb { background: var(--parchment); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
@@ -120,7 +120,7 @@
   display: inline-block;
   padding: 0.6rem 1.1rem;
   border: 1px solid var(--stone);
-  border-radius: 999px;
+  border-radius:0;
   background: var(--white);
   color: var(--ink);
   font-size: 0.9rem;
@@ -128,7 +128,7 @@
   transition: var(--transition);
 }
 .idx-chip:hover, .idx-chip:focus-visible { border-color: var(--ink); }
-.idx-chip.is-active { border-color: var(--ink); background: var(--ink); color: var(--white); }
+.idx-chip.is-active { border-color: var(--hunter); background: var(--hunter); color: var(--white); }
 .idx-chip[hidden] { display: none; }
 .idx-nb .idx-embed, .idx-results .idx-embed { margin-top: 2rem; background: var(--white); border: 1px solid var(--stone); border-radius: var(--radius-md); padding: 1rem; }
 
@@ -140,15 +140,15 @@
 .idx-feed { margin-top: 1.75rem; }
 .idx-feed[hidden], .idx-feed [hidden] { display: none; }
 .idx-feed-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1rem; min-height: 2.5rem; }
-.idx-count { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; color: var(--taupe); }
+.idx-count { font-size:.875rem; font-weight: 500; letter-spacing: 0.04em; color: var(--taupe); }
 .idx-arrows { display: flex; gap: 0.5rem; }
 .idx-arrow {
   width: 2.5rem; height: 2.5rem;
-  border: 1px solid var(--stone); border-radius: 999px;
+  border: 1px solid var(--stone); border-radius:0;
   background: var(--white); color: var(--ink);
   font-size: 1.05rem; cursor: pointer; transition: var(--transition);
 }
-.idx-arrow:hover, .idx-arrow:focus-visible { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.idx-arrow:hover, .idx-arrow:focus-visible { background: var(--hunter-deep); border-color: var(--hunter-deep); color: var(--white); }
 .idx-track { display: grid; gap: 1.25rem; }
 .idx-track:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
 .idx-feed-carousel .idx-track {
@@ -178,15 +178,15 @@ a.idx-card:hover, a.idx-card:focus-visible { box-shadow: var(--shadow-lg); borde
 .idx-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .idx-card-tag {
   position: absolute; top: 0.75rem; left: 0.75rem;
-  background: var(--ink); color: var(--ivory);
-  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--hunter); color: var(--ivory);
+  font-size:.875rem; font-weight: 600; letter-spacing:.01em; text-transform:none;
   padding: 0.3rem 0.6rem; border-radius: var(--radius-sm);
 }
 .idx-card-body { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.3rem; }
 .idx-card-price { font-family: var(--font-serif); font-size: 1.4rem; color: var(--ink); }
-.idx-card-facts { font-size: 0.85rem; color: var(--taupe); }
+.idx-card-facts { font-size:.875rem; color: var(--taupe); }
 .idx-card-addr { font-size: 0.9rem; color: var(--charcoal); line-height: 1.4; }
-.idx-card-addr span { color: var(--taupe); font-size: 0.85rem; }
+.idx-card-addr span { color: var(--taupe); font-size:.875rem; }
 .idx-empty { background: var(--white); border: 1px solid var(--stone); border-radius: var(--radius-md); padding: 2rem; text-align: center; }
 .idx-empty p { color: var(--text-mid); max-width: 520px; margin: 0 auto 1.25rem; }
 
@@ -199,18 +199,18 @@ a.idx-card:hover, a.idx-card:focus-visible { box-shadow: var(--shadow-lg); borde
 .idx-page-hero .idx-search { max-width: 980px; margin: 2rem auto 0; text-align: left; }
 .idx-summary { color: var(--bronze-light); font-weight: 500; letter-spacing: 0.04em; }
 .idx-areas-sec { background: var(--white); border-bottom: 1px solid var(--stone); padding: 2rem 0; }
-.idx-areas-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bronze-deep); margin-bottom: 1rem; }
+.idx-areas-title { font-size:.875rem; font-weight: 600; letter-spacing:.01em; text-transform:none; color: var(--bronze-deep); margin-bottom: 1rem; }
 .idx-areas { display: grid; grid-template-columns: auto 1fr 1.4fr; gap: 1.5rem 2.5rem; align-items: start; }
 .idx-county h3 { font-family: var(--font-serif); font-size: 1.1rem; color: var(--ink); margin-bottom: 0.6rem; }
 .idx-county > div { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; }
 .idx-area {
   display: inline-block; padding: 0.4rem 0.8rem;
-  border: 1px solid var(--stone); border-radius: 999px;
-  font-size: 0.85rem; color: var(--ink); background: var(--ivory);
+  border: 1px solid var(--stone); border-radius:0;
+  font-size:.875rem; color: var(--ink); background: var(--ivory);
   transition: var(--transition);
 }
 .idx-area:hover, .idx-area:focus-visible { border-color: var(--ink); }
-.idx-area.is-active { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.idx-area.is-active { background: var(--hunter); border-color: var(--hunter); color: var(--white); }
 .idx-county-all { padding-top: 2.1rem; }
 @media (max-width: 900px) { .idx-areas { grid-template-columns: 1fr; } .idx-county-all { padding-top: 0; } }
 .idx-results-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
@@ -221,7 +221,7 @@ a.idx-card:hover, a.idx-card:focus-visible { box-shadow: var(--shadow-lg); borde
 .idx-request[hidden], [data-idx-map][hidden] { display: none; }
 .idx-request .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .idx-request .btn { width: 100%; justify-content: center; }
-.idx-request .idx-fine { font-size: 0.8rem; color: var(--taupe); margin-top: 0.75rem; text-align: center; }
+.idx-request .idx-fine { font-size:.875rem; color: var(--taupe); margin-top: 0.75rem; text-align: center; }
 @media (max-width: 600px) { .idx-request .form-row { grid-template-columns: 1fr; } }
 
 /* Price/bedroom tiers: one IDX Broker carousel per button, swapped in place */
