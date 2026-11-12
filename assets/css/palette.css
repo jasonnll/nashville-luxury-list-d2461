@@ -126,16 +126,16 @@ a:hover { color: var(--ink); }
 .mobile-nav-phone:hover { color: var(--ink); }
 
 /* ---------- Hero (cream wash over photography, navy type) ---------- */
-/* Sand wash (not ivory) so the hero reads as its own band under the ivory header */
-.hero { background: #ECE1CC; }
-.hero-bg { background: #ECE1CC; }
+/* Light cream wash (#FAF7EF), the darker of the two site creams */
+.hero { background: #FAF7EF; }
+.hero-bg { background: #FAF7EF; }
 .hero-overlay {
   /* Lighter cream wash: the photo shows through; text side keeps enough cream to stay readable */
   background: linear-gradient(90deg,
-    rgba(236, 225, 204, 0.86) 0%,
-    rgba(236, 225, 204, 0.74) 38%,
-    rgba(236, 225, 204, 0.28) 64%,
-    rgba(236, 225, 204, 0) 100%);
+    rgba(250, 247, 239, 0.86) 0%,
+    rgba(250, 247, 239, 0.74) 38%,
+    rgba(250, 247, 239, 0.28) 64%,
+    rgba(250, 247, 239, 0) 100%);
 }
 /* A see-through cream over green grass mixes to olive. Where supported, strip the photo's colour
    behind the text first (fading out toward the house), then lay the cream on top, so the wash stays
@@ -151,15 +151,15 @@ a:hover { color: var(--ink); }
   }
   .hero-overlay::after {
     background: linear-gradient(90deg,
-      rgba(236, 225, 204, 0.8) 0%,
-      rgba(236, 225, 204, 0.66) 38%,
-      rgba(236, 225, 204, 0.24) 64%,
-      rgba(236, 225, 204, 0) 100%);
+      rgba(250, 247, 239, 0.8) 0%,
+      rgba(250, 247, 239, 0.66) 38%,
+      rgba(250, 247, 239, 0.24) 64%,
+      rgba(250, 247, 239, 0) 100%);
   }
 }
 /* Soft cream halo behind hero type so it stays crisp over the lighter wash */
 .hero-eyebrow, .hero h1, .hero-description, .hero-links, .hero-stat-value, .hero-stat-label {
-  text-shadow: 0 0 18px rgba(236, 225, 204, 0.9), 0 0 2px rgba(236, 225, 204, 0.6);
+  text-shadow: 0 0 18px rgba(250, 247, 239, 0.9), 0 0 2px rgba(250, 247, 239, 0.6);
 }
 .hero > .container { width: 100%; }
 .hero-content { max-width: 640px; }
@@ -181,7 +181,7 @@ a:hover { color: var(--ink); }
     display: block;
     min-height: 0;
     padding: var(--header-h) 0 3rem;
-    background: #ECE1CC;
+    background: #FAF7EF;
   }
   .hero-bg {
     position: relative;
@@ -193,7 +193,7 @@ a:hover { color: var(--ink); }
 }
 
 /* ---------- Valuation bar (parchment) ---------- */
-/* Home bands alternate: ivory header → sand hero → white valuation → sand trust → ivory listings → sand → white */
+/* Home bands alternate between the two creams: #FAF7EF (cream) and #FFFFFF (white) */
 .valuation-bar { background: var(--cream-white); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
 .valuation-bar-text { color: var(--ink); }
 .valuation-bar input { background: var(--ivory); border: 1px solid var(--stone); box-shadow: none; color: var(--charcoal); }
@@ -201,7 +201,7 @@ a:hover { color: var(--ink); }
 .valuation-bar .btn:hover { background: var(--ink-soft); color: var(--ivory); }
 
 /* ---------- Trust bar (ivory, quiet small caps) ---------- */
-.trust-bar { background: #ECE1CC; border-bottom: 1px solid #DCCFB5; }
+.trust-bar { background: #FAF7EF; border-bottom: 1px solid var(--stone); }
 .trust-item { color: var(--taupe); letter-spacing: 0.1em; }
 
 /* Phones: a compact two-column grid instead of five tall rows */
@@ -561,13 +561,14 @@ a:hover { color: var(--ink); }
 
 /* ---------- Section bands ----------
    scripts/bake_site_chrome.py tags each full-width section data-band="ivory|sand|white|anchor".
-   Light bands rotate ivory → sand → white → sand, so every boundary is a visible step on a phone.
+   Light bands alternate between the two site creams: "sand" bands are #FAF7EF, "ivory" and "white"
+   bands are #FFFFFF. Ivory and white bands never touch, so every boundary is still a visible step.
    Navy is kept for the contact anchor; the newsletter band above the footer is hunter green. */
-:root { --band-sand: #ECE1CC; }
-section[data-band="ivory"] { background: var(--ivory) !important; }
+:root { --band-sand: #FAF7EF; }
+section[data-band="ivory"] { background: var(--cream-white) !important; }
 section[data-band="white"] { background: var(--cream-white) !important; }
 section[data-band="sand"]  { background: var(--band-sand) !important; }
-section[data-band="sand"] .ap-strip, section[data-band="sand"].ap-strip { border-color: #DCCFB5; }
+section[data-band="sand"] .ap-strip, section[data-band="sand"].ap-strip { border-color: var(--stone); }
 
 /* Sections that used to be navy mid-page now sit in the light rotation */
 body :is(.ap-sec, .rl-sec).dark:is([data-band="ivory"], [data-band="white"], [data-band="sand"]) { color: var(--charcoal); }
