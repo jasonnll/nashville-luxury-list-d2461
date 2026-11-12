@@ -34,7 +34,6 @@
   .deliverables strong { color: var(--ink); display: block; }
   .booking-why { max-width: 760px; margin: 0 auto; text-align: center; }
   .booking-why p { color: var(--text-mid); font-size: 1.05rem; line-height: 1.8; }
-  .calendly-section { background: var(--white); }
 </style>
 <!-- Meta Pixel -->
 <script>(window.__nll3p=window.__nll3p||[]).push('https://www.googletagmanager.com/gtag/js?id=G-W9WQYY6MS5');</script>
@@ -93,7 +92,7 @@
       <div class="range-card-value" id="range-value"></div>
     </div>
 
-    <a href="#book" class="btn btn-gold btn-lg">Book My Review →</a>
+    <a href="#book" class="btn btn-gold btn-lg">Set up my review</a>
   </div>
 </section>
 
@@ -125,17 +124,15 @@
   </div>
 </section>
 
-<section data-band="white" class="section calendly-section" id="book">
+<section data-band="white" class="section" id="book">
   <div class="container">
-    <div class="text-center" style="margin-bottom:2rem;">
-      <span class="eyebrow">Book Your Review</span>
-      <h2 class="section-title">Pick a time that works</h2>
+    <div class="text-center" style="max-width:640px;margin:0 auto;">
+      <span class="eyebrow">Set it up</span>
+      <h2 class="section-title">Pick a time with Jason</h2>
       <div class="divider center"></div>
+      <p style="margin:1rem 0 1.5rem;color:var(--text-mid)">Call or text <a href="tel:+16154570768">615-457-0768</a>, or send a note with a few times that work. Jason replies himself, usually the same day.</p>
+      <a class="btn btn-gold btn-lg" href="/contact/?type=review">Send Jason a note</a>
     </div>
-  </div>
-  <div class="calendly-inline-widget"
-    data-url="https://calendly.com/jason-nashvilleluxurylist/strategy-session?hide_gdpr_banner=1&primary_color=a8865a"
-    style="min-width:320px;height:700px;">
   </div>
 </section>
 
@@ -198,48 +195,5 @@
 
 <script src="/assets/js/partials.js?v=20261102a"></script>
 <script src="/assets/js/main.js?v=20261104a"></script>
-<script>
-  (function () {
-    // Show the estimate passed from the home value page, if present.
-    var p = new URLSearchParams(location.search);
-    var address = p.get('address'), low = p.get('low'), high = p.get('high');
-    var fmt = function (n) { var v = Number(String(n).replace(/[^0-9.]/g, '')); return v ? '$' + v.toLocaleString('en-US') : n; };
-    if (address) document.querySelectorAll('[data-address]').forEach(function (el) { el.textContent = address; });
-    if (address && low && high) {
-      document.getElementById('range-address').textContent = address;
-      document.getElementById('range-value').textContent = fmt(low) + ' to ' + fmt(high);
-      document.getElementById('range-card').classList.add('visible');
-    }
-
-    // Prefill Calendly with what we already know, and load it only near the viewport.
-    var widget = document.querySelector('.calendly-inline-widget');
-    var prefill = [];
-    if (p.get('name')) prefill.push('name=' + encodeURIComponent(p.get('name')));
-    if (p.get('email')) prefill.push('email=' + encodeURIComponent(p.get('email')));
-    if (address) prefill.push('a1=' + encodeURIComponent(address));
-    if (prefill.length) widget.setAttribute('data-url', widget.getAttribute('data-url') + '&' + prefill.join('&'));
-
-    var section = document.getElementById('book'), loaded = false;
-    function load() {
-      if (loaded) return; loaded = true;
-      var s = document.createElement('script');
-      s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true;
-      document.body.appendChild(s);
-    }
-    if (!('IntersectionObserver' in window)) load();
-    else {
-      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { io.disconnect(); load(); } }, { rootMargin: '800px 0px' });
-      io.observe(section);
-    }
-    if (location.hash === '#book') load();
-
-    // Meta Schedule event when a time is booked.
-    window.addEventListener('message', function (e) {
-      if (e.origin === 'https://calendly.com' && e.data && e.data.event === 'calendly.event_scheduled' && window.fbq) {
-        fbq('track', 'Schedule', { content_name: 'Pricing and Positioning Review' });
-      }
-    });
-  })();
-</script>
 </body>
 </html>
