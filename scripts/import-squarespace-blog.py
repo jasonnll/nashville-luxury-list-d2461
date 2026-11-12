@@ -182,7 +182,7 @@ HEAD = '''<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#F6F0E4">
+<meta name="theme-color" content="#FAF7EF">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{og_title}">

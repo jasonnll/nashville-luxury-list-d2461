@@ -3,7 +3,7 @@
    Caslon headlines, a plain modern sans for data and controls, hunter green and saddle leather on linen.
    Photography leads, data follows, and every section ends in one clear next step. */
 :root{
-  --linen:#EFE8DA; --paper:#F8F4EC; --hunter:#21382C; --ink:#1C2330;
+  --linen:#FAF7EF; --paper:#FFFFFF; --hunter:#21382C; --ink:#1C2330;
   --saddle:#7E4F2D; --brass:#B09464; --brass-lt:#D2B988; --stone:#57534B; --rule:#D6CCB8;
   --display:"Libre Caslon Display","Big Caslon",Georgia,serif;
   --sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
@@ -59,7 +59,7 @@ section{padding-block:96px}
 .hero-alt{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
 .hero-alt a{color:var(--paper);font-weight:500;text-underline-offset:4px}
 
-.hero-agent{display:flex;gap:14px;align-items:center;max-width:560px;padding-top:18px;border-top:1px solid rgba(248,244,236,.35)}
+.hero-agent{display:flex;gap:14px;align-items:center;max-width:560px;padding-top:18px;border-top:1px solid rgba(255,255,255,.35)}
 .hero-agent img{width:64px;height:64px;object-fit:cover;object-position:50% 20%;flex:none}
 .hero-agent p{font-size:15px;line-height:1.5;color:#F3EEE4}
 .sellers{background:var(--paper)}
@@ -138,7 +138,7 @@ section{padding-block:96px}
 .market .stats{border-top-color:var(--brass)}
 .market .stats div+div{border-left-color:rgba(176,148,100,.35)}
 .market .stats span{color:#CFCAC0}
-.market .market-read{background:rgba(248,244,236,.06);border-color:rgba(176,148,100,.4)}
+.market .market-read{background:rgba(255,255,255,.06);border-color:rgba(176,148,100,.4)}
 .market .market-read .btn{border-color:var(--paper);color:var(--paper)}
 .market .market-read .btn:hover{background:var(--paper);color:var(--ink)}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}

@@ -9,7 +9,7 @@
 
 :root{
   /* Redesign tokens */
-  --n-linen:#EFE8DA; --n-paper:#F8F4EC; --n-hunter:#21382C; --n-ink:#1C2330;
+  --n-linen:#FAF7EF; --n-paper:#FFFFFF; --n-hunter:#21382C; --n-ink:#1C2330;
   --n-saddle:#7E4F2D; --n-brass:#B09464; --n-brass-lt:#D2B988; --n-stone:#57534B; --n-rule:#D6CCB8;
   --n-display:"Libre Caslon Display","Big Caslon",Georgia,serif;
   --n-sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
@@ -18,7 +18,7 @@
 
   /* Retune the older palette (palette.css / main.css) toward the redesign */
   --ink:#1C2330; --ink-soft:#2A3344;
-  --ivory:#EFE8DA; --parchment:#F8F4EC; --cream-white:#F8F4EC;
+  --ivory:#FAF7EF; --parchment:#FFFFFF; --cream-white:#FFFFFF;
   --stone:#D6CCB8; --taupe:#57534B; --charcoal:#1C2330;
   --bronze:#B09464; --bronze-deep:#7E4F2D; --bronze-light:#D2B988;
   --hunter:#21382C; --leather:#7E4F2D; --oxblood:#7E4F2D;
@@ -90,7 +90,7 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .nll-foot a{text-decoration:none;display:inline-block;padding-block:11px;color:#D8D3C8}
 .nll-foot a:hover{color:var(--n-paper);text-decoration:underline}
 .nll-foot .nll-contact a{padding-block:4px}
-.nll-legal{border-top:1px solid rgba(248,244,236,.15);padding-top:22px;font-size:14px;line-height:1.6;color:#A9A398 !important;max-width:80em}
+.nll-legal{border-top:1px solid rgba(255,255,255,.15);padding-top:22px;font-size:14px;line-height:1.6;color:#A9A398 !important;max-width:80em}
 .nll-legal a{padding:0;color:#D8D3C8;text-decoration:underline}
 
 /* ── Phone call bar ── */

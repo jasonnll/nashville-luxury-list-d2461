@@ -12,8 +12,8 @@
   /* Core palette */
   --ink:          #13203A;  /* handsome navy: footer, interior heroes, primary buttons */
   --ink-soft:     #1F3152;  /* hover state for ink */
-  --ivory:        #FBF8F1;  /* page base: warm ivory, just shy of white */
-  --parchment:    #F3ECDE;  /* cream cashmere: alternate sections, distinct from white */
+  --ivory:        #FAF7EF;  /* page base: light cream */
+  --parchment:    #FFFFFF;  /* alternate sections: white */
   --stone:        #DDD0B8;  /* linen hairlines, borders */
   --taupe:        #5B5347;  /* secondary text on light */
   --charcoal:     #23211E;  /* body text on light */
@@ -24,7 +24,7 @@
   --leather:      #6B2328;  /* oxblood: italic accents, hovers (the bold Ralph Lauren note) */
   --oxblood:      #6B2328;
   --clay:         #B07A55;  /* Auberge terracotta: decorative rules only */
-  --cream-white:  #FFFDF8;  /* card face: warm white instead of stark #FFF */
+  --cream-white:  #FFFFFF;  /* card face */
   --ivory-muted:  #B9B3A6;  /* secondary text on dark */
 
   /* Remap the original theme variables so every existing rule inherits */
