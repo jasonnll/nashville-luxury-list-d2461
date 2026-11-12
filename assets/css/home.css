@@ -21,9 +21,9 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;te
 p{margin:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;font:500 15px/1 var(--sans);letter-spacing:.02em;text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
-.btn:hover{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--hunter-deep);color:var(--paper)}
 .btn-solid{background:var(--hunter);border-color:var(--hunter);color:var(--paper)}
-.btn-solid:hover{background:var(--ink);border-color:var(--ink)}
+.btn-solid:hover{background:var(--hunter-deep);border-color:var(--hunter-deep)}
 .link{display:inline-block;padding-block:11px;color:var(--saddle);font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .link:hover{color:var(--ink)}
 p .link,.qa .link,.direct .link{display:inline;padding:0}

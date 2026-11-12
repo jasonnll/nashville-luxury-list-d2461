@@ -189,8 +189,8 @@ HEAD = '''<!DOCTYPE html>
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canonical}">
 {og_image}<link rel="preload" href="/assets/fonts/libre-caslon-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=20261104lc">
-<link rel="stylesheet" href="/assets/css/palette.css?v=20261104hc">
+<link rel="stylesheet" href="/assets/css/main.css?v=20261112u">
+<link rel="stylesheet" href="/assets/css/palette.css?v=20261112u">
 {jsonld}<!-- Meta Pixel -->
 <script>(window.__nll3p=window.__nll3p||[]).push('https://www.googletagmanager.com/gtag/js?id=G-W9WQYY6MS5');</script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","G-W9WQYY6MS5");gtag("config","AW-18543435200");</script>

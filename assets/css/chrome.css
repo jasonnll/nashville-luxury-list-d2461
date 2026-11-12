@@ -21,8 +21,11 @@
   --ivory:#FAF7EF; --parchment:#FFFFFF; --cream-white:#FFFFFF;
   --stone:#D6CCB8; --taupe:#57534B; --charcoal:#1C2330;
   --bronze:#B09464; --bronze-deep:#7E4F2D; --bronze-light:#D2B988;
-  --hunter:#21382C; --leather:#7E4F2D; --oxblood:#7E4F2D;
+  --hunter:#21382C; --hunter-deep:#142A1F; --leather:#7E4F2D; --oxblood:#7E4F2D;
+  --navy:#21382C; --navy-mid:#21382C; --navy-light:#142A1F;
   --font-sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
+  /* One serif everywhere: the Display cut used on the home page */
+  --font-serif:"Libre Caslon Display","Big Caslon",Georgia,serif; --font-display:"Libre Caslon Display","Big Caslon",Georgia,serif;
   --radius-sm:0; --radius-md:0; --radius-lg:0; --radius-xl:0;
   /* The header is sticky (in the page flow) now, so page heroes no longer pad for a fixed header */
   --header-h:0px;
@@ -45,9 +48,9 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .nll-nav>a:not(.nll-btn):hover,.nll-nav>a[aria-current]{color:var(--n-saddle)}
 .nll-nav>a[aria-current]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
 .nll-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;font:500 15px/1 var(--n-sans);letter-spacing:.02em;text-decoration:none;text-transform:none;border:1px solid var(--n-ink);border-radius:0;background:transparent;color:var(--n-ink);cursor:pointer;white-space:nowrap;box-shadow:none}
-.nll-btn:hover{background:var(--n-ink);color:var(--n-paper)}
+.nll-btn:hover{background:var(--hunter-deep);color:var(--n-paper)}
 .nll-btn-solid{background:var(--n-hunter);border-color:var(--n-hunter);color:var(--n-paper)}
-.nll-btn-solid:hover{background:var(--n-ink);border-color:var(--n-ink);color:var(--n-paper)}
+.nll-btn-solid:hover{background:var(--hunter-deep);border-color:var(--hunter-deep);color:var(--n-paper)}
 .nll-nav .nll-btn{min-height:44px;padding:0 18px}
 .nll-menu{display:none}
 .nll-menu summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:500;padding:0 4px;color:var(--n-ink)}
@@ -77,7 +80,7 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .nll-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ── Footer ── */
-.nll-foot{background:var(--n-ink);color:#D8D3C8;padding-block:64px 36px;font:400 15px/1.65 var(--n-sans)}
+.nll-foot{background:var(--hunter);color:#D8D3C8;padding-block:64px 36px;font:400 15px/1.65 var(--n-sans)}
 .nll-foot .nll-wrap{display:grid;gap:40px}
 .nll-foot-cols{display:grid;grid-template-columns:1.2fr repeat(4,minmax(0,1fr));gap:32px}
 .nll-foot .nll-mark{display:grid;padding:0;justify-items:start}
@@ -99,7 +102,7 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 /* ── Off-market popup (partials.js), restyled to match ── */
 .om-popup{position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;padding:1rem;font-family:var(--n-sans)}
 .om-popup[hidden]{display:none}
-.om-popup-backdrop{position:absolute;inset:0;background:rgba(28,35,48,.62);opacity:0;transition:opacity .3s ease}
+.om-popup-backdrop{position:absolute;inset:0;background:rgba(20,34,26,.62);opacity:0;transition:opacity .3s ease}
 .om-popup-card{position:relative;width:100%;max-width:460px;max-height:calc(100vh - 2rem);overflow:auto;background:var(--n-paper);border:1px solid var(--n-rule);border-radius:0;padding:2.5rem 2rem 2rem;opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .3s ease;color:var(--n-ink)}
 .om-popup.open .om-popup-backdrop,.om-popup.open .om-popup-card{opacity:1;transform:none}
 .om-popup-close{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;background:none;font-size:18px;color:var(--n-stone);cursor:pointer}
@@ -111,7 +114,7 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .om-popup .form-label{font:500 15px/1.3 var(--n-sans);color:var(--n-ink);letter-spacing:0;text-transform:none}
 .om-popup .form-control{font:400 16px/1.3 var(--n-sans);color:var(--n-ink);background:#fff;border:1px solid #9C927F;border-radius:0;min-height:50px;padding:0 14px;width:100%}
 .om-popup .btn{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;border:1px solid var(--n-hunter);border-radius:0;background:var(--n-hunter);color:var(--n-paper);font:500 16px/1 var(--n-sans);letter-spacing:.02em;text-transform:none;cursor:pointer;margin-top:4px}
-.om-popup .btn:hover{background:var(--n-ink);border-color:var(--n-ink)}
+.om-popup .btn:hover{background:var(--hunter-deep);border-color:var(--hunter-deep)}
 .om-popup .form-note{text-align:center;margin:.9rem 0 0;font-size:14px;color:var(--n-stone)}
 .om-popup-check{font-size:2.75rem;color:var(--n-saddle);margin-bottom:.5rem}
 .om-popup .form-success h3{font:400 28px/1.1 var(--n-display);margin:0 0 6px}
@@ -141,7 +144,7 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 @media (prefers-reduced-motion:reduce){.om-popup-backdrop,.om-popup-card,.nll-callbar{transition:none}}
 
 /* "Google" link on testimonial cards whose review is on Jason's Google Business Profile (added by bake_site_chrome.py) */
-.rv-g{display:inline-flex;align-items:center;gap:.35em;margin-left:.6em;font-size:.72rem;font-weight:500;letter-spacing:.02em;text-transform:none;color:inherit;opacity:.75;text-decoration:none;white-space:nowrap;vertical-align:baseline}
+.rv-g{display:inline-flex;align-items:center;gap:.35em;margin-left:.6em;font-size:.875rem;font-weight:500;letter-spacing:.02em;text-transform:none;color:inherit;opacity:.75;text-decoration:none;white-space:nowrap;vertical-align:baseline}
 .rv-g:hover,.rv-g:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:2px}
 .rv-g svg{flex:none}
 
@@ -157,7 +160,7 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .nll-dd:hover .nll-dd-panel,.nll-dd:focus-within .nll-dd-panel{opacity:1;visibility:visible;transform:none;transition:opacity .15s,transform .15s}
 .nll-dd-panel a{display:block;padding:9px 18px;text-decoration:none;font:400 15px/1.35 var(--n-sans);color:var(--n-ink);white-space:nowrap}
 .nll-dd-panel a:hover,.nll-dd-panel a:focus-visible,.nll-dd-panel a[aria-current]{color:var(--n-saddle);background:var(--n-linen)}
-.nll-dd-label{margin:8px 18px 2px;padding-top:10px;border-top:1px solid var(--n-rule);font:600 12px/1.2 var(--n-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--n-stone)}
+.nll-dd-label{margin:8px 18px 2px;padding-top:10px;border-top:1px solid var(--n-rule);font:600 14px/1.2 var(--n-sans);letter-spacing:.01em;text-transform:none;color:var(--n-stone)}
 .nll-nav>.nll-dd:last-of-type .nll-dd-panel{left:auto;right:-18px}
 @media (max-width:1020px){.nll-dd{display:none}}
 @media (prefers-reduced-motion:reduce){.nll-dd-panel,.nll-dd-top svg{transition:none}}
@@ -166,3 +169,45 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
    headline face; quotes in testimonials keep their italic. */
 :is(h1,h2,h3,h4,h5,h6,.section-title,.page-hero-title,.home-about-title,.om-title) :is(em,i){font-style:normal!important;font-family:inherit!important}
 .nll-lede,.cg-callout b,.rl-day b,.nh-tag{font-style:normal!important}
+
+/* ── One look on every page (Nov 2026) ──
+   Matches the home page: ivory and white surfaces, hunter green as the only dark color, Libre Caslon Display
+   headlines at one scale, Albert Sans for everything else, sentence-case labels and buttons, square corners. */
+html{font-synthesis:none}
+body{font-family:var(--n-sans);color:var(--n-ink)}
+button,input,select,textarea{font-family:inherit}
+
+/* Headlines */
+main :is(h1,.page-hero-title){font-family:var(--n-display)!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;font-size:clamp(36px,4.6vw,60px);line-height:1.08}
+main :is(.section-title,.ap-head h2,.nll-section h2){font-family:var(--n-display)!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;font-size:clamp(30px,4vw,48px)!important;line-height:1.1!important}
+main h3{letter-spacing:0;text-transform:none}
+:is(h1,h2,h3,.section-title,.page-hero-title) :is(em,i,span.accent,.gold){color:inherit!important}
+
+/* Small labels above headlines: sentence case, 15px, saddle on light and brass on dark */
+:is(.eyebrow,.hero-eyebrow,.nll-eyebrow,.nll-kicker,.ap-eyebrow,.kicker,.section-eyebrow){font:500 15px/1.4 var(--n-sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--n-saddle)}
+:is(.ap-sec.dark,.ap-hero,.page-hero,.rl-hero,.cg-cover,.guide-page-hero,.valuation-hero,.contact-hero,.neighborhood-page-hero,.newsletter-hero,.nll-news,.private,.proof,.market,.nll-foot,[data-band="ink"],[data-band="hunter"]) :is(.eyebrow,.hero-eyebrow,.nll-eyebrow,.nll-kicker,.ap-eyebrow,.kicker){color:var(--n-brass-lt)!important}
+
+/* Buttons: square, 50px, sentence case. Hunter green is the main action; outline is the second. */
+main :is(.btn,.btn-gold,.btn-outline-gold,.btn-dark,.btn-primary,.btn-outline,.ap-btn,a.button,button[type=submit]){font-family:var(--n-sans)!important;font-weight:500!important;font-size:15px!important;letter-spacing:.02em!important;text-transform:none!important;border-radius:0!important;min-height:50px;box-shadow:none!important}
+:is(.filter-btn,.tab-btn,.chip,.pill,.tag){border-radius:0!important;font-family:var(--n-sans)!important;text-transform:none!important;letter-spacing:0!important}
+
+
+/* Quotes sit upright in the headline face, like the home page reviews */
+:is(.testimonial-quote,.ap-quote blockquote,.rl-quote blockquote,blockquote,.review-text,.nll-pull p){font-style:normal!important}
+main :is(.testimonial-quote,.ap-quote blockquote,.rl-quote blockquote,.review-text){font-size:clamp(18px,1.6vw,21px)!important;line-height:1.5!important}
+
+/* Nothing under 14px; form labels match the home page */
+main :is(small,.ap-updated,.ap-stat small,.rl-updated){font-size:14px!important;letter-spacing:0!important;text-transform:none!important}
+:is(.form-label,.form-group label){font:500 15px/1.3 var(--n-sans)!important;letter-spacing:0!important;text-transform:none!important}
+
+/* Phones: one call bar everywhere (Call Jason / Search / Join the List), larger tap targets, compact tables */
+@media (max-width:640px){
+  .ap-sticky{display:none!important}
+  body.ap-has-sticky .nll-callbar{display:grid}
+  body.ap-has-sticky .nll-foot{padding-bottom:120px}
+  main :is(td,th,dd,li,b) > a:only-child{display:inline-block;padding-block:10px}
+  .rv-g{padding-block:12px}
+  .ap-table.ap-stack tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;padding:14px 0}
+  .ap-table.ap-stack tbody th[scope=row]{grid-column:1/-1}
+  .ap-table.ap-stack td{padding:0!important;border:0!important}
+}
