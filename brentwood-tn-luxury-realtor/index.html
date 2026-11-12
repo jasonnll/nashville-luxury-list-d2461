@@ -350,7 +350,7 @@
         </div>
       </div>
       <p>Buying or selling at $1.5M and up in Brentwood? Book a 30-minute call, or start with a free valuation of your home. Jason answers his own phone.</p>
-      <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Call</a>
+      <a class="btn btn-gold btn-lg" href="/contact/">Contact Jason</a>
       <a class="btn btn-outline-gold btn-lg" href="/home-valuation/">What's My Home Worth?</a>
       <div class="ap-card-contact">
         <a href="tel:+16154570768">Call or text 615-457-0768</a>
@@ -511,7 +511,7 @@
         <p>Jason Kloess is a REALTOR&reg; with Compass in Nashville, focused on homes priced at $1.5 million and up across Nashville, Brentwood, Franklin, Thompson's Station and the surrounding area. He founded Nashville Luxury List, a weekly email that brings buyers the best of the market, including homes before they reach the public sites.</p>
         <p>Every client works with Jason directly, from the first call through closing day. He verifies school zoning by address, tours homes on video before out-of-town buyers fly in, and lays out the full launch plan for sellers before a listing goes live.</p>
         <div class="ap-creds"><span>TN License #357138</span><span>Compass Nashville</span><span>Founder, Nashville Luxury List</span><span>$1.5M+ specialist</span></div>
-        <a class="btn btn-gold" href="#book-call">Schedule a Call</a>
+        <a class="btn btn-gold" href="/contact/">Contact Jason</a>
         <a class="btn btn-outline-gold" href="/about/">More About Jason</a>
       </div>
     </div>
@@ -538,18 +538,6 @@
   </div>
 </section>
 
-<!-- ================= BOOK A CALL ================= -->
-<section data-band="ivory" class="ap-sec ap-book" id="book-call" aria-labelledby="ap-book">
-  <div class="container">
-    <div class="ap-head center">
-      <span class="eyebrow">30 minutes &middot; phone or video</span>
-      <h2 class="section-title" id="ap-book">Schedule a call with Jason</h2>
-      <p class="ap-lede">Bring your timing, budget and the areas you're weighing. You'll leave with a read on pricing in Brentwood, what your budget buys and a plan for next steps.</p>
-    </div>
-  </div>
-  <div class="calendly-inline-widget" data-url="https://calendly.com/jason-nashvilleluxurylist/strategy-session?hide_gdpr_banner=1&amp;primary_color=a8865a"></div>
-  <p class="ap-book-alt">Calendar not loading? <a href="https://calendly.com/jason-nashvilleluxurylist/strategy-session" target="_blank" rel="noopener">Open the booking page</a> or call <a href="tel:+16154570768">615-457-0768</a>.</p>
-</section>
 
 <!-- ================= OTHER AREAS ================= -->
 <section data-band="sand" class="ap-sec alt" aria-labelledby="ap-areas">
@@ -577,7 +565,7 @@
       <p class="ap-contact">Call or text <a href="tel:+16154570768">615-457-0768</a> &middot; <a href="mailto:jason@nashvilleluxurylist.com">jason@nashvilleluxurylist.com</a></p>
     </div>
     <div>
-      <a class="btn btn-gold btn-lg" href="#book-call">Schedule a Call</a>
+      <a class="btn btn-gold btn-lg" href="/contact/">Contact Jason</a>
       <a class="btn btn-outline-gold btn-lg ap-outline-light" href="/home-valuation/">Get a Free Valuation</a>
     </div>
   </div>
@@ -636,7 +624,7 @@
 </div><!-- /site-footer -->
 
 <nav class="ap-sticky" id="ap-sticky" aria-label="Quick contact">
-  <a class="btn btn-gold" href="#book-call">Schedule a Call</a>
+  <a class="btn btn-gold" href="/contact/">Contact Jason</a>
   <a class="btn btn-outline-gold ap-outline-light" href="/home-valuation/">Home Value</a>
   <a class="btn btn-outline-gold ap-outline-light" href="tel:+16154570768" style="flex:0 0 auto" aria-label="Call Jason">Call</a>
 </nav>
@@ -645,25 +633,6 @@
 <script src="/assets/js/main.js?v=20261104a"></script>
 <script>
 (function(){
-  // Calendly: load the widget only as the booking section nears the viewport (or when a link jumps there)
-  var book=document.getElementById('book-call'),calLoaded=false;
-  function loadCal(){
-    if(calLoaded||!book) return; calLoaded=true;
-    var sc=document.createElement('script'); sc.src='https://assets.calendly.com/assets/external/widget.js'; sc.async=true;
-    document.body.appendChild(sc);
-  }
-  if(book){
-    if(!('IntersectionObserver' in window)) loadCal();
-    else{var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();loadCal();}},{rootMargin:'800px 0px'});io.observe(book);}
-    if(location.hash==='#book-call') loadCal();
-    document.querySelectorAll('a[href="#book-call"]').forEach(function(a){a.addEventListener('click',loadCal);});
-  }
-  window.addEventListener('message',function(e){
-    if(e.origin==='https://calendly.com'&&e.data&&e.data.event==='calendly.event_scheduled'){
-      try{fbq('track','Schedule',{content_name:'Brentwood Luxury Realtor Page'});}catch(err){}
-      try{gtag('event','schedule_call',{call_type:'brentwood-tn-luxury-realtor'});}catch(err){}
-    }
-  });
   // Mobile sticky CTA once the contact card scrolls away
   var bar=document.getElementById('ap-sticky'),card=document.getElementById('talk');
   if(bar&&card&&'IntersectionObserver' in window){

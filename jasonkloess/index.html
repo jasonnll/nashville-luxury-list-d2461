@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon/icon-192.png">
 <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
-  <meta name="description" content="Download Jason Kloess's free 2026 Nashville luxury buyer and seller guides, see active listings, and book a 15-minute call." />
+  <meta name="description" content="Download Jason Kloess's free 2026 Nashville luxury buyer and seller guides, see active listings, and reach Jason directly." />
   <link rel="canonical" href="https://jasonkloess.nashvilleluxurylist.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -260,9 +260,7 @@
     .stat-num { font-family: var(--ff-display); font-size: 2.2rem; font-weight: 500; color: var(--gold); line-height: 1; }
     .stat-label { font-size: 0.78rem; color: var(--ink-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* CALENDLY */
-    .calendly-section { background: var(--white); }
-
+  
     /* FOOTER */
     footer {
       background: var(--ink); color: rgba(255,255,255,0.55);
@@ -298,7 +296,7 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">Nashville <span>Luxury</span> List</div>
-  <a href="#calendly" class="nav-cta">Book a Call</a>
+  <a href="/contact/" class="nav-cta">Contact Jason</a>
 </nav>
 
 <!-- HERO -->
@@ -415,7 +413,7 @@
           <p class="form-note">No spam, ever. Unsubscribe any time.</p>
         </form>
         <div class="success-msg" id="buyer-success">
-          ✓ Your guide is downloading now. I'll be in touch soon — feel free to <a href="#calendly" style="color:var(--gold)">book a quick call</a> anytime.
+          ✓ Your guide is downloading now. I'll be in touch soon — feel free to <a href="/contact/" style="color:var(--gold)">reach out</a> anytime.
         </div>
       </div>
     </div>
@@ -441,7 +439,7 @@
           <p class="form-note" style="color:rgba(255,255,255,0.35)">No spam, ever. Unsubscribe any time.</p>
         </form>
         <div class="success-msg" id="seller-success" style="background:rgba(184,146,74,0.15);color:var(--white)">
-          ✓ Your guide is downloading now. Ready to talk about your home's potential? <a href="#calendly" style="color:var(--gold)">Book a strategy call →</a>
+          ✓ Your guide is downloading now. Ready to talk about your home's potential? <a href="/contact/" style="color:var(--gold)">Talk to Jason</a>
         </div>
       </div>
       <div class="magnet-visual sr">
@@ -531,38 +529,6 @@
   </div>
 </section>
 
-<!-- CALENDLY -->
-<section class="calendly-section" id="calendly">
-  <div class="wrap" style="text-align:center;margin-bottom:48px">
-    <div class="sr">
-      <p class="section-label">Book a Call</p>
-      <h2 class="section-title">Let's Talk About Your Goals</h2>
-      <p class="section-sub" style="margin-inline:auto">Whether you're buying or selling, a quick 15-minute conversation can change everything. No pressure, no obligation.</p>
-    </div>
-  </div>
-  <div class="calendly-inline-widget"
-    data-url="https://calendly.com/jason-nashvilleluxurylist/strategy-session?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=b8924a"
-    style="min-width:320px;height:650px;">
-  </div>
-  <script>
-    // Calendly's widget is ~200KB of JS plus an iframe; only fetch it as the booking section nears the viewport.
-    (function () {
-      var section = document.getElementById('calendly'), loaded = false;
-      function load() {
-        if (loaded) return; loaded = true;
-        var s = document.createElement('script');
-        s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true;
-        document.body.appendChild(s);
-      }
-      if (!('IntersectionObserver' in window)) return load();
-      var io = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { io.disconnect(); load(); }
-      }, { rootMargin: '800px 0px' });
-      io.observe(section);
-      if (location.hash === '#calendly') load();
-    })();
-  </script>
-</section>
 
 <!-- FOOTER -->
 <footer>

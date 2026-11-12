@@ -161,3 +161,8 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
 .nll-nav>.nll-dd:last-of-type .nll-dd-panel{left:auto;right:-18px}
 @media (max-width:1020px){.nll-dd{display:none}}
 @media (prefers-reduced-motion:reduce){.nll-dd-panel,.nll-dd-top svg{transition:none}}
+
+/* No italic serif in headlines, subheadings or callouts (it read as script). Accent words stay upright in the
+   headline face; quotes in testimonials keep their italic. */
+:is(h1,h2,h3,h4,h5,h6,.section-title,.page-hero-title,.home-about-title,.om-title) :is(em,i){font-style:normal!important;font-family:inherit!important}
+.nll-lede,.cg-callout b,.rl-day b,.nh-tag{font-style:normal!important}
