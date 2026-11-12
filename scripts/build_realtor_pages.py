@@ -83,6 +83,37 @@ LISTING_PAGES = [
 ]
 
 
+ABBR = {'hwy': 'highway', 'ave': 'avenue', 'dr': 'drive', 'st': 'street', 'rd': 'road', 'ct': 'court', 'ln': 'lane',
+        'blvd': 'boulevard', 'xing': 'crossing', 'pl': 'place', 'cir': 'circle', 'pkwy': 'parkway'}
+
+
+def home_key(address):
+    """One key per home, so '19350 Hwy 96 East Auburntown Tn 37016' and '19350 Highway 96' match.
+    Number plus two street words, plus the unit when there is one."""
+    t = [ABBR.get(w, w) for w in re.sub(r'[^a-z0-9 ]', ' ', address.lower()).split()]
+    key = t[:3]
+    if 'unit' in t and t.index('unit') + 1 < len(t):
+        key += ['unit', t[t.index('unit') + 1]]
+    return ' '.join(key)
+
+
+def home_slug(address, city):
+    """URL slug for a sold home's page: /past-sales/<slug>/."""
+    return re.sub(r'[^a-z0-9]+', '-', f'{address} {city}'.lower().replace("'", '')).strip('-')
+
+
+def home_href(s):
+    """Link to the home's page on this site if build_answer_pages.py built one."""
+    for addr in (s['address'],):
+        rel = os.path.join('past-sales', home_slug(addr, s['city']), 'index.html')
+        if os.path.exists(os.path.join(ROOT, rel)):
+            return '/' + os.path.dirname(rel).replace(os.sep, '/') + '/'
+    return HOME_PAGES.get(home_key(s['address']))
+
+
+HOME_PAGES = {}  # home_key -> path, filled in main() from the built pages (covers address variants)
+
+
 def street_key(address):
     """'1805 Shackleford Rd' and '1805 Shackleford Road' both become '1805 shackleford'."""
     return ' '.join(re.sub(r'[^a-z0-9 ]', '', address.lower()).split()[:2])
@@ -190,7 +221,8 @@ def summary(sales):
 
 # ── Shared blocks ─────────────────────────────────────────────────────────────
 def record_table(sales, data, caption=''):
-    rows = [[f"<b>{E(s['address'])}</b>", E(place(s)), mon_short(s['closed']), side_label(s),
+    link = lambda s: (f'<a href="{home_href(s)}" style="color:inherit">{E(s["address"])}</a>' if home_href(s) else E(s['address']))
+    rows = [[f"<b>{link(s)}</b>", E(place(s)), mon_short(s['closed']), side_label(s),
              money(s['price']) + ('' if s['price_verified'] else '<sup>&dagger;</sup>')]
             for s in sorted(sales, key=lambda s: -s['price'])]
     t = L.table(['Address', 'Area', 'Closed', 'Jason represented', 'Price'], rows, caption=caption,
@@ -551,7 +583,7 @@ def city_block(key, data, nearby_key=None):
     name = AREA_LABEL[key][0]
     sales = sorted([s for s in data['sales'] if AREA_MATCH[key](s)], key=lambda s: -s['price'])
     sm = summary(sales)
-    li = lambda s: (f"          <li><div><b>{E(s['address'])}</b><small>{E(place(s))} &middot; {mon_short(s['closed'])} "
+    li = lambda s: (f"          <li><div><b>{(chr(60) + 'a href=' + chr(34) + home_href(s) + chr(34) + ' style=' + chr(34) + 'color:inherit' + chr(34) + chr(62) + E(s['address']) + chr(60) + '/a' + chr(62)) if home_href(s) else E(s['address'])}</b><small>{E(place(s))} &middot; {mon_short(s['closed'])} "
                     f"&middot; {side_label(s)}</small></div><span>{money(s['price'])}</span></li>")
     parts = []
     if sm:
@@ -672,6 +704,14 @@ def main():
     with open(DATA, encoding='utf-8') as f:
         data = json.load(f)
     changed = []
+    sale_dir = os.path.join(ROOT, 'past-sales')
+    for d in os.listdir(sale_dir):
+        page = os.path.join(sale_dir, d, 'index.html')
+        if os.path.isfile(page):
+            with open(page, encoding='utf-8') as f:
+                m = re.search(r'"streetAddress": "([^"]+)"', f.read())
+            if m:
+                HOME_PAGES.setdefault(home_key(m.group(1)), f'/past-sales/{d}/')
     for p in NEW_PAGES:
         if not has_record(p['key'], data):
             print(f"  ! skipped {p['path']}: no closed sales or current listing there")

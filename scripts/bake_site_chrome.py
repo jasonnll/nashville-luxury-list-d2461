@@ -26,6 +26,9 @@ import sys
 from datetime import date
 from html.parser import HTMLParser
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from nll_layout import PROFILES, GOOGLE_PROFILE  # noqa: E402  (one list of Jason's profiles)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'node_modules', '.git', '.netlify', 'admin'}
 
@@ -58,7 +61,8 @@ MENU = [
               ('/sellers/compass-concierge/', 'Compass Concierge'), ('/review/', 'Private pricing review')]),
     ('Places', [('/neighborhoods/', 'All neighborhoods'), ('/country-clubs/', 'Country clubs'),
                 ('/golf-tennis/', 'Golf and tennis'), ('/relocation/', 'Moving to Nashville')]),
-    ('Market', [('/market-report/', 'Monthly market report'), ('/faq/', 'Market FAQ'),
+    ('Market', [('/market-report/', 'Monthly market report'), ('/answers/', 'Questions answered'),
+                ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'),
                 ('/blog/', 'Past weekly lists'), ('/guides/', 'Free guides')]),
     ('Jason', [('/about/', 'About Jason'), ('/testimonials/', 'Client reviews'),
                ('/past-sales/', 'Past sales'), ('/contact/', 'Contact')]),
@@ -76,8 +80,8 @@ FOOTER_COLS = [
                                 ('/east-nashville-luxury-realtor/', 'East Nashville'), ('/12-south-luxury-realtor/', '12 South'),
                                 ('/thompsons-station-tn-luxury-realtor/', 'Thompson’s Station')]),
     ('About', [('/about/', 'Jason Kloess'), ('/about/why-nashville-luxury-list/', 'Why Nashville Luxury List'),
-               ('/testimonials/', 'Reviews'), ('/market-report/', 'Market report'), ('/faq/', 'FAQ'),
-               ('/newsletter/', 'Weekly newsletter'), ('/contact/', 'Contact')]),
+               ('/testimonials/', 'Reviews'), ('/market-report/', 'Market report'), ('/answers/', 'Questions answered'),
+               ('/compare/', 'Compare areas'), ('/faq/', 'FAQ'), ('/contact/', 'Contact')]),
 ]
 
 
@@ -137,6 +141,10 @@ def call_bar(_pg):
 </nav><!-- /site-floating-cta -->'''
 
 
+def _profile(name):
+    return dict(PROFILES)[name]
+
+
 def footer(pg):
     # The newsletter form is registered with Netlify Forms by /newsletter/ (which has the full field
     # set). This copy leaves off the netlify attributes so it doesn't re-register the form with fewer
@@ -179,7 +187,8 @@ def footer(pg):
       <div class="nll-contact">
         <a class="nll-mark" href="/">{MARK}</a>
         <p style="margin-top:16px"><a href="tel:+{PHONE_RAW}">Call or text {PHONE}</a><br><a href="mailto:{EMAIL}">{EMAIL}</a><br>1610 West End Ave, Suite 115<br>Nashville, TN 37203</p>
-        <p style="margin-top:8px"><a href="https://instagram.com/nashvilleluxurylist" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://facebook.com/nashvilleluxurylist" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.linkedin.com/in/jasonkloess/" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p style="margin-top:8px"><a href="{GOOGLE_PROFILE}" target="_blank" rel="noopener">Google reviews</a> &middot; <a href="{_profile('Zillow')}" target="_blank" rel="noopener">Zillow</a> &middot; <a href="{_profile('RateMyAgent')}" target="_blank" rel="noopener">RateMyAgent</a> &middot; <a href="{_profile('Compass')}" target="_blank" rel="noopener">Compass</a></p>
+        <p style="margin-top:4px"><a href="{_profile('Instagram')}" target="_blank" rel="noopener">Instagram</a> &middot; <a href="{_profile('Facebook')}" target="_blank" rel="noopener">Facebook</a> &middot; <a href="{_profile('LinkedIn')}" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>{cols}
     </div>
     <p class="nll-legal">Jason Kloess is a real estate agent affiliated with Compass, a licensed real estate broker, and abides by Equal Housing Opportunity laws. Tennessee license #357138. Compass Nashville, 1610 West End Ave, Suite 115, Nashville, TN 37203, 615-522-5100. Market figures are compiled from sources deemed reliable as of the dates shown and are subject to change. Listing data from RealTracs, deemed reliable but not guaranteed. <a href="/privacy-policy/">Privacy</a> &copy; {date.today().year} Nashville Luxury List.</p>
@@ -369,8 +378,7 @@ PERSON = {
     'alumniOf': {'@type': 'CollegeOrUniversity', 'name': 'Auburn University'},
     'knowsAbout': ['Nashville luxury real estate', 'Brentwood TN luxury homes', 'Franklin TN luxury homes',
                    'Relocation to Middle Tennessee'],
-    'sameAs': ['https://www.compass.com/agents/jason-kloess/', 'https://www.linkedin.com/in/jasonkloess/',
-               'https://www.instagram.com/jasonkloess/'],
+    'sameAs': [u for _, u in PROFILES],
 }
 _LD_BLOCK_RX = re.compile(r'(<script[^>]+type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)', re.I | re.S)
 _PERSON_KEYS = ('author', 'creator', 'founder')
@@ -423,6 +431,50 @@ def ensure_person(src):
     return _LD_BLOCK_RX.sub(fix, src)
 
 
+SAME_AS = [u for _, u in PROFILES]
+
+
+def _sync_node(node):
+    """Sets sameAs on Jason's nodes (the RealEstateAgent and Person ids, or any node named Jason Kloess)."""
+    changed = False
+    if isinstance(node, list):
+        for n in node:
+            changed |= _sync_node(n)
+    elif isinstance(node, dict):
+        is_jason = node.get('@id') in (AGENT_ID, PERSON_ID, AGENT_ID.replace('.com/#', '.com#')) or (
+            node.get('name') == 'Jason Kloess' and node.get('@type') in ('RealEstateAgent', 'Person'))
+        if is_jason and 'sameAs' in node and node['sameAs'] != SAME_AS:
+            node['sameAs'] = list(SAME_AS)
+            changed = True
+        elif is_jason and 'sameAs' not in node and len(node) > 2:
+            node['sameAs'] = list(SAME_AS)
+            changed = True
+        for k, v in node.items():
+            if k != 'sameAs':
+                changed |= _sync_node(v)
+    return changed
+
+
+def sync_same_as(src):
+    """Keeps every page's JSON-LD pointing at the same profiles (Google, Zillow, RateMyAgent, Compass...)."""
+    if 'Jason Kloess' not in src:
+        return src
+
+    def fix(m):
+        try:
+            data = json.loads(m.group(2))
+        except ValueError:
+            return m.group(0)
+        if not _sync_node(data):
+            return m.group(0)
+        first = re.search(r'\n( +)\S', m.group(2))
+        indent = len(first.group(1)) if first else None
+        body = json.dumps(data, ensure_ascii=False, indent=indent).replace('</', '<\\/')
+        return m.group(1) + ('\n' + body + '\n' if indent else body) + m.group(3)
+
+    return _LD_BLOCK_RX.sub(fix, src)
+
+
 def bake(html, path, rel=''):
     pg = Page(path)
     for rx, render in REGIONS:
@@ -451,6 +503,7 @@ def main():
             if with_person != out:
                 person_added += 1
                 out = with_person
+            out = sync_same_as(out)
             if any(m in out for m in CHROME_MARKERS):
                 total += 1
                 rel = os.path.relpath(full, ROOT)

@@ -1,0 +1,4 @@
+{
+  "_how_to_use": "Optional. Add one or two sentences in Jason's own words about a sale, keyed by its street address exactly as it appears on Past Sales (e.g. \"2007 Eastland Avenue\"). They appear on that home's page under /past-sales/. Only write what is true and what the clients would be comfortable seeing; never name a client without permission.",
+  "_example": "\"2007 Eastland Avenue\": \"Launched as a Compass Private Exclusive...\""
+}
