@@ -133,6 +133,8 @@ section{padding-block:96px}
 .market{background:var(--ink);color:var(--paper)}
 .market .kicker{color:var(--brass-lt)}
 .market .head p,.market .source{color:#CFCAC0}
+.market .source .link{color:var(--paper)}
+.market .source .link:hover{color:var(--brass-lt)}
 .market .stats{border-top-color:var(--brass)}
 .market .stats div+div{border-left-color:rgba(176,148,100,.35)}
 .market .stats span{color:#CFCAC0}

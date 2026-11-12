@@ -352,6 +352,77 @@ def ensure_jsonld(src):
     return re.sub(r'</head>', lambda _m: tag + '</head>', src, count=1, flags=re.I)
 
 
+# Jason as a Person. The #jason-kloess node is a RealEstateAgent, which schema.org treats as a business,
+# so search and AI systems looking for a named human author or expert don't find one there. Every page whose
+# JSON-LD graph has that node also gets this Person, and its "author", "creator" and "founder" links point
+# at the Person; "about" and "mainEntity" stay on the business. Pages that don't show Jason's name are skipped.
+PERSON_ID = SITE + '#person'
+AGENT_ID = SITE + '#jason-kloess'
+PERSON = {
+    '@type': 'Person', '@id': PERSON_ID, 'name': 'Jason Kloess', 'jobTitle': 'REALTOR®',
+    'description': 'Nashville luxury real estate agent with Compass and founder of Nashville Luxury List, '
+                   'representing buyers and sellers of $1.5M+ homes in Nashville, Brentwood and Franklin.',
+    'url': SITE + 'about/', 'image': SITE + 'assets/images/jason-kloess.jpg', 'email': EMAIL,
+    'worksFor': {'@type': 'RealEstateAgent', 'name': 'Compass RE', 'url': 'https://www.compass.com/'},
+    'hasCredential': {'@type': 'EducationalOccupationalCredential', 'credentialCategory': 'license',
+                      'name': 'Tennessee Real Estate License', 'identifier': '357138'},
+    'alumniOf': {'@type': 'CollegeOrUniversity', 'name': 'Auburn University'},
+    'knowsAbout': ['Nashville luxury real estate', 'Brentwood TN luxury homes', 'Franklin TN luxury homes',
+                   'Relocation to Middle Tennessee'],
+    'sameAs': ['https://www.compass.com/agents/jason-kloess/', 'https://www.linkedin.com/in/jasonkloess/',
+               'https://www.instagram.com/jasonkloess/'],
+}
+_LD_BLOCK_RX = re.compile(r'(<script[^>]+type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)', re.I | re.S)
+_PERSON_KEYS = ('author', 'creator', 'founder')
+
+
+def _point_at_person(node):
+    if isinstance(node, list):
+        return [_point_at_person(n) for n in node]
+    if not isinstance(node, dict):
+        return node
+    out = {}
+    for k, v in node.items():
+        if k in _PERSON_KEYS and v == {'@id': AGENT_ID}:
+            out[k] = {'@id': PERSON_ID}
+        else:
+            out[k] = _point_at_person(v)
+    return out
+
+
+def ensure_person(src):
+    if PERSON_ID in src or AGENT_ID not in src:
+        return src
+    visible = re.sub(r'<(script|style)\b.*?</\1>', ' ', src, flags=re.I | re.S)
+    if 'Jason Kloess' not in _text(visible):
+        return src
+    done = False
+
+    def fix(m):
+        nonlocal done
+        if done:
+            return m.group(0)
+        try:
+            data = json.loads(m.group(2))
+        except ValueError:
+            return m.group(0)
+        graph = data.get('@graph') if isinstance(data, dict) else None
+        if not isinstance(graph, list) or not any(isinstance(n, dict) and n.get('@id') == AGENT_ID for n in graph):
+            return m.group(0)
+        graph = _point_at_person(graph)
+        for n in graph:
+            if isinstance(n, dict) and n.get('@id') == AGENT_ID and 'founder' not in n:
+                n['founder'] = {'@id': PERSON_ID}
+        graph.append(PERSON)
+        data['@graph'] = graph
+        done = True
+        indent = 2 if '\n  ' in m.group(2) else None
+        body = json.dumps(data, ensure_ascii=False, indent=indent).replace('</', '<\\/')
+        return m.group(1) + ('\n' + body + '\n' if indent else body) + m.group(3)
+
+    return _LD_BLOCK_RX.sub(fix, src)
+
+
 def bake(html, path, rel=''):
     pg = Page(path)
     for rx, render in REGIONS:
@@ -364,7 +435,7 @@ def bake(html, path, rel=''):
 
 
 def main():
-    changed = total = ld_added = 0
+    changed = total = ld_added = person_added = 0
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith('.')]
         for name in filenames:
@@ -376,6 +447,10 @@ def main():
             out = ensure_jsonld(src)
             if out != src:
                 ld_added += 1
+            with_person = ensure_person(out)
+            if with_person != out:
+                person_added += 1
+                out = with_person
             if any(m in out for m in CHROME_MARKERS):
                 total += 1
                 rel = os.path.relpath(full, ROOT)
@@ -387,6 +462,8 @@ def main():
     print(f'Site header/footer baked into {total} pages ({changed} updated).')
     if ld_added:
         print(f'Added baseline JSON-LD structured data to {ld_added} page(s) that had none.')
+    if person_added:
+        print(f'Added the Jason Kloess Person entity to {person_added} page(s).')
 
 
 if __name__ == '__main__':
