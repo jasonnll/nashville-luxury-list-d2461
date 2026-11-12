@@ -139,3 +139,8 @@ html{scroll-padding-top:calc(var(--n-top-h) + 12px)}
   .om-popup-card{padding:2.25rem 1.25rem 1.5rem}
 }
 @media (prefers-reduced-motion:reduce){.om-popup-backdrop,.om-popup-card,.nll-callbar{transition:none}}
+
+/* "Google" link on testimonial cards whose review is on Jason's Google Business Profile (added by bake_site_chrome.py) */
+.rv-g{display:inline-flex;align-items:center;gap:.35em;margin-left:.6em;font-size:.72rem;font-weight:500;letter-spacing:.02em;text-transform:none;color:inherit;opacity:.75;text-decoration:none;white-space:nowrap;vertical-align:baseline}
+.rv-g:hover,.rv-g:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:2px}
+.rv-g svg{flex:none}

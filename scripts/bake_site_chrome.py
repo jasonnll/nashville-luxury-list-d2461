@@ -39,7 +39,7 @@ EMAIL = 'jason@nashvilleluxurylist.com'
 
 # ── Site chrome (2026 redesign) ───────────────────────────────────────────────
 # Styles live in /assets/css/chrome.css, which bake() links on every page.
-CHROME_CSS = '/assets/css/chrome.css?v=20261104r'
+CHROME_CSS = '/assets/css/chrome.css?v=20261112g'
 SANS_FONT = '/assets/fonts/albert-sans-latin-wght-normal.woff2'
 
 # Desktop header links (left to right). The "Join the List" button follows them.
@@ -475,11 +475,78 @@ def sync_same_as(src):
     return _LD_BLOCK_RX.sub(fix, src)
 
 
+# ── Google review links on testimonial cards ──────────────────────────────────
+# Testimonials whose _data/testimonials/<slug>.md says source: "google" are reviews on Jason's Google Business
+# Profile. Every card showing one (a <figcaption> or .review-author starting with the client's name) gets a small
+# "Google" link to the profile, so readers and crawlers can check the review where it was left. Cards for reviews
+# that are not on Google get no link. /testimonials/ also gets schema.org Review markup for the Google reviews.
+G_ICON = ('<svg viewBox="0 0 48 48" width="12" height="12" aria-hidden="true" focusable="false">'
+          '<path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/>'
+          '<path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>'
+          '<path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>'
+          '<path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>')
+
+
+def _google_reviews():
+    out = []
+    folder = os.path.join(ROOT, '_data', 'testimonials')
+    for name in sorted(os.listdir(folder)):
+        if not name.endswith('.md'):
+            continue
+        with open(os.path.join(folder, name), encoding='utf-8') as f:
+            t = f.read()
+        get = lambda k: (re.search(rf'^{k}:\s*"?(.*?)"?\s*$', t, re.M) or [None, ''])[1]
+        if get('source').lower() == 'google':
+            out.append({'name': get('name'), 'role': get('role'), 'quote': get('quote')})
+    return out
+
+
+GOOGLE_REVIEWS = _google_reviews()
+_GNAMES = '|'.join(re.escape(r['name']) for r in GOOGLE_REVIEWS) or 'x^'
+
+
+def _g_link(name):
+    return (f'<a class="rv-g" href="{GOOGLE_PROFILE}" target="_blank" rel="noopener" '
+            f'aria-label="Read {htmllib.escape(name)}&#39;s review on Google" style="text-decoration:none;color:inherit">{G_ICON}<span>Google</span> &#8599;</a>')
+
+
+_FIG_RX = re.compile(r'(<figcaption[^>]*>\s*(?:&mdash;|—)?\s*)(' + _GNAMES + r')((?:(?!</figcaption>).)*?)(</figcaption>)', re.S)
+_AUTHOR_RX = re.compile(r'(<div class="review-author">\s*(?:&mdash;|—)?\s*)(' + _GNAMES + r')([^<]*)(</div>)')
+
+
+def link_google_reviews(src):
+    if not GOOGLE_REVIEWS or ('<figcaption' not in src and 'review-author' not in src):
+        return src
+
+    def add(m):
+        if 'class="rv-g"' in m.group(3):
+            return m.group(0)
+        return m.group(1) + m.group(2) + m.group(3) + ' ' + _g_link(m.group(2)) + m.group(4)
+    return _AUTHOR_RX.sub(add, _FIG_RX.sub(add, src))
+
+
+def review_ld(src, path):
+    """schema.org Review markup for the Google reviews shown on /testimonials/."""
+    if path.rstrip('/') != '/testimonials' or not GOOGLE_REVIEWS:
+        return src
+    graph = [{'@type': 'Review', 'itemReviewed': {'@id': AGENT_ID}, 'author': {'@type': 'Person', 'name': r['name']},
+              'reviewRating': {'@type': 'Rating', 'ratingValue': 5, 'bestRating': 5}, 'reviewBody': r['quote'],
+              'publisher': {'@type': 'Organization', 'name': 'Google'}, 'url': GOOGLE_PROFILE}
+             for r in GOOGLE_REVIEWS if r['quote'] and r['quote'][:40] in htmllib.unescape(src)]
+    if not graph:
+        return src
+    tag = ('<script type="application/ld+json" id="nll-reviews-ld">'
+           + json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('</', '<\\/') + '</script>')
+    rx = re.compile(r'<script type="application/ld\+json" id="nll-reviews-ld">.*?</script>', re.S)
+    return rx.sub(lambda _m: tag, src, count=1) if rx.search(src) else src.replace('</head>', tag + '\n</head>', 1)
+
+
 def bake(html, path, rel=''):
     pg = Page(path)
     for rx, render in REGIONS:
         html = rx.sub(lambda _m: render(pg), html, count=1)
     html = link_chrome_assets(html)
+    html = review_ld(link_google_reviews(html), path)
     if rel.replace(os.sep, '/') not in BAND_SKIP_FILES:
         html = band_sections(html)
         html = tag_standalone_links(html)
@@ -504,6 +571,7 @@ def main():
                 person_added += 1
                 out = with_person
             out = sync_same_as(out)
+            out = link_google_reviews(out)  # also on standalone pages without the shared chrome (e.g. /jasonkloess/)
             if any(m in out for m in CHROME_MARKERS):
                 total += 1
                 rel = os.path.relpath(full, ROOT)
