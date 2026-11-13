@@ -707,7 +707,7 @@ body section[data-band="sand"] .section-title em[style*="color:var(--bronze)"] {
 
 /* Editorial serif: lighter, more refined headline weights */
 h1, h2, h3, h4, h5 { font-weight: 500; letter-spacing: -0.005em; }
-h1, .hero h1, .page-hero-title { font-weight: 400; line-height: 1.08; letter-spacing: -0.012em; }
+h1, .hero h1, .page-hero-title { font-weight:500; line-height: 1.08; letter-spacing: -0.012em; }
 .section-title { font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
 :is(h1, h2, .section-title, .page-hero-title) em { font-style: normal; font-weight: 400; }
 .hero h1 em, .section-title em { color: var(--leather); }
@@ -820,7 +820,7 @@ body .newsletter-section { box-shadow: inset 0 1px 0 rgba(216, 197, 154, 0.35); 
   color: var(--bronze-light); margin: 0 0 0.9rem; letter-spacing: 0;
 }
 .om-title {
-  font-family: var(--font-display); font-weight: 400; color: #F6F1E7;
+  font-family: var(--font-display); font-weight:500; color: #F6F1E7;
   font-size: clamp(2.4rem, 5.4vw, 4.4rem); line-height: 1.08; letter-spacing: -0.01em; margin: 0; max-width: 14ch;
 }
 .om-lede {
@@ -880,7 +880,7 @@ body .newsletter-section { box-shadow: inset 0 1px 0 rgba(216, 197, 154, 0.35); 
 .home-about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
 .home-about-text { max-width: 600px; }
 .home-about-title {
-  font-family: var(--font-display); font-weight: 400; color: var(--ink);
+  font-family: var(--font-display); font-weight:500; color: var(--ink);
   font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.14; letter-spacing: -0.005em; margin: 0 0 1.75rem;
 }
 .home-about-body { font-family: var(--font-serif); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.65; color: #2E2B26; margin: 0 0 2rem; }
@@ -902,7 +902,7 @@ body .newsletter-section { box-shadow: inset 0 1px 0 rgba(216, 197, 154, 0.35); 
   .home-about-photo { max-width: 460px; }
 }
 
-/* ---------- Libre Caslon: Display cut for large titles, Text cut (with real italic and bold) elsewhere ---------- */
+/* ---------- Headline face: Playfair Display, body: Lato (Nov 2026) ---------- */
 h1, .hero h1, .page-hero-title, .section-title { font-family: var(--font-display); }
 /* Display has no italic, so italic accents inside titles use the Text italic */
 :is(h1, .section-title, .page-hero-title, .home-about-title, .om-title) :is(em, i) { font-family: var(--font-serif); }

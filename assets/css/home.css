@@ -1,12 +1,12 @@
 /* Home page (2026 redesign). Header, footer and call bar styles live in chrome.css.
    Concept: an estate catalogue that also works as the market's reference desk.
-   Caslon headlines, a plain modern sans for data and controls, hunter green and saddle leather on linen.
+   Playfair Display headlines, Lato for data and controls, hunter green and saddle leather on linen.
    Photography leads, data follows, and every section ends in one clear next step. */
 :root{
   --linen:#FAF7EF; --paper:#FFFFFF; --hunter:#21382C; --ink:#1C2330;
   --saddle:#7E4F2D; --brass:#B09464; --brass-lt:#D2B988; --stone:#57534B; --rule:#D6CCB8;
-  --display:"Libre Caslon Display","Big Caslon",Georgia,serif;
-  --sans:"Albert Sans","Helvetica Neue",Arial,sans-serif;
+  --display:"Playfair Display",Georgia,serif;
+  --sans:"Lato","Helvetica Neue",Arial,sans-serif;
   --wrap:1240px;
   color-scheme:light;
 }
@@ -17,7 +17,7 @@ img{max-width:100%;display:block;height:auto}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--saddle);outline-offset:3px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.08;margin:0;text-wrap:balance}
 p{margin:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;font:500 15px/1 var(--sans);letter-spacing:.02em;text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
@@ -66,12 +66,12 @@ section{padding-block:96px}
 .proof{padding-block:40px;background:var(--hunter);color:var(--paper)}
 .proof ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px 32px}
 .proof li{display:grid}
-.proof b{font:400 34px/1.1 var(--display)}
+.proof b{font:500 34px/1.1 var(--display)}
 .proof span{font-size:15px;color:#D9D3C5}
 .proof .proof-agent{display:flex;gap:16px;align-items:center}
 .proof-agent img{width:84px;height:84px;object-fit:cover;object-position:50% 20%;flex:none}
 .proof-agent span{display:grid;font-size:15px;line-height:1.35}
-.proof-agent strong{font:400 22px/1.2 var(--display);color:var(--paper)}
+.proof-agent strong{font:500 22px/1.2 var(--display);color:var(--paper)}
 .proof .link{color:var(--paper)}
 .proof .link:hover{color:var(--brass)}
 
@@ -95,7 +95,7 @@ section{padding-block:96px}
 .issue-card figure{margin:0;aspect-ratio:3/2;overflow:hidden;background:var(--rule)}
 .issue-card img{width:100%;height:100%;object-fit:cover}
 .issue-date{font-size:15px;color:var(--stone)}
-.issue-card b{font:400 clamp(24px,2.4vw,32px)/1.15 var(--display);text-wrap:balance}
+.issue-card b{font:500 clamp(24px,2.4vw,32px)/1.15 var(--display);text-wrap:balance}
 .issue-card:hover b{color:var(--saddle)}
 .issue-copy{display:grid;gap:18px;align-content:center}
 .issue-copy .kicker{margin:0}
@@ -110,7 +110,7 @@ section{padding-block:96px}
 .veil div{aspect-ratio:4/3;overflow:hidden;background:#30493c}
 .veil img{width:100%;height:100%;object-fit:cover;filter:blur(16px) saturate(.6) brightness(.75);transform:scale(1.25)}
 .veil p{position:absolute;inset:10px;display:grid;place-content:center;text-align:center;gap:6px;padding:16px}
-.veil b{font:400 26px/1.1 var(--display)}
+.veil b{font:500 26px/1.1 var(--display)}
 .veil span{font-size:14px;color:#E3DDD0}
 .private .join{margin-top:40px}
 .private .join input{border:0}
@@ -148,7 +148,7 @@ section{padding-block:96px}
 .pbody dl{margin:0;display:flex;flex-wrap:wrap;gap:12px 28px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
 .pbody dl div{display:grid;gap:2px}
 .pbody dt{font-size:14px;color:var(--stone)}
-.pbody dd{margin:0;font:400 26px/1.1 var(--display);font-variant-numeric:lining-nums}
+.pbody dd{margin:0;font:500 26px/1.1 var(--display);font-variant-numeric:lining-nums}
 .pbody p{font-size:16px;line-height:1.55;color:var(--stone)}
 .pgo{font-weight:500;font-size:15px;color:var(--saddle);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;margin-top:auto}
 .pcard:hover .pgo{color:var(--ink)}
@@ -186,7 +186,7 @@ section{padding-block:96px}
 .reviews-sec{background:var(--paper)}
 .reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
 .reviews figure{margin:0;display:grid;gap:16px;align-content:start;padding-top:24px;border-top:1px solid var(--ink)}
-.reviews blockquote{margin:0;font:400 22px/1.4 var(--display)}
+.reviews blockquote{margin:0;font:500 22px/1.4 var(--display)}
 .stars{font-size:22px;letter-spacing:.12em;color:#8E6224;line-height:1}
 .stars-lg{letter-spacing:.08em;color:var(--brass-lt)}
 .reviews figcaption{font-size:15px;color:var(--stone)}

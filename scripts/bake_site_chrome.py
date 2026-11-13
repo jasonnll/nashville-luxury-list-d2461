@@ -39,8 +39,8 @@ EMAIL = 'jason@nashvilleluxurylist.com'
 
 # ── Site chrome (2026 redesign) ───────────────────────────────────────────────
 # Styles live in /assets/css/chrome.css, which bake() links on every page.
-CHROME_CSS = '/assets/css/chrome.css?v=20261112h'
-SANS_FONT = '/assets/fonts/albert-sans-latin-wght-normal.woff2'
+CHROME_CSS = '/assets/css/chrome.css?v=20261113pl'
+SANS_FONT = '/assets/fonts/lato-latin-400-normal.woff2'
 
 # Desktop header: each top link opens a dropdown on hover (and on keyboard focus); clicking the top link goes to
 # its hub page. Below 1020px the "Menu" panel (MENU) replaces these. The "Join the List" button follows them.
