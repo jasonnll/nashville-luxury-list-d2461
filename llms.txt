@@ -99,6 +99,14 @@ Contact: 615-457-0768 · jason@nashvilleluxurylist.com · Compass Nashville, 161
 
 Data: [neighborhoods and drive times](https://www.nashvilleluxurylist.com/relocation/guide/data/neighborhoods.json) · [schools](https://www.nashvilleluxurylist.com/relocation/guide/data/schools.json) · [2026 property tax rates](https://www.nashvilleluxurylist.com/relocation/guide/data/property-tax-2026.json)
 <!-- /record:relocation-guide -->
+<!-- record:seller-tools -->
+## Seller tools and the Nashville Luxury Index
+
+- [Home value estimate](https://www.nashvilleluxurylist.com/sellers/home-value-estimate/): Instant price range for a Nashville-area home from the latest neighborhood price per square foot.
+- [Net proceeds calculator](https://www.nashvilleluxurylist.com/sellers/net-proceeds/): Seller net sheet: commission, title, prorated Tennessee property tax, transfer tax, payoff and prep.
+- [Nashville Luxury Index (November 2026)](https://www.nashvilleluxurylist.com/luxury-index/): Monthly $1M+ market indicators by neighborhood with open data and citation.
+- [Luxury Index open data (JSON)](https://www.nashvilleluxurylist.com/luxury-index/data.json): the same figures, machine-readable, with a citation line.
+<!-- /record:seller-tools -->
 <!-- record:llms -->
 ## Verified sales record
 

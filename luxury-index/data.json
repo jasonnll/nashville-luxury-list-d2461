@@ -1,0 +1,245 @@
+{
+ "name": "Nashville Luxury Index",
+ "edition": "2026-11",
+ "month": "November 2026",
+ "data_through": "October 2026",
+ "url": "https://www.nashvilleluxurylist.com/luxury-index/",
+ "citation": "Nashville Luxury List, “Nashville Luxury Index, November 2026” (data through October 2026), https://www.nashvilleluxurylist.com/luxury-index/",
+ "license": "CC BY 4.0 (credit Nashville Luxury List)",
+ "market_temperature": "Buyer’s market",
+ "key_stats": [
+  {
+   "value": "2,540",
+   "label": "October closings",
+   "note": "9 counties, -12% YoY"
+  },
+  {
+   "value": "-21%",
+   "label": "Pending sales",
+   "note": "1,805 under contract, Oct 2026 vs Oct 2025"
+  },
+  {
+   "value": "6 mo",
+   "label": "Supply",
+   "note": "15,379 homes for sale, all prices"
+  },
+  {
+   "value": "+18.6%",
+   "label": "Williamson listings",
+   "note": "1,665 active, Oct 2026 YoY"
+  }
+ ],
+ "summary": [
+  "Across nine Middle Tennessee counties, 2,540 homes closed in October, 12% fewer than a year earlier, and pending sales fell 21% to 1,805.",
+  "15,379 homes were for sale, about six months of supply at the current pace, according to Greater Nashville Realtors.",
+  "Williamson County had 1,665 active listings in October, up 18.6% from a year earlier; Davidson County had 4,621, up 11.1%.",
+  "The nine-county median sale price was $499,990, and the median condo price was $343,776."
+ ],
+ "neighborhoods": [
+  {
+   "name": "Belle Meade",
+   "median": 4396942.0,
+   "dom": 82.0,
+   "ppsf": 698.0,
+   "stl": 97.0,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/belle-meade/"
+  },
+  {
+   "name": "Forest Hills",
+   "median": 2597193.0,
+   "dom": 95.0,
+   "ppsf": 601.0,
+   "stl": 94.5,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/forest-hills-oak-hill/"
+  },
+  {
+   "name": "College Grove (37046)",
+   "median": 1911270.0,
+   "dom": 77.0,
+   "ppsf": 446.0,
+   "stl": 98.3,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/college-grove/"
+  },
+  {
+   "name": "Oak Hill",
+   "median": 1526438.0,
+   "dom": 63.0,
+   "ppsf": 452.0,
+   "stl": 89.6,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/forest-hills-oak-hill/"
+  },
+  {
+   "name": "Brentwood",
+   "median": 1281609.0,
+   "dom": 62.0,
+   "ppsf": 352.0,
+   "stl": 96.8,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/brentwood/"
+  },
+  {
+   "name": "Green Hills",
+   "median": 1114467.0,
+   "dom": 77.0,
+   "ppsf": 422.0,
+   "stl": 96.0,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/green-hills/"
+  },
+  {
+   "name": "Nolensville",
+   "median": 969326.0,
+   "dom": 64.0,
+   "ppsf": 288.0,
+   "stl": 97.7,
+   "guide": null
+  },
+  {
+   "name": "Thompson's Station",
+   "median": 852937.0,
+   "dom": 83.0,
+   "ppsf": 299.0,
+   "stl": 98.7,
+   "guide": "https://www.nashvilleluxurylist.com/thompsons-station-tn-luxury-realtor/"
+  },
+  {
+   "name": "Franklin",
+   "median": 849409.0,
+   "dom": 61.0,
+   "ppsf": 337.0,
+   "stl": 97.9,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/franklin/"
+  },
+  {
+   "name": "East Nashville (37206)",
+   "median": 691645.0,
+   "dom": 58.0,
+   "ppsf": 401.0,
+   "stl": 97.4,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/east-nashville/"
+  },
+  {
+   "name": "Nashville (citywide)",
+   "median": 457132.0,
+   "dom": 66.0,
+   "ppsf": 263.0,
+   "stl": 97.3,
+   "guide": null
+  }
+ ],
+ "neighborhood_note": "Three months ending October 2026, all home types, from Redfin calculations of MLS and public-record data (retrieved November 18, 2026). Days on market is Redfin’s reported average. Forest Hills, Oak Hill, Thompson’s Station and Nolensville are the cities of those names; College Grove is ZIP 37046 and East Nashville is ZIP 37206. Belle Meade, Forest Hills and Oak Hill have few sales a month, so their figures can swing widely.",
+ "counties": [
+  {
+   "county": "Williamson",
+   "metric": "Median listing price",
+   "period": "Sep 2026",
+   "value": 1155000,
+   "prior": 1144338,
+   "fmt": "money"
+  },
+  {
+   "county": "Williamson",
+   "metric": "Active listings",
+   "period": "Oct 2026",
+   "value": 1665,
+   "prior": 1404,
+   "fmt": "count"
+  },
+  {
+   "county": "Davidson",
+   "metric": "Median listing price",
+   "period": "Sep 2026",
+   "value": 525000,
+   "prior": 549900,
+   "fmt": "money"
+  },
+  {
+   "county": "Davidson",
+   "metric": "Active listings",
+   "period": "Oct 2026",
+   "value": 4621,
+   "prior": 4161,
+   "fmt": "count"
+  }
+ ],
+ "sources": [
+  [
+   "Greater Nashville Realtors monthly home sales report (October 2026 snapshot)",
+   "https://www.greaternashvillerealtors.org/monthly-home-sales-report"
+  ],
+  [
+   "FRED: Realtor.com median listing price, Williamson County, TN",
+   "https://fred.stlouisfed.org/series/MEDLISPRI47187"
+  ],
+  [
+   "FRED: Realtor.com active listings, Williamson County, TN",
+   "https://fred.stlouisfed.org/series/ACTLISCOU47187"
+  ],
+  [
+   "FRED: Realtor.com median listing price, Davidson County, TN",
+   "https://fred.stlouisfed.org/series/MEDLISPRI47037"
+  ],
+  [
+   "FRED: Realtor.com active listings, Davidson County, TN",
+   "https://fred.stlouisfed.org/series/ACTLISCOU47037"
+  ],
+  [
+   "Williamson Source: property transfers, Oct 5-9, 2026",
+   "https://williamsonsource.com/williamson-county-property-transfers-october-5-2026/"
+  ],
+  [
+   "Williamson Source: property transfers, Oct 19-23, 2026",
+   "https://williamsonsource.com/williamson-county-property-transfers-october-19-2026/"
+  ],
+  [
+   "Williamson Source: property transfers, Oct 26-30, 2026",
+   "https://williamsonsource.com/williamson-county-property-transfers-october-26-2026/"
+  ],
+  [
+   "Redfin: Belle Meade housing market",
+   "https://www.redfin.com/city/1224/TN/Belle-Meade/housing-market"
+  ],
+  [
+   "Redfin: Brentwood housing market",
+   "https://www.redfin.com/city/2149/TN/Brentwood/housing-market"
+  ],
+  [
+   "Redfin: Green Hills housing market",
+   "https://www.redfin.com/neighborhood/207762/TN/Nashville/Green-Hills/housing-market"
+  ],
+  [
+   "Redfin: Franklin housing market",
+   "https://www.redfin.com/city/7080/TN/Franklin/housing-market"
+  ],
+  [
+   "Redfin: 37206 housing market",
+   "https://www.redfin.com/zipcode/37206/housing-market"
+  ],
+  [
+   "Redfin: Nashville housing market",
+   "https://www.redfin.com/city/13415/TN/Nashville/housing-market"
+  ],
+  [
+   "Redfin: Forest Hills housing market",
+   "https://www.redfin.com/city/6913/TN/Forest-Hills/housing-market"
+  ],
+  [
+   "Redfin: Oak Hill housing market",
+   "https://www.redfin.com/city/14175/TN/Oak-Hill/housing-market"
+  ],
+  [
+   "Redfin: 37046 (College Grove) housing market",
+   "https://www.redfin.com/zipcode/37046/housing-market"
+  ],
+  [
+   "Redfin: Thompson’s Station housing market",
+   "https://www.redfin.com/city/18788/TN/Thompson-s-Station/housing-market"
+  ],
+  [
+   "Redfin: Nolensville housing market",
+   "https://www.redfin.com/city/13801/TN/Nolensville/housing-market"
+  ]
+ ],
+ "editions": [
+  "https://www.nashvilleluxurylist.com/market-report/2026-11/",
+  "https://www.nashvilleluxurylist.com/market-report/2026-10/"
+ ]
+}
