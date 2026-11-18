@@ -654,7 +654,16 @@ def _hero_end(main):
     for t in re.finditer(rf'<{tag}\b[^>]*>|</{tag}>', main[hero.start():]):
         depth += -1 if t.group(0).startswith('</') else 1
         if depth == 0:
-            return hero.start() + t.end()
+            end = hero.start() + t.end()
+            # A photo hero is followed by its "In brief" intro (scripts/visual_heroes.py): keep them together
+            intro = re.match(r'\s*(?:<!--.*?-->\s*)?<section class="ap-sec ap-intro', main[end:], re.S)
+            if intro:
+                depth = 0
+                for u in re.finditer(r'<section\b[^>]*>|</section>', main[end:]):
+                    depth += -1 if u.group(0).startswith('</') else 1
+                    if depth == 0:
+                        return end + u.end()
+            return end
     return main.find('>') + 1
 
 

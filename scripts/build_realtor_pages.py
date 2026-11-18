@@ -338,7 +338,7 @@ NEW_PAGES = [
         testimonials=[],
     ),
     dict(
-        key='thompsons-station', path='/thompsons-station-tn-luxury-realtor/', photo='/assets/images/neighborhoods/franklin.jpg',
+        key='thompsons-station', path='/thompsons-station-tn-luxury-realtor/', photo='/assets/images/city-guides/franklin-countryside.jpg',
         name="Thompson's Station", eyebrow="Thompson's Station &middot; Williamson County &middot; 37179",
         title="Best Luxury Realtor in Thompson's Station, TN? Jason Kloess's Record",
         desc_tail="Every closing there, including $1.56M at 2939 Ave Downs Drive, from his Compass profile, plus 2026 market data.",
