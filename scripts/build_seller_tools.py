@@ -37,7 +37,7 @@ def editions():
 
 
 def plain(s):
-    return re.sub(r'<[^>]+>', '', s).strip()
+    return html.unescape(re.sub(r'<[^>]+>', '', s)).strip()
 
 
 def num(s):
@@ -53,7 +53,8 @@ def areas(d):
         name = plain(r[0])
         out.append({'id': re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-'), 'name': name,
                     'guide': link.group(1) if link else '', 'median': num(r[1]), 'dom': num(r[2]),
-                    'ppsf': num(r[3]), 'stl': num(r[4]), 'raw': [plain(x) for x in r[1:]]})
+                    'ppsf': num(r[3]), 'stl': num(r[4]), 'raw': [plain(x) for x in r[1:]],
+                    'yoy': d['neighborhoods'].get('yoy', {}).get(name, '')})
     return out
 
 
@@ -302,7 +303,7 @@ def build():
         return f'''<article class="st-card" data-median="{a['median']:.0f}" data-dom="{a['dom']:.0f}" data-ppsf="{a['ppsf']:.0f}" data-stl="{a['stl']}">
 <div class="st-card-h"><h3>{nm}</h3><span class="st-pill st-{speed.lower()}">{speed}</span></div>
 <dl class="st-dl"><div><dt>Median sale</dt><dd>{E(a['raw'][0])}</dd></div><div><dt>Days on market</dt><dd>{E(a['raw'][1])}</dd></div><div><dt>Price / sq ft</dt><dd>{E(a['raw'][2])}</dd></div><div><dt>Sale-to-list</dt><dd>{E(a['raw'][3])}</dd></div></dl>
-<p class="st-tip"><b>For sellers:</b> {tip}</p></article>'''
+{f'<p class="st-yoy">Median price vs. a year ago: <b class="{"up" if a["yoy"].startswith("+") else "down"}">{E(a["yoy"])}</b></p>' if a['yoy'] else ''}<p class="st-tip"><b>For sellers:</b> {tip}</p></article>'''
     cards = ''.join(card(a) for a in A)
     county = ''.join(f'<tr><th scope="row">{E(r["county"])}: {E(r["metric"])} <small class="rg-muted">({E(r["period"])})</small></th><td>{money(r["value"]) if r["fmt"] == "money" else "{:,.0f}".format(r["value"])}</td><td class="{"up" if r["value"] >= r["prior"] else "down"}">{"+" if r["value"] >= r["prior"] else "−"}{abs((r["value"] - r["prior"]) / r["prior"] * 100):.1f}%</td></tr>' for r in d['counties']['rows'])
     top = ''.join(f'<li><b>{E(t[1])}</b> · {E(t[0])}<br><small class="rg-muted">{E(t[2])}</small></li>' for t in d.get('top_sales', {}).get('items', []))

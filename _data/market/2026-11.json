@@ -11,21 +11,61 @@
     "The nine-county median sale price was $499,990, and the median condo price was $343,776."
   ],
   "key_stats": [
-    {"value": "2,540", "label": "October closings", "note": "9 counties, -12% YoY"},
-    {"value": "-21%", "label": "Pending sales", "note": "1,805 under contract, Oct 2026 vs Oct 2025"},
-    {"value": "6 mo", "label": "Supply", "note": "15,379 homes for sale, all prices"},
-    {"value": "+18.6%", "label": "Williamson listings", "note": "1,665 active, Oct 2026 YoY"}
+    {
+      "value": "2,540",
+      "label": "October closings",
+      "note": "9 counties, -12% YoY"
+    },
+    {
+      "value": "-21%",
+      "label": "Pending sales",
+      "note": "1,805 under contract, Oct 2026 vs Oct 2025"
+    },
+    {
+      "value": "6 mo",
+      "label": "Supply",
+      "note": "15,379 homes for sale, all prices"
+    },
+    {
+      "value": "+18.6%",
+      "label": "Williamson listings",
+      "note": "1,665 active, Oct 2026 YoY"
+    }
   ],
   "regional": {
     "title": "The regional market (Greater Nashville Realtors, October 2026)",
     "note": "Greater Nashville Realtors monthly housing snapshot, nine counties: Cheatham, Davidson, Dickson, Maury, Robertson, Rutherford, Sumner, Williamson and Wilson. All price ranges. Earlier editions used Realtracs' 27-county figures, so these numbers are not directly comparable with last month's regional table. GNR did not publish year-over-year changes for inventory or prices.",
     "rows": [
-      ["Closings", "2,540", "-12%"],
-      ["Pending sales", "1,805", "-21%"],
-      ["Homes for sale (inventory)", "15,379", "Not reported"],
-      ["Months of supply", "6", "Not reported"],
-      ["Median sale price", "$499,990", "Not reported"],
-      ["Median condo price", "$343,776", "Not reported"]
+      [
+        "Closings",
+        "2,540",
+        "-12%"
+      ],
+      [
+        "Pending sales",
+        "1,805",
+        "-21%"
+      ],
+      [
+        "Homes for sale (inventory)",
+        "15,379",
+        "Not reported"
+      ],
+      [
+        "Months of supply",
+        "6",
+        "Not reported"
+      ],
+      [
+        "Median sale price",
+        "$499,990",
+        "Not reported"
+      ],
+      [
+        "Median condo price",
+        "$343,776",
+        "Not reported"
+      ]
     ]
   },
   "luxury": {
@@ -39,31 +79,161 @@
     "title": "Davidson vs. Williamson (Realtor.com listing data)",
     "note": "Realtor.com county listing data via the Federal Reserve Bank of St. Louis (FRED). Listing prices reflect homes for sale, not closed sales. Median listing prices are the latest month available in FRED's data tables (September); active listings are October.",
     "rows": [
-      {"county": "Williamson", "metric": "Median listing price", "period": "Sep 2026", "value": 1155000, "prior": 1144338, "fmt": "money"},
-      {"county": "Williamson", "metric": "Active listings", "period": "Oct 2026", "value": 1665, "prior": 1404, "fmt": "count"},
-      {"county": "Davidson", "metric": "Median listing price", "period": "Sep 2026", "value": 525000, "prior": 549900, "fmt": "money"},
-      {"county": "Davidson", "metric": "Active listings", "period": "Oct 2026", "value": 4621, "prior": 4161, "fmt": "count"}
+      {
+        "county": "Williamson",
+        "metric": "Median listing price",
+        "period": "Sep 2026",
+        "value": 1155000,
+        "prior": 1144338,
+        "fmt": "money"
+      },
+      {
+        "county": "Williamson",
+        "metric": "Active listings",
+        "period": "Oct 2026",
+        "value": 1665,
+        "prior": 1404,
+        "fmt": "count"
+      },
+      {
+        "county": "Davidson",
+        "metric": "Median listing price",
+        "period": "Sep 2026",
+        "value": 525000,
+        "prior": 549900,
+        "fmt": "money"
+      },
+      {
+        "county": "Davidson",
+        "metric": "Active listings",
+        "period": "Oct 2026",
+        "value": 4621,
+        "prior": 4161,
+        "fmt": "count"
+      }
     ]
   },
   "neighborhoods": {
     "title": "Luxury neighborhood medians",
-    "note": "Redfin's neighborhood pages had not updated when this edition was prepared, so these are the same figures as last month: medians for the three months ending August 2026, all home types (Green Hills: three months ending June 2026, the latest published). Source: Redfin calculations of MLS and public-record data.",
-    "cols": ["Area", "Median sale price", "Median days on market", "Price / sq ft", "Sale-to-list"],
+    "note": "Three months ending October 2026, all home types, from Redfin calculations of MLS and public-record data (retrieved November 18, 2026). Days on market is Redfin’s reported average. Forest Hills, Oak Hill, Thompson’s Station and Nolensville are the cities of those names; College Grove is ZIP 37046 and East Nashville is ZIP 37206. Belle Meade, Forest Hills and Oak Hill have few sales a month, so their figures can swing widely.",
+    "cols": [
+      "Area",
+      "Median sale price",
+      "Days on market",
+      "Price / sq ft",
+      "Sale-to-list"
+    ],
     "rows": [
-      ["<a href=\"/neighborhoods/belle-meade/\">Belle Meade</a>", "$4,297,155", "71", "$880", "96.5%"],
-      ["<a href=\"/neighborhoods/brentwood/\">Brentwood</a>", "$1,424,058", "63", "$356", "97.4%"],
-      ["<a href=\"/neighborhoods/green-hills/\">Green Hills</a>", "$1,249,565", "62", "$439", "96.9%"],
-      ["<a href=\"/neighborhoods/franklin/\">Franklin</a>", "$862,929", "49", "$317", "98.3%"],
-      ["<a href=\"/neighborhoods/east-nashville/\">East Nashville (37206)</a>", "$739,680", "56", "$340", "98.3%"],
-      ["Nashville (citywide)", "$475,538", "64", "$262", "97.6%"]
-    ]
+      [
+        "<a href=\"/neighborhoods/belle-meade/\">Belle Meade</a>",
+        "$4,396,942",
+        "82",
+        "$698",
+        "97.0%"
+      ],
+      [
+        "<a href=\"/neighborhoods/forest-hills-oak-hill/\">Forest Hills</a>",
+        "$2,597,193",
+        "95",
+        "$601",
+        "94.5%"
+      ],
+      [
+        "<a href=\"/neighborhoods/college-grove/\">College Grove (37046)</a>",
+        "$1,911,270",
+        "77",
+        "$446",
+        "98.3%"
+      ],
+      [
+        "<a href=\"/neighborhoods/forest-hills-oak-hill/\">Oak Hill</a>",
+        "$1,526,438",
+        "63",
+        "$452",
+        "89.6%"
+      ],
+      [
+        "<a href=\"/neighborhoods/brentwood/\">Brentwood</a>",
+        "$1,281,609",
+        "62",
+        "$352",
+        "96.8%"
+      ],
+      [
+        "<a href=\"/neighborhoods/green-hills/\">Green Hills</a>",
+        "$1,114,467",
+        "77",
+        "$422",
+        "96.0%"
+      ],
+      [
+        "Nolensville",
+        "$969,326",
+        "64",
+        "$288",
+        "97.7%"
+      ],
+      [
+        "<a href=\"/thompsons-station-tn-luxury-realtor/\">Thompson&#39;s Station</a>",
+        "$852,937",
+        "83",
+        "$299",
+        "98.7%"
+      ],
+      [
+        "<a href=\"/neighborhoods/franklin/\">Franklin</a>",
+        "$849,409",
+        "61",
+        "$337",
+        "97.9%"
+      ],
+      [
+        "<a href=\"/neighborhoods/east-nashville/\">East Nashville (37206)</a>",
+        "$691,645",
+        "58",
+        "$401",
+        "97.4%"
+      ],
+      [
+        "Nashville (citywide)",
+        "$457,132",
+        "66",
+        "$263",
+        "97.3%"
+      ]
+    ],
+    "yoy": {
+      "Belle Meade": "+45.4%",
+      "Forest Hills": "-3.8%",
+      "College Grove (37046)": "+21.5%",
+      "Oak Hill": "+25.6%",
+      "Brentwood": "-4.1%",
+      "Green Hills": "+17.3%",
+      "Nolensville": "-8.6%",
+      "Thompson's Station": "-5.2%",
+      "Franklin": "+5.5%",
+      "East Nashville (37206)": "-0.84%",
+      "Nashville (citywide)": "-3.8%"
+    }
   },
   "top_sales": {
     "title": "Notable October transfers in Williamson County",
     "items": [
-      ["Trident Ridge, Troubadour (College Grove)", "$11.50M", "Deed recorded Oct 26-30; county records don't state property type"],
-      ["Mountaintop Drive, The Grove (College Grove)", "$6.85M", "Deed recorded Oct 19-23; county records don't state property type"],
-      ["Geralds Drive, Reserve at Raintree Forest (Brentwood)", "$4.36M", "Deed recorded Oct 5-9; county records don't state property type"]
+      [
+        "Trident Ridge, Troubadour (College Grove)",
+        "$11.50M",
+        "Deed recorded Oct 26-30; county records don't state property type"
+      ],
+      [
+        "Mountaintop Drive, The Grove (College Grove)",
+        "$6.85M",
+        "Deed recorded Oct 19-23; county records don't state property type"
+      ],
+      [
+        "Geralds Drive, Reserve at Raintree Forest (Brentwood)",
+        "$4.36M",
+        "Deed recorded Oct 5-9; county records don't state property type"
+      ]
     ]
   },
   "takeaways": {
@@ -79,15 +249,82 @@
     ]
   },
   "sources": [
-    ["Greater Nashville Realtors monthly home sales report (October 2026 snapshot)", "https://www.greaternashvillerealtors.org/monthly-home-sales-report"],
-    ["FRED: Realtor.com median listing price, Williamson County, TN", "https://fred.stlouisfed.org/series/MEDLISPRI47187"],
-    ["FRED: Realtor.com active listings, Williamson County, TN", "https://fred.stlouisfed.org/series/ACTLISCOU47187"],
-    ["FRED: Realtor.com median listing price, Davidson County, TN", "https://fred.stlouisfed.org/series/MEDLISPRI47037"],
-    ["FRED: Realtor.com active listings, Davidson County, TN", "https://fred.stlouisfed.org/series/ACTLISCOU47037"],
-    ["Redfin housing market data", "https://www.redfin.com/news/data-center/"],
-    ["Williamson Source: property transfers, Oct 5-9, 2026", "https://williamsonsource.com/williamson-county-property-transfers-october-5-2026/"],
-    ["Williamson Source: property transfers, Oct 19-23, 2026", "https://williamsonsource.com/williamson-county-property-transfers-october-19-2026/"],
-    ["Williamson Source: property transfers, Oct 26-30, 2026", "https://williamsonsource.com/williamson-county-property-transfers-october-26-2026/"]
+    [
+      "Greater Nashville Realtors monthly home sales report (October 2026 snapshot)",
+      "https://www.greaternashvillerealtors.org/monthly-home-sales-report"
+    ],
+    [
+      "FRED: Realtor.com median listing price, Williamson County, TN",
+      "https://fred.stlouisfed.org/series/MEDLISPRI47187"
+    ],
+    [
+      "FRED: Realtor.com active listings, Williamson County, TN",
+      "https://fred.stlouisfed.org/series/ACTLISCOU47187"
+    ],
+    [
+      "FRED: Realtor.com median listing price, Davidson County, TN",
+      "https://fred.stlouisfed.org/series/MEDLISPRI47037"
+    ],
+    [
+      "FRED: Realtor.com active listings, Davidson County, TN",
+      "https://fred.stlouisfed.org/series/ACTLISCOU47037"
+    ],
+    [
+      "Williamson Source: property transfers, Oct 5-9, 2026",
+      "https://williamsonsource.com/williamson-county-property-transfers-october-5-2026/"
+    ],
+    [
+      "Williamson Source: property transfers, Oct 19-23, 2026",
+      "https://williamsonsource.com/williamson-county-property-transfers-october-19-2026/"
+    ],
+    [
+      "Williamson Source: property transfers, Oct 26-30, 2026",
+      "https://williamsonsource.com/williamson-county-property-transfers-october-26-2026/"
+    ],
+    [
+      "Redfin: Belle Meade housing market",
+      "https://www.redfin.com/city/1224/TN/Belle-Meade/housing-market"
+    ],
+    [
+      "Redfin: Brentwood housing market",
+      "https://www.redfin.com/city/2149/TN/Brentwood/housing-market"
+    ],
+    [
+      "Redfin: Green Hills housing market",
+      "https://www.redfin.com/neighborhood/207762/TN/Nashville/Green-Hills/housing-market"
+    ],
+    [
+      "Redfin: Franklin housing market",
+      "https://www.redfin.com/city/7080/TN/Franklin/housing-market"
+    ],
+    [
+      "Redfin: 37206 housing market",
+      "https://www.redfin.com/zipcode/37206/housing-market"
+    ],
+    [
+      "Redfin: Nashville housing market",
+      "https://www.redfin.com/city/13415/TN/Nashville/housing-market"
+    ],
+    [
+      "Redfin: Forest Hills housing market",
+      "https://www.redfin.com/city/6913/TN/Forest-Hills/housing-market"
+    ],
+    [
+      "Redfin: Oak Hill housing market",
+      "https://www.redfin.com/city/14175/TN/Oak-Hill/housing-market"
+    ],
+    [
+      "Redfin: 37046 (College Grove) housing market",
+      "https://www.redfin.com/zipcode/37046/housing-market"
+    ],
+    [
+      "Redfin: Thompson’s Station housing market",
+      "https://www.redfin.com/city/18788/TN/Thompson-s-Station/housing-market"
+    ],
+    [
+      "Redfin: Nolensville housing market",
+      "https://www.redfin.com/city/13801/TN/Nolensville/housing-market"
+    ]
   ],
   "footnote": "Figures come from the sources listed, as published at the time of this report; MLS and listing data are revised after publication. Regional figures in this edition come from Greater Nashville Realtors and cover nine counties. Listing prices are asking prices, not sale prices. Deed transfers are public-record filings and may include land or homes."
 }

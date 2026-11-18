@@ -38,54 +38,94 @@
  "neighborhoods": [
   {
    "name": "Belle Meade",
-   "median": 4297155.0,
-   "dom": 71.0,
-   "ppsf": 880.0,
-   "stl": 96.5,
+   "median": 4396942.0,
+   "dom": 82.0,
+   "ppsf": 698.0,
+   "stl": 97.0,
    "guide": "https://www.nashvilleluxurylist.com/neighborhoods/belle-meade/"
   },
   {
-   "name": "Brentwood",
-   "median": 1424058.0,
+   "name": "Forest Hills",
+   "median": 2597193.0,
+   "dom": 95.0,
+   "ppsf": 601.0,
+   "stl": 94.5,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/forest-hills-oak-hill/"
+  },
+  {
+   "name": "College Grove (37046)",
+   "median": 1911270.0,
+   "dom": 77.0,
+   "ppsf": 446.0,
+   "stl": 98.3,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/college-grove/"
+  },
+  {
+   "name": "Oak Hill",
+   "median": 1526438.0,
    "dom": 63.0,
-   "ppsf": 356.0,
-   "stl": 97.4,
+   "ppsf": 452.0,
+   "stl": 89.6,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/forest-hills-oak-hill/"
+  },
+  {
+   "name": "Brentwood",
+   "median": 1281609.0,
+   "dom": 62.0,
+   "ppsf": 352.0,
+   "stl": 96.8,
    "guide": "https://www.nashvilleluxurylist.com/neighborhoods/brentwood/"
   },
   {
    "name": "Green Hills",
-   "median": 1249565.0,
-   "dom": 62.0,
-   "ppsf": 439.0,
-   "stl": 96.9,
+   "median": 1114467.0,
+   "dom": 77.0,
+   "ppsf": 422.0,
+   "stl": 96.0,
    "guide": "https://www.nashvilleluxurylist.com/neighborhoods/green-hills/"
   },
   {
+   "name": "Nolensville",
+   "median": 969326.0,
+   "dom": 64.0,
+   "ppsf": 288.0,
+   "stl": 97.7,
+   "guide": null
+  },
+  {
+   "name": "Thompson's Station",
+   "median": 852937.0,
+   "dom": 83.0,
+   "ppsf": 299.0,
+   "stl": 98.7,
+   "guide": "https://www.nashvilleluxurylist.com/thompsons-station-tn-luxury-realtor/"
+  },
+  {
    "name": "Franklin",
-   "median": 862929.0,
-   "dom": 49.0,
-   "ppsf": 317.0,
-   "stl": 98.3,
+   "median": 849409.0,
+   "dom": 61.0,
+   "ppsf": 337.0,
+   "stl": 97.9,
    "guide": "https://www.nashvilleluxurylist.com/neighborhoods/franklin/"
   },
   {
    "name": "East Nashville (37206)",
-   "median": 739680.0,
-   "dom": 56.0,
-   "ppsf": 340.0,
-   "stl": 98.3,
+   "median": 691645.0,
+   "dom": 58.0,
+   "ppsf": 401.0,
+   "stl": 97.4,
    "guide": "https://www.nashvilleluxurylist.com/neighborhoods/east-nashville/"
   },
   {
    "name": "Nashville (citywide)",
-   "median": 475538.0,
-   "dom": 64.0,
-   "ppsf": 262.0,
-   "stl": 97.6,
+   "median": 457132.0,
+   "dom": 66.0,
+   "ppsf": 263.0,
+   "stl": 97.3,
    "guide": null
   }
  ],
- "neighborhood_note": "Redfin's neighborhood pages had not updated when this edition was prepared, so these are the same figures as last month: medians for the three months ending August 2026, all home types (Green Hills: three months ending June 2026, the latest published). Source: Redfin calculations of MLS and public-record data.",
+ "neighborhood_note": "Three months ending October 2026, all home types, from Redfin calculations of MLS and public-record data (retrieved November 18, 2026). Days on market is Redfin’s reported average. Forest Hills, Oak Hill, Thompson’s Station and Nolensville are the cities of those names; College Grove is ZIP 37046 and East Nashville is ZIP 37206. Belle Meade, Forest Hills and Oak Hill have few sales a month, so their figures can swing widely.",
  "counties": [
   {
    "county": "Williamson",
@@ -142,10 +182,6 @@
    "https://fred.stlouisfed.org/series/ACTLISCOU47037"
   ],
   [
-   "Redfin housing market data",
-   "https://www.redfin.com/news/data-center/"
-  ],
-  [
    "Williamson Source: property transfers, Oct 5-9, 2026",
    "https://williamsonsource.com/williamson-county-property-transfers-october-5-2026/"
   ],
@@ -156,6 +192,50 @@
   [
    "Williamson Source: property transfers, Oct 26-30, 2026",
    "https://williamsonsource.com/williamson-county-property-transfers-october-26-2026/"
+  ],
+  [
+   "Redfin: Belle Meade housing market",
+   "https://www.redfin.com/city/1224/TN/Belle-Meade/housing-market"
+  ],
+  [
+   "Redfin: Brentwood housing market",
+   "https://www.redfin.com/city/2149/TN/Brentwood/housing-market"
+  ],
+  [
+   "Redfin: Green Hills housing market",
+   "https://www.redfin.com/neighborhood/207762/TN/Nashville/Green-Hills/housing-market"
+  ],
+  [
+   "Redfin: Franklin housing market",
+   "https://www.redfin.com/city/7080/TN/Franklin/housing-market"
+  ],
+  [
+   "Redfin: 37206 housing market",
+   "https://www.redfin.com/zipcode/37206/housing-market"
+  ],
+  [
+   "Redfin: Nashville housing market",
+   "https://www.redfin.com/city/13415/TN/Nashville/housing-market"
+  ],
+  [
+   "Redfin: Forest Hills housing market",
+   "https://www.redfin.com/city/6913/TN/Forest-Hills/housing-market"
+  ],
+  [
+   "Redfin: Oak Hill housing market",
+   "https://www.redfin.com/city/14175/TN/Oak-Hill/housing-market"
+  ],
+  [
+   "Redfin: 37046 (College Grove) housing market",
+   "https://www.redfin.com/zipcode/37046/housing-market"
+  ],
+  [
+   "Redfin: Thompson’s Station housing market",
+   "https://www.redfin.com/city/18788/TN/Thompson-s-Station/housing-market"
+  ],
+  [
+   "Redfin: Nolensville housing market",
+   "https://www.redfin.com/city/13801/TN/Nolensville/housing-market"
   ]
  ],
  "editions": [

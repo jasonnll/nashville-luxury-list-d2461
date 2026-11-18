@@ -107,3 +107,4 @@
 .st-strip a b{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:19px}
 .st-strip a span{color:#5B5347;font-size:14px;line-height:1.45}
 .st-strip a em{margin-top:auto;font-style:normal;font-weight:700;font-size:13.5px;color:#21382C}
+.st-yoy{font-size:13.5px;color:var(--rg-muted);margin:10px 0 0}.st-yoy b.up{color:#2F6B4F}.st-yoy b.down{color:#8A3B2E}
