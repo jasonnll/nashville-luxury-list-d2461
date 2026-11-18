@@ -94,12 +94,12 @@ const HOODS = [
   { id: 'college-grove', n: 'College Grove', city: 'franklin', img: 'college-grove', page: '/neighborhoods/college-grove/', x: 610, y: 742, price: '$2M–$10M+', vibe: 'Farms, wineries and private golf communities like The Grove and Troubadour in southern Williamson County.', tags: { b3: 3, b4: 3, club: 3, land: 2, new: 2, estate: 3, public: 2, wfh: 2, quiet: 2 }, schools: 'Williamson County Schools (often Page High) or private schools in Franklin and Brentwood.' },
 ];
 const HOOD = Object.fromEntries(HOODS.map((h) => [h.id, h]));
-const DEST = ['Downtown / Broadway', 'BNA Airport', 'Vanderbilt / Midtown', 'Green Hills Mall', 'Cool Springs', 'Downtown Franklin', 'East Bank (Oracle / stadium)'];
+const DEST = ['Downtown / Broadway', 'BNA Airport', 'Vanderbilt / Midtown', 'Green Hills Mall', 'Cool Springs', 'Downtown Franklin', 'East Bank (Oracle / stadium)', 'Maryland Farms (Brentwood)'];
 const DT = {
-  'belle-meade': [15, 22, 10, 10, 25, 30, 17], 'green-hills': [15, 20, 10, 3, 18, 25, 17], 'forest-hills': [18, 20, 15, 8, 15, 22, 20], 'oak-hill': [14, 17, 13, 8, 17, 24, 16],
-  '12-south': [8, 15, 7, 8, 20, 27, 10], 'sylvan-park': [10, 20, 8, 12, 25, 32, 12], 'east-nashville': [8, 13, 13, 18, 27, 34, 6], 'germantown': [5, 15, 9, 15, 25, 32, 7],
-  'brentwood': [20, 22, 20, 12, 10, 17, 22], 'governors-club': [25, 25, 25, 18, 10, 15, 27], 'nolensville': [27, 25, 27, 20, 18, 22, 28],
-  'downtown-franklin': [30, 32, 30, 25, 8, 2, 32], 'westhaven': [32, 35, 30, 25, 12, 7, 34], 'leipers-fork': [42, 45, 40, 35, 25, 15, 44], 'thompsons-station': [38, 40, 37, 32, 16, 12, 40], 'college-grove': [40, 40, 40, 33, 22, 20, 42],
+  'belle-meade': [15, 22, 10, 10, 25, 30, 17, 20], 'green-hills': [15, 20, 10, 3, 18, 25, 17, 13], 'forest-hills': [18, 20, 15, 8, 15, 22, 20, 10], 'oak-hill': [14, 17, 13, 8, 17, 24, 16, 10],
+  '12-south': [8, 15, 7, 8, 20, 27, 10, 16], 'sylvan-park': [10, 20, 8, 12, 25, 32, 12, 20], 'east-nashville': [8, 13, 13, 18, 27, 34, 6, 22], 'germantown': [5, 15, 9, 15, 25, 32, 7, 18],
+  'brentwood': [20, 22, 20, 12, 10, 17, 22, 5], 'governors-club': [25, 25, 25, 18, 10, 15, 27, 12], 'nolensville': [27, 25, 27, 20, 18, 22, 28, 15],
+  'downtown-franklin': [30, 32, 30, 25, 8, 2, 32, 15], 'westhaven': [32, 35, 30, 25, 12, 7, 34, 18], 'leipers-fork': [42, 45, 40, 35, 25, 15, 44, 30], 'thompsons-station': [38, 40, 37, 32, 16, 12, 40, 24], 'college-grove': [40, 40, 40, 33, 22, 20, 42, 25],
 };
 const rush = (o, i) => Math.round(o * (o <= 6 ? 1.25 : o <= 15 ? 1.45 : 1.6) + (i === 1 ? 3 : 0));
 
@@ -533,24 +533,185 @@ add({ id: 'drive-map', t: 'Drive Times, Mapped', cat: 'map', city: ALLC, ic: 'ma
   seo: 'Nashville Commute Map: Drive Times From Brentwood, Franklin and Green Hills',
   blurb: 'Tap any neighborhood on the map to see how long it takes to get everywhere.', r: driveMapView });
 
+
+/* ======== Home search (IDX-powered landing pages) ======== */
+const IDXNAME = { 'brentwood': 'Brentwood', 'franklin': 'Franklin', 'green-hills': 'Green Hills', 'belle-meade': 'Belle Meade', 'forest-hills-oak-hill': 'Forest Hills & Oak Hill', '12-south': '12 South', 'east-nashville': 'East Nashville', 'governors-club': 'Governors Club', 'annandale': 'Annandale', 'laurelbrooke': 'Laurelbrooke', 'westhaven': 'Westhaven', 'leipers-fork': 'Leiper’s Fork', 'legends-ridge': 'Legends Ridge', 'college-grove': 'College Grove', 'the-grove': 'The Grove', 'troubadour': 'Troubadour', 'sylvan-park': 'Sylvan Park', 'nashville': 'Nashville' };
+const areaChips = (list) => `<div class="rg-areachips"><span>Live listings by area:</span>${list.map((a) => `<a href="/search/?area=${a}">${IDXNAME[a]}</a>`).join('')}</div>`;
+const SEARCH = [
+  { id: 'homes-zoned-brentwood-high', t: 'Homes Zoned for Brentwood High', city: ['brentwood'], img: 'brentwood', idx: 'brentwood', also: ['governors-club', 'annandale'], school: 'Brentwood High School',
+    seo: 'Homes for Sale Zoned for Brentwood High School (Brentwood, TN)',
+    blurb: 'Luxury homes for sale in the Brentwood High School zone: which parts of Brentwood feed it, what homes cost, and live listings.',
+    body: `<p>Brentwood High is one of Williamson County’s two Brentwood high schools and a top reason families target the city. It generally serves <b>central and northern Brentwood</b>, while Ravenwood High serves areas farther south and east. Zones shift as the district grows, so every address needs to be checked.</p>
+${F([['WCS', 'Williamson County Schools'], ['~1 acre', 'Typical lot in much of the zone'], ['$1.5M–$3M', 'Where most established-neighborhood homes trade'], ['By address', 'Zoning must be verified per home']])}
+<h2>What you’ll find in the zone</h2>${UL(['Established neighborhoods of renovated 1980s–2000s homes on about an acre, close to Maryland Farms, Hill Center and I-65.', 'Larger renovations and custom rebuilds on the bigger lots west of Franklin Pike.', 'Quick access north to Green Hills and Midtown: a real advantage for commuters into Nashville.'])}
+<h2>How I confirm zoning</h2><p>Before you write an offer, I check the address with Williamson County Schools’ zoning tool and the district directly, and flag any rezoning discussions. You’ll never buy on a listing’s “school” field alone.</p>` },
+  { id: 'homes-zoned-ravenwood-high', t: 'Homes Zoned for Ravenwood High', city: ['brentwood'], img: 'governors-club', idx: 'brentwood', also: ['governors-club', 'annandale'], school: 'Ravenwood High School',
+    seo: 'Homes for Sale Zoned for Ravenwood High School (Brentwood, TN)',
+    blurb: 'Luxury homes for sale in the Ravenwood High zone in south and east Brentwood, including gated communities, plus live listings.',
+    body: `<p>Ravenwood High generally serves <b>southern and eastern Brentwood</b>, including many of the city’s newer estate neighborhoods and gated communities. Like every Williamson County school, its boundaries are set by address and can change.</p>
+${F([['WCS', 'Williamson County Schools'], ['Gated options', 'Several gated and amenity communities in this part of town'], ['$2M+', 'Where newer estate homes typically start'], ['By address', 'Zoning must be verified per home']])}
+<h2>What you’ll find in the zone</h2>${UL(['Newer estate homes on large lots with amenities, toward Split Log Road, Sunset Road and Nolensville.', 'Gated communities and golf: see <a href="/neighborhoods/governors-club/">Governors Club</a> and <a href="/compare/governors-club-vs-annandale/">Governors Club vs. Annandale</a>.', 'An easy drive to Cool Springs, Nolensville and Franklin.'])}
+<h2>How I confirm zoning</h2><p>I verify each address with the district before you write an offer. Ask me for a list of every current and coming-soon home in the zone.</p>` },
+  { id: 'homes-zoned-franklin-high', t: 'Homes Zoned for Franklin High & FSSD', city: ['franklin'], img: 'franklin', idx: 'franklin', also: ['westhaven', 'laurelbrooke', 'leipers-fork'], school: 'Franklin High School',
+    seo: 'Homes for Sale in Franklin Special School District & Franklin High (Franklin, TN)',
+    blurb: 'Homes for sale in Franklin Special School District (PK–8) and the Franklin High School zone, with live listings and how zoning works.',
+    body: `<p>Much of the City of Franklin is served by <b>Franklin Special School District</b> for PK–8. Those students then attend Williamson County high schools such as <b>Franklin High</b>. Homes in and around historic downtown are often in this pairing, which many families love for its walkable small-town feel.</p>
+${F([['FSSD', 'PK–8 in much of the City of Franklin'], ['WCS', 'High school, often Franklin High'], ['$12,150', 'Property tax on a $3M home in the City of Franklin (2026)'], ['By address', 'Zoning must be verified per home']])}
+<h2>What you’ll find</h2>${UL(['Restored Victorians and new infill near Main Street.', 'Gated estates like <a href="/neighborhoods/laurelbrooke/">Laurelbrooke</a> close to downtown.', 'Walkable new-urbanist living in <a href="/neighborhoods/westhaven/">Westhaven</a> (confirm its zoning separately).'])}` },
+  { id: 'homes-zoned-hillsboro-high', t: 'Homes Zoned for Hillsboro High (IB)', city: ['nashville'], img: 'green-hills', idx: 'green-hills', also: ['12-south', 'belle-meade'], school: 'Hillsboro High School',
+    seo: 'Green Hills Homes for Sale Zoned for Julia Green, Percy Priest and Hillsboro High',
+    blurb: 'Green Hills homes zoned for Julia Green or Percy Priest Elementary and Hillsboro High’s IB program, with live listings.',
+    body: `<p>For Nashville families who want a strong public option without leaving town, the Green Hills cluster is the answer: <b>Julia Green</b> and <b>Percy Priest</b> elementaries feeding toward <b>Hillsboro High</b>, home to an International Baccalaureate program.</p>
+${F([['MNPS', 'Metro Nashville Public Schools'], ['IB', 'Hillsboro High offers the IB Diploma Programme'], ['$1.5M–$5M', 'Typical Green Hills luxury range'], ['By address', 'Zoning must be verified per home']])}
+<h2>Why buyers target it</h2>${UL(['Ten minutes to Midtown and Vanderbilt, with the Mall at Green Hills and Hill Center close by.', 'New construction on quiet side streets, plus mid-century originals on larger lots.', 'Private schools (Harpeth Hall, Ensworth, Lipscomb Academy) are also minutes away, so families can keep both options open.'])}` },
+  { id: 'homes-near-private-schools', t: 'Homes Near Nashville’s Top Private Schools', city: ['nashville', 'brentwood', 'franklin'], img: 'belle-meade', idx: 'belle-meade', also: ['green-hills', 'forest-hills-oak-hill', 'brentwood', 'franklin'],
+    seo: 'Homes Near MBA, Harpeth Hall, Ensworth, USN, Brentwood Academy and BGA',
+    blurb: 'Where to live for a short drive to MBA, Harpeth Hall, Ensworth, USN, CPA, Brentwood Academy and BGA, with live listings.',
+    body: `<p>The school run shapes daily life more than almost anything else. Here is where families tend to live for each of Nashville’s top independent schools.</p>
+${TABLE(['School', 'Where it is', 'Shortest drives from'], [['Montgomery Bell Academy (boys 7–12)', 'West End', 'Belle Meade, Sylvan Park, Green Hills'], ['Harpeth Hall (girls 5–12)', 'Green Hills', 'Green Hills, Belle Meade, Forest Hills'], ['Ensworth (K–12)', 'Green Hills and Highway 100', 'Belle Meade, Green Hills, Forest Hills'], ['University School of Nashville (K–12)', 'Hillsboro Village', '12 South, Green Hills, Belle Meade'], ['Christ Presbyterian Academy (PK–12)', 'Forest Hills', 'Forest Hills, Brentwood, Oak Hill'], ['Franklin Road Academy (PK–12)', 'Oak Hill', 'Oak Hill, Forest Hills, Brentwood'], ['Brentwood Academy (6–12)', 'Brentwood', 'Brentwood, Franklin, Forest Hills'], ['Battle Ground Academy (K–12)', 'Franklin', 'Franklin, Westhaven, Leiper’s Fork']])}
+<p>Compare every option in the ${L('school-finder', 'School Finder')} or on the ${L('schools-map', 'Schools Map')}.</p>` },
+  { id: 'homes-with-acreage', t: 'Homes With Acreage Near Nashville', city: ['franklin', 'brentwood', 'nashville'], img: 'leipers-fork', idx: 'leipers-fork', also: ['college-grove', 'forest-hills-oak-hill', 'franklin'],
+    seo: 'Homes With Acreage and Horse Property Near Nashville and Franklin',
+    blurb: 'Estates, farms and horse properties on 5 to 100+ acres within an hour of Nashville, with live listings.',
+    body: `<p>From five wooded acres in Forest Hills to a hundred-acre farm in Leiper’s Fork, land is one of Middle Tennessee’s great luxuries. Read the full background in ${L('little-more-land', 'A Little More Land')}.</p>
+${F([['15–25 min', 'Forest Hills and Oak Hill: acreage inside Nashville'], ['25–40 min', 'Leiper’s Fork and west Franklin farms'], ['30–45 min', 'College Grove and Arrington'], ['$1.30', 'Rate per $100 in unincorporated Williamson (2026)']])}
+<h2>What I check on every land purchase</h2>${UL(['Septic capacity and soil, or sewer availability', 'Well vs. public water and water pressure', 'Flood zones, creeks and FEMA maps', 'Easements, conservation restrictions and the right to subdivide', 'Fencing, barns, road frontage and internet options'])}` },
+  { id: 'gated-communities', t: 'Gated Communities in Brentwood & Franklin', city: ['brentwood', 'franklin'], img: 'annandale', idx: 'governors-club', also: ['annandale', 'laurelbrooke', 'the-grove', 'troubadour'],
+    seo: 'Gated Communities in Brentwood and Franklin, TN: Governors Club, Annandale, Laurelbrooke',
+    blurb: 'Governors Club, Annandale, Laurelbrooke, The Grove and Troubadour compared, with live listings in each.',
+    body: `${TABLE(['Community', 'Where', 'Known for'], [['<a href="/neighborhoods/governors-club/">Governors Club</a>', 'Brentwood', 'Staffed gate, private golf, clubhouse, pools'], ['<a href="/neighborhoods/annandale/">Annandale</a>', 'Brentwood', 'Larger estate lots and privacy'], ['<a href="/neighborhoods/laurelbrooke/">Laurelbrooke</a>', 'Franklin', 'Gated estates near downtown Franklin'], ['<a href="/neighborhoods/the-grove/">The Grove</a>', 'College Grove', 'Private golf and resort amenities'], ['<a href="/neighborhoods/troubadour/">Troubadour</a>', 'College Grove', 'Golf and field club on rolling farmland']])}
+<p>Comparing two? Read <a href="/compare/governors-club-vs-annandale/">Governors Club vs. Annandale</a>.</p>` },
+  { id: 'golf-course-homes', t: 'Golf Course Homes', city: ['brentwood', 'franklin'], img: 'troubadour', idx: 'the-grove', also: ['troubadour', 'governors-club', 'westhaven', 'legends-ridge'],
+    seo: 'Golf Course Homes for Sale Near Nashville: The Grove, Troubadour, Governors Club, Westhaven',
+    blurb: 'Homes on or near the course at The Grove, Troubadour, Governors Club, Westhaven and Legends Ridge, with live listings.',
+    body: `<p>Golf communities around Nashville range from walkable neighborhoods with a club at the center to full resort-style private clubs. Membership is often separate from the home: ask before you buy. See ${L('country-clubs', 'Country Clubs & Golf')} for every club.</p>
+${T([{ m: 'College Grove', h: 'The Grove', img: 'club-grove', link: '/neighborhoods/the-grove/', p: 'Private golf, resort amenities and newer estates.' }, { m: 'College Grove', h: 'Troubadour', img: 'troubadour', link: '/neighborhoods/troubadour/', p: 'A golf and field club among farms.' }, { m: 'Brentwood', h: 'Governors Club', img: 'club-governors', link: '/neighborhoods/governors-club/', p: 'Gated with a private course.' }, { m: 'Franklin', h: 'Westhaven', img: 'club-westhaven', link: '/neighborhoods/westhaven/', p: 'Walkable neighborhood built around a golf club.' }, { m: 'Franklin', h: 'Legends Ridge', img: 'legends-ridge', link: '/neighborhoods/legends-ridge/', p: 'Estate homes by Vanderbilt Legends Club.' }])}` },
+  { id: 'walkable-luxury-homes', t: 'Walkable Luxury Homes', city: ['nashville', 'franklin'], img: '12-south', idx: '12-south', also: ['east-nashville', 'sylvan-park', 'westhaven', 'franklin'],
+    seo: 'Walkable Luxury Homes in Nashville and Franklin: 12 South, East Nashville, Downtown Franklin',
+    blurb: 'Where you can walk to coffee, dinner and parks: 12 South, East Nashville, Sylvan Park, downtown Franklin and Westhaven.',
+    body: `${T([{ m: 'Nashville', h: '12 South & Belmont-Hillsboro', img: '12-south', link: '/neighborhoods/12-south/', p: 'Boutiques, coffee and Sevier Park.' }, { m: 'Nashville', h: 'East Nashville', img: 'east-nashville', link: '/neighborhoods/east-nashville/', p: 'Five Points, Lockeland Springs and the best independent restaurants.' }, { m: 'Nashville', h: 'Sylvan Park', img: 'sylvan-park', link: '/neighborhoods/sylvan-park/', p: 'Charlotte Avenue dining and neighborhood parks.' }, { m: 'Franklin', h: 'Historic Downtown Franklin', img: 'franklin', link: '/neighborhoods/franklin/', p: 'Walk to Main Street, the Franklin Theatre and The Factory.' }, { m: 'Franklin', h: 'Westhaven', img: 'westhaven', link: '/neighborhoods/westhaven/', p: 'A town center, pools and a golf club, all on foot.' }])}` },
+];
+for (const s of SEARCH) add(Object.assign({ cat: 'homes', ic: 'house', r: () => s.body + areaChips([s.idx, ...s.also]), faq: s.school ? [[`How do I know if a home is zoned for ${s.school}?`, 'School zones are set by address and can change. Check the district’s zoning tool for the exact address, and ask your agent to confirm with the district before you make an offer.']] : null }, s));
+
+add({ id: 'new-construction', t: 'Building or Buying New Construction', cat: 'homes', city: ALLC, ic: 'crane', img: 'college-grove', isNew: 1, idx: 'troubadour', also: ['the-grove', 'brentwood', 'franklin'],
+  seo: 'New Construction Homes in Nashville, Brentwood and Franklin: Custom, Spec and Builder Guide',
+  blurb: 'Spec home, custom build or a lot and an architect? How luxury new construction works around Nashville, what it takes and what to watch for.',
+  r: () => `
+${F([['3 paths', 'Finished spec home · custom on your lot · builder community'], ['12–24 mo', 'Typical luxury custom build from design to move-in'], ['4 checks', 'Foundation, pre-drywall, final and 11-month warranty walk'], ['Your rep', 'A buyer’s agent costs you nothing on most new builds']])}
+<h2>Three ways to get a new home</h2>
+${T([{ m: 'Fastest', h: 'Buy a finished or nearly finished spec home', p: 'A builder’s home on an infill lot in Green Hills, Belle Meade, Forest Hills or Brentwood, or in a new community. You can often still pick finishes if you buy early.' }, { m: 'Most control', h: 'Custom build on your own lot', p: 'Buy the land (or a teardown), hire an architect and a builder, and design every detail. Expect 12–24 months and a contingency for changes.' }, { m: 'Amenities', h: 'Build in a community', p: 'Choose a lot and a plan in a golf or amenity community like The Grove, Troubadour or Westhaven, often with an approved-builder list.' }])}
+<h2>Where new construction is happening</h2>
+${UL(['<b>In-town infill:</b> Green Hills, Belle Meade, Forest Hills, Sylvan Park and 12 South, where older homes are replaced.', '<b>Brentwood:</b> rebuilds on one-acre lots and newer estate neighborhoods toward the south and east.', '<b>Franklin and College Grove:</b> new phases in amenity communities, plus custom farms around Leiper’s Fork and Arrington.'])}
+<h2>What to watch for</h2>
+${UL(['<b>The builder’s contract is written for the builder.</b> Have your own agent, and an attorney for custom builds, review deposits, allowances, change-order pricing and delay terms.', '<b>Inspect anyway.</b> Independent inspections at foundation, pre-drywall and final catch problems while they are still cheap to fix.', '<b>Allowances and change orders</b> are where budgets slip. Price your finish selections before you sign.', '<b>Appraisals</b> on custom homes can lag the cost; plan for a gap.', '<b>Warranty:</b> know what is covered and schedule an 11-month walk-through.', '<b>Lot due diligence:</b> topography, drainage, septic or sewer, tree ordinances and HOA design review.'])}
+${CO('<b>Want my builder and architect shortlist?</b> I’ll match you with builders whose work and price point fit your project, and walk you through their recent homes. Ask below.', 'brass')}
+${areaChips(['troubadour', 'the-grove', 'brentwood', 'franklin', 'green-hills'])}`,
+  faq: [['How long does it take to build a custom luxury home in Nashville?', 'Plan on roughly 12 to 24 months from design to move-in, depending on size, permitting, lot work and finish selections.'], ['Do I need my own agent to buy new construction?', 'It is wise. The builder’s sales team represents the builder; your own agent negotiates price, upgrades and terms for you, and is usually paid by the builder.']] });
+
+/* ======== Corporate relocation ======== */
+const EMP = [
+  { id: 'moving-for-oracle', n: 'Oracle', img: 'nashville-skyline', d: 6, office: 'East Bank campus (under construction); Neuhoff District offices today',
+    lede: 'Oracle has broken ground on its global headquarters on Nashville’s East Bank. If you are moving with Oracle, here is where to live, what the commute looks like and how to buy before you arrive.',
+    facts: [['$4.5B', 'Global headquarters campus on the East Bank'], ['Nov 2026', 'Groundbreaking'], ['8,500', 'Nashville jobs Oracle has said it aims for'], ['Neuhoff', 'Current offices overlooking the site']],
+    body: `<p>Oracle held its groundbreaking for a <b>$4.5 billion global headquarters</b> on the East Bank in November 2026, with a campus that also plans an amphitheater, a hotel and a pedestrian bridge. Until it opens, many teams work from Oracle’s expanded offices in the <b>Neuhoff District</b>, which overlook the construction, and the company has also had employees in Capitol View.</p>
+<p>Oracle has said it aims to have about 8,500 employees in Nashville. Reporting this year noted it has offered relocation incentives to some existing employees, so ask HR exactly what your package covers. See ${L('relocation-package', 'Your Relocation Package, Decoded')}.</p>`,
+    src: [['Oracle press release: groundbreaking (Nov 2026)', 'https://oracle.com/news/announcement/oracle-celebrates-groundbreaking-on-future-global-headquarters-in-nashville-2026-11-10/'], ['WSMV: Oracle breaks ground on $4.5B HQ', 'https://www.wsmv.com/2026/11/11/oracle-breaks-ground-45-billion-global-headquarters-nashvilles-east-bank/'], ['Oracle press release: Neuhoff offices (Mar 2026)', 'https://www.oracle.com/news/announcement/oracle-scales-up-nashville-offices-to-support-rapid-growth-2026-03-26/'], ['Nashville Scene: Oracle jobs and incentives', 'https://www.nashvillescene.com/news/pithinthewind/oracle-jobs-growth-incentives-pace/article_5e26c0b0-6195-4a01-a2d9-9946472fdbb2.html']] },
+  { id: 'moving-for-amazon', n: 'Amazon', img: 'germantown', d: 0, office: 'Nashville Yards, downtown',
+    lede: 'Amazon’s Operations Center of Excellence sits at Nashville Yards downtown. Here is where Amazon employees live, the commute from each neighborhood and how to plan the move.',
+    facts: [['Nashville Yards', 'Downtown office towers on Church Street'], ['5,000', 'Jobs in the original Operations Center plan'], ['2nd tower', 'Interior buildout announced in 2025'], ['Amazon Music', 'Also at the CAA building next door']],
+    body: `<p>Amazon chose Nashville for its <b>Operations Center of Excellence</b>, the Eastern U.S. hub for its retail operations, with a plan for 5,000 jobs at <b>Nashville Yards</b> downtown. In 2025 Nashville Yards announced Amazon was starting work on its second office tower and had leased a floor in the CAA building, including Amazon Music teams.</p>
+<p>Downtown offices make close-in neighborhoods (Germantown, 12 South, East Nashville, Sylvan Park and Green Hills) the shortest commutes, while Brentwood and Franklin trade a longer I-65 drive for land and Williamson County schools.</p>`,
+    src: [['Tennessee Governor’s office: Amazon 5,000 jobs', 'https://www.tn.gov/former-governor-haslam/news/2018/11/13/amazon-to-create-5000-new-jobs-in-nashville.html'], ['Nashville Yards: Amazon expansion (May 2025)', 'https://www.nashvilleyards.com/wp-content/uploads/2025/05/Nashville-Yards-Announces-Amazon-Expansion-5.14.25.pdf']] },
+  { id: 'moving-for-alliancebernstein', n: 'AllianceBernstein', img: 'belle-meade-estate', d: 0, office: '501 Commerce Street, downtown',
+    lede: 'AllianceBernstein moved its global headquarters from New York to downtown Nashville. Here is where AB families live, commute times and what changes when you leave New York.',
+    facts: [['501 Commerce', 'Global HQ, downtown Nashville'], ['2021', 'Moved into the Nashville headquarters'], ['From NYC', 'HQ relocation announced in 2018'], ['0%', 'Tennessee tax on wages']],
+    body: `<p>AllianceBernstein announced in 2018 that it would move its global headquarters from New York City to Nashville, and moved into its downtown headquarters in 2021. The building is at <b>501 Commerce Street</b>, steps from Broadway and the Music City Center.</p>
+<p>For families coming from the New York area, the biggest changes are taxes and space: Tennessee doesn’t tax wages, and in-town neighborhoods like Belle Meade and Green Hills offer large lots 15 minutes from the office. Run the numbers in ${L('move-math', 'Move Math')} and read <a href="/relocation/moving-from-new-york/">Moving from New York</a>.</p>`,
+    src: [['AllianceBernstein (Wikipedia)', 'https://www.wikipedia.org/wiki/AllianceBernstein'], ['REjournals: AB to anchor Fifth + Broadway tower', 'https://rejournals.com/investment-firm-to-anchor-office-tower-at-nashvilles-fifth-broadway/']] },
+  { id: 'moving-for-starbucks', n: 'Starbucks', img: 'hillsboro-village', d: 0, office: 'The Gulch (temporary) then Peabody Union, downtown (2027)', isNew: 1,
+    lede: 'Starbucks is building a Southeast corporate office in Nashville with up to 2,000 jobs. Here is where to live, the commute and how to time a move around the 2027 office opening.',
+    facts: [['$100M', 'Investment in the Nashville office'], ['Up to 2,000', 'Jobs planned'], ['Peabody Union', 'Permanent home in 2027'], ['Supply chain + tech', 'Teams moving here']],
+    body: `<p>In April 2026 Starbucks announced a <b>Southeast corporate office</b> in Nashville: a $100 million investment and up to 2,000 jobs, complementing its Seattle headquarters. The company opened a temporary office in <b>The Gulch</b> before moving into the <b>Peabody Union</b> complex downtown in 2027, with roles spanning supply chain, technology and support functions.</p>
+<p>Coming from Seattle? Washington doesn’t tax wages either, so the bigger differences are home prices, lot sizes and property taxes. Compare neighborhoods with the ${L('neighborhood-matcher', 'Neighborhood Matcher')}.</p>`,
+    src: [['Starbucks: Southeast corporate office in Nashville', 'https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Selects-Tennessee-for-Southeast-Corporate-Office-2026-MgIal80vem/default.aspx'], ['Axios: Starbucks ramps up Nashville expansion', 'https://www.axios.com/2026/04/21/starbucks-nashville-expansion-jobs-investment']] },
+  { id: 'moving-for-healthcare', n: 'Healthcare (HCA, Vanderbilt & more)', short: 'Healthcare', img: 'oak-hill', d: 2, office: 'Midtown / West End (HCA at One Park Plaza; VUMC); Franklin and Brentwood for CHS and LifePoint',
+    lede: 'Nashville is the healthcare capital of the country. For executives and physicians joining HCA, Vanderbilt, Community Health Systems, LifePoint or one of hundreds of health companies, here is where to live.',
+    facts: [['One Park Plaza', 'HCA Healthcare global headquarters'], ['Midtown', 'Vanderbilt University Medical Center'], ['Franklin', 'Community Health Systems HQ (Cool Springs)'], ['Brentwood', 'LifePoint Health HQ']],
+    body: `<p><b>HCA Healthcare</b> is headquartered at One Park Plaza in Nashville, close to Midtown and West End, near <b>Vanderbilt University Medical Center</b> and the Saint Thomas and TriStar hospitals. South of town, <b>Community Health Systems</b> is in Franklin’s Cool Springs area and <b>LifePoint Health</b> is in Brentwood.</p>
+<p>For Midtown, Belle Meade, Green Hills, 12 South and Sylvan Park keep the drive short. For Cool Springs or Brentwood offices, Brentwood, Franklin and Forest Hills are the natural fits. Physicians with hospital call often want to be within 15–20 minutes of the hospital: check the times below.</p>`,
+    src: [['HCA Healthcare 2025 Form 10-K (One Park Plaza)', 'https://fortune.com/company-assets/1660/quartr/annual-report-10-k-a2d8c-2026-02-10-09-08-29.pdf'], ['Williamson County Chamber: corporate headquarters', 'https://williamsonchamber.com/economic-development/target-business-sectors/']] },
+  { id: 'moving-for-cool-springs', n: 'Nissan, Mitsubishi & Cool Springs Companies', short: 'Cool Springs', img: 'brentwood-estate', d: 4, office: 'Cool Springs, Franklin (Nissan, Mitsubishi, Mars Petcare, CHS, Ramsey and more)',
+    lede: 'Cool Springs in Franklin is one of the Southeast’s densest corporate headquarters districts. Here is where people who work at Nissan, Mitsubishi, Mars Petcare and other Cool Springs companies live.',
+    facts: [['40+', 'Corporate headquarters in Williamson County'], ['13 of 25', 'Public companies in the Nashville metro HQ’d in Cool Springs'], ['2006', 'Nissan moved its North American HQ to Franklin'], ['~10 min', 'From Brentwood or downtown Franklin off-peak']],
+    body: `<p>Williamson County is home to more than 40 corporate headquarters, including <b>Nissan North America</b>, <b>Tractor Supply</b>, <b>Mars Petcare</b> and <b>Community Health Systems</b>. The Williamson County Chamber reports that 13 of the 25 publicly traded companies in the Nashville metro are headquartered in Cool Springs. <b>Mitsubishi Motors North America</b> moved its headquarters from California to Cool Springs to sit alongside its alliance partner Nissan, which moved its own North American headquarters to Franklin in 2006.</p>
+<p>Living close to Cool Springs means skipping the I-65 crawl into Nashville entirely. Brentwood, Franklin, Westhaven and Nolensville are 10–20 minutes away, which makes a reverse commute into the city for dinner or a show easy.</p>`,
+    src: [['Williamson County Chamber: economic development', 'https://www.williamsonchamber.com/economic-development'], ['Williamson County Chamber: target business sectors', 'https://williamsonchamber.com/?p=23799'], ['Livability: why corporate HQs flock to Franklin', 'https://livability.com/tn/franklin/education-careers-opportunity/why-corporate-headquarters-flock-to-the-franklin-area/']] },
+];
+function commuteRank(d) {
+  return HOODS.map((h) => ({ h, o: DT[h.id][d], r: rush(DT[h.id][d], d) })).sort((a, b) => a.r - b.r);
+}
+function empView(e) {
+  const rank = commuteRank(e.d), close = rank.slice(0, 6);
+  const wcs = rank.filter((x) => x.h.city !== 'nashville').slice(0, 3);
+  return `${F(e.facts)}<h2>${e.short || e.n} in Nashville</h2>${e.body}
+<h2>Where ${e.short || e.n} employees live: shortest commutes</h2><p class="rg-muted">Office: ${e.office}. Minutes to ${DEST[e.d]}, off-peak / rush hour.</p>
+<div class="rg-bars">${close.map((x) => `<div class="rg-bar"><span>${x.h.page ? `<a href="${x.h.page}">${x.h.short || x.h.n}</a>` : x.h.short || x.h.n}</span><div><div class="rg-track"><div class="rg-fill" style="width:${x.o / 50 * 100}%"></div></div><div class="rg-track"><div class="rg-fill rush" style="width:${x.r / 50 * 100}%"></div></div></div><b>${x.o}<small>/${x.r}</small></b></div>`).join('')}</div><p class="rg-legend-line" style="margin-bottom:18px"><i class="g"></i>Off-peak <i class="r"></i>Rush hour · <a href="${href('drive-times')}">Compare any neighborhood →</a></p>
+${e.d !== 4 && e.d !== 7 ? `<h3>Want Williamson County schools?</h3><p>The closest Williamson options to this office: ${wcs.map((x) => `<b>${x.h.short || x.h.n}</b> (${x.o} min off-peak, ${x.r} at rush)`).join(', ')}. See ${L('brentwood', 'Brentwood')} and ${L('franklin', 'Franklin')}.</p>` : `<h3>Prefer to live in Nashville?</h3><p>From in town, the reverse commute is easier than it looks: ${rank.filter((x) => x.h.city === 'nashville').slice(0, 3).map((x) => `<b>${x.h.short || x.h.n}</b> (${x.o} min off-peak, ${x.r} at rush)`).join(', ')}.</p>`}
+<h2>Neighborhoods to tour first</h2>${T(close.slice(0, 3).map((x) => ({ m: CITIES[x.h.city].n + ' · ' + x.h.price, h: x.h.n, img: x.h.img, link: x.h.page, p: x.h.vibe })))}
+<h2>Your move, step by step</h2>${UL(['Read your relocation policy first: see ' + L('relocation-package', 'Your Relocation Package, Decoded') + '.', 'Plan one scouting weekend; I’ll line up tours by commute and school priorities.', 'Use your ' + L('moving-timeline', 'Moving Timeline') + ' to work back from your start date.', 'Buy remotely if you need to: video tours, inspections and e-closing are routine.'])}
+<p class="rg-note">Sources: ${e.src.map(([t, u]) => `<a href="${u}" rel="noopener" target="_blank">${t}</a>`).join(' · ')}. Commute times are estimates for typical weekday traffic.</p>`;
+}
+for (const e of EMP) add({ id: e.id, t: `Moving to Nashville for ${e.n}`, cat: 'work', city: e.d === 4 ? ['franklin', 'brentwood'] : ['nashville', 'brentwood', 'franklin'], ic: 'plane', img: e.img, isNew: e.isNew || (e.id === 'moving-for-oracle' ? 1 : 0),
+  seo: `Moving to Nashville for ${e.n}: Where to Live, Commutes & Relocation Tips`, blurb: e.lede, r: () => empView(e), emp: e,
+  faq: [[`What is the best neighborhood for ${e.short || e.n} employees?`, `For the shortest commute to ${e.office.split(';')[0]}: ${commuteRank(e.d).slice(0, 3).map((x) => x.h.short || x.h.n).join(', ')}. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.`]] });
+
+add({ id: 'moving-for-work', t: 'Relocating to Nashville for Work', cat: 'work', city: ALLC, ic: 'flag', img: 'nashville-skyline', isNew: 1,
+  seo: 'Corporate Relocation to Nashville: Oracle, Amazon, AllianceBernstein, Starbucks, HCA, Nissan',
+  blurb: 'Oracle, Amazon, AllianceBernstein, Starbucks, HCA, Nissan and more: where each company is, where its people live and how to plan a corporate move.',
+  r: () => `<p>Nashville has become one of the country’s top destinations for corporate headquarters and regional hubs. Pick your employer for commute-ranked neighborhoods and a move plan.</p>
+${T(EMP.map((e) => ({ m: e.office.split(';')[0].split('(')[0], h: e.n, img: e.img, link: href(e.id), p: e.lede.split('.')[0] + '.' })))}
+<h2>Also moving here</h2>${UL(['<b>Sennheiser</b> moved its U.S. regional hub from Connecticut to Nashville in 2026.', '<b>Tractor Supply</b> (Brentwood), <b>Ramsey Solutions</b> (Franklin), <b>Mars Petcare</b> and <b>Mitsubishi Motors</b> (Franklin) anchor Williamson County.', 'Working somewhere else? Tell me the office address and I’ll send commute-ranked neighborhoods.'])}
+<p>Before you negotiate, read ${L('relocation-package', 'Your Relocation Package, Decoded')}.</p>
+<p class="rg-note">Sources: <a href="https://www.plantservices.com/industry-news/news/55362105/sennheiser-group-to-move-us-regional-hub-to-nashville-tennessee" target="_blank" rel="noopener">Plant Services: Sennheiser to Nashville</a> · <a href="https://williamsonchamber.com/?p=23799" target="_blank" rel="noopener">Williamson County Chamber</a>.</p>` });
+add({ id: 'relocation-package', t: 'Your Relocation Package, Decoded', cat: 'work', city: ALLC, ic: 'key', img: 'annandale',
+  seo: 'Corporate Relocation Package Guide: Home Sale Programs, Lump Sums and Tax Gross-Ups',
+  blurb: 'Lump sum or managed move, home-sale programs, temporary housing and tax gross-ups: what to ask HR before you accept.',
+  r: () => `<h2>Two kinds of packages</h2>${T([{ m: 'Simple', h: 'Lump sum', p: 'A set amount to spend however you like. Flexible, but it is usually taxable, so the net can be much smaller than the headline.' }, { m: 'Full service', h: 'Managed relocation', p: 'A relocation company coordinates and pays approved costs directly: movers, closing costs, temporary housing and sometimes a home-sale program.' }])}
+<h2>Questions to ask HR before you accept</h2>${UL(['Is there a <b>home-sale program</b> (buyer value option or guaranteed buyout) for my current home?', 'Are <b>closing costs</b> covered on both the sale and the purchase, including loan fees?', 'How many days of <b>temporary housing</b>, and can I use it while my home is being built or renovated?', 'Is the package <b>grossed up</b> for taxes? (Your new paycheck has no Tennessee wage tax, but relocation benefits can still be federally taxable.)', 'Are <b>house-hunting trips</b> covered, and for how many family members?', 'Am I free to choose my own real estate agents, or must I use the relocation company’s network?', 'What is the <b>repayment clause</b> if I leave within a year or two?'])}
+${CO('<b>Tip:</b> many relocation programs let you choose your own agent if you ask early. If you’re relocating, tell your relocation counselor you’d like to work with me before you’re assigned someone.', 'brass')}
+<h2>Buying before you sell</h2><p>Common routes: a bridge loan, a home-sale program buyout, a contingent offer (harder in competitive segments) or renting short-term. I’ll help you weigh them against the market for the homes you want.</p>`,
+  faq: [['Can I choose my own real estate agent on a corporate relocation?', 'Often yes, especially if you ask early. Some programs require an agent from the relocation company’s network; ask your relocation counselor before you start looking.']] });
+
+/* ======== Trusted pros ======== */
+const VENDOR_CATS = [['Jumbo & private-bank lenders', 'dollar'], ['Home inspectors', 'check'], ['Real estate attorneys & title', 'key'], ['Home & umbrella insurance', 'heart'], ['Long-distance movers', 'car'], ['Interior designers', 'house'], ['Architects & custom builders', 'crane'], ['Landscape & pool', 'tree'], ['Security & smart home', 'bolt'], ['Home organizers & estate managers', 'grid'], ['Pediatricians & family doctors', 'heart'], ['Private-school admissions consultants', 'school']];
+const VENDORS = []; // { cat: 'Home inspectors', name: 'Example Co.', url: 'https://…', note: 'Why Jason recommends them' }
+add({ id: 'trusted-pros', t: 'Jason’s Trusted Pros', cat: 'move', city: ALLC, ic: 'check', img: 'westhaven', isNew: 1,
+  seo: 'Trusted Nashville Home Pros: Lenders, Inspectors, Designers, Builders and Movers',
+  blurb: 'The lenders, inspectors, attorneys, designers, builders and movers I trust, vetted on real luxury transactions. Ask for the shortlist in any category.',
+  r: () => `<p>New to town, you don’t know who to call. These are the people I’ve watched do excellent work on $1.5M+ homes. Tap any category and I’ll send you two or three names that fit your situation.</p>
+<div class="rg-vendors">${VENDOR_CATS.map(([c, ic]) => { const v = VENDORS.filter((x) => x.cat === c); return `<div class="rg-vcat"><div class="rg-vhead">${icon(ic, 20)}<h3>${c}</h3></div>${v.length ? `<ul class="rg-ul">${v.map((x) => `<li>${x.url ? `<a href="${x.url}" target="_blank" rel="noopener">${x.name}</a>` : x.name}${x.note ? ' · ' + x.note : ''}</li>`).join('')}</ul>` : ''}<button type="button" class="rg-btn rg-btn-ghost rg-vask" data-cat="${esc(c)}">Get my shortlist</button></div>`; }).join('')}</div>
+${NOTE('I don’t accept referral fees from anyone listed here. Recommendations reflect my own clients’ experiences; always interview and check licenses yourself.')}
+${leadForm({ compact: 1, anchor: 'pros-form', source: 'Trusted Pros', title: 'Send me your shortlist', text: 'Pick a category above (or tell me what you need) and I’ll email you the names I trust.', goal: 'Something else', cta: 'Send me the shortlist' })}` });
+
 /* ---------------- groups (navigation) ---------------- */
 const GROUPS = [
-  { k: 'tools', n: 'Tools', ic: 'grid', d: 'Calculators, planners and finders that answer the big questions with your numbers.', ids: ['neighborhood-matcher', 'drive-times', 'move-math', 'moving-timeline', 'first-90-days', 'perfect-day', 'breaking-ground'] },
+  { k: 'tools', n: 'Tools', ic: 'grid', d: 'Calculators, planners and maps that answer the big questions with your numbers.', ids: ['neighborhood-matcher', 'drive-times', 'drive-map', 'move-math', 'moving-timeline', 'first-90-days', 'perfect-day', 'breaking-ground'] },
+  { k: 'work', n: 'Moving for work', ic: 'flag', d: 'Oracle, Amazon, AllianceBernstein, Starbucks, healthcare and Cool Springs: where each company’s people live.', ids: ['moving-for-work', 'moving-for-oracle', 'moving-for-amazon', 'moving-for-alliancebernstein', 'moving-for-starbucks', 'moving-for-healthcare', 'moving-for-cool-springs', 'relocation-package'] },
+  { k: 'homes', n: 'Home search', ic: 'house', d: 'Live listings by school zone, land, golf, gates and walkability, plus new construction.', ids: ['homes-zoned-brentwood-high', 'homes-zoned-ravenwood-high', 'homes-zoned-franklin-high', 'homes-zoned-hillsboro-high', 'homes-near-private-schools', 'homes-with-acreage', 'gated-communities', 'golf-course-homes', 'walkable-luxury-homes', 'new-construction'], more: [['/search/', 'Search all homes from $1M →']] },
   { k: 'schools', n: 'Schools', ic: 'school', d: 'Public, magnet and private schools across all three areas.', ids: ['school-finder', 'school-question', 'schools-map'] },
-  { k: 'moving', n: 'Moving here', ic: 'plane', d: 'Cheat sheets for the move itself.', ids: ['out-of-state', 'nobody-tells-you', 'taxes', 'utilities', 'healthcare', 'getting-around'], more: [['/relocation/', 'Free 25-page Relocation Playbook'], ['/answers/how-to-buy-a-nashville-home-remotely/', 'Buying from out of state']] },
+  { k: 'moving', n: 'Moving here', ic: 'plane', d: 'Cheat sheets for the move itself.', ids: ['out-of-state', 'nobody-tells-you', 'taxes', 'trusted-pros', 'utilities', 'healthcare', 'getting-around'], more: [['/relocation/', 'Free 25-page Relocation Playbook'], ['/answers/how-to-buy-a-nashville-home-remotely/', 'Buying from out of state']] },
   { k: 'areas', n: 'Neighborhoods', ic: 'pin', d: 'Where to live, compared.', ids: ['nashville-up-close', 'brentwood-up-close', 'franklin-up-close', 'brentwood-vs-green-hills', 'little-more-land', 'lake-life', 'east-bank', 'country-clubs'], more: [['/neighborhoods/', 'All neighborhood guides'], ['/compare/', 'Compare areas side by side']] },
   { k: 'eat', n: 'Eat & do', ic: 'fork', d: 'Live like a local from your first weekend.', ids: ['where-to-eat-nashville', 'where-to-eat-brentwood', 'where-to-eat-franklin', 'shopping', 'music-arts-sports', 'parks-outdoors'] },
   { k: 'season', n: 'Seasonal', ic: 'leaf', d: 'What’s happening now and through the year.', ids: ['holidays', 'seasons-calendar', 'weather-seasons'] },
-  { k: 'maps', n: 'Maps', ic: 'map', d: 'See it laid out.', ids: ['drive-map', 'schools-map'] },
 ];
-const CATLABEL = { tool: 'Interactive tool', school: 'Schools', move: 'Moving here', area: 'Neighborhoods', eat: 'Eat, shop & do', season: 'Seasonal', map: 'Map' };
-const CATBG = { tool: '#21382C', school: '#13203A', move: '#1F3152', area: '#2F4C3E', eat: '#6B4A2F', season: '#7E5F33', map: '#2B3A52' };
+const CATLABEL = { homes: 'Home search', work: 'Moving for work', tool: 'Interactive tool', school: 'Schools', move: 'Moving here', area: 'Neighborhoods', eat: 'Eat, shop & do', season: 'Seasonal', map: 'Map' };
+const CATBG = { homes: '#2F4C3E', work: '#13203A', tool: '#21382C', school: '#13203A', move: '#1F3152', area: '#2F4C3E', eat: '#6B4A2F', season: '#7E5F33', map: '#2B3A52' };
 const GID = Object.fromEntries(G.map((g) => [g.id, g]));
 const isTool = (g) => g.cat === 'tool' || g.cat === 'map' || g.tool;
 const groupOf = (id) => GROUPS.find((x) => x.ids.includes(id));
 
 /* ---------------- map drawing ---------------- */
-const PLACES = { 'Downtown / Broadway': [518, 250], 'BNA Airport': [705, 335], 'Vanderbilt / Midtown': [470, 292], 'Green Hills Mall': [472, 395], 'Cool Springs': [505, 612], 'Downtown Franklin': [465, 690], 'East Bank (Oracle / stadium)': [548, 252] };
+const PLACES = { 'Downtown / Broadway': [518, 250], 'BNA Airport': [705, 335], 'Vanderbilt / Midtown': [470, 292], 'Green Hills Mall': [472, 395], 'Cool Springs': [505, 612], 'Downtown Franklin': [465, 690], 'East Bank (Oracle / stadium)': [548, 252], 'Maryland Farms (Brentwood)': [545, 522] };
 function baseMap(inner) {
   return `<svg viewBox="0 0 900 820" role="img" aria-label="Schematic map of Nashville, Brentwood and Franklin">
   <rect width="900" height="820" fill="#FFFDF8"/>
@@ -740,6 +901,9 @@ function guideNav(cur) {
 function catButtons() {
   return `<div class="rg-catbtns">${GROUPS.map((gr) => `<a class="rg-catbtn" href="#cat-${gr.k}"><span class="rg-catbtn-ic">${icon(gr.ic, 22)}</span><b>${gr.n}</b><small>${gr.ids.length} ${gr.ids.length === 1 ? 'guide' : 'guides'}</small></a>`).join('')}</div>`;
 }
+function empStrip(list) {
+  return `<div class="rg-emps">${list.map((e) => `<a class="rg-emp" href="${href(e.id)}"><b>${e.short || e.n}</b><small>${e.office.split(';')[0].split('(')[0].trim()}</small><span>Where to live →</span></a>`).join('')}<a class="rg-emp rg-emp-all" href="${href('moving-for-work')}"><b>All employers</b><small>Plus your relocation package, decoded</small><span>Start here →</span></a></div>`;
+}
 function cityButtons() {
   return `<div class="rg-cities">${Object.entries(CITIES).map(([k, c]) => `<a class="rg-city" href="${href(k)}">${pic(c.img, c.n + ', Tennessee')}<span><small>${c.county}</small><b>${c.n}</b><em>See the ${c.n} guides →</em></span></a>`).join('')}</div>`;
 }
@@ -763,6 +927,7 @@ function hubView() {
   <div class="rg-wrap">
   <div class="rg-results" id="rg-results" hidden><div class="rg-results-h"><h2 id="rg-rcount"></h2><button type="button" class="rg-btn rg-btn-ghost" id="rg-clear">Clear search</button></div><div class="rg-grid" id="rg-rgrid"></div></div>
   <section class="rg-sec" id="rg-start"><span class="rg-eyebrow">Choose your city</span><h2 class="rg-h">Three places, three different lives</h2>${cityButtons()}</section>
+  <section class="rg-sec"><span class="rg-eyebrow">Moving for work</span><h2 class="rg-h">Relocating with your company?</h2>${empStrip(EMP)}</section>
   <section class="rg-sec"><span class="rg-eyebrow">Or jump to a topic</span><h2 class="rg-h">What do you need to figure out?</h2>${catButtons()}</section>
   <section class="rg-sec"><span class="rg-eyebrow">Just added</span><div class="rg-rail rg-rail-new">${newest.map((g) => card(g, { short: 1 })).join('')}</div></section>
   ${groupSections()}
@@ -782,6 +947,7 @@ function cityView(k) {
   <section class="rg-sec"><span class="rg-eyebrow">${c.n} neighborhoods</span><h2 class="rg-h">Where to look in ${c.n}</h2>${T(hoods.map((h) => ({ m: h.price, h: h.n, img: h.img, link: h.page, p: h.vibe + ' ' + h.schools })))}
   <div class="rg-dtmini"><h3>Drive times from ${c.n} (off-peak / rush, minutes)</h3>${TABLE(['From', 'Downtown', 'BNA', 'Cool Springs', 'Green Hills'], hoods.map((h) => [h.short || h.n, `${DT[h.id][0]} / ${rush(DT[h.id][0], 0)}`, `${DT[h.id][1]} / ${rush(DT[h.id][1], 1)}`, `${DT[h.id][4]} / ${rush(DT[h.id][4], 4)}`, `${DT[h.id][3]} / ${rush(DT[h.id][3], 3)}`]))}<p><a href="${href('drive-times')}">Open the full Drive Time Calculator →</a></p></div></section>
   <section class="rg-sec"><span class="rg-eyebrow">${c.n} schools</span><h2 class="rg-h">Schools in and near ${c.n}</h2><div class="rg-slist">${SCHOOLS.filter((s) => SCHOOL_CITY(s) === k).filter((s) => k !== 'nashville' || /High|Academy|School|Magnet|Hall/.test(s[0])).slice(0, 12).map(schoolRow).join('')}</div><p><a href="${href('school-finder')}${MODE === 'spa' ? '' : '?city=' + k}">Filter every ${c.n} school →</a></p></section>
+  <section class="rg-sec"><span class="rg-eyebrow">Moving for work</span><h2 class="rg-h">Employers near ${c.n}</h2>${empStrip(k === 'nashville' ? EMP : EMP.filter((e) => e.d === 4 || e.id === 'moving-for-healthcare'))}</section>
   ${groupSections(k)}
   <section class="rg-sec"><span class="rg-eyebrow">More on ${c.n}</span><h2 class="rg-h">Go deeper</h2><div class="rg-linklist">${c.site.map(([u, t]) => `<a href="${u}">${t}<span>→</span></a>`).join('')}</div></section>
   </div>`;
@@ -796,6 +962,14 @@ function prevNext(g) {
   const i = gr.ids.indexOf(g.id), p = gr.ids[i - 1], n = gr.ids[i + 1];
   return `<div class="rg-pn">${p ? `<a href="${href(p)}"><small>← Previous in ${gr.n}</small><b>${GID[p].t}</b></a>` : '<span></span>'}${n ? `<a class="nx" href="${href(n)}"><small>Next in ${gr.n} →</small><b>${GID[n].t}</b></a>` : ''}</div>`;
 }
+function idxBlock(g) {
+  const nm = IDXNAME[g.idx];
+  const lead = leadForm({ compact: 1, source: g.t, title: g.school ? `Get every home zoned for ${g.school}` : `Get the full list, including off-market`, text: 'Not every home is on the MLS. I’ll send current, coming-soon and private listings that match, and confirm school zoning on each.', areas: [nm, ...(g.also || []).map((a) => IDXNAME[a])].join(', '), goal: g.school ? 'Schools' : 'Finding the right neighborhood', cta: 'Send me the list' });
+  if (MODE === 'spa') return `<div class="rg-idx-ph"><b>Live ${nm} listings appear here on the site.</b> They come from the MLS (Realtracs) through the site’s home search.</div>${lead}`;
+  const chip = (q, t) => `<a class="idx-chip" href="/search/?area=${g.idx}${q}">${t}</a>`;
+  return `<section class="section idx-nb idx-nb-inline rg-idx" data-idx="neighborhood" data-area="${g.idx}" aria-labelledby="idx-nb-h"><div class="container"><div class="idx-nb-head"><div><span class="eyebrow">Homes for sale now</span><h2 class="section-title" id="idx-nb-h">${nm} homes for sale</h2><p>Current $1M+ listings, newest first. ${g.school ? 'Not every home shown is in the school zone; ask me for the zoned list.' : ''}</p></div><a class="btn btn-dark idx-all" href="/search/?area=${g.idx}">See all ${nm} homes →</a></div>
+  <div class="idx-chips">${chip('', 'All homes $1M+')}${chip('&amp;max=3000000', '$1M – $3M')}${chip('&amp;min=3000000&amp;max=5000000', '$3M – $5M')}${chip('&amp;min=5000000', '$5M+')}${chip('&amp;beds=4', '4+ bedrooms')}${chip('&amp;beds=5', '5+ bedrooms')}</div><div class="idx-embed" hidden></div><p class="idx-note"><span data-idx-provider></span>Listing data from Realtracs, deemed reliable but not guaranteed.</p></div></section><div class="rg-wrap">${lead}</div>`;
+}
 function faqHTML(g) {
   if (!g.faq) return '';
   return `<section class="rg-faq"><h2>Quick answers</h2>${g.faq.map(([q, a]) => `<details class="rg-faq-i"><summary>${q}${icon('chev', 16)}</summary><p class="rg-faq-a">${a}</p></details>`).join('')}</section>`;
@@ -808,6 +982,7 @@ function guideView(g) {
   <span class="rg-eyebrow light">${CATLABEL[g.cat]} · ${cityTxt}</span><h1>${g.t}</h1><p class="rg-lede">${g.blurb}</p><p class="rg-byline">By Jason Kloess, REALTOR® · Compass · Updated ${UPDATED}</p></div></header>
   ${guideNav(g.id)}
   <div class="rg-wrap rg-body"><article class="rg-content" id="rg-main">${g.r()}${faqHTML(g)}</article>
+  ${g.idx ? idxBlock(g) : ''}
   ${prevNext(g)}
   <section class="rg-related"><span class="rg-eyebrow">Keep exploring</span><h2 class="rg-h">Related guides</h2><div class="rg-rail">${related(g).map((x) => card(x)).join('')}</div></section></div>`;
 }
@@ -897,7 +1072,10 @@ function bindCommon() {
   $$('.rg-dd').forEach((d) => d.addEventListener('toggle', () => { if (d.open) $$('.rg-dd').forEach((o) => { if (o !== d) o.open = false; }); }));
   document.addEventListener('click', (e) => { if (!e.target.closest('.rg-dd')) $$('.rg-dd[open]').forEach((d) => (d.open = false)); if (!e.target.closest('.rg-mnav')) $$('.rg-mnav[open]').forEach((d) => (d.open = false)); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $$('.rg-dd[open], .rg-mnav[open]').forEach((d) => (d.open = false)); });
+  if (root.matchMedia && root.matchMedia('(min-width:760px)').matches) $$('.rg-macc').forEach((d) => (d.open = true));
   $$('.rg-mnav a').forEach((a) => a.addEventListener('click', () => { const m = a.closest('.rg-mnav'); if (m) m.open = false; }));
+  // Trusted Pros: category buttons prefill the shortlist form
+  $$('.rg-vask').forEach((b) => b.addEventListener('click', () => { setLeadContext({ message: 'Shortlist requested: ' + b.dataset.cat }); const f = $('#pros-form'); if (f) { const h = f.querySelector('h2'); if (h) h.textContent = 'Send me your ' + b.dataset.cat.toLowerCase() + ' shortlist'; f.scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(() => { const i = f.querySelector('input[name=first_name]'); i && i.focus({ preventScroll: true }); }, 500); } }));
   // UTM capture
   try { const q = new URLSearchParams(location.search); ['utm_source', 'utm_medium', 'utm_campaign'].forEach((k) => { const v = q.get(k); if (v) $$(`input[name="${k}"]`).forEach((i) => (i.value = v)); }); } catch (e) {}
   // forms → Netlify Forms (AJAX) → submission-created.mts → Zapier "NLL lead routing" → Compass CRM
@@ -946,7 +1124,7 @@ function spaRoute() {
   root.addEventListener('hashchange', render); render();
 }
 
-Object.assign(RG_EXPORT, { G, GID, GROUPS, CITIES, HOODS, HOOD, DT, DEST, rush, SCHOOLS, SCHOOL_CITY, TAXRATES, BUILD, CATLABEL, UPDATED, SITE, BASE, href, imgPath, isTool, groupOf, hubView, cityView, guideView, askSection, leadForm, boot });
+Object.assign(RG_EXPORT, { EMP, G, GID, GROUPS, CITIES, HOODS, HOOD, DT, DEST, rush, SCHOOLS, SCHOOL_CITY, TAXRATES, BUILD, CATLABEL, UPDATED, SITE, BASE, href, imgPath, isTool, groupOf, hubView, cityView, guideView, askSection, leadForm, boot });
 function RG_EXPORT() {}
 root.RG = RG_EXPORT;
 if (typeof document !== 'undefined' && root.RG_AUTOBOOT !== false) { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot(); }

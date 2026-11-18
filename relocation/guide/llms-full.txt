@@ -1,6 +1,6 @@
 # The Nashville, Brentwood & Franklin Relocation Guide
 
-> 34 free guides and interactive tools for people moving to Nashville, Brentwood or Franklin, Tennessee, written by Jason Kloess, REALTOR® with Compass (Tennessee license #357138; 615-457-0768; jason@nashvilleluxurylist.com). Hub: https://www.nashvilleluxurylist.com/relocation/guide/
+> 53 free guides and interactive tools for people moving to Nashville, Brentwood or Franklin, Tennessee, written by Jason Kloess, REALTOR® with Compass (Tennessee license #357138; 615-457-0768; jason@nashvilleluxurylist.com). Hub: https://www.nashvilleluxurylist.com/relocation/guide/
 > Last updated November 2026. Machine-readable data: https://www.nashvilleluxurylist.com/relocation/guide/data/neighborhoods.json, https://www.nashvilleluxurylist.com/relocation/guide/data/schools.json, https://www.nashvilleluxurylist.com/relocation/guide/data/property-tax-2026.json
 
 ## City hub: Moving to Nashville, TN
@@ -125,34 +125,34 @@ Type: interactive tool (the static content below is what the tool is built on)
 
 I’d live inBelle MeadeGreen HillsForest HillsOak Hill12 South & Belmont-HillsboroSylvan Park & West NashvilleEast NashvilleGermantown & DowntownBrentwood (central)Governors Club & AnnandaleNolensville & ArringtonHistoric Downtown FranklinWesthavenLeiper’s Fork & West FranklinThompson’s StationCollege Grove
 TrafficOff-peakRush hourBoth
-Downtown / Broadway15 minBNA Airport20 minVanderbilt / Midtown10 minGreen Hills Mall3 minCool Springs18 minDowntown Franklin25 minEast Bank (Oracle / stadium)17 min
+Downtown / Broadway15 minBNA Airport20 minVanderbilt / Midtown10 minGreen Hills Mall3 minCool Springs18 minDowntown Franklin25 minEast Bank (Oracle / stadium)17 minMaryland Farms (Brentwood)13 min
 
 ## Compare two neighborhoods
 
 Neighborhood ABelle MeadeGreen HillsForest HillsOak Hill12 South & Belmont-HillsboroSylvan Park & West NashvilleEast NashvilleGermantown & DowntownBrentwood (central)Governors Club & AnnandaleNolensville & ArringtonHistoric Downtown FranklinWesthavenLeiper’s Fork & West FranklinThompson’s StationCollege Grove
 Neighborhood BBelle MeadeGreen HillsForest HillsOak Hill12 South & Belmont-HillsboroSylvan Park & West NashvilleEast NashvilleGermantown & DowntownBrentwood (central)Governors Club & AnnandaleNolensville & ArringtonHistoric Downtown FranklinWesthavenLeiper’s Fork & West FranklinThompson’s StationCollege Grove
-Green HillsBrentwoodDowntown / Broadway15/2220/32BNA Airport20/3522/38Vanderbilt / Midtown10/1520/32Green Hills Mall3/412/17Cool Springs18/2910/15Downtown Franklin25/4017/27East Bank (Oracle / stadium)17/2722/35
+Green HillsBrentwoodDowntown / Broadway15/2220/32BNA Airport20/3522/38Vanderbilt / Midtown10/1520/32Green Hills Mall3/412/17Cool Springs18/2910/15Downtown Franklin25/4017/27East Bank (Oracle / stadium)17/2722/35Maryland Farms (Brentwood)13/195/6
 
 Minutes off-peak / rush hour. Green = faster.
 
 Q: See every drive time in one table
-From \ to (off-peak / rush, minutes) | Downtown / Broadway | BNA Airport | Vanderbilt / Midtown | Green Hills Mall | Cool Springs | Downtown Franklin | East Bank (Oracle / stadium) | 
-Belle Meade | 15 / 22 | 22 / 38 | 10 / 15 | 10 / 15 | 25 / 40 | 30 / 48 | 17 / 27 | 
-Green Hills | 15 / 22 | 20 / 35 | 10 / 15 | 3 / 4 | 18 / 29 | 25 / 40 | 17 / 27 | 
-Forest Hills | 18 / 29 | 20 / 35 | 15 / 22 | 8 / 12 | 15 / 22 | 22 / 35 | 20 / 32 | 
-Oak Hill | 14 / 20 | 17 / 30 | 13 / 19 | 8 / 12 | 17 / 27 | 24 / 38 | 16 / 26 | 
-12 South & Belmont-Hillsboro | 8 / 12 | 15 / 25 | 7 / 10 | 8 / 12 | 20 / 32 | 27 / 43 | 10 / 15 | 
-Sylvan Park & West Nashville | 10 / 15 | 20 / 35 | 8 / 12 | 12 / 17 | 25 / 40 | 32 / 51 | 12 / 17 | 
-East Nashville | 8 / 12 | 13 / 22 | 13 / 19 | 18 / 29 | 27 / 43 | 34 / 54 | 6 / 8 | 
-Germantown & Downtown | 5 / 6 | 15 / 25 | 9 / 13 | 15 / 22 | 25 / 40 | 32 / 51 | 7 / 10 | 
-Brentwood (central) | 20 / 32 | 22 / 38 | 20 / 32 | 12 / 17 | 10 / 15 | 17 / 27 | 22 / 35 | 
-Governors Club & Annandale | 25 / 40 | 25 / 43 | 25 / 40 | 18 / 29 | 10 / 15 | 15 / 22 | 27 / 43 | 
-Nolensville & Arrington | 27 / 43 | 25 / 43 | 27 / 43 | 20 / 32 | 18 / 29 | 22 / 35 | 28 / 45 | 
-Historic Downtown Franklin | 30 / 48 | 32 / 54 | 30 / 48 | 25 / 40 | 8 / 12 | 2 / 3 | 32 / 51 | 
-Westhaven | 32 / 51 | 35 / 59 | 30 / 48 | 25 / 40 | 12 / 17 | 7 / 10 | 34 / 54 | 
-Leiper’s Fork & West Franklin | 42 / 67 | 45 / 75 | 40 / 64 | 35 / 56 | 25 / 40 | 15 / 22 | 44 / 70 | 
-Thompson’s Station | 38 / 61 | 40 / 67 | 37 / 59 | 32 / 51 | 16 / 26 | 12 / 17 | 40 / 64 | 
-College Grove | 40 / 64 | 40 / 67 | 40 / 64 | 33 / 53 | 22 / 35 | 20 / 32 | 42 / 67 | 
+From \ to (off-peak / rush, minutes) | Downtown / Broadway | BNA Airport | Vanderbilt / Midtown | Green Hills Mall | Cool Springs | Downtown Franklin | East Bank (Oracle / stadium) | Maryland Farms (Brentwood) | 
+Belle Meade | 15 / 22 | 22 / 38 | 10 / 15 | 10 / 15 | 25 / 40 | 30 / 48 | 17 / 27 | 20 / 32 | 
+Green Hills | 15 / 22 | 20 / 35 | 10 / 15 | 3 / 4 | 18 / 29 | 25 / 40 | 17 / 27 | 13 / 19 | 
+Forest Hills | 18 / 29 | 20 / 35 | 15 / 22 | 8 / 12 | 15 / 22 | 22 / 35 | 20 / 32 | 10 / 15 | 
+Oak Hill | 14 / 20 | 17 / 30 | 13 / 19 | 8 / 12 | 17 / 27 | 24 / 38 | 16 / 26 | 10 / 15 | 
+12 South & Belmont-Hillsboro | 8 / 12 | 15 / 25 | 7 / 10 | 8 / 12 | 20 / 32 | 27 / 43 | 10 / 15 | 16 / 26 | 
+Sylvan Park & West Nashville | 10 / 15 | 20 / 35 | 8 / 12 | 12 / 17 | 25 / 40 | 32 / 51 | 12 / 17 | 20 / 32 | 
+East Nashville | 8 / 12 | 13 / 22 | 13 / 19 | 18 / 29 | 27 / 43 | 34 / 54 | 6 / 8 | 22 / 35 | 
+Germantown & Downtown | 5 / 6 | 15 / 25 | 9 / 13 | 15 / 22 | 25 / 40 | 32 / 51 | 7 / 10 | 18 / 29 | 
+Brentwood (central) | 20 / 32 | 22 / 38 | 20 / 32 | 12 / 17 | 10 / 15 | 17 / 27 | 22 / 35 | 5 / 6 | 
+Governors Club & Annandale | 25 / 40 | 25 / 43 | 25 / 40 | 18 / 29 | 10 / 15 | 15 / 22 | 27 / 43 | 12 / 17 | 
+Nolensville & Arrington | 27 / 43 | 25 / 43 | 27 / 43 | 20 / 32 | 18 / 29 | 22 / 35 | 28 / 45 | 15 / 22 | 
+Historic Downtown Franklin | 30 / 48 | 32 / 54 | 30 / 48 | 25 / 40 | 8 / 12 | 2 / 3 | 32 / 51 | 15 / 22 | 
+Westhaven | 32 / 51 | 35 / 59 | 30 / 48 | 25 / 40 | 12 / 17 | 7 / 10 | 34 / 54 | 18 / 29 | 
+Leiper’s Fork & West Franklin | 42 / 67 | 45 / 75 | 40 / 64 | 35 / 56 | 25 / 40 | 15 / 22 | 44 / 70 | 30 / 48 | 
+Thompson’s Station | 38 / 61 | 40 / 67 | 37 / 59 | 32 / 51 | 16 / 26 | 12 / 17 | 40 / 64 | 24 / 38 | 
+College Grove | 40 / 64 | 40 / 67 | 40 / 64 | 33 / 53 | 22 / 35 | 20 / 32 | 42 / 67 | 25 / 40 | 
 
 Estimates in minutes for typical weekday conditions. Rush hour assumes about 7:15–8:45 a.m. and 4:15–6:15 p.m. Weather, events and construction change things fast; check live traffic before a tight appointment.
 
@@ -1616,7 +1616,7 @@ From the West Coast? Humidity is the biggest adjustment. From the North? You’l
 
 # Drive Times, Mapped
 URL: https://www.nashvilleluxurylist.com/relocation/guide/drive-map/
-Section: Maps · Areas: Nashville, Brentwood, Franklin
+Section: Tools · Areas: Nashville, Brentwood, Franklin
 Summary: Tap any neighborhood on the map to see how long it takes to get everywhere.
 Type: interactive tool (the static content below is what the tool is built on)
 
@@ -1634,48 +1634,780 @@ Or pick from the listBelle MeadeGreen HillsForest HillsOak Hill12 South & Belmon
 
 ## Green Hills
 
-Convenience central: the Mall at Green Hills, Hill Center, good restaurants and new construction on quiet side streets.Downtown / Broadway15/22BNA Airport20/35Vanderbilt / Midtown10/15Green Hills Mall3/4Cool Springs18/29Downtown Franklin25/40East Bank (Oracle / stadium)17/27
+Convenience central: the Mall at Green Hills, Hill Center, good restaurants and new construction on quiet side streets.Downtown / Broadway15/22BNA Airport20/35Vanderbilt / Midtown10/15Green Hills Mall3/4Cool Springs18/29Downtown Franklin25/40East Bank (Oracle / stadium)17/27Maryland Farms (Brentwood)13/19
 
 Off-peak Rush hour
 
 Q: See every drive time in one table
-From \ to (off-peak / rush, minutes) | Downtown / Broadway | BNA Airport | Vanderbilt / Midtown | Green Hills Mall | Cool Springs | Downtown Franklin | East Bank (Oracle / stadium) | 
-Belle Meade | 15 / 22 | 22 / 38 | 10 / 15 | 10 / 15 | 25 / 40 | 30 / 48 | 17 / 27 | 
-Green Hills | 15 / 22 | 20 / 35 | 10 / 15 | 3 / 4 | 18 / 29 | 25 / 40 | 17 / 27 | 
-Forest Hills | 18 / 29 | 20 / 35 | 15 / 22 | 8 / 12 | 15 / 22 | 22 / 35 | 20 / 32 | 
-Oak Hill | 14 / 20 | 17 / 30 | 13 / 19 | 8 / 12 | 17 / 27 | 24 / 38 | 16 / 26 | 
-12 South & Belmont-Hillsboro | 8 / 12 | 15 / 25 | 7 / 10 | 8 / 12 | 20 / 32 | 27 / 43 | 10 / 15 | 
-Sylvan Park & West Nashville | 10 / 15 | 20 / 35 | 8 / 12 | 12 / 17 | 25 / 40 | 32 / 51 | 12 / 17 | 
-East Nashville | 8 / 12 | 13 / 22 | 13 / 19 | 18 / 29 | 27 / 43 | 34 / 54 | 6 / 8 | 
-Germantown & Downtown | 5 / 6 | 15 / 25 | 9 / 13 | 15 / 22 | 25 / 40 | 32 / 51 | 7 / 10 | 
-Brentwood (central) | 20 / 32 | 22 / 38 | 20 / 32 | 12 / 17 | 10 / 15 | 17 / 27 | 22 / 35 | 
-Governors Club & Annandale | 25 / 40 | 25 / 43 | 25 / 40 | 18 / 29 | 10 / 15 | 15 / 22 | 27 / 43 | 
-Nolensville & Arrington | 27 / 43 | 25 / 43 | 27 / 43 | 20 / 32 | 18 / 29 | 22 / 35 | 28 / 45 | 
-Historic Downtown Franklin | 30 / 48 | 32 / 54 | 30 / 48 | 25 / 40 | 8 / 12 | 2 / 3 | 32 / 51 | 
-Westhaven | 32 / 51 | 35 / 59 | 30 / 48 | 25 / 40 | 12 / 17 | 7 / 10 | 34 / 54 | 
-Leiper’s Fork & West Franklin | 42 / 67 | 45 / 75 | 40 / 64 | 35 / 56 | 25 / 40 | 15 / 22 | 44 / 70 | 
-Thompson’s Station | 38 / 61 | 40 / 67 | 37 / 59 | 32 / 51 | 16 / 26 | 12 / 17 | 40 / 64 | 
-College Grove | 40 / 64 | 40 / 67 | 40 / 64 | 33 / 53 | 22 / 35 | 20 / 32 | 42 / 67 |
+From \ to (off-peak / rush, minutes) | Downtown / Broadway | BNA Airport | Vanderbilt / Midtown | Green Hills Mall | Cool Springs | Downtown Franklin | East Bank (Oracle / stadium) | Maryland Farms (Brentwood) | 
+Belle Meade | 15 / 22 | 22 / 38 | 10 / 15 | 10 / 15 | 25 / 40 | 30 / 48 | 17 / 27 | 20 / 32 | 
+Green Hills | 15 / 22 | 20 / 35 | 10 / 15 | 3 / 4 | 18 / 29 | 25 / 40 | 17 / 27 | 13 / 19 | 
+Forest Hills | 18 / 29 | 20 / 35 | 15 / 22 | 8 / 12 | 15 / 22 | 22 / 35 | 20 / 32 | 10 / 15 | 
+Oak Hill | 14 / 20 | 17 / 30 | 13 / 19 | 8 / 12 | 17 / 27 | 24 / 38 | 16 / 26 | 10 / 15 | 
+12 South & Belmont-Hillsboro | 8 / 12 | 15 / 25 | 7 / 10 | 8 / 12 | 20 / 32 | 27 / 43 | 10 / 15 | 16 / 26 | 
+Sylvan Park & West Nashville | 10 / 15 | 20 / 35 | 8 / 12 | 12 / 17 | 25 / 40 | 32 / 51 | 12 / 17 | 20 / 32 | 
+East Nashville | 8 / 12 | 13 / 22 | 13 / 19 | 18 / 29 | 27 / 43 | 34 / 54 | 6 / 8 | 22 / 35 | 
+Germantown & Downtown | 5 / 6 | 15 / 25 | 9 / 13 | 15 / 22 | 25 / 40 | 32 / 51 | 7 / 10 | 18 / 29 | 
+Brentwood (central) | 20 / 32 | 22 / 38 | 20 / 32 | 12 / 17 | 10 / 15 | 17 / 27 | 22 / 35 | 5 / 6 | 
+Governors Club & Annandale | 25 / 40 | 25 / 43 | 25 / 40 | 18 / 29 | 10 / 15 | 15 / 22 | 27 / 43 | 12 / 17 | 
+Nolensville & Arrington | 27 / 43 | 25 / 43 | 27 / 43 | 20 / 32 | 18 / 29 | 22 / 35 | 28 / 45 | 15 / 22 | 
+Historic Downtown Franklin | 30 / 48 | 32 / 54 | 30 / 48 | 25 / 40 | 8 / 12 | 2 / 3 | 32 / 51 | 15 / 22 | 
+Westhaven | 32 / 51 | 35 / 59 | 30 / 48 | 25 / 40 | 12 / 17 | 7 / 10 | 34 / 54 | 18 / 29 | 
+Leiper’s Fork & West Franklin | 42 / 67 | 45 / 75 | 40 / 64 | 35 / 56 | 25 / 40 | 15 / 22 | 44 / 70 | 30 / 48 | 
+Thompson’s Station | 38 / 61 | 40 / 67 | 37 / 59 | 32 / 51 | 16 / 26 | 12 / 17 | 40 / 64 | 24 / 38 | 
+College Grove | 40 / 64 | 40 / 67 | 40 / 64 | 33 / 53 | 22 / 35 | 20 / 32 | 42 / 67 | 25 / 40 |
+
+---
+
+# Homes Zoned for Brentwood High
+URL: https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-brentwood-high/
+Section: Home search · Areas: Brentwood
+Summary: Luxury homes for sale in the Brentwood High School zone: which parts of Brentwood feed it, what homes cost, and live listings.
+
+Brentwood High is one of Williamson County’s two Brentwood high schools and a top reason families target the city. It generally serves central and northern Brentwood, while Ravenwood High serves areas farther south and east. Zones shift as the district grows, so every address needs to be checked.
+WCSWilliamson County Schools~1 acreTypical lot in much of the zone$1.5M–$3MWhere most established-neighborhood homes tradeBy addressZoning must be verified per home
+
+## What you’ll find in the zone
+
+- Established neighborhoods of renovated 1980s–2000s homes on about an acre, close to Maryland Farms, Hill Center and I-65.
+- Larger renovations and custom rebuilds on the bigger lots west of Franklin Pike.
+- Quick access north to Green Hills and Midtown: a real advantage for commuters into Nashville.
+
+## How I confirm zoning
+
+Before you write an offer, I check the address with Williamson County Schools’ zoning tool and the district directly, and flag any rezoning discussions. You’ll never buy on a listing’s “school” field alone.Live listings by area:BrentwoodGovernors ClubAnnandale
+
+## Quick answers
+
+Q: How do I know if a home is zoned for Brentwood High School?
+
+School zones are set by address and can change. Check the district’s zoning tool for the exact address, and ask your agent to confirm with the district before you make an offer.
+
+---
+
+# Homes Zoned for Ravenwood High
+URL: https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-ravenwood-high/
+Section: Home search · Areas: Brentwood
+Summary: Luxury homes for sale in the Ravenwood High zone in south and east Brentwood, including gated communities, plus live listings.
+
+Ravenwood High generally serves southern and eastern Brentwood, including many of the city’s newer estate neighborhoods and gated communities. Like every Williamson County school, its boundaries are set by address and can change.
+WCSWilliamson County SchoolsGated optionsSeveral gated and amenity communities in this part of town$2M+Where newer estate homes typically startBy addressZoning must be verified per home
+
+## What you’ll find in the zone
+
+- Newer estate homes on large lots with amenities, toward Split Log Road, Sunset Road and Nolensville.
+- Gated communities and golf: see Governors Club and Governors Club vs. Annandale.
+- An easy drive to Cool Springs, Nolensville and Franklin.
+
+## How I confirm zoning
+
+I verify each address with the district before you write an offer. Ask me for a list of every current and coming-soon home in the zone.Live listings by area:BrentwoodGovernors ClubAnnandale
+
+## Quick answers
+
+Q: How do I know if a home is zoned for Ravenwood High School?
+
+School zones are set by address and can change. Check the district’s zoning tool for the exact address, and ask your agent to confirm with the district before you make an offer.
+
+---
+
+# Homes Zoned for Franklin High & FSSD
+URL: https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-franklin-high/
+Section: Home search · Areas: Franklin
+Summary: Homes for sale in Franklin Special School District (PK–8) and the Franklin High School zone, with live listings and how zoning works.
+
+Much of the City of Franklin is served by Franklin Special School District for PK–8. Those students then attend Williamson County high schools such as Franklin High. Homes in and around historic downtown are often in this pairing, which many families love for its walkable small-town feel.
+FSSDPK–8 in much of the City of FranklinWCSHigh school, often Franklin High$12,150Property tax on a $3M home in the City of Franklin (2026)By addressZoning must be verified per home
+
+## What you’ll find
+
+- Restored Victorians and new infill near Main Street.
+- Gated estates like Laurelbrooke close to downtown.
+- Walkable new-urbanist living in Westhaven (confirm its zoning separately).Live listings by area:FranklinWesthavenLaurelbrookeLeiper’s Fork
+
+## Quick answers
+
+Q: How do I know if a home is zoned for Franklin High School?
+
+School zones are set by address and can change. Check the district’s zoning tool for the exact address, and ask your agent to confirm with the district before you make an offer.
+
+---
+
+# Homes Zoned for Hillsboro High (IB)
+URL: https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-hillsboro-high/
+Section: Home search · Areas: Nashville
+Summary: Green Hills homes zoned for Julia Green or Percy Priest Elementary and Hillsboro High’s IB program, with live listings.
+
+For Nashville families who want a strong public option without leaving town, the Green Hills cluster is the answer: Julia Green and Percy Priest elementaries feeding toward Hillsboro High, home to an International Baccalaureate program.
+MNPSMetro Nashville Public SchoolsIBHillsboro High offers the IB Diploma Programme$1.5M–$5MTypical Green Hills luxury rangeBy addressZoning must be verified per home
+
+## Why buyers target it
+
+- Ten minutes to Midtown and Vanderbilt, with the Mall at Green Hills and Hill Center close by.
+- New construction on quiet side streets, plus mid-century originals on larger lots.
+- Private schools (Harpeth Hall, Ensworth, Lipscomb Academy) are also minutes away, so families can keep both options open.Live listings by area:Green Hills12 SouthBelle Meade
+
+## Quick answers
+
+Q: How do I know if a home is zoned for Hillsboro High School?
+
+School zones are set by address and can change. Check the district’s zoning tool for the exact address, and ask your agent to confirm with the district before you make an offer.
+
+---
+
+# Homes Near Nashville’s Top Private Schools
+URL: https://www.nashvilleluxurylist.com/relocation/guide/homes-near-private-schools/
+Section: Home search · Areas: Nashville, Brentwood, Franklin
+Summary: Where to live for a short drive to MBA, Harpeth Hall, Ensworth, USN, CPA, Brentwood Academy and BGA, with live listings.
+
+The school run shapes daily life more than almost anything else. Here is where families tend to live for each of Nashville’s top independent schools.
+
+School | Where it is | Shortest drives from | 
+Montgomery Bell Academy (boys 7–12) | West End | Belle Meade, Sylvan Park, Green Hills | 
+Harpeth Hall (girls 5–12) | Green Hills | Green Hills, Belle Meade, Forest Hills | 
+Ensworth (K–12) | Green Hills and Highway 100 | Belle Meade, Green Hills, Forest Hills | 
+University School of Nashville (K–12) | Hillsboro Village | 12 South, Green Hills, Belle Meade | 
+Christ Presbyterian Academy (PK–12) | Forest Hills | Forest Hills, Brentwood, Oak Hill | 
+Franklin Road Academy (PK–12) | Oak Hill | Oak Hill, Forest Hills, Brentwood | 
+Brentwood Academy (6–12) | Brentwood | Brentwood, Franklin, Forest Hills | 
+Battle Ground Academy (K–12) | Franklin | Franklin, Westhaven, Leiper’s Fork | 
+
+Compare every option in the School Finder or on the Schools Map.Live listings by area:Belle MeadeGreen HillsForest Hills & Oak HillBrentwoodFranklin
+
+---
+
+# Homes With Acreage Near Nashville
+URL: https://www.nashvilleluxurylist.com/relocation/guide/homes-with-acreage/
+Section: Home search · Areas: Franklin, Brentwood, Nashville
+Summary: Estates, farms and horse properties on 5 to 100+ acres within an hour of Nashville, with live listings.
+
+From five wooded acres in Forest Hills to a hundred-acre farm in Leiper’s Fork, land is one of Middle Tennessee’s great luxuries. Read the full background in A Little More Land.
+15–25 minForest Hills and Oak Hill: acreage inside Nashville25–40 minLeiper’s Fork and west Franklin farms30–45 minCollege Grove and Arrington$1.30Rate per $100 in unincorporated Williamson (2026)
+
+## What I check on every land purchase
+
+- Septic capacity and soil, or sewer availability
+- Well vs. public water and water pressure
+- Flood zones, creeks and FEMA maps
+- Easements, conservation restrictions and the right to subdivide
+- Fencing, barns, road frontage and internet optionsLive listings by area:Leiper’s ForkCollege GroveForest Hills & Oak HillFranklin
+
+---
+
+# Gated Communities in Brentwood & Franklin
+URL: https://www.nashvilleluxurylist.com/relocation/guide/gated-communities/
+Section: Home search · Areas: Brentwood, Franklin
+Summary: Governors Club, Annandale, Laurelbrooke, The Grove and Troubadour compared, with live listings in each.
+
+Community | Where | Known for | 
+Governors Club | Brentwood | Staffed gate, private golf, clubhouse, pools | 
+Annandale | Brentwood | Larger estate lots and privacy | 
+Laurelbrooke | Franklin | Gated estates near downtown Franklin | 
+The Grove | College Grove | Private golf and resort amenities | 
+Troubadour | College Grove | Golf and field club on rolling farmland | 
+
+Comparing two? Read Governors Club vs. Annandale.Live listings by area:Governors ClubAnnandaleLaurelbrookeThe GroveTroubadour
+
+---
+
+# Golf Course Homes
+URL: https://www.nashvilleluxurylist.com/relocation/guide/golf-course-homes/
+Section: Home search · Areas: Brentwood, Franklin
+Summary: Homes on or near the course at The Grove, Troubadour, Governors Club, Westhaven and Legends Ridge, with live listings.
+
+Golf communities around Nashville range from walkable neighborhoods with a club at the center to full resort-style private clubs. Membership is often separate from the home: ask before you buy. See Country Clubs & Golf for every club.
+College Grove
+
+### The Grove
+
+Private golf, resort amenities and newer estates.College Grove
+
+### Troubadour
+
+A golf and field club among farms.Brentwood
+
+### Governors Club
+
+Gated with a private course.Franklin
+
+### Westhaven
+
+Walkable neighborhood built around a golf club.Franklin
+
+### Legends Ridge
+
+Estate homes by Vanderbilt Legends Club.Live listings by area:The GroveTroubadourGovernors ClubWesthavenLegends Ridge
+
+---
+
+# Walkable Luxury Homes
+URL: https://www.nashvilleluxurylist.com/relocation/guide/walkable-luxury-homes/
+Section: Home search · Areas: Nashville, Franklin
+Summary: Where you can walk to coffee, dinner and parks: 12 South, East Nashville, Sylvan Park, downtown Franklin and Westhaven.
+
+Nashville
+
+### 12 South & Belmont-Hillsboro
+
+Boutiques, coffee and Sevier Park.Nashville
+
+### East Nashville
+
+Five Points, Lockeland Springs and the best independent restaurants.Nashville
+
+### Sylvan Park
+
+Charlotte Avenue dining and neighborhood parks.Franklin
+
+### Historic Downtown Franklin
+
+Walk to Main Street, the Franklin Theatre and The Factory.Franklin
+
+### Westhaven
+
+A town center, pools and a golf club, all on foot.Live listings by area:12 SouthEast NashvilleSylvan ParkWesthavenFranklin
+
+---
+
+# Building or Buying New Construction
+URL: https://www.nashvilleluxurylist.com/relocation/guide/new-construction/
+Section: Home search · Areas: Nashville, Brentwood, Franklin
+Summary: Spec home, custom build or a lot and an architect? How luxury new construction works around Nashville, what it takes and what to watch for.
+
+3 pathsFinished spec home · custom on your lot · builder community12–24 moTypical luxury custom build from design to move-in4 checksFoundation, pre-drywall, final and 11-month warranty walkYour repA buyer’s agent costs you nothing on most new builds
+
+## Three ways to get a new home
+
+Fastest
+
+### Buy a finished or nearly finished spec home
+
+A builder’s home on an infill lot in Green Hills, Belle Meade, Forest Hills or Brentwood, or in a new community. You can often still pick finishes if you buy early.Most control
+
+### Custom build on your own lot
+
+Buy the land (or a teardown), hire an architect and a builder, and design every detail. Expect 12–24 months and a contingency for changes.Amenities
+
+### Build in a community
+
+Choose a lot and a plan in a golf or amenity community like The Grove, Troubadour or Westhaven, often with an approved-builder list.
+
+## Where new construction is happening
+
+- In-town infill: Green Hills, Belle Meade, Forest Hills, Sylvan Park and 12 South, where older homes are replaced.
+- Brentwood: rebuilds on one-acre lots and newer estate neighborhoods toward the south and east.
+- Franklin and College Grove: new phases in amenity communities, plus custom farms around Leiper’s Fork and Arrington.
+
+## What to watch for
+
+- The builder’s contract is written for the builder. Have your own agent, and an attorney for custom builds, review deposits, allowances, change-order pricing and delay terms.
+- Inspect anyway. Independent inspections at foundation, pre-drywall and final catch problems while they are still cheap to fix.
+- Allowances and change orders are where budgets slip. Price your finish selections before you sign.
+- Appraisals on custom homes can lag the cost; plan for a gap.
+- Warranty: know what is covered and schedule an 11-month walk-through.
+- Lot due diligence: topography, drainage, septic or sewer, tree ordinances and HOA design review.
+Want my builder and architect shortlist? I’ll match you with builders whose work and price point fit your project, and walk you through their recent homes. Ask below.
+Live listings by area:TroubadourThe GroveBrentwoodFranklinGreen Hills
+
+## Quick answers
+
+Q: How long does it take to build a custom luxury home in Nashville?
+
+Plan on roughly 12 to 24 months from design to move-in, depending on size, permitting, lot work and finish selections.
+
+Q: Do I need my own agent to buy new construction?
+
+It is wise. The builder’s sales team represents the builder; your own agent negotiates price, upgrades and terms for you, and is usually paid by the builder.
+
+---
+
+# Moving to Nashville for Oracle
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-for-oracle/
+Section: Moving for work · Areas: Nashville, Brentwood, Franklin
+Summary: Oracle has broken ground on its global headquarters on Nashville’s East Bank. If you are moving with Oracle, here is where to live, what the commute looks like and how to buy before you arrive.
+
+$4.5BGlobal headquarters campus on the East BankNov 2026Groundbreaking8,500Nashville jobs Oracle has said it aims forNeuhoffCurrent offices overlooking the site
+
+## Oracle in Nashville
+
+Oracle held its groundbreaking for a $4.5 billion global headquarters on the East Bank in November 2026, with a campus that also plans an amphitheater, a hotel and a pedestrian bridge. Until it opens, many teams work from Oracle’s expanded offices in the Neuhoff District, which overlook the construction, and the company has also had employees in Capitol View.
+
+Oracle has said it aims to have about 8,500 employees in Nashville. Reporting this year noted it has offered relocation incentives to some existing employees, so ask HR exactly what your package covers. See Your Relocation Package, Decoded.
+
+## Where Oracle employees live: shortest commutes
+
+Office: East Bank campus (under construction); Neuhoff District offices today. Minutes to East Bank (Oracle / stadium), off-peak / rush hour.
+East Nashville6/8Germantown7/1012 South10/15Sylvan Park12/17Oak Hill16/26Belle Meade17/27
+
+Off-peak Rush hour · Compare any neighborhood →
+
+### Want Williamson County schools?
+
+The closest Williamson options to this office: Brentwood (22 min off-peak, 35 at rush), Governors Club (27 min off-peak, 43 at rush), Nolensville (28 min off-peak, 45 at rush). See Brentwood and Franklin.
+
+## Neighborhoods to tour first
+Nashville · $1.2M–$3M
+
+### East Nashville
+
+Creative and independent: Victorian streets in Lockeland Springs, Shelby Bottoms and the city’s most interesting restaurants.Nashville · $1.2M–$6M+ (condos and townhomes)
+
+### Germantown & Downtown
+
+Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience.Nashville · $1.3M–$3.5M
+
+### 12 South & Belmont-Hillsboro
+
+Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt.
+
+## Your move, step by step
+
+- Read your relocation policy first: see Your Relocation Package, Decoded.
+- Plan one scouting weekend; I’ll line up tours by commute and school priorities.
+- Use your Moving Timeline to work back from your start date.
+- Buy remotely if you need to: video tours, inspections and e-closing are routine.
+
+Sources: Oracle press release: groundbreaking (Nov 2026) · WSMV: Oracle breaks ground on $4.5B HQ · Oracle press release: Neuhoff offices (Mar 2026) · Nashville Scene: Oracle jobs and incentives. Commute times are estimates for typical weekday traffic.
+
+## Quick answers
+
+Q: What is the best neighborhood for Oracle employees?
+
+For the shortest commute to East Bank campus (under construction): East Nashville, Germantown, 12 South. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.
+
+---
+
+# Moving to Nashville for Amazon
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-for-amazon/
+Section: Moving for work · Areas: Nashville, Brentwood, Franklin
+Summary: Amazon’s Operations Center of Excellence sits at Nashville Yards downtown. Here is where Amazon employees live, the commute from each neighborhood and how to plan the move.
+
+Nashville YardsDowntown office towers on Church Street5,000Jobs in the original Operations Center plan2nd towerInterior buildout announced in 2025Amazon MusicAlso at the CAA building next door
+
+## Amazon in Nashville
+
+Amazon chose Nashville for its Operations Center of Excellence, the Eastern U.S. hub for its retail operations, with a plan for 5,000 jobs at Nashville Yards downtown. In 2025 Nashville Yards announced Amazon was starting work on its second office tower and had leased a floor in the CAA building, including Amazon Music teams.
+
+Downtown offices make close-in neighborhoods (Germantown, 12 South, East Nashville, Sylvan Park and Green Hills) the shortest commutes, while Brentwood and Franklin trade a longer I-65 drive for land and Williamson County schools.
+
+## Where Amazon employees live: shortest commutes
+
+Office: Nashville Yards, downtown. Minutes to Downtown / Broadway, off-peak / rush hour.
+Germantown5/612 South8/12East Nashville8/12Sylvan Park10/15Oak Hill14/20Belle Meade15/22
+
+Off-peak Rush hour · Compare any neighborhood →
+
+### Want Williamson County schools?
+
+The closest Williamson options to this office: Brentwood (20 min off-peak, 32 at rush), Governors Club (25 min off-peak, 40 at rush), Nolensville (27 min off-peak, 43 at rush). See Brentwood and Franklin.
+
+## Neighborhoods to tour first
+Nashville · $1.2M–$6M+ (condos and townhomes)
+
+### Germantown & Downtown
+
+Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience.Nashville · $1.3M–$3.5M
+
+### 12 South & Belmont-Hillsboro
+
+Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt.Nashville · $1.2M–$3M
+
+### East Nashville
+
+Creative and independent: Victorian streets in Lockeland Springs, Shelby Bottoms and the city’s most interesting restaurants.
+
+## Your move, step by step
+
+- Read your relocation policy first: see Your Relocation Package, Decoded.
+- Plan one scouting weekend; I’ll line up tours by commute and school priorities.
+- Use your Moving Timeline to work back from your start date.
+- Buy remotely if you need to: video tours, inspections and e-closing are routine.
+
+Sources: Tennessee Governor’s office: Amazon 5,000 jobs · Nashville Yards: Amazon expansion (May 2025). Commute times are estimates for typical weekday traffic.
+
+## Quick answers
+
+Q: What is the best neighborhood for Amazon employees?
+
+For the shortest commute to Nashville Yards, downtown: Germantown, 12 South, East Nashville. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.
+
+---
+
+# Moving to Nashville for AllianceBernstein
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-for-alliancebernstein/
+Section: Moving for work · Areas: Nashville, Brentwood, Franklin
+Summary: AllianceBernstein moved its global headquarters from New York to downtown Nashville. Here is where AB families live, commute times and what changes when you leave New York.
+
+501 CommerceGlobal HQ, downtown Nashville2021Moved into the Nashville headquartersFrom NYCHQ relocation announced in 20180%Tennessee tax on wages
+
+## AllianceBernstein in Nashville
+
+AllianceBernstein announced in 2018 that it would move its global headquarters from New York City to Nashville, and moved into its downtown headquarters in 2021. The building is at 501 Commerce Street, steps from Broadway and the Music City Center.
+
+For families coming from the New York area, the biggest changes are taxes and space: Tennessee doesn’t tax wages, and in-town neighborhoods like Belle Meade and Green Hills offer large lots 15 minutes from the office. Run the numbers in Move Math and read Moving from New York.
+
+## Where AllianceBernstein employees live: shortest commutes
+
+Office: 501 Commerce Street, downtown. Minutes to Downtown / Broadway, off-peak / rush hour.
+Germantown5/612 South8/12East Nashville8/12Sylvan Park10/15Oak Hill14/20Belle Meade15/22
+
+Off-peak Rush hour · Compare any neighborhood →
+
+### Want Williamson County schools?
+
+The closest Williamson options to this office: Brentwood (20 min off-peak, 32 at rush), Governors Club (25 min off-peak, 40 at rush), Nolensville (27 min off-peak, 43 at rush). See Brentwood and Franklin.
+
+## Neighborhoods to tour first
+Nashville · $1.2M–$6M+ (condos and townhomes)
+
+### Germantown & Downtown
+
+Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience.Nashville · $1.3M–$3.5M
+
+### 12 South & Belmont-Hillsboro
+
+Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt.Nashville · $1.2M–$3M
+
+### East Nashville
+
+Creative and independent: Victorian streets in Lockeland Springs, Shelby Bottoms and the city’s most interesting restaurants.
+
+## Your move, step by step
+
+- Read your relocation policy first: see Your Relocation Package, Decoded.
+- Plan one scouting weekend; I’ll line up tours by commute and school priorities.
+- Use your Moving Timeline to work back from your start date.
+- Buy remotely if you need to: video tours, inspections and e-closing are routine.
+
+Sources: AllianceBernstein (Wikipedia) · REjournals: AB to anchor Fifth + Broadway tower. Commute times are estimates for typical weekday traffic.
+
+## Quick answers
+
+Q: What is the best neighborhood for AllianceBernstein employees?
+
+For the shortest commute to 501 Commerce Street, downtown: Germantown, 12 South, East Nashville. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.
+
+---
+
+# Moving to Nashville for Starbucks
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-for-starbucks/
+Section: Moving for work · Areas: Nashville, Brentwood, Franklin
+Summary: Starbucks is building a Southeast corporate office in Nashville with up to 2,000 jobs. Here is where to live, the commute and how to time a move around the 2027 office opening.
+
+$100MInvestment in the Nashville officeUp to 2,000Jobs plannedPeabody UnionPermanent home in 2027Supply chain + techTeams moving here
+
+## Starbucks in Nashville
+
+In April 2026 Starbucks announced a Southeast corporate office in Nashville: a $100 million investment and up to 2,000 jobs, complementing its Seattle headquarters. The company opened a temporary office in The Gulch before moving into the Peabody Union complex downtown in 2027, with roles spanning supply chain, technology and support functions.
+
+Coming from Seattle? Washington doesn’t tax wages either, so the bigger differences are home prices, lot sizes and property taxes. Compare neighborhoods with the Neighborhood Matcher.
+
+## Where Starbucks employees live: shortest commutes
+
+Office: The Gulch (temporary) then Peabody Union, downtown (2027). Minutes to Downtown / Broadway, off-peak / rush hour.
+Germantown5/612 South8/12East Nashville8/12Sylvan Park10/15Oak Hill14/20Belle Meade15/22
+
+Off-peak Rush hour · Compare any neighborhood →
+
+### Want Williamson County schools?
+
+The closest Williamson options to this office: Brentwood (20 min off-peak, 32 at rush), Governors Club (25 min off-peak, 40 at rush), Nolensville (27 min off-peak, 43 at rush). See Brentwood and Franklin.
+
+## Neighborhoods to tour first
+Nashville · $1.2M–$6M+ (condos and townhomes)
+
+### Germantown & Downtown
+
+Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience.Nashville · $1.3M–$3.5M
+
+### 12 South & Belmont-Hillsboro
+
+Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt.Nashville · $1.2M–$3M
+
+### East Nashville
+
+Creative and independent: Victorian streets in Lockeland Springs, Shelby Bottoms and the city’s most interesting restaurants.
+
+## Your move, step by step
+
+- Read your relocation policy first: see Your Relocation Package, Decoded.
+- Plan one scouting weekend; I’ll line up tours by commute and school priorities.
+- Use your Moving Timeline to work back from your start date.
+- Buy remotely if you need to: video tours, inspections and e-closing are routine.
+
+Sources: Starbucks: Southeast corporate office in Nashville · Axios: Starbucks ramps up Nashville expansion. Commute times are estimates for typical weekday traffic.
+
+## Quick answers
+
+Q: What is the best neighborhood for Starbucks employees?
+
+For the shortest commute to The Gulch (temporary) then Peabody Union, downtown (2027): Germantown, 12 South, East Nashville. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.
+
+---
+
+# Moving to Nashville for Healthcare (HCA, Vanderbilt & more)
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-for-healthcare/
+Section: Moving for work · Areas: Nashville, Brentwood, Franklin
+Summary: Nashville is the healthcare capital of the country. For executives and physicians joining HCA, Vanderbilt, Community Health Systems, LifePoint or one of hundreds of health companies, here is where to live.
+
+One Park PlazaHCA Healthcare global headquartersMidtownVanderbilt University Medical CenterFranklinCommunity Health Systems HQ (Cool Springs)BrentwoodLifePoint Health HQ
+
+## Healthcare in Nashville
+
+HCA Healthcare is headquartered at One Park Plaza in Nashville, close to Midtown and West End, near Vanderbilt University Medical Center and the Saint Thomas and TriStar hospitals. South of town, Community Health Systems is in Franklin’s Cool Springs area and LifePoint Health is in Brentwood.
+
+For Midtown, Belle Meade, Green Hills, 12 South and Sylvan Park keep the drive short. For Cool Springs or Brentwood offices, Brentwood, Franklin and Forest Hills are the natural fits. Physicians with hospital call often want to be within 15–20 minutes of the hospital: check the times below.
+
+## Where Healthcare employees live: shortest commutes
+
+Office: Midtown / West End (HCA at One Park Plaza; VUMC); Franklin and Brentwood for CHS and LifePoint. Minutes to Vanderbilt / Midtown, off-peak / rush hour.
+12 South7/10Sylvan Park8/12Germantown9/13Belle Meade10/15Green Hills10/15Oak Hill13/19
+
+Off-peak Rush hour · Compare any neighborhood →
+
+### Want Williamson County schools?
+
+The closest Williamson options to this office: Brentwood (20 min off-peak, 32 at rush), Governors Club (25 min off-peak, 40 at rush), Nolensville (27 min off-peak, 43 at rush). See Brentwood and Franklin.
+
+## Neighborhoods to tour first
+Nashville · $1.3M–$3.5M
+
+### 12 South & Belmont-Hillsboro
+
+Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt.Nashville · $1.2M–$3M
+
+### Sylvan Park & West Nashville
+
+Neighborly streets, bungalows and modern builds, with Richland Park, Charlotte Avenue dining and a quick hop downtown.Nashville · $1.2M–$6M+ (condos and townhomes)
+
+### Germantown & Downtown
+
+Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience.
+
+## Your move, step by step
+
+- Read your relocation policy first: see Your Relocation Package, Decoded.
+- Plan one scouting weekend; I’ll line up tours by commute and school priorities.
+- Use your Moving Timeline to work back from your start date.
+- Buy remotely if you need to: video tours, inspections and e-closing are routine.
+
+Sources: HCA Healthcare 2025 Form 10-K (One Park Plaza) · Williamson County Chamber: corporate headquarters. Commute times are estimates for typical weekday traffic.
+
+## Quick answers
+
+Q: What is the best neighborhood for Healthcare employees?
+
+For the shortest commute to Midtown / West End (HCA at One Park Plaza: 12 South, Sylvan Park, Germantown. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.
+
+---
+
+# Moving to Nashville for Nissan, Mitsubishi & Cool Springs Companies
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-for-cool-springs/
+Section: Moving for work · Areas: Franklin, Brentwood
+Summary: Cool Springs in Franklin is one of the Southeast’s densest corporate headquarters districts. Here is where people who work at Nissan, Mitsubishi, Mars Petcare and other Cool Springs companies live.
+
+40+Corporate headquarters in Williamson County13 of 25Public companies in the Nashville metro HQ’d in Cool Springs2006Nissan moved its North American HQ to Franklin~10 minFrom Brentwood or downtown Franklin off-peak
+
+## Cool Springs in Nashville
+
+Williamson County is home to more than 40 corporate headquarters, including Nissan North America, Tractor Supply, Mars Petcare and Community Health Systems. The Williamson County Chamber reports that 13 of the 25 publicly traded companies in the Nashville metro are headquartered in Cool Springs. Mitsubishi Motors North America moved its headquarters from California to Cool Springs to sit alongside its alliance partner Nissan, which moved its own North American headquarters to Franklin in 2006.
+
+Living close to Cool Springs means skipping the I-65 crawl into Nashville entirely. Brentwood, Franklin, Westhaven and Nolensville are 10–20 minutes away, which makes a reverse commute into the city for dinner or a show easy.
+
+## Where Cool Springs employees live: shortest commutes
+
+Office: Cool Springs, Franklin (Nissan, Mitsubishi, Mars Petcare, CHS, Ramsey and more). Minutes to Cool Springs, off-peak / rush hour.
+Downtown Franklin8/12Brentwood10/15Governors Club10/15Westhaven12/17Forest Hills15/22Thompson’s Station16/26
+
+Off-peak Rush hour · Compare any neighborhood →
+
+### Prefer to live in Nashville?
+
+From in town, the reverse commute is easier than it looks: Forest Hills (15 min off-peak, 22 at rush), Oak Hill (17 min off-peak, 27 at rush), Green Hills (18 min off-peak, 29 at rush).
+
+## Neighborhoods to tour first
+Franklin · $1.5M–$4M
+
+### Historic Downtown Franklin
+
+Restored Victorians and new homes a few blocks from Main Street’s shops, restaurants and the Franklin Theatre.Brentwood · $1.5M–$5M
+
+### Brentwood (central)
+
+Acre lots, mature trees and Williamson County Schools: about 20 minutes to Green Hills and 10 to Cool Springs.Brentwood · $2M–$8M
+
+### Governors Club & Annandale
+
+Gated, amenity-rich enclaves with private golf, newer estate homes and a resort feel.
+
+## Your move, step by step
+
+- Read your relocation policy first: see Your Relocation Package, Decoded.
+- Plan one scouting weekend; I’ll line up tours by commute and school priorities.
+- Use your Moving Timeline to work back from your start date.
+- Buy remotely if you need to: video tours, inspections and e-closing are routine.
+
+Sources: Williamson County Chamber: economic development · Williamson County Chamber: target business sectors · Livability: why corporate HQs flock to Franklin. Commute times are estimates for typical weekday traffic.
+
+## Quick answers
+
+Q: What is the best neighborhood for Cool Springs employees?
+
+For the shortest commute to Cool Springs, Franklin (Nissan, Mitsubishi, Mars Petcare, CHS, Ramsey and more): Downtown Franklin, Brentwood, Governors Club. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.
+
+---
+
+# Relocating to Nashville for Work
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-for-work/
+Section: Moving for work · Areas: Nashville, Brentwood, Franklin
+Summary: Oracle, Amazon, AllianceBernstein, Starbucks, HCA, Nissan and more: where each company is, where its people live and how to plan a corporate move.
+
+Nashville has become one of the country’s top destinations for corporate headquarters and regional hubs. Pick your employer for commute-ranked neighborhoods and a move plan.
+East Bank campus 
+
+### Oracle
+
+Oracle has broken ground on its global headquarters on Nashville’s East Bank.Nashville Yards, downtown
+
+### Amazon
+
+Amazon’s Operations Center of Excellence sits at Nashville Yards downtown.501 Commerce Street, downtown
+
+### AllianceBernstein
+
+AllianceBernstein moved its global headquarters from New York to downtown Nashville.The Gulch 
+
+### Starbucks
+
+Starbucks is building a Southeast corporate office in Nashville with up to 2,000 jobs.Midtown / West End 
+
+### Healthcare (HCA, Vanderbilt & more)
+
+Nashville is the healthcare capital of the country.Cool Springs, Franklin 
+
+### Nissan, Mitsubishi & Cool Springs Companies
+
+Cool Springs in Franklin is one of the Southeast’s densest corporate headquarters districts.
+
+## Also moving here
+
+- Sennheiser moved its U.S. regional hub from Connecticut to Nashville in 2026.
+- Tractor Supply (Brentwood), Ramsey Solutions (Franklin), Mars Petcare and Mitsubishi Motors (Franklin) anchor Williamson County.
+- Working somewhere else? Tell me the office address and I’ll send commute-ranked neighborhoods.
+
+Before you negotiate, read Your Relocation Package, Decoded.
+
+Sources: Plant Services: Sennheiser to Nashville · Williamson County Chamber.
+
+---
+
+# Your Relocation Package, Decoded
+URL: https://www.nashvilleluxurylist.com/relocation/guide/relocation-package/
+Section: Moving for work · Areas: Nashville, Brentwood, Franklin
+Summary: Lump sum or managed move, home-sale programs, temporary housing and tax gross-ups: what to ask HR before you accept.
+
+## Two kinds of packages
+Simple
+
+### Lump sum
+
+A set amount to spend however you like. Flexible, but it is usually taxable, so the net can be much smaller than the headline.Full service
+
+### Managed relocation
+
+A relocation company coordinates and pays approved costs directly: movers, closing costs, temporary housing and sometimes a home-sale program.
+
+## Questions to ask HR before you accept
+
+- Is there a home-sale program (buyer value option or guaranteed buyout) for my current home?
+- Are closing costs covered on both the sale and the purchase, including loan fees?
+- How many days of temporary housing, and can I use it while my home is being built or renovated?
+- Is the package grossed up for taxes? (Your new paycheck has no Tennessee wage tax, but relocation benefits can still be federally taxable.)
+- Are house-hunting trips covered, and for how many family members?
+- Am I free to choose my own real estate agents, or must I use the relocation company’s network?
+- What is the repayment clause if I leave within a year or two?
+Tip: many relocation programs let you choose your own agent if you ask early. If you’re relocating, tell your relocation counselor you’d like to work with me before you’re assigned someone.
+
+## Buying before you sell
+
+Common routes: a bridge loan, a home-sale program buyout, a contingent offer (harder in competitive segments) or renting short-term. I’ll help you weigh them against the market for the homes you want.
+
+## Quick answers
+
+Q: Can I choose my own real estate agent on a corporate relocation?
+
+Often yes, especially if you ask early. Some programs require an agent from the relocation company’s network; ask your relocation counselor before you start looking.
+
+---
+
+# Jason’s Trusted Pros
+URL: https://www.nashvilleluxurylist.com/relocation/guide/trusted-pros/
+Section: Moving here · Areas: Nashville, Brentwood, Franklin
+Summary: The lenders, inspectors, attorneys, designers, builders and movers I trust, vetted on real luxury transactions. Ask for the shortlist in any category.
+
+New to town, you don’t know who to call. These are the people I’ve watched do excellent work on $1.5M+ homes. Tap any category and I’ll send you two or three names that fit your situation.
+
+### Jumbo & private-bank lenders
+Get my shortlist
+
+### Home inspectors
+Get my shortlist
+
+### Real estate attorneys & title
+Get my shortlist
+
+### Home & umbrella insurance
+Get my shortlist
+
+### Long-distance movers
+Get my shortlist
+
+### Interior designers
+Get my shortlist
+
+### Architects & custom builders
+Get my shortlist
+
+### Landscape & pool
+Get my shortlist
+
+### Security & smart home
+Get my shortlist
+
+### Home organizers & estate managers
+Get my shortlist
+
+### Pediatricians & family doctors
+Get my shortlist
+
+### Private-school admissions consultants
+Get my shortlist
+
+I don’t accept referral fees from anyone listed here. Recommendations reflect my own clients’ experiences; always interview and check licenses yourself.
+
+## Send me your shortlist
+
+Pick a category above (or tell me what you need) and I’ll email you the names I trust.
 
 ---
 
 # Drive time table (minutes, off-peak / rush hour)
-- Belle Meade: Downtown / Broadway 15/22; BNA Airport 22/38; Vanderbilt / Midtown 10/15; Green Hills Mall 10/15; Cool Springs 25/40; Downtown Franklin 30/48; East Bank (Oracle / stadium) 17/27
-- Green Hills: Downtown / Broadway 15/22; BNA Airport 20/35; Vanderbilt / Midtown 10/15; Green Hills Mall 3/4; Cool Springs 18/29; Downtown Franklin 25/40; East Bank (Oracle / stadium) 17/27
-- Forest Hills: Downtown / Broadway 18/29; BNA Airport 20/35; Vanderbilt / Midtown 15/22; Green Hills Mall 8/12; Cool Springs 15/22; Downtown Franklin 22/35; East Bank (Oracle / stadium) 20/32
-- Oak Hill: Downtown / Broadway 14/20; BNA Airport 17/30; Vanderbilt / Midtown 13/19; Green Hills Mall 8/12; Cool Springs 17/27; Downtown Franklin 24/38; East Bank (Oracle / stadium) 16/26
-- 12 South & Belmont-Hillsboro: Downtown / Broadway 8/12; BNA Airport 15/25; Vanderbilt / Midtown 7/10; Green Hills Mall 8/12; Cool Springs 20/32; Downtown Franklin 27/43; East Bank (Oracle / stadium) 10/15
-- Sylvan Park & West Nashville: Downtown / Broadway 10/15; BNA Airport 20/35; Vanderbilt / Midtown 8/12; Green Hills Mall 12/17; Cool Springs 25/40; Downtown Franklin 32/51; East Bank (Oracle / stadium) 12/17
-- East Nashville: Downtown / Broadway 8/12; BNA Airport 13/22; Vanderbilt / Midtown 13/19; Green Hills Mall 18/29; Cool Springs 27/43; Downtown Franklin 34/54; East Bank (Oracle / stadium) 6/8
-- Germantown & Downtown: Downtown / Broadway 5/6; BNA Airport 15/25; Vanderbilt / Midtown 9/13; Green Hills Mall 15/22; Cool Springs 25/40; Downtown Franklin 32/51; East Bank (Oracle / stadium) 7/10
-- Brentwood (central): Downtown / Broadway 20/32; BNA Airport 22/38; Vanderbilt / Midtown 20/32; Green Hills Mall 12/17; Cool Springs 10/15; Downtown Franklin 17/27; East Bank (Oracle / stadium) 22/35
-- Governors Club & Annandale: Downtown / Broadway 25/40; BNA Airport 25/43; Vanderbilt / Midtown 25/40; Green Hills Mall 18/29; Cool Springs 10/15; Downtown Franklin 15/22; East Bank (Oracle / stadium) 27/43
-- Nolensville & Arrington: Downtown / Broadway 27/43; BNA Airport 25/43; Vanderbilt / Midtown 27/43; Green Hills Mall 20/32; Cool Springs 18/29; Downtown Franklin 22/35; East Bank (Oracle / stadium) 28/45
-- Historic Downtown Franklin: Downtown / Broadway 30/48; BNA Airport 32/54; Vanderbilt / Midtown 30/48; Green Hills Mall 25/40; Cool Springs 8/12; Downtown Franklin 2/3; East Bank (Oracle / stadium) 32/51
-- Westhaven: Downtown / Broadway 32/51; BNA Airport 35/59; Vanderbilt / Midtown 30/48; Green Hills Mall 25/40; Cool Springs 12/17; Downtown Franklin 7/10; East Bank (Oracle / stadium) 34/54
-- Leiper’s Fork & West Franklin: Downtown / Broadway 42/67; BNA Airport 45/75; Vanderbilt / Midtown 40/64; Green Hills Mall 35/56; Cool Springs 25/40; Downtown Franklin 15/22; East Bank (Oracle / stadium) 44/70
-- Thompson’s Station: Downtown / Broadway 38/61; BNA Airport 40/67; Vanderbilt / Midtown 37/59; Green Hills Mall 32/51; Cool Springs 16/26; Downtown Franklin 12/17; East Bank (Oracle / stadium) 40/64
-- College Grove: Downtown / Broadway 40/64; BNA Airport 40/67; Vanderbilt / Midtown 40/64; Green Hills Mall 33/53; Cool Springs 22/35; Downtown Franklin 20/32; East Bank (Oracle / stadium) 42/67
+- Belle Meade: Downtown / Broadway 15/22; BNA Airport 22/38; Vanderbilt / Midtown 10/15; Green Hills Mall 10/15; Cool Springs 25/40; Downtown Franklin 30/48; East Bank (Oracle / stadium) 17/27; Maryland Farms (Brentwood) 20/32
+- Green Hills: Downtown / Broadway 15/22; BNA Airport 20/35; Vanderbilt / Midtown 10/15; Green Hills Mall 3/4; Cool Springs 18/29; Downtown Franklin 25/40; East Bank (Oracle / stadium) 17/27; Maryland Farms (Brentwood) 13/19
+- Forest Hills: Downtown / Broadway 18/29; BNA Airport 20/35; Vanderbilt / Midtown 15/22; Green Hills Mall 8/12; Cool Springs 15/22; Downtown Franklin 22/35; East Bank (Oracle / stadium) 20/32; Maryland Farms (Brentwood) 10/15
+- Oak Hill: Downtown / Broadway 14/20; BNA Airport 17/30; Vanderbilt / Midtown 13/19; Green Hills Mall 8/12; Cool Springs 17/27; Downtown Franklin 24/38; East Bank (Oracle / stadium) 16/26; Maryland Farms (Brentwood) 10/15
+- 12 South & Belmont-Hillsboro: Downtown / Broadway 8/12; BNA Airport 15/25; Vanderbilt / Midtown 7/10; Green Hills Mall 8/12; Cool Springs 20/32; Downtown Franklin 27/43; East Bank (Oracle / stadium) 10/15; Maryland Farms (Brentwood) 16/26
+- Sylvan Park & West Nashville: Downtown / Broadway 10/15; BNA Airport 20/35; Vanderbilt / Midtown 8/12; Green Hills Mall 12/17; Cool Springs 25/40; Downtown Franklin 32/51; East Bank (Oracle / stadium) 12/17; Maryland Farms (Brentwood) 20/32
+- East Nashville: Downtown / Broadway 8/12; BNA Airport 13/22; Vanderbilt / Midtown 13/19; Green Hills Mall 18/29; Cool Springs 27/43; Downtown Franklin 34/54; East Bank (Oracle / stadium) 6/8; Maryland Farms (Brentwood) 22/35
+- Germantown & Downtown: Downtown / Broadway 5/6; BNA Airport 15/25; Vanderbilt / Midtown 9/13; Green Hills Mall 15/22; Cool Springs 25/40; Downtown Franklin 32/51; East Bank (Oracle / stadium) 7/10; Maryland Farms (Brentwood) 18/29
+- Brentwood (central): Downtown / Broadway 20/32; BNA Airport 22/38; Vanderbilt / Midtown 20/32; Green Hills Mall 12/17; Cool Springs 10/15; Downtown Franklin 17/27; East Bank (Oracle / stadium) 22/35; Maryland Farms (Brentwood) 5/6
+- Governors Club & Annandale: Downtown / Broadway 25/40; BNA Airport 25/43; Vanderbilt / Midtown 25/40; Green Hills Mall 18/29; Cool Springs 10/15; Downtown Franklin 15/22; East Bank (Oracle / stadium) 27/43; Maryland Farms (Brentwood) 12/17
+- Nolensville & Arrington: Downtown / Broadway 27/43; BNA Airport 25/43; Vanderbilt / Midtown 27/43; Green Hills Mall 20/32; Cool Springs 18/29; Downtown Franklin 22/35; East Bank (Oracle / stadium) 28/45; Maryland Farms (Brentwood) 15/22
+- Historic Downtown Franklin: Downtown / Broadway 30/48; BNA Airport 32/54; Vanderbilt / Midtown 30/48; Green Hills Mall 25/40; Cool Springs 8/12; Downtown Franklin 2/3; East Bank (Oracle / stadium) 32/51; Maryland Farms (Brentwood) 15/22
+- Westhaven: Downtown / Broadway 32/51; BNA Airport 35/59; Vanderbilt / Midtown 30/48; Green Hills Mall 25/40; Cool Springs 12/17; Downtown Franklin 7/10; East Bank (Oracle / stadium) 34/54; Maryland Farms (Brentwood) 18/29
+- Leiper’s Fork & West Franklin: Downtown / Broadway 42/67; BNA Airport 45/75; Vanderbilt / Midtown 40/64; Green Hills Mall 35/56; Cool Springs 25/40; Downtown Franklin 15/22; East Bank (Oracle / stadium) 44/70; Maryland Farms (Brentwood) 30/48
+- Thompson’s Station: Downtown / Broadway 38/61; BNA Airport 40/67; Vanderbilt / Midtown 37/59; Green Hills Mall 32/51; Cool Springs 16/26; Downtown Franklin 12/17; East Bank (Oracle / stadium) 40/64; Maryland Farms (Brentwood) 24/38
+- College Grove: Downtown / Broadway 40/64; BNA Airport 40/67; Vanderbilt / Midtown 40/64; Green Hills Mall 33/53; Cool Springs 22/35; Downtown Franklin 20/32; East Bank (Oracle / stadium) 42/67; Maryland Farms (Brentwood) 25/40
 
 # Contact
 Jason Kloess, REALTOR®, Compass · 1610 West End Ave, Suite 115, Nashville, TN 37203 · 615-457-0768 · jason@nashvilleluxurylist.com · https://www.nashvilleluxurylist.com/contact/

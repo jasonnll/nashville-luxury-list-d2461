@@ -47,7 +47,7 @@ const PERSON = { '@id': SITE + '/#person' };
 function crumbs(list) {
   return { '@type': 'BreadcrumbList', itemListElement: list.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) };
 }
-function page({ id, title, desc, canonical, img, body, ld, viewContent }) {
+function page({ id, title, desc, canonical, img, body, ld, viewContent, idx }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +78,7 @@ function page({ id, title, desc, canonical, img, body, ld, viewContent }) {
 <link rel="preload" href="/assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css?v=20261113pl">
 <link rel="stylesheet" href="/assets/css/palette.css?v=20261113pl">
-<link rel="stylesheet" href="/assets/css/relocation-guide.css?v=${VER}">
+${idx ? '<link rel="stylesheet" href="/assets/css/idx.css?v=20261113pl">\n' : ''}<link rel="stylesheet" href="/assets/css/relocation-guide.css?v=${VER}">
 <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@graph': ld }, null, 1)}
 </script>
@@ -96,7 +96,7 @@ ${body}
 <div id="site-footer"></div>
 <script src="/assets/js/partials.js?v=20261118rg"></script>
 <script src="/assets/js/main.js?v=20261104a"></script>
-<script src="/assets/js/relocation-guide.js?v=${VER}" defer></script>
+${idx ? '<script src="/assets/js/idx-config.js?v=20261030b"></script>\n<script src="/assets/js/idx.js?v=20261030b"></script>\n' : ''}<script src="/assets/js/relocation-guide.js?v=${VER}" defer></script>
 </body>
 </html>
 `;
@@ -145,7 +145,7 @@ for (const g of G) {
   if (g.id === 'school-finder') ld.push({ '@type': 'ItemList', name: 'Schools in Nashville, Brentwood and Franklin', numberOfItems: SCHOOLS.length, itemListElement: SCHOOLS.map((s, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': s[1] === 'pri' ? 'School' : 'HighSchool', name: s[0], address: { '@type': 'PostalAddress', addressLocality: s[4], addressRegion: 'TN' } } })) });
   if (g.id === 'school-finder') ld[ld.length - 1].itemListElement.forEach((x, i) => { const gr2 = SCHOOLS[i][3]; x.item['@type'] = SCHOOLS[i][1] === 'pri' ? 'School' : /9|12/.test(gr2) && !/K|5–8/.test(gr2) ? 'HighSchool' : /6–8|5–8/.test(gr2) ? 'MiddleSchool' : 'ElementarySchool'; });
   const body = RG.guideView(g) + RG.askSection(g.t);
-  out(`relocation/guide/${g.id}/index.html`, page({ id: g.id, title, desc, canonical: url(g.id), img: imgUrl(g.img), body, ld, viewContent: `Relocation Guide – ${g.t}` }));
+  out(`relocation/guide/${g.id}/index.html`, page({ id: g.id, title, desc, canonical: url(g.id), img: imgUrl(g.img), body, ld, viewContent: `Relocation Guide – ${g.t}`, idx: !!g.idx }));
   pages.push({ loc: url(g.id), title: g.t, desc, g, gr });
 }
 /* thanks (no-JS fallback) */
