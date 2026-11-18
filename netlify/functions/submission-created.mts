@@ -6,6 +6,10 @@
 //     someone who unsubscribed) and tagged, so the Off-Market Access welcome sequence starts
 //   - access-match, relocation-playbook, home-valuation: also added to Mailchimp, plus a Compass CRM lead
 //     and an email alert to Jason
+//   - relocation-guide (every form on /relocation/guide/): forwarded to the Zap as "relocation-playbook", so it
+//     gets the same Relocation lane: Playbook emailed, Mailchimp + relocation tag, Compass CRM lead, alert to Jason.
+//     The guide page it came from is kept in `source` (e.g. "Relocation Guide – Move Math") and tool context
+//     (matched neighborhoods, estimate, move date) arrives in `areas` / `message`.
 //
 // Music & entertainment inquiries (/music/, "music-entertainment" form) go only to the Compass CRM Zap,
 // tagged by who filled it in (artist, manager, business manager, attorney...). They are never added to
@@ -19,7 +23,13 @@ const LEAD_FORMS: Record<string, string> = {
   'off-market-access': 'Buyer',
   'access-match': 'Buyer',
   'relocation-playbook': 'Relocation',
+  'relocation-guide': 'Relocation',
   'home-valuation': 'Seller',
+}
+
+// Forms the Zap should treat as another form it already routes (same lane, tags, Compass lead and emails)
+const ZAP_FORM_ALIAS: Record<string, string> = {
+  'relocation-guide': 'relocation-playbook',
 }
 
 const CRM_WEBHOOK_FALLBACK = 'https://hooks.zapier.com/hooks/catch/25124451/4m7pk3q/'
@@ -51,8 +61,9 @@ export default async (req: Request) => {
   if (form in LEAD_FORMS) {
     const webhook = Netlify.env.get('ZAPIER_LEADS_WEBHOOK_URL')
     if (webhook) {
+      const zapForm = ZAP_FORM_ALIAS[form] || form
       jobs.push(post(webhook, {
-        form,
+        form: zapForm,
         lane: clean(data.lane) || LEAD_FORMS[form],
         email,
         first_name: clean(data.first_name) || clean(data.name).split(/\s+/)[0] || '',
@@ -72,7 +83,7 @@ export default async (req: Request) => {
         source: clean(data.source) || 'Website',
         utm_campaign: clean(data.utm_campaign),
         // Link for the Zap's "email the playbook" step on relocation-playbook leads
-        playbook_url: form === 'relocation-playbook' ? PLAYBOOK_URL : '',
+        playbook_url: zapForm === 'relocation-playbook' ? PLAYBOOK_URL : '',
         submitted_at,
       }, 'Leads'))
     } else {

@@ -62,7 +62,11 @@ NAV = [
                                           ('/neighborhoods/brentwood/', 'Brentwood'), ('/neighborhoods/franklin/', 'Franklin'),
                                           ('/neighborhoods/east-nashville/', 'East Nashville'), ('/country-clubs/', 'Country clubs'),
                                           ('/golf-tennis/', 'Golf and tennis')]),
-    ('/relocation/', 'Moving here', [('/relocation/', 'Relocation guide'), ('/compare/davidson-vs-williamson-county/', 'Davidson vs Williamson County'),
+    ('/relocation/', 'Moving here', [('/relocation/guide/', 'Relocation tools & guides'), ('/relocation/guide/nashville/', 'Moving to Nashville'),
+                                     ('/relocation/guide/brentwood/', 'Moving to Brentwood'), ('/relocation/guide/franklin/', 'Moving to Franklin'),
+                                     ('/relocation/guide/neighborhood-matcher/', 'Neighborhood matcher'), ('/relocation/guide/school-finder/', 'School finder'),
+                                     ('/relocation/guide/drive-times/', 'Drive time calculator'),
+                                     ('/relocation/', 'Relocation Playbook (free PDF)'), ('/compare/davidson-vs-williamson-county/', 'Davidson vs Williamson County'),
                                      ('/answers/how-to-buy-a-nashville-home-remotely/', 'Buying from out of state'),
                                      ('/compare/brentwood-vs-franklin/', 'Brentwood vs Franklin')]),
     ('/market-report/', 'Market', [('/market-report/', 'Monthly market report'), ('/answers/', 'Questions answered'),
@@ -80,6 +84,9 @@ MENU = [
               ('/sellers/compass-concierge/', 'Compass Concierge'), ('/review/', 'Private pricing review')]),
     ('Places', [('/neighborhoods/', 'All neighborhoods'), ('/compare/', 'Compare areas'), ('/country-clubs/', 'Country clubs'),
                 ('/golf-tennis/', 'Golf and tennis'), ('/relocation/', 'Moving to Nashville')]),
+    ('Moving here', [('/relocation/guide/', 'Relocation tools & guides'), ('/relocation/guide/nashville/', 'Moving to Nashville'),
+                     ('/relocation/guide/brentwood/', 'Moving to Brentwood'), ('/relocation/guide/franklin/', 'Moving to Franklin'),
+                     ('/relocation/guide/school-finder/', 'School finder'), ('/relocation/', 'Relocation Playbook (free PDF)')]),
     ('Market', [('/market-report/', 'Monthly market report'), ('/answers/', 'Questions answered'),
                 ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'),
                 ('/blog/', 'Past weekly lists'), ('/guides/', 'Free guides')]),
@@ -91,7 +98,8 @@ MENU = [
 FOOTER_COLS = [
     ('Buying', [('/newsletter/', 'The weekly List'), ('/search/', 'Homes for sale'), ('/buyer-guide/', 'Buyer’s guide'),
                 ('/buyers/buying-process/', 'The buying process'), ('/strategy/', 'Private search call'),
-                ('/mortgage-calculator/', 'Cost calculator'), ('/relocation/', 'Moving to Nashville')]),
+                ('/mortgage-calculator/', 'Cost calculator'), ('/relocation/', 'Moving to Nashville'),
+                ('/relocation/guide/', 'Relocation tools & guides')]),
     ('Selling', [('/home-valuation/', 'Pricing read'), ('/seller-guide/', 'Seller’s guide'),
                  ('/sellers/compass-concierge/', 'Compass Concierge'), ('/review/', 'Private pricing review'),
                  ('/past-sales/', 'Past sales')]),
@@ -653,7 +661,8 @@ def _hero_end(main):
 def jump_nav(html, pg):
     """Adds an "On this page" bar of jump links under the hero on pages with four or more sections."""
     html = JUMP_RX.sub('', html)
-    if pg.here == '/' or 'faqp-toc' in html or '<main' not in html:
+    if pg.here == '/' or 'faqp-toc' in html or 'data-nll-nojump' in html or '<main' not in html:
+        # data-nll-nojump: the page brings its own section navigation (e.g. /relocation/guide/)
         return html
     start = html.find('<main')
     end = html.find('</main>', start)

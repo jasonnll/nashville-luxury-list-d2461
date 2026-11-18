@@ -20,6 +20,85 @@ Contact: 615-457-0768 · jason@nashvilleluxurylist.com · Compass Nashville, 161
 - [The Friday List (newsletter)](https://www.nashvilleluxurylist.com/newsletter/): Free weekly email from Jason Kloess, REALTOR® with Compass. Every Friday: the 5 best new $1.5M+ homes in Nashville and Williamson County (14 days on market or less, never repeated), 3 private or off market homes shared only with subscribers, and a short read on luxury pricing, inventory and days on market. Signup needs only an email address.
 - [Blog](https://www.nashvilleluxurylist.com/blog/): Weekly luxury home roundups and market insights.
 - [Contact](https://www.nashvilleluxurylist.com/contact/): Reach Jason directly.
+<!-- record:relocation-guide -->
+## Relocation guide: 53 free guides and tools (Nashville, Brentwood, Franklin)
+
+- [Relocation Guide hub](https://www.nashvilleluxurylist.com/relocation/guide/): Every guide and tool for moving to Nashville, Brentwood or Franklin, grouped by Tools, Schools, Moving here, Neighborhoods, Eat & do, Seasonal and Maps. Full text for AI assistants: https://www.nashvilleluxurylist.com/relocation/guide/llms-full.txt
+- [Moving to Nashville, TN](https://www.nashvilleluxurylist.com/relocation/guide/nashville/): Belle Meade, Green Hills, Forest Hills, 12 South, East Nashville and the urban core: in-town living with Nashville’s best restaurants, culture and private schools minutes away.
+- [Moving to Brentwood, TN](https://www.nashvilleluxurylist.com/relocation/guide/brentwood/): Acre lots, mature trees, gated communities like Governors Club and Annandale, and Williamson County Schools, about 20 minutes from Green Hills.
+- [Moving to Franklin, TN](https://www.nashvilleluxurylist.com/relocation/guide/franklin/): A storybook Main Street, Westhaven, Leiper’s Fork farms and the Cool Springs job center, with Williamson County Schools and FSSD, about 25–35 minutes from downtown Nashville.
+
+### Tools
+- [Neighborhood Matcher](https://www.nashvilleluxurylist.com/relocation/guide/neighborhood-matcher/): Answer five quick questions about how you live and get your best-fit neighborhoods across Nashville, Brentwood and Franklin, ranked.
+- [Drive Time Calculator](https://www.nashvilleluxurylist.com/relocation/guide/drive-times/): Drive times from 16 neighborhoods to downtown, BNA, Vanderbilt, Green Hills, Cool Springs, Franklin and the East Bank, off-peak and at rush hour.
+- [Drive Times, Mapped](https://www.nashvilleluxurylist.com/relocation/guide/drive-map/): Tap any neighborhood on the map to see how long it takes to get everywhere.
+- [Move Math Calculator](https://www.nashvilleluxurylist.com/relocation/guide/move-math/): Plug in your income and home values to estimate what Tennessee’s 0% wage tax and lower property taxes could save you each year.
+- [Your Moving Timeline](https://www.nashvilleluxurylist.com/relocation/guide/moving-timeline/): Pick your move-in date and get a dated, step-by-step plan from 90 days out through your first month in Middle Tennessee.
+- [The First 90 Days](https://www.nashvilleluxurylist.com/relocation/guide/first-90-days/): A tap-to-check list for your Tennessee license, tags, utilities, voter registration, doctors and schools. It remembers your progress.
+- [Your Perfect Day](https://www.nashvilleluxurylist.com/relocation/guide/perfect-day/): Pick a vibe (classic Nashville, foodie, family, outdoors, Brentwood or Franklin) and get a morning-to-evening plan for a scouting trip.
+- [Breaking Ground](https://www.nashvilleluxurylist.com/relocation/guide/breaking-ground/): The new stadium, Oracle’s campus, the 2030 Super Bowl, transit and the airport: what’s being built and when it lands.
+
+### Moving for work
+- [Relocating to Nashville for Work](https://www.nashvilleluxurylist.com/relocation/guide/moving-for-work/): Oracle, Amazon, AllianceBernstein, Starbucks, HCA, Nissan and more: where each company is, where its people live and how to plan a corporate move.
+- [Moving to Nashville for Oracle](https://www.nashvilleluxurylist.com/relocation/guide/moving-for-oracle/): Oracle has broken ground on its global headquarters on Nashville’s East Bank. If you are moving with Oracle, here is where to live, what the commute looks like and how to buy before you arrive.
+- [Moving to Nashville for Amazon](https://www.nashvilleluxurylist.com/relocation/guide/moving-for-amazon/): Amazon’s Operations Center of Excellence sits at Nashville Yards downtown. Here is where Amazon employees live, the commute from each neighborhood and how to plan the move.
+- [Moving to Nashville for AllianceBernstein](https://www.nashvilleluxurylist.com/relocation/guide/moving-for-alliancebernstein/): AllianceBernstein moved its global headquarters from New York to downtown Nashville. Here is where AB families live, commute times and what changes when you leave New York.
+- [Moving to Nashville for Starbucks](https://www.nashvilleluxurylist.com/relocation/guide/moving-for-starbucks/): Starbucks is building a Southeast corporate office in Nashville with up to 2,000 jobs. Here is where to live, the commute and how to time a move around the 2027 office opening.
+- [Moving to Nashville for Healthcare (HCA, Vanderbilt & more)](https://www.nashvilleluxurylist.com/relocation/guide/moving-for-healthcare/): Nashville is the healthcare capital of the country. For executives and physicians joining HCA, Vanderbilt, Community Health Systems, LifePoint or one of hundreds of health companies, here is where to live.
+- [Moving to Nashville for Nissan, Mitsubishi & Cool Springs Companies](https://www.nashvilleluxurylist.com/relocation/guide/moving-for-cool-springs/): Cool Springs in Franklin is one of the Southeast’s densest corporate headquarters districts. Here is where people who work at Nissan, Mitsubishi, Mars Petcare and other Cool Springs companies live.
+- [Your Relocation Package, Decoded](https://www.nashvilleluxurylist.com/relocation/guide/relocation-package/): Lump sum or managed move, home-sale programs, temporary housing and tax gross-ups: what to ask HR before you accept.
+
+### Home search
+- [Homes Zoned for Brentwood High](https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-brentwood-high/): Luxury homes for sale in the Brentwood High School zone: which parts of Brentwood feed it, what homes cost, and live listings.
+- [Homes Zoned for Ravenwood High](https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-ravenwood-high/): Luxury homes for sale in the Ravenwood High zone in south and east Brentwood, including gated communities, plus live listings.
+- [Homes Zoned for Franklin High & FSSD](https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-franklin-high/): Homes for sale in Franklin Special School District (PK–8) and the Franklin High School zone, with live listings and how zoning works.
+- [Homes Zoned for Hillsboro High (IB)](https://www.nashvilleluxurylist.com/relocation/guide/homes-zoned-hillsboro-high/): Green Hills homes zoned for Julia Green or Percy Priest Elementary and Hillsboro High’s IB program, with live listings.
+- [Homes Near Nashville’s Top Private Schools](https://www.nashvilleluxurylist.com/relocation/guide/homes-near-private-schools/): Where to live for a short drive to MBA, Harpeth Hall, Ensworth, USN, CPA, Brentwood Academy and BGA, with live listings.
+- [Homes With Acreage Near Nashville](https://www.nashvilleluxurylist.com/relocation/guide/homes-with-acreage/): Estates, farms and horse properties on 5 to 100+ acres within an hour of Nashville, with live listings.
+- [Gated Communities in Brentwood & Franklin](https://www.nashvilleluxurylist.com/relocation/guide/gated-communities/): Governors Club, Annandale, Laurelbrooke, The Grove and Troubadour compared, with live listings in each.
+- [Golf Course Homes](https://www.nashvilleluxurylist.com/relocation/guide/golf-course-homes/): Homes on or near the course at The Grove, Troubadour, Governors Club, Westhaven and Legends Ridge, with live listings.
+- [Walkable Luxury Homes](https://www.nashvilleluxurylist.com/relocation/guide/walkable-luxury-homes/): Where you can walk to coffee, dinner and parks: 12 South, East Nashville, Sylvan Park, downtown Franklin and Westhaven.
+- [Building or Buying New Construction](https://www.nashvilleluxurylist.com/relocation/guide/new-construction/): Spec home, custom build or a lot and an architect? How luxury new construction works around Nashville, what it takes and what to watch for.
+
+### Schools
+- [School Finder](https://www.nashvilleluxurylist.com/relocation/guide/school-finder/): 47 public, magnet and private schools across Nashville, Brentwood and Franklin. Filter by type, grade level, area and focus.
+- [The School Question, Answered](https://www.nashvilleluxurylist.com/relocation/guide/school-question/): Williamson County Schools, FSSD, Metro Nashville and private schools: how each system works and which areas feed where.
+- [Neighborhoods & Schools Map](https://www.nashvilleluxurylist.com/relocation/guide/schools-map/): See where the luxury neighborhoods sit relative to the major private schools and public high schools.
+
+### Moving here
+- [Moving Here From Out of State](https://www.nashvilleluxurylist.com/relocation/guide/out-of-state/): The relocation cheat sheet: taxes, timing, licensing, Nashville vs. Williamson County, and how buying a luxury home works here.
+- [What Nobody Tells You About Living Here](https://www.nashvilleluxurylist.com/relocation/guide/nobody-tells-you/): The newcomer truths: traffic patterns, pollen, storms, annual property tax bills and where locals actually go.
+- [Tennessee Taxes, Explained](https://www.nashvilleluxurylist.com/relocation/guide/taxes/): No income tax on wages, how property tax is calculated, and the 2026 rates for Nashville, Brentwood, Franklin and unincorporated Williamson County.
+- [Jason’s Trusted Pros](https://www.nashvilleluxurylist.com/relocation/guide/trusted-pros/): The lenders, inspectors, attorneys, designers, builders and movers I trust, vetted on real luxury transactions. Ask for the shortlist in any category.
+- [Utilities & Setup](https://www.nashvilleluxurylist.com/relocation/guide/utilities/): Who provides power, water, gas and internet at your new address in Nashville, Brentwood or Franklin, and what to set up first.
+- [Healthcare Here](https://www.nashvilleluxurylist.com/relocation/guide/healthcare/): Nashville is a national healthcare capital. The major hospital systems, where they are, and how to get established as a new patient.
+- [Getting Around & Getting Out](https://www.nashvilleluxurylist.com/relocation/guide/getting-around/): I-65, I-440 and the back roads, BNA nonstops, private aviation and the shortcuts locals use.
+
+### Neighborhoods
+- [Nashville Neighborhoods, Up Close](https://www.nashvilleluxurylist.com/relocation/guide/nashville-up-close/): Belle Meade to East Nashville: the personality, price range, schools and best fit for each Nashville luxury neighborhood.
+- [Brentwood, Up Close](https://www.nashvilleluxurylist.com/relocation/guide/brentwood-up-close/): Acre lots, top public schools and low taxes 20 minutes from Green Hills: everything you need to know about living in Brentwood, TN.
+- [Franklin, Up Close](https://www.nashvilleluxurylist.com/relocation/guide/franklin-up-close/): Historic Main Street, Westhaven, Leiper’s Fork and Cool Springs: everything you need to know about living in Franklin, TN.
+- [Brentwood vs. Green Hills](https://www.nashvilleluxurylist.com/relocation/guide/brentwood-vs-green-hills/): The decision many relocating families face, side by side: land, schools, taxes, commute and lifestyle.
+- [A Little More Land](https://www.nashvilleluxurylist.com/relocation/guide/little-more-land/): Where to find acreage, privacy and horse property within an hour of downtown Nashville.
+- [Lake & River Living](https://www.nashvilleluxurylist.com/relocation/guide/lake-life/): You don’t have to give up the water: Old Hickory, Percy Priest, the Harpeth River and weekend lakes within reach of Nashville.
+- [Across the River: Nashville’s East Bank](https://www.nashvilleluxurylist.com/relocation/guide/east-bank/): The new stadium, Oracle, the 2030 Super Bowl and what it all means for the neighborhoods nearby.
+- [Country Clubs & Golf](https://www.nashvilleluxurylist.com/relocation/guide/country-clubs/): Belle Meade to Troubadour: the private clubs that shape social life for many families in Nashville, Brentwood and Franklin.
+
+### Eat & do
+- [Where to Eat: Nashville](https://www.nashvilleluxurylist.com/relocation/guide/where-to-eat-nashville/): Special-occasion tables, neighborhood favorites, hot chicken and brunch: a local’s short list for Nashville.
+- [Where to Eat: Brentwood](https://www.nashvilleluxurylist.com/relocation/guide/where-to-eat-brentwood/): Brentwood’s easy dinners, coffee and family spots, plus the best of Cool Springs and Green Hills just up the road.
+- [Where to Eat: Franklin](https://www.nashvilleluxurylist.com/relocation/guide/where-to-eat-franklin/): Main Street favorites, coffee, date night and Leiper’s Fork: where Franklin locals actually eat.
+- [The Shopping Guide](https://www.nashvilleluxurylist.com/relocation/guide/shopping/): The Mall at Green Hills, 12 South boutiques, Hill Center, Main Street Franklin and more.
+- [Music, Arts & Sports](https://www.nashvilleluxurylist.com/relocation/guide/music-arts-sports/): The Ryman, the Opry, the Symphony, the Franklin Theatre, the Preds and more: season tickets worth getting.
+- [Parks & the Outdoors](https://www.nashvilleluxurylist.com/relocation/guide/parks-outdoors/): Radnor Lake, the Warner Parks, Crockett Park, Harlinsdale Farm and the Natchez Trace.
+
+### Seasonal
+- [Your Holiday Season, Planned](https://www.nashvilleluxurylist.com/relocation/guide/holidays/): Holiday LIGHTS at Cheekwood, the Nutcracker, Dickens of a Christmas in Franklin and New Year’s Eve downtown.
+- [Middle Tennessee Through the Year](https://www.nashvilleluxurylist.com/relocation/guide/seasons-calendar/): A month-by-month calendar of the festivals and traditions locals plan around in Nashville, Brentwood and Franklin.
+- [Weather & the Four Seasons](https://www.nashvilleluxurylist.com/relocation/guide/weather-seasons/): What each season actually feels like, and what to plan for if you’re coming from the North or the West Coast.
+
+Data: [neighborhoods and drive times](https://www.nashvilleluxurylist.com/relocation/guide/data/neighborhoods.json) · [schools](https://www.nashvilleluxurylist.com/relocation/guide/data/schools.json) · [2026 property tax rates](https://www.nashvilleluxurylist.com/relocation/guide/data/property-tax-2026.json)
+<!-- /record:relocation-guide -->
 <!-- record:llms -->
 ## Verified sales record
 

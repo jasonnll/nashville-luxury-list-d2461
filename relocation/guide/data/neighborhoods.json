@@ -1,0 +1,695 @@
+{
+ "source": "https://www.nashvilleluxurylist.com/relocation/guide/drive-times/",
+ "updated": "2026-11-18",
+ "note": "Drive times are estimates in minutes for typical weekday traffic.",
+ "neighborhoods": [
+  {
+   "id": "belle-meade",
+   "name": "Belle Meade",
+   "city": "Nashville",
+   "price_range": "$3M–$15M+",
+   "summary": "Nashville’s most established address: stately homes on big, tree-canopied lots, minutes from Green Hills and West End.",
+   "schools": "Most families choose private: Ensworth, MBA, Harpeth Hall and USN are close.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/belle-meade/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 15,
+     "rush_hour": 22
+    },
+    "BNA Airport": {
+     "off_peak": 22,
+     "rush_hour": 38
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 10,
+     "rush_hour": 15
+    },
+    "Green Hills Mall": {
+     "off_peak": 10,
+     "rush_hour": 15
+    },
+    "Cool Springs": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "Downtown Franklin": {
+     "off_peak": 30,
+     "rush_hour": 48
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 17,
+     "rush_hour": 27
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 20,
+     "rush_hour": 32
+    }
+   }
+  },
+  {
+   "id": "green-hills",
+   "name": "Green Hills",
+   "city": "Nashville",
+   "price_range": "$1.5M–$5M",
+   "summary": "Convenience central: the Mall at Green Hills, Hill Center, good restaurants and new construction on quiet side streets.",
+   "schools": "MNPS options include Julia Green and Percy Priest elementaries and Hillsboro High (IB).",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/green-hills/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 15,
+     "rush_hour": 22
+    },
+    "BNA Airport": {
+     "off_peak": 20,
+     "rush_hour": 35
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 10,
+     "rush_hour": 15
+    },
+    "Green Hills Mall": {
+     "off_peak": 3,
+     "rush_hour": 4
+    },
+    "Cool Springs": {
+     "off_peak": 18,
+     "rush_hour": 29
+    },
+    "Downtown Franklin": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 17,
+     "rush_hour": 27
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 13,
+     "rush_hour": 19
+    }
+   }
+  },
+  {
+   "id": "forest-hills",
+   "name": "Forest Hills",
+   "city": "Nashville",
+   "price_range": "$2M–$7M",
+   "summary": "Rolling hills, wooded one- to three-acre lots and real privacy, still about 15 minutes to Green Hills.",
+   "schools": "Near CPA, Ensworth’s high school campus and Franklin Road Academy.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/forest-hills-oak-hill/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 18,
+     "rush_hour": 29
+    },
+    "BNA Airport": {
+     "off_peak": 20,
+     "rush_hour": 35
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 15,
+     "rush_hour": 22
+    },
+    "Green Hills Mall": {
+     "off_peak": 8,
+     "rush_hour": 12
+    },
+    "Cool Springs": {
+     "off_peak": 15,
+     "rush_hour": 22
+    },
+    "Downtown Franklin": {
+     "off_peak": 22,
+     "rush_hour": 35
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 20,
+     "rush_hour": 32
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 10,
+     "rush_hour": 15
+    }
+   }
+  },
+  {
+   "id": "oak-hill",
+   "name": "Oak Hill",
+   "city": "Nashville",
+   "price_range": "$1.5M–$4M",
+   "summary": "Leafy, low-key and central, with large lots and quick I-65 access in both directions.",
+   "schools": "Near Franklin Road Academy, Oak Hill School and Father Ryan.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/forest-hills-oak-hill/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 14,
+     "rush_hour": 20
+    },
+    "BNA Airport": {
+     "off_peak": 17,
+     "rush_hour": 30
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 13,
+     "rush_hour": 19
+    },
+    "Green Hills Mall": {
+     "off_peak": 8,
+     "rush_hour": 12
+    },
+    "Cool Springs": {
+     "off_peak": 17,
+     "rush_hour": 27
+    },
+    "Downtown Franklin": {
+     "off_peak": 24,
+     "rush_hour": 38
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 16,
+     "rush_hour": 26
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 10,
+     "rush_hour": 15
+    }
+   }
+  },
+  {
+   "id": "12-south",
+   "name": "12 South & Belmont-Hillsboro",
+   "city": "Nashville",
+   "price_range": "$1.3M–$3.5M",
+   "summary": "Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt.",
+   "schools": "Eakin and Julia Green elementaries nearby; USN and Lipscomb Academy are close.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/12-south/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 8,
+     "rush_hour": 12
+    },
+    "BNA Airport": {
+     "off_peak": 15,
+     "rush_hour": 25
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 7,
+     "rush_hour": 10
+    },
+    "Green Hills Mall": {
+     "off_peak": 8,
+     "rush_hour": 12
+    },
+    "Cool Springs": {
+     "off_peak": 20,
+     "rush_hour": 32
+    },
+    "Downtown Franklin": {
+     "off_peak": 27,
+     "rush_hour": 43
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 10,
+     "rush_hour": 15
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 16,
+     "rush_hour": 26
+    }
+   }
+  },
+  {
+   "id": "sylvan-park",
+   "name": "Sylvan Park & West Nashville",
+   "city": "Nashville",
+   "price_range": "$1.2M–$3M",
+   "summary": "Neighborly streets, bungalows and modern builds, with Richland Park, Charlotte Avenue dining and a quick hop downtown.",
+   "schools": "Sylvan Park Paideia Design Center is a neighborhood favorite.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/sylvan-park/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 10,
+     "rush_hour": 15
+    },
+    "BNA Airport": {
+     "off_peak": 20,
+     "rush_hour": 35
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 8,
+     "rush_hour": 12
+    },
+    "Green Hills Mall": {
+     "off_peak": 12,
+     "rush_hour": 17
+    },
+    "Cool Springs": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "Downtown Franklin": {
+     "off_peak": 32,
+     "rush_hour": 51
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 12,
+     "rush_hour": 17
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 20,
+     "rush_hour": 32
+    }
+   }
+  },
+  {
+   "id": "east-nashville",
+   "name": "East Nashville",
+   "city": "Nashville",
+   "price_range": "$1.2M–$3M",
+   "summary": "Creative and independent: Victorian streets in Lockeland Springs, Shelby Bottoms and the city’s most interesting restaurants.",
+   "schools": "Lockeland Design Center and Meigs Magnet are well-known options.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/east-nashville/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 8,
+     "rush_hour": 12
+    },
+    "BNA Airport": {
+     "off_peak": 13,
+     "rush_hour": 22
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 13,
+     "rush_hour": 19
+    },
+    "Green Hills Mall": {
+     "off_peak": 18,
+     "rush_hour": 29
+    },
+    "Cool Springs": {
+     "off_peak": 27,
+     "rush_hour": 43
+    },
+    "Downtown Franklin": {
+     "off_peak": 34,
+     "rush_hour": 54
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 6,
+     "rush_hour": 8
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 22,
+     "rush_hour": 35
+    }
+   }
+  },
+  {
+   "id": "germantown",
+   "name": "Germantown & Downtown",
+   "city": "Nashville",
+   "price_range": "$1.2M–$6M+ (condos and townhomes)",
+   "summary": "Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience.",
+   "schools": "Best for empty-nesters, frequent travelers and second-home buyers.",
+   "guide": null,
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 5,
+     "rush_hour": 6
+    },
+    "BNA Airport": {
+     "off_peak": 15,
+     "rush_hour": 25
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 9,
+     "rush_hour": 13
+    },
+    "Green Hills Mall": {
+     "off_peak": 15,
+     "rush_hour": 22
+    },
+    "Cool Springs": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "Downtown Franklin": {
+     "off_peak": 32,
+     "rush_hour": 51
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 7,
+     "rush_hour": 10
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 18,
+     "rush_hour": 29
+    }
+   }
+  },
+  {
+   "id": "brentwood",
+   "name": "Brentwood (central)",
+   "city": "Brentwood",
+   "price_range": "$1.5M–$5M",
+   "summary": "Acre lots, mature trees and Williamson County Schools: about 20 minutes to Green Hills and 10 to Cool Springs.",
+   "schools": "Williamson County Schools: Brentwood High or Ravenwood High, depending on address.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/brentwood/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 20,
+     "rush_hour": 32
+    },
+    "BNA Airport": {
+     "off_peak": 22,
+     "rush_hour": 38
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 20,
+     "rush_hour": 32
+    },
+    "Green Hills Mall": {
+     "off_peak": 12,
+     "rush_hour": 17
+    },
+    "Cool Springs": {
+     "off_peak": 10,
+     "rush_hour": 15
+    },
+    "Downtown Franklin": {
+     "off_peak": 17,
+     "rush_hour": 27
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 22,
+     "rush_hour": 35
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 5,
+     "rush_hour": 6
+    }
+   }
+  },
+  {
+   "id": "governors-club",
+   "name": "Governors Club & Annandale",
+   "city": "Brentwood",
+   "price_range": "$2M–$8M",
+   "summary": "Gated, amenity-rich enclaves with private golf, newer estate homes and a resort feel.",
+   "schools": "Williamson County Schools; confirm the high school zone for each address.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/governors-club/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "BNA Airport": {
+     "off_peak": 25,
+     "rush_hour": 43
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "Green Hills Mall": {
+     "off_peak": 18,
+     "rush_hour": 29
+    },
+    "Cool Springs": {
+     "off_peak": 10,
+     "rush_hour": 15
+    },
+    "Downtown Franklin": {
+     "off_peak": 15,
+     "rush_hour": 22
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 27,
+     "rush_hour": 43
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 12,
+     "rush_hour": 17
+    }
+   }
+  },
+  {
+   "id": "nolensville",
+   "name": "Nolensville & Arrington",
+   "city": "Brentwood",
+   "price_range": "$1.2M–$4M",
+   "summary": "Newer construction, room to breathe and a small-town feel, with acreage options toward Arrington.",
+   "schools": "Williamson County Schools: Nolensville High or Page High, by address.",
+   "guide": null,
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 27,
+     "rush_hour": 43
+    },
+    "BNA Airport": {
+     "off_peak": 25,
+     "rush_hour": 43
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 27,
+     "rush_hour": 43
+    },
+    "Green Hills Mall": {
+     "off_peak": 20,
+     "rush_hour": 32
+    },
+    "Cool Springs": {
+     "off_peak": 18,
+     "rush_hour": 29
+    },
+    "Downtown Franklin": {
+     "off_peak": 22,
+     "rush_hour": 35
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 28,
+     "rush_hour": 45
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 15,
+     "rush_hour": 22
+    }
+   }
+  },
+  {
+   "id": "downtown-franklin",
+   "name": "Historic Downtown Franklin",
+   "city": "Franklin",
+   "price_range": "$1.5M–$4M",
+   "summary": "Restored Victorians and new homes a few blocks from Main Street’s shops, restaurants and the Franklin Theatre.",
+   "schools": "Franklin Special School District (PK–8) in much of the area, then Franklin High.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/franklin/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 30,
+     "rush_hour": 48
+    },
+    "BNA Airport": {
+     "off_peak": 32,
+     "rush_hour": 54
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 30,
+     "rush_hour": 48
+    },
+    "Green Hills Mall": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "Cool Springs": {
+     "off_peak": 8,
+     "rush_hour": 12
+    },
+    "Downtown Franklin": {
+     "off_peak": 2,
+     "rush_hour": 3
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 32,
+     "rush_hour": 51
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 15,
+     "rush_hour": 22
+    }
+   }
+  },
+  {
+   "id": "westhaven",
+   "name": "Westhaven",
+   "city": "Franklin",
+   "price_range": "$1.3M–$3M",
+   "summary": "A walkable town-within-a-town with a golf club, pools, a town center and front porches on every block.",
+   "schools": "Williamson County Schools, including a school inside the neighborhood (verify zoning).",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/westhaven/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 32,
+     "rush_hour": 51
+    },
+    "BNA Airport": {
+     "off_peak": 35,
+     "rush_hour": 59
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 30,
+     "rush_hour": 48
+    },
+    "Green Hills Mall": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "Cool Springs": {
+     "off_peak": 12,
+     "rush_hour": 17
+    },
+    "Downtown Franklin": {
+     "off_peak": 7,
+     "rush_hour": 10
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 34,
+     "rush_hour": 54
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 18,
+     "rush_hour": 29
+    }
+   }
+  },
+  {
+   "id": "leipers-fork",
+   "name": "Leiper’s Fork & West Franklin",
+   "city": "Franklin",
+   "price_range": "$2M–$15M+",
+   "summary": "Rolling farmland, horse properties and a tiny village of galleries and music: the land-and-privacy answer.",
+   "schools": "Williamson County Schools; many families also commute to BGA or Brentwood Academy.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/leipers-fork/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 42,
+     "rush_hour": 67
+    },
+    "BNA Airport": {
+     "off_peak": 45,
+     "rush_hour": 75
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 40,
+     "rush_hour": 64
+    },
+    "Green Hills Mall": {
+     "off_peak": 35,
+     "rush_hour": 56
+    },
+    "Cool Springs": {
+     "off_peak": 25,
+     "rush_hour": 40
+    },
+    "Downtown Franklin": {
+     "off_peak": 15,
+     "rush_hour": 22
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 44,
+     "rush_hour": 70
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 30,
+     "rush_hour": 48
+    }
+   }
+  },
+  {
+   "id": "thompsons-station",
+   "name": "Thompson’s Station",
+   "city": "Franklin",
+   "price_range": "$1.2M–$3M",
+   "summary": "Small-town charm south of Franklin with newer communities, farm parcels and more home for the money.",
+   "schools": "Williamson County Schools, often Independence High (verify by address).",
+   "guide": "https://www.nashvilleluxurylist.com/thompsons-station-tn-luxury-realtor/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 38,
+     "rush_hour": 61
+    },
+    "BNA Airport": {
+     "off_peak": 40,
+     "rush_hour": 67
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 37,
+     "rush_hour": 59
+    },
+    "Green Hills Mall": {
+     "off_peak": 32,
+     "rush_hour": 51
+    },
+    "Cool Springs": {
+     "off_peak": 16,
+     "rush_hour": 26
+    },
+    "Downtown Franklin": {
+     "off_peak": 12,
+     "rush_hour": 17
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 40,
+     "rush_hour": 64
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 24,
+     "rush_hour": 38
+    }
+   }
+  },
+  {
+   "id": "college-grove",
+   "name": "College Grove",
+   "city": "Franklin",
+   "price_range": "$2M–$10M+",
+   "summary": "Farms, wineries and private golf communities like The Grove and Troubadour in southern Williamson County.",
+   "schools": "Williamson County Schools (often Page High) or private schools in Franklin and Brentwood.",
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/college-grove/",
+   "drive_minutes": {
+    "Downtown / Broadway": {
+     "off_peak": 40,
+     "rush_hour": 64
+    },
+    "BNA Airport": {
+     "off_peak": 40,
+     "rush_hour": 67
+    },
+    "Vanderbilt / Midtown": {
+     "off_peak": 40,
+     "rush_hour": 64
+    },
+    "Green Hills Mall": {
+     "off_peak": 33,
+     "rush_hour": 53
+    },
+    "Cool Springs": {
+     "off_peak": 22,
+     "rush_hour": 35
+    },
+    "Downtown Franklin": {
+     "off_peak": 20,
+     "rush_hour": 32
+    },
+    "East Bank (Oracle / stadium)": {
+     "off_peak": 42,
+     "rush_hour": 67
+    },
+    "Maryland Farms (Brentwood)": {
+     "off_peak": 25,
+     "rush_hour": 40
+    }
+   }
+  }
+ ]
+}
