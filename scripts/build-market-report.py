@@ -77,7 +77,7 @@ def edition_page(d, prev, nxt):
     nav.append('<a class="ap-area" href="/market-report/"><small>Archive</small><b>All market reports</b><span>Browse &rarr;</span></a>')
     nav.append('<a class="ap-area" href="/newsletter/"><small>Weekly</small><b>Off-market homes</b><span>Get the list &rarr;</span></a>')
     out += section("more", "More", "Keep tracking the market", body=f'    <div class="ap-areas">{"".join(nav)}</div>' + "\n" + sources(d["sources"]) + "\n" +
-                   note("Figures come from the sources listed, as published at the time of this report; MLS and listing data are revised after publication. Realtracs regional figures cover its 27-county service area. Listing prices are asking prices, not sale prices."))
+                   note(d.get("footnote", "Figures come from the sources listed, as published at the time of this report; MLS and listing data are revised after publication. Realtracs regional figures cover its 27-county service area. Listing prices are asking prices, not sale prices.")))
     out += booking("")
     out += final_cta("Want the numbers for your home?", "Jason can pull the closed and pending sales behind this report for your street or the neighborhoods on your list.")
     out += COMPLIANCE + tail("market-report")
@@ -88,7 +88,7 @@ def hub(eds):
     path = "/market-report/"
     latest = eds[0]
     title = "Nashville Luxury Market Report: Monthly Data for Davidson &amp; Williamson | Nashville Luxury List"
-    desc = "A monthly, dated report on the Nashville-area luxury real estate market: Davidson and Williamson County inventory, $1M+ supply, price cuts and neighborhood medians, from Realtracs and other MLS-based sources."
+    desc = "A monthly, dated report on the Nashville-area luxury real estate market: Davidson and Williamson County inventory, $1M+ supply, price cuts and neighborhood medians, from Realtracs, Greater Nashville Realtors and other MLS-based sources."
     crumbs = [("Home", "/"), ("Market Report", path)]
     g = graph_base(path, "Nashville Luxury Market Report", desc, crumbs, page_type="CollectionPage")
     g.append({"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/market-report/{e['edition']}/", "name": e["month_label"]} for i, e in enumerate(eds)]})
@@ -103,7 +103,7 @@ def hub(eds):
     arch = "".join(f'<a class="ap-area" href="/market-report/{e["edition"]}/"><small>Data through {e["data_through"]}</small><b>{e["month_label"]}</b><span>{e["headline"]}</span></a>' for e in eds)
     out += section("arch", "Archive", "Every edition", body=f'    <div class="ap-areas">{arch}</div>')
     out += section("how", "Method", "How this report is built", alt=True, body=prose([
-        "Each edition is published monthly and dated, using the most recent full month of data available. Regional figures come from Realtracs, the Middle Tennessee MLS. County listing prices and inventory come from Realtor.com data published by the Federal Reserve Bank of St. Louis. Neighborhood medians come from Redfin's MLS-based data.",
+        "Each edition is published monthly and dated, using the most recent full month of data available. Regional figures come from Realtracs, the Middle Tennessee MLS, or from Greater Nashville Realtors' monthly report; each edition names its source and coverage area. County listing prices and inventory come from Realtor.com data published by the Federal Reserve Bank of St. Louis. Neighborhood medians come from Redfin's MLS-based data.",
         "Nashville Luxury List defines luxury as $1.5 million and up; some measures here use $1 million and up, where that's how the source reports them. Sources are linked in every edition."]))
     out += booking("")
     out += final_cta("Want this in your inbox?", "Join 600+ buyers and sellers who get Jason's weekly list of off-market and pre-market luxury homes.")

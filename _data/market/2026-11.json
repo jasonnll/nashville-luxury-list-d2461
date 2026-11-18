@@ -1,0 +1,93 @@
+{
+  "edition": "2026-11",
+  "month_label": "November 2026",
+  "data_through": "October 2026",
+  "published": "2026-11-18",
+  "headline": "Closings and new contracts slowed in October while listings kept climbing",
+  "summary": [
+    "Across nine Middle Tennessee counties, 2,540 homes closed in October, 12% fewer than a year earlier, and pending sales fell 21% to 1,805.",
+    "15,379 homes were for sale, about six months of supply at the current pace, according to Greater Nashville Realtors.",
+    "Williamson County had 1,665 active listings in October, up 18.6% from a year earlier; Davidson County had 4,621, up 11.1%.",
+    "The nine-county median sale price was $499,990, and the median condo price was $343,776."
+  ],
+  "key_stats": [
+    {"value": "2,540", "label": "October closings", "note": "9 counties, -12% YoY"},
+    {"value": "-21%", "label": "Pending sales", "note": "1,805 under contract, Oct 2026 vs Oct 2025"},
+    {"value": "6 mo", "label": "Supply", "note": "15,379 homes for sale, all prices"},
+    {"value": "+18.6%", "label": "Williamson listings", "note": "1,665 active, Oct 2026 YoY"}
+  ],
+  "regional": {
+    "title": "The regional market (Greater Nashville Realtors, October 2026)",
+    "note": "Greater Nashville Realtors monthly housing snapshot, nine counties: Cheatham, Davidson, Dickson, Maury, Robertson, Rutherford, Sumner, Williamson and Wilson. All price ranges. Earlier editions used Realtracs' 27-county figures, so these numbers are not directly comparable with last month's regional table. GNR did not publish year-over-year changes for inventory or prices.",
+    "rows": [
+      ["Closings", "2,540", "-12%"],
+      ["Pending sales", "1,805", "-21%"],
+      ["Homes for sale (inventory)", "15,379", "Not reported"],
+      ["Months of supply", "6", "Not reported"],
+      ["Median sale price", "$499,990", "Not reported"],
+      ["Median condo price", "$343,776", "Not reported"]
+    ]
+  },
+  "luxury": {
+    "title": "The luxury market",
+    "paragraphs": [
+      "No October count of $1M+ closings or listings had been published when this edition was prepared, so this month leans on county listing data. Williamson County is a reasonable stand-in for the luxury tier: its median listing price was about $1.16M in September, so roughly half of its listings are priced above $1.1M. Williamson had 1,665 active listings in October, up 18.6% from a year earlier, and has held above 1,650 every month since July.",
+      "Across the nine-county region, pending sales fell 21% from a year earlier, a sharper drop than closings (down 12%). Contracts signed now become closings over the next month or two, so closings are likely to stay soft into the end of the year. With about six months of supply overall, buyers have more room to negotiate than they did a year ago, and sellers are competing with more listings."
+    ]
+  },
+  "counties": {
+    "title": "Davidson vs. Williamson (Realtor.com listing data)",
+    "note": "Realtor.com county listing data via the Federal Reserve Bank of St. Louis (FRED). Listing prices reflect homes for sale, not closed sales. Median listing prices are the latest month available in FRED's data tables (September); active listings are October.",
+    "rows": [
+      {"county": "Williamson", "metric": "Median listing price", "period": "Sep 2026", "value": 1155000, "prior": 1144338, "fmt": "money"},
+      {"county": "Williamson", "metric": "Active listings", "period": "Oct 2026", "value": 1665, "prior": 1404, "fmt": "count"},
+      {"county": "Davidson", "metric": "Median listing price", "period": "Sep 2026", "value": 525000, "prior": 549900, "fmt": "money"},
+      {"county": "Davidson", "metric": "Active listings", "period": "Oct 2026", "value": 4621, "prior": 4161, "fmt": "count"}
+    ]
+  },
+  "neighborhoods": {
+    "title": "Luxury neighborhood medians",
+    "note": "Redfin's neighborhood pages had not updated when this edition was prepared, so these are the same figures as last month: medians for the three months ending August 2026, all home types (Green Hills: three months ending June 2026, the latest published). Source: Redfin calculations of MLS and public-record data.",
+    "cols": ["Area", "Median sale price", "Median days on market", "Price / sq ft", "Sale-to-list"],
+    "rows": [
+      ["<a href=\"/neighborhoods/belle-meade/\">Belle Meade</a>", "$4,297,155", "71", "$880", "96.5%"],
+      ["<a href=\"/neighborhoods/brentwood/\">Brentwood</a>", "$1,424,058", "63", "$356", "97.4%"],
+      ["<a href=\"/neighborhoods/green-hills/\">Green Hills</a>", "$1,249,565", "62", "$439", "96.9%"],
+      ["<a href=\"/neighborhoods/franklin/\">Franklin</a>", "$862,929", "49", "$317", "98.3%"],
+      ["<a href=\"/neighborhoods/east-nashville/\">East Nashville (37206)</a>", "$739,680", "56", "$340", "98.3%"],
+      ["Nashville (citywide)", "$475,538", "64", "$262", "97.6%"]
+    ]
+  },
+  "top_sales": {
+    "title": "Notable October transfers in Williamson County",
+    "items": [
+      ["Trident Ridge, Troubadour (College Grove)", "$11.50M", "Deed recorded Oct 26-30; county records don't state property type"],
+      ["Mountaintop Drive, The Grove (College Grove)", "$6.85M", "Deed recorded Oct 19-23; county records don't state property type"],
+      ["Geralds Drive, Reserve at Raintree Forest (Brentwood)", "$4.36M", "Deed recorded Oct 5-9; county records don't state property type"]
+    ]
+  },
+  "takeaways": {
+    "buyers": [
+      "Six months of supply and a 21% drop in contracts give you room to negotiate on price, repairs and closing costs.",
+      "Ask how long a home has been listed and whether the price has been cut; the longer it has sat, the more room there usually is.",
+      "Well-priced homes in the most sought-after locations still sell, so have your financing ready before you tour."
+    ],
+    "sellers": [
+      "Price to recent closed sales, not to what neighbors listed for in the spring.",
+      "With more listings to choose from, condition and presentation decide which homes get the showings.",
+      "If you can wait, a private pre-market launch lets you test the price before the home goes public."
+    ]
+  },
+  "sources": [
+    ["Greater Nashville Realtors monthly home sales report (October 2026 snapshot)", "https://www.greaternashvillerealtors.org/monthly-home-sales-report"],
+    ["FRED: Realtor.com median listing price, Williamson County, TN", "https://fred.stlouisfed.org/series/MEDLISPRI47187"],
+    ["FRED: Realtor.com active listings, Williamson County, TN", "https://fred.stlouisfed.org/series/ACTLISCOU47187"],
+    ["FRED: Realtor.com median listing price, Davidson County, TN", "https://fred.stlouisfed.org/series/MEDLISPRI47037"],
+    ["FRED: Realtor.com active listings, Davidson County, TN", "https://fred.stlouisfed.org/series/ACTLISCOU47037"],
+    ["Redfin housing market data", "https://www.redfin.com/news/data-center/"],
+    ["Williamson Source: property transfers, Oct 5-9, 2026", "https://williamsonsource.com/williamson-county-property-transfers-october-5-2026/"],
+    ["Williamson Source: property transfers, Oct 19-23, 2026", "https://williamsonsource.com/williamson-county-property-transfers-october-19-2026/"],
+    ["Williamson Source: property transfers, Oct 26-30, 2026", "https://williamsonsource.com/williamson-county-property-transfers-october-26-2026/"]
+  ],
+  "footnote": "Figures come from the sources listed, as published at the time of this report; MLS and listing data are revised after publication. Regional figures in this edition come from Greater Nashville Realtors and cover nine counties. Listing prices are asking prices, not sale prices. Deed transfers are public-record filings and may include land or homes."
+}

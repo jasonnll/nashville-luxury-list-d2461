@@ -313,7 +313,7 @@ def build():
     srcs = ' · '.join(f'<a href="{u}" target="_blank" rel="noopener">{E(t)}</a>' for t, u in d.get('sources', []))
     body = hero(items, f'{month} edition · Data through {thru}', 'The Nashville Luxury Index', E(d['headline']), '/assets/images/relocation-guide/nashville-skyline-1600.webp', 'Nashville skyline') + subnav(path) + f'''
 <div class="rg-wrap rg-body st-body">
-<section class="st-temp" aria-label="Market temperature"><div><span class="rg-eyebrow">$1M+ market temperature</span><h2>{temp}</h2><p class="rg-muted">{E(sk["note"]) if sk else ""}</p></div>
+<section class="st-temp" aria-label="Market temperature"><div><span class="rg-eyebrow">Market temperature</span><h2>{temp}</h2><p class="rg-muted">{("Based on " + E(sk["value"]) + " of supply: " + E(sk.get("note", ""))) if sk else ""}</p></div>
 <div class="st-gauge" role="img" aria-label="Gauge: {temp}"><div class="st-gauge-bar"><i style="left:{pos}%"></i></div><div class="st-gauge-l"><span>Sellers</span><span>Balanced</span><span>Buyers</span></div></div></section>
 <div class="rg-facts">{tiles}</div>
 <section class="st-sec"><h2>What happened this month</h2><ul class="rg-ul">{"".join(f"<li>{E(x)}</li>" for x in d['summary'])}</ul></section>
