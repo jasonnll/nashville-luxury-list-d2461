@@ -1,0 +1,152 @@
+{
+ "name": "Nashville Luxury Index",
+ "edition": "2026-10",
+ "month": "October 2026",
+ "data_through": "September 2026",
+ "url": "https://www.nashvilleluxurylist.com/luxury-index/",
+ "citation": "Nashville Luxury List, “Nashville Luxury Index, October 2026” (data through September 2026), https://www.nashvilleluxurylist.com/luxury-index/",
+ "license": "CC BY 4.0 (credit Nashville Luxury List)",
+ "market_temperature": "Leaning to buyers",
+ "key_stats": [
+  {
+   "value": "16.4k",
+   "label": "Homes for sale",
+   "note": "27-county region, Sep 2026, +3% YoY"
+  },
+  {
+   "value": "~5 mo",
+   "label": "$1M+ supply",
+   "note": "2,289 active vs ~460 closings/mo"
+  },
+  {
+   "value": "43%",
+   "label": "$1M+ price cuts",
+   "note": "Active listings below original ask"
+  },
+  {
+   "value": "$1.16M",
+   "label": "Williamson median list",
+   "note": "Sep 2026, +0.9% YoY"
+  }
+ ],
+ "summary": [
+  "Regional inventory reached about 16,400 homes in September, up 3% from a year earlier, while closings fell 10%.",
+  "About 2,289 homes priced at $1M+ were for sale against roughly 460 closings a month, about five months of supply.",
+  "43% of active $1M+ listings were priced below their original asking price.",
+  "Williamson County's median listing price held near $1.16M while its active listings rose about 15% year over year."
+ ],
+ "neighborhoods": [
+  {
+   "name": "Belle Meade",
+   "median": 4297155.0,
+   "dom": 71.0,
+   "ppsf": 880.0,
+   "stl": 96.5,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/belle-meade/"
+  },
+  {
+   "name": "Brentwood",
+   "median": 1424058.0,
+   "dom": 63.0,
+   "ppsf": 356.0,
+   "stl": 97.4,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/brentwood/"
+  },
+  {
+   "name": "Green Hills",
+   "median": 1249565.0,
+   "dom": 62.0,
+   "ppsf": 439.0,
+   "stl": 96.9,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/green-hills/"
+  },
+  {
+   "name": "Franklin",
+   "median": 862929.0,
+   "dom": 49.0,
+   "ppsf": 317.0,
+   "stl": 98.3,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/franklin/"
+  },
+  {
+   "name": "East Nashville (37206)",
+   "median": 739680.0,
+   "dom": 56.0,
+   "ppsf": 340.0,
+   "stl": 98.3,
+   "guide": "https://www.nashvilleluxurylist.com/neighborhoods/east-nashville/"
+  },
+  {
+   "name": "Nashville (citywide)",
+   "median": 475538.0,
+   "dom": 64.0,
+   "ppsf": 262.0,
+   "stl": 97.6,
+   "guide": null
+  }
+ ],
+ "neighborhood_note": "Medians for the three months ending August 2026, all home types. Green Hills figures are for the three months ending June 2026, the latest published. Source: Redfin calculations of MLS and public-record data.",
+ "counties": [
+  {
+   "county": "Williamson",
+   "metric": "Median listing price",
+   "period": "Sep 2026",
+   "value": 1155000,
+   "prior": 1144338,
+   "fmt": "money"
+  },
+  {
+   "county": "Williamson",
+   "metric": "Active listings",
+   "period": "Sep 2026",
+   "value": 1677,
+   "prior": 1461,
+   "fmt": "count"
+  },
+  {
+   "county": "Davidson",
+   "metric": "Median listing price",
+   "period": "Aug 2026",
+   "value": 533117,
+   "prior": 550000,
+   "fmt": "money"
+  },
+  {
+   "county": "Davidson",
+   "metric": "Active listings",
+   "period": "Sep 2026",
+   "value": 4621,
+   "prior": 4162,
+   "fmt": "count"
+  }
+ ],
+ "sources": [
+  [
+   "Realtracs monthly stats",
+   "https://realtracs.com/info/monthly-stats"
+  ],
+  [
+   "FRED: Realtor.com median listing price, Williamson County, TN",
+   "https://fred.stlouisfed.org/series/MEDLISPRI47187"
+  ],
+  [
+   "FRED: Realtor.com active listings, Williamson County, TN",
+   "https://fred.stlouisfed.org/series/ACTLISCOU47187"
+  ],
+  [
+   "FRED: Realtor.com median listing price, Davidson County, TN",
+   "https://fred.stlouisfed.org/series/MEDLISPRI47037"
+  ],
+  [
+   "FRED: Realtor.com active listings, Davidson County, TN",
+   "https://fred.stlouisfed.org/series/ACTLISCOU47037"
+  ],
+  [
+   "Redfin housing market data",
+   "https://www.redfin.com/news/data-center/"
+  ]
+ ],
+ "editions": [
+  "https://www.nashvilleluxurylist.com/market-report/2026-10/"
+ ]
+}

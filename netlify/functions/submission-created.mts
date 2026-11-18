@@ -25,11 +25,14 @@ const LEAD_FORMS: Record<string, string> = {
   'relocation-playbook': 'Relocation',
   'relocation-guide': 'Relocation',
   'home-valuation': 'Seller',
+  'seller-estimate': 'Seller',
 }
 
 // Forms the Zap should treat as another form it already routes (same lane, tags, Compass lead and emails)
 const ZAP_FORM_ALIAS: Record<string, string> = {
   'relocation-guide': 'relocation-playbook',
+  // Home value estimate + net proceeds tools: same Seller lane, home-value tag, Compass lead and alert
+  'seller-estimate': 'home-valuation',
 }
 
 const CRM_WEBHOOK_FALLBACK = 'https://hooks.zapier.com/hooks/catch/25124451/4m7pk3q/'
