@@ -68,7 +68,7 @@ NAV = [
     ('/market-report/', 'Market', [('/market-report/', 'Monthly market report'), ('/answers/', 'Questions answered'),
                                    ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'), ('/blog/', 'Past weekly lists')]),
     ('/about/', 'Jason', [('/about/', 'About Jason'), ('/past-sales/', 'Past sales'), ('/testimonials/', 'Client reviews'),
-                          ('/music/', 'Artists &amp; entertainers'), ('/contact/', 'Contact')], AREA_PAGES),
+                          ('/music/', 'Artists &amp; entertainers'), ('/athletes/', 'Athletes &amp; sports pros'), ('/contact/', 'Contact')], AREA_PAGES),
 ]
 
 # The "Menu" panel (tablets and phones): every key page, grouped.
@@ -84,7 +84,7 @@ MENU = [
                 ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'),
                 ('/blog/', 'Past weekly lists'), ('/guides/', 'Free guides')]),
     ('Jason', [('/about/', 'About Jason'), ('/testimonials/', 'Client reviews'),
-               ('/past-sales/', 'Past sales'), ('/music/', 'Artists &amp; entertainers'), ('/contact/', 'Contact')]),
+               ('/past-sales/', 'Past sales'), ('/music/', 'Artists &amp; entertainers'), ('/athletes/', 'Athletes &amp; sports pros'), ('/contact/', 'Contact')]),
     ('Jason’s record by area', AREA_PAGES),
 ]
 
@@ -101,7 +101,7 @@ FOOTER_COLS = [
                                 ('/thompsons-station-tn-luxury-realtor/', 'Thompson’s Station')]),
     ('About', [('/about/', 'Jason Kloess'), ('/about/why-nashville-luxury-list/', 'Why Nashville Luxury List'),
                ('/testimonials/', 'Reviews'), ('/market-report/', 'Market report'), ('/answers/', 'Questions answered'),
-               ('/compare/', 'Compare areas'), ('/faq/', 'FAQ'), ('/music/', 'Artists &amp; entertainers'),
+               ('/compare/', 'Compare areas'), ('/faq/', 'FAQ'), ('/music/', 'Artists &amp; entertainers'), ('/athletes/', 'Athletes &amp; sports pros'),
                ('/contact/', 'Contact')]),
 ]
 
@@ -277,9 +277,9 @@ def url_path(rel):
 # light rotation. Heroes keep their own look.
 BAND_CYCLE = ['ivory', 'sand', 'white', 'sand']
 BAND_SKIP_FILES = {'index.html', 'thank-you/index.html', 'jasonkloess/index.html', '702-skyview-dr.html', '1805-shackleford-rd.html', 'newsletter/index.html'}
-HERO_CLASSES = {'hero', 'ap-hero', 'page-hero', 'rl-hero', 'booking-hero'}
+HERO_CLASSES = {'hero', 'ap-hero', 'page-hero', 'rl-hero', 'booking-hero', 'ath-hero'}
 ANCHOR_CLASSES = {'ap-final', 'rl-final', 'lead-capture-section'}
-NO_BAND_CLASSES = {'newsletter-section', 'search-bar', 'off-market-band'}  # home: navy search strip under the hero, hunter-green off-market band
+NO_BAND_CLASSES = {'newsletter-section', 'search-bar', 'off-market-band', 'ath-band', 'ath-close'}  # home: navy search strip under the hero, hunter-green off-market band
 
 
 class _Sections(HTMLParser):

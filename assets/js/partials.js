@@ -75,7 +75,7 @@
      Posts as the "off-market-access" form, so the lead Zap adds it to Mailchimp with the
      Off-Market Access tag; submission-created.mts also sends popup signups to Compass CRM. */
   const POPUP_KEY = 'nll-offmarket-popup';
-  const popupSkip = ['/access', '/newsletter', '/contact', '/thank-you', '/admin', '/jasonkloess', '/music'].some(p => currentPath.startsWith(p));
+  const popupSkip = ['/access', '/newsletter', '/contact', '/thank-you', '/admin', '/jasonkloess', '/music', '/athletes'].some(p => currentPath.startsWith(p));
   // Anyone who joins through any signup form on the site never sees the popup again
   document.addEventListener('submit', (e) => {
     if (['vip-newsletter', 'off-market-access'].includes(e.target.getAttribute('name'))) {
