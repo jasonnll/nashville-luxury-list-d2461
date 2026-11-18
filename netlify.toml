@@ -27,6 +27,21 @@
   force  = true
 
 [[redirects]]
+  from = "/music"
+  to   = "/music/"
+  status = 301
+
+[[redirects]]
+  from = "/artists"
+  to   = "/music/"
+  status = 301
+
+[[redirects]]
+  from = "/entertainment"
+  to   = "/music/"
+  status = 301
+
+[[redirects]]
   from = "/playbook"
   to   = "/playbook/"
   status = 301
