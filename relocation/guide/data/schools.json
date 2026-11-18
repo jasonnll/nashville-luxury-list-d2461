@@ -1,0 +1,570 @@
+{
+ "source": "https://www.nashvilleluxurylist.com/relocation/guide/school-finder/",
+ "updated": "2026-11-18",
+ "note": "Public school assignment is by address; verify with the district.",
+ "schools": [
+  {
+   "name": "Brentwood High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Ravenwood High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics",
+    "STEM"
+   ]
+  },
+  {
+   "name": "Brentwood Middle School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "6–8",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Woodland Middle School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "6–8",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Sunset Middle School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "6–8",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Scales Elementary",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "K–5",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Edmondson Elementary",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "K–5",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Kenrose Elementary",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "K–5",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Crockett Elementary",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "K–5",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Lipscomb Elementary",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "K–5",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Franklin High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Franklin",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Arts",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "Centennial High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Franklin",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "Independence High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Thompson’s Station",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "Page High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Franklin / College Grove",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "Nolensville High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Nolensville",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "Summit High School",
+   "type": "Public",
+   "system": "Williamson County Schools",
+   "grades": "9–12",
+   "area": "Spring Hill",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "Franklin Special School District",
+   "type": "Public",
+   "system": "FSSD",
+   "grades": "PK–8",
+   "area": "Franklin",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Language immersion",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Hillsboro High School",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "9–12",
+   "area": "Green Hills",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "IB",
+    "Arts",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "Hillwood High School",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "9–12",
+   "area": "West Nashville",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Athletics"
+   ]
+  },
+  {
+   "name": "John Overton High School",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "9–12",
+   "area": "Oak Hill / Crieve Hall",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "AP",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Hume-Fogg Academic Magnet",
+   "type": "Academic magnet",
+   "system": "Metro Nashville Public Schools",
+   "grades": "9–12",
+   "area": "Downtown Nashville",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Magnet admissions",
+    "AP"
+   ]
+  },
+  {
+   "name": "MLK Jr. Academic Magnet",
+   "type": "Academic magnet",
+   "system": "Metro Nashville Public Schools",
+   "grades": "7–12",
+   "area": "North Nashville",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Magnet admissions",
+    "AP",
+    "STEM"
+   ]
+  },
+  {
+   "name": "Nashville School of the Arts",
+   "type": "Academic magnet",
+   "system": "Metro Nashville Public Schools",
+   "grades": "9–12",
+   "area": "South Nashville",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Magnet admissions",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Meigs Academic Magnet",
+   "type": "Academic magnet",
+   "system": "Metro Nashville Public Schools",
+   "grades": "5–8",
+   "area": "East Nashville",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Magnet admissions"
+   ]
+  },
+  {
+   "name": "Julia Green Elementary",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "K–4",
+   "area": "Green Hills",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Percy Priest Elementary",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "K–4",
+   "area": "Green Hills",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Eakin Elementary",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "K–4",
+   "area": "Hillsboro Village",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Glendale Spanish Immersion",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "PK–4",
+   "area": "Green Hills",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Language immersion"
+   ]
+  },
+  {
+   "name": "Sylvan Park Paideia Design Center",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "K–4",
+   "area": "Sylvan Park",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Lockeland Elementary Design Center",
+   "type": "Public",
+   "system": "Metro Nashville Public Schools",
+   "grades": "K–4",
+   "area": "East Nashville",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": []
+  },
+  {
+   "name": "Montgomery Bell Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "7–12",
+   "area": "West End / Belle Meade",
+   "student_body": "Boys",
+   "affiliation": null,
+   "strengths": [
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Harpeth Hall",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "5–12",
+   "area": "Green Hills",
+   "student_body": "Girls",
+   "affiliation": null,
+   "strengths": [
+    "STEM",
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Ensworth School",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "K–12",
+   "area": "Green Hills / Hwy 100",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "University School of Nashville",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "K–12",
+   "area": "Hillsboro Village",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Arts",
+    "STEM"
+   ]
+  },
+  {
+   "name": "Brentwood Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "6–12",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": "Christian",
+   "strengths": [
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Battle Ground Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "K–12",
+   "area": "Franklin",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Franklin Road Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "PK–12",
+   "area": "Oak Hill",
+   "student_body": "Coed",
+   "affiliation": "Christian",
+   "strengths": [
+    "Athletics",
+    "STEM"
+   ]
+  },
+  {
+   "name": "Christ Presbyterian Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "PK–12",
+   "area": "Forest Hills",
+   "student_body": "Coed",
+   "affiliation": "Christian",
+   "strengths": [
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Lipscomb Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "PK–12",
+   "area": "Green Hills / Belmont",
+   "student_body": "Coed",
+   "affiliation": "Christian",
+   "strengths": [
+    "Athletics",
+    "Arts"
+   ]
+  },
+  {
+   "name": "Father Ryan High School",
+   "type": "Private",
+   "system": "Catholic Diocese",
+   "grades": "9–12",
+   "area": "Oak Hill area",
+   "student_body": "Coed",
+   "affiliation": "Catholic",
+   "strengths": [
+    "Athletics",
+    "AP"
+   ]
+  },
+  {
+   "name": "St. Cecilia Academy",
+   "type": "Private",
+   "system": "Catholic (Dominican)",
+   "grades": "9–12",
+   "area": "North Nashville",
+   "student_body": "Girls",
+   "affiliation": "Catholic",
+   "strengths": [
+    "AP"
+   ]
+  },
+  {
+   "name": "Harding Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "PK–8",
+   "area": "Belle Meade",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Arts"
+   ]
+  },
+  {
+   "name": "Oak Hill School",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "PK–6",
+   "area": "Forest Hills / Oak Hill",
+   "student_body": "Coed",
+   "affiliation": "Christian",
+   "strengths": []
+  },
+  {
+   "name": "St. Henry School",
+   "type": "Private",
+   "system": "Catholic Diocese",
+   "grades": "K–8",
+   "area": "West Nashville",
+   "student_body": "Coed",
+   "affiliation": "Catholic",
+   "strengths": []
+  },
+  {
+   "name": "Overbrook School",
+   "type": "Private",
+   "system": "Catholic (Dominican)",
+   "grades": "PK–8",
+   "area": "East Nashville / Inglewood",
+   "student_body": "Coed",
+   "affiliation": "Catholic",
+   "strengths": []
+  },
+  {
+   "name": "Currey Ingram Academy",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "K–12",
+   "area": "Brentwood",
+   "student_body": "Coed",
+   "affiliation": null,
+   "strengths": [
+    "Learning differences"
+   ]
+  },
+  {
+   "name": "Nashville Christian School",
+   "type": "Private",
+   "system": "Independent",
+   "grades": "PK–12",
+   "area": "West Nashville",
+   "student_body": "Coed",
+   "affiliation": "Christian",
+   "strengths": [
+    "Athletics"
+   ]
+  }
+ ]
+}

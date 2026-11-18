@@ -1,0 +1,1681 @@
+# The Nashville, Brentwood & Franklin Relocation Guide
+
+> 34 free guides and interactive tools for people moving to Nashville, Brentwood or Franklin, Tennessee, written by Jason Kloess, REALTOR® with Compass (Tennessee license #357138; 615-457-0768; jason@nashvilleluxurylist.com). Hub: https://www.nashvilleluxurylist.com/relocation/guide/
+> Last updated November 2026. Machine-readable data: https://www.nashvilleluxurylist.com/relocation/guide/data/neighborhoods.json, https://www.nashvilleluxurylist.com/relocation/guide/data/schools.json, https://www.nashvilleluxurylist.com/relocation/guide/data/property-tax-2026.json
+
+## City hub: Moving to Nashville, TN
+URL: https://www.nashvilleluxurylist.com/relocation/guide/nashville/
+Belle Meade, Green Hills, Forest Hills, 12 South, East Nashville and the urban core: in-town living with Nashville’s best restaurants, culture and private schools minutes away.
+Key facts: $21,105 (Property tax on a $3M home (Urban Services District, 2026 rate $2.814)); 5–20 min (To downtown, Vanderbilt and BNA from most luxury neighborhoods); MNPS + private (Most luxury families here choose independent schools); 0% (State income tax on wages).
+
+## City hub: Moving to Brentwood, TN
+URL: https://www.nashvilleluxurylist.com/relocation/guide/brentwood/
+Acre lots, mature trees, gated communities like Governors Club and Annandale, and Williamson County Schools, about 20 minutes from Green Hills.
+Key facts: $11,175 (Property tax on a $3M home (2026 combined rate $1.49)); ~1 acre (Typical lot across much of the city); WCS (Brentwood High or Ravenwood High, by address); ~20 min (To Green Hills off-peak).
+
+## City hub: Moving to Franklin, TN
+URL: https://www.nashvilleluxurylist.com/relocation/guide/franklin/
+A storybook Main Street, Westhaven, Leiper’s Fork farms and the Cool Springs job center, with Williamson County Schools and FSSD, about 25–35 minutes from downtown Nashville.
+Key facts: $12,150 (Property tax on a $3M home in the City of Franklin (2026 rate $1.62)); WCS + FSSD (Two public districts; FSSD covers PK–8 in much of the city); ~8 min (Downtown Franklin to Cool Springs off-peak); $9,750 (On a $3M home in unincorporated areas like Leiper’s Fork ($1.30)).
+
+
+---
+
+# Neighborhood Matcher
+URL: https://www.nashvilleluxurylist.com/relocation/guide/neighborhood-matcher/
+Section: Tools · Areas: Nashville, Brentwood, Franklin
+Summary: Answer five quick questions about how you live and get your best-fit neighborhoods across Nashville, Brentwood and Franklin, ranked.
+Type: interactive tool (the static content below is what the tool is built on)
+
+- Your price range?$1.5M–$2.5M$2.5M–$4M$4M+
+- Your ideal weekend?Walking to coffee and dinnerQuiet, tree-lined streetsLand, privacy and spaceGolf, the pool, the club
+- Where will you go most often?Midtown, Vanderbilt or Green HillsDowntown or the East BankCool Springs, Franklin or BrentwoodThe airport: I travel a lotI work from home
+- Schools?Public schools are a priorityWe plan on private schoolNot a factor for us
+- Your kind of house?Historic with characterNew constructionAn estate on a big lotLock-and-leave
+Show my matches 
+
+## Get new and private listings in your matches
+
+I’ll send homes in these neighborhoods, including ones that never hit Zillow, plus the free Relocation Playbook.
+
+## All 16 neighborhoods in the matcher
+Nashville · $3M–$15M+
+
+### Belle Meade
+
+Nashville’s most established address: stately homes on big, tree-canopied lots, minutes from Green Hills and West End.Nashville · $1.5M–$5M
+
+### Green Hills
+
+Convenience central: the Mall at Green Hills, Hill Center, good restaurants and new construction on quiet side streets.Nashville · $2M–$7M
+
+### Forest Hills
+
+Rolling hills, wooded one- to three-acre lots and real privacy, still about 15 minutes to Green Hills.Nashville · $1.5M–$4M
+
+### Oak Hill
+
+Leafy, low-key and central, with large lots and quick I-65 access in both directions.Nashville · $1.3M–$3.5M
+
+### 12 South & Belmont-Hillsboro
+
+Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt.Nashville · $1.2M–$3M
+
+### Sylvan Park & West Nashville
+
+Neighborly streets, bungalows and modern builds, with Richland Park, Charlotte Avenue dining and a quick hop downtown.Nashville · $1.2M–$3M
+
+### East Nashville
+
+Creative and independent: Victorian streets in Lockeland Springs, Shelby Bottoms and the city’s most interesting restaurants.Nashville · $1.2M–$6M+ (condos and townhomes)
+
+### Germantown & Downtown
+
+Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience.Brentwood · $1.5M–$5M
+
+### Brentwood (central)
+
+Acre lots, mature trees and Williamson County Schools: about 20 minutes to Green Hills and 10 to Cool Springs.Brentwood · $2M–$8M
+
+### Governors Club & Annandale
+
+Gated, amenity-rich enclaves with private golf, newer estate homes and a resort feel.Brentwood · $1.2M–$4M
+
+### Nolensville & Arrington
+
+Newer construction, room to breathe and a small-town feel, with acreage options toward Arrington.Franklin · $1.5M–$4M
+
+### Historic Downtown Franklin
+
+Restored Victorians and new homes a few blocks from Main Street’s shops, restaurants and the Franklin Theatre.Franklin · $1.3M–$3M
+
+### Westhaven
+
+A walkable town-within-a-town with a golf club, pools, a town center and front porches on every block.Franklin · $2M–$15M+
+
+### Leiper’s Fork & West Franklin
+
+Rolling farmland, horse properties and a tiny village of galleries and music: the land-and-privacy answer.Franklin · $1.2M–$3M
+
+### Thompson’s Station
+
+Small-town charm south of Franklin with newer communities, farm parcels and more home for the money.Franklin · $2M–$10M+
+
+### College Grove
+
+Farms, wineries and private golf communities like The Grove and Troubadour in southern Williamson County.
+
+## Quick answers
+
+Q: What neighborhoods does the matcher compare?
+
+It ranks 16 luxury areas: Belle Meade, Green Hills, Forest Hills, Oak Hill, 12 South, Sylvan Park, East Nashville, Germantown, Brentwood, Governors Club, Nolensville, Downtown Franklin, Westhaven, Leiper’s Fork, Thompson’s Station, College Grove.
+
+Q: How are matches scored?
+
+Each neighborhood is scored on your budget, lifestyle, daily destinations, school plans and home style, using Jason Kloess’s local knowledge of each area. It is a starting point for a conversation, not a substitute for touring.
+
+---
+
+# Drive Time Calculator
+URL: https://www.nashvilleluxurylist.com/relocation/guide/drive-times/
+Section: Tools · Areas: Nashville, Brentwood, Franklin
+Summary: Drive times from 16 neighborhoods to downtown, BNA, Vanderbilt, Green Hills, Cool Springs, Franklin and the East Bank, off-peak and at rush hour.
+Type: interactive tool (the static content below is what the tool is built on)
+
+I’d live inBelle MeadeGreen HillsForest HillsOak Hill12 South & Belmont-HillsboroSylvan Park & West NashvilleEast NashvilleGermantown & DowntownBrentwood (central)Governors Club & AnnandaleNolensville & ArringtonHistoric Downtown FranklinWesthavenLeiper’s Fork & West FranklinThompson’s StationCollege Grove
+TrafficOff-peakRush hourBoth
+Downtown / Broadway15 minBNA Airport20 minVanderbilt / Midtown10 minGreen Hills Mall3 minCool Springs18 minDowntown Franklin25 minEast Bank (Oracle / stadium)17 min
+
+## Compare two neighborhoods
+
+Neighborhood ABelle MeadeGreen HillsForest HillsOak Hill12 South & Belmont-HillsboroSylvan Park & West NashvilleEast NashvilleGermantown & DowntownBrentwood (central)Governors Club & AnnandaleNolensville & ArringtonHistoric Downtown FranklinWesthavenLeiper’s Fork & West FranklinThompson’s StationCollege Grove
+Neighborhood BBelle MeadeGreen HillsForest HillsOak Hill12 South & Belmont-HillsboroSylvan Park & West NashvilleEast NashvilleGermantown & DowntownBrentwood (central)Governors Club & AnnandaleNolensville & ArringtonHistoric Downtown FranklinWesthavenLeiper’s Fork & West FranklinThompson’s StationCollege Grove
+Green HillsBrentwoodDowntown / Broadway15/2220/32BNA Airport20/3522/38Vanderbilt / Midtown10/1520/32Green Hills Mall3/412/17Cool Springs18/2910/15Downtown Franklin25/4017/27East Bank (Oracle / stadium)17/2722/35
+
+Minutes off-peak / rush hour. Green = faster.
+
+Q: See every drive time in one table
+From \ to (off-peak / rush, minutes) | Downtown / Broadway | BNA Airport | Vanderbilt / Midtown | Green Hills Mall | Cool Springs | Downtown Franklin | East Bank (Oracle / stadium) | 
+Belle Meade | 15 / 22 | 22 / 38 | 10 / 15 | 10 / 15 | 25 / 40 | 30 / 48 | 17 / 27 | 
+Green Hills | 15 / 22 | 20 / 35 | 10 / 15 | 3 / 4 | 18 / 29 | 25 / 40 | 17 / 27 | 
+Forest Hills | 18 / 29 | 20 / 35 | 15 / 22 | 8 / 12 | 15 / 22 | 22 / 35 | 20 / 32 | 
+Oak Hill | 14 / 20 | 17 / 30 | 13 / 19 | 8 / 12 | 17 / 27 | 24 / 38 | 16 / 26 | 
+12 South & Belmont-Hillsboro | 8 / 12 | 15 / 25 | 7 / 10 | 8 / 12 | 20 / 32 | 27 / 43 | 10 / 15 | 
+Sylvan Park & West Nashville | 10 / 15 | 20 / 35 | 8 / 12 | 12 / 17 | 25 / 40 | 32 / 51 | 12 / 17 | 
+East Nashville | 8 / 12 | 13 / 22 | 13 / 19 | 18 / 29 | 27 / 43 | 34 / 54 | 6 / 8 | 
+Germantown & Downtown | 5 / 6 | 15 / 25 | 9 / 13 | 15 / 22 | 25 / 40 | 32 / 51 | 7 / 10 | 
+Brentwood (central) | 20 / 32 | 22 / 38 | 20 / 32 | 12 / 17 | 10 / 15 | 17 / 27 | 22 / 35 | 
+Governors Club & Annandale | 25 / 40 | 25 / 43 | 25 / 40 | 18 / 29 | 10 / 15 | 15 / 22 | 27 / 43 | 
+Nolensville & Arrington | 27 / 43 | 25 / 43 | 27 / 43 | 20 / 32 | 18 / 29 | 22 / 35 | 28 / 45 | 
+Historic Downtown Franklin | 30 / 48 | 32 / 54 | 30 / 48 | 25 / 40 | 8 / 12 | 2 / 3 | 32 / 51 | 
+Westhaven | 32 / 51 | 35 / 59 | 30 / 48 | 25 / 40 | 12 / 17 | 7 / 10 | 34 / 54 | 
+Leiper’s Fork & West Franklin | 42 / 67 | 45 / 75 | 40 / 64 | 35 / 56 | 25 / 40 | 15 / 22 | 44 / 70 | 
+Thompson’s Station | 38 / 61 | 40 / 67 | 37 / 59 | 32 / 51 | 16 / 26 | 12 / 17 | 40 / 64 | 
+College Grove | 40 / 64 | 40 / 67 | 40 / 64 | 33 / 53 | 22 / 35 | 20 / 32 | 42 / 67 | 
+
+Estimates in minutes for typical weekday conditions. Rush hour assumes about 7:15–8:45 a.m. and 4:15–6:15 p.m. Weather, events and construction change things fast; check live traffic before a tight appointment.
+
+Prefer a map? Open Drive Times, Mapped.
+
+## Want a commute-smart home search?
+
+Tell me where you’ll drive most and I’ll send homes that fit, including private listings.
+
+## Quick answers
+
+Q: How long is the drive from Brentwood to downtown Nashville?
+
+About 20 minutes off-peak and roughly 32 minutes at rush hour, mostly on I-65.
+
+Q: How long is the drive from Franklin to downtown Nashville?
+
+About 30 minutes off-peak from downtown Franklin and roughly 48 minutes at rush hour.
+
+Q: How far is Green Hills from the airport?
+
+About 20 minutes off-peak to BNA.
+
+---
+
+# Move Math Calculator
+URL: https://www.nashvilleluxurylist.com/relocation/guide/move-math/
+Section: Tools · Areas: Nashville, Brentwood, Franklin
+Summary: Plug in your income and home values to estimate what Tennessee’s 0% wage tax and lower property taxes could save you each year.
+Type: interactive tool (the static content below is what the tool is built on)
+
+## Your numbers
+
+Moving fromCaliforniaNew YorkNew York City (state + city)New JerseyIllinoisMassachusettsConnecticutMinnesotaOregonColoradoGeorgiaNorth CarolinaVirginiaMaryland (state + typical local)OhioMichiganPennsylvaniaWisconsinArizonaUtahWashington, D.C.TexasFloridaWashingtonOther / enter my own
+Effective state income tax rate (%)
+Household taxable income ($)
+Current home value ($)
+Current property tax (% of value)
+New home price ($)
+Where you’re buyingNashville (Urban Services) · $2.814Nashville (General Services) · $2.782Franklin · $1.620Brentwood · $1.490Unincorporated Williamson (College Grove, Leiper’s Fork) · $1.300
+Years to project
+
+Estimated annual difference$75,238 / year
+
+Roughly what stays in your pocket each year after moving to Tennessee.
+$55,800State income tax saved$19,438Property tax difference$9,313New property tax / yr$752,375Over 10 years (today’s dollars)
+
+## Examples at a glance
+
+Household | State tax saved / yr | Property tax on the TN home / yr | 
+$500K income from California (9.3%), $2.5M Brentwood home | $46,500 | $9,313 | 
+$1M income from New York City (10.7%), $3M Green Hills home | $107,000 | $21,105 | 
+$750K income from Illinois (4.95%), $2M Franklin home | $37,125 | $8,100 | 
+
+A simplified planning estimate: state income tax = income × your effective rate (Tennessee taxes no wages). Property tax uses 2026 local rates on 25% of value; actual bills follow reappraisals. Not tax advice; confirm with your CPA.
+
+## Email me this estimate
+
+I’ll send your numbers with a short list of homes in your budget, plus the 25-page Relocation Playbook.
+
+## Quick answers
+
+Q: Does Tennessee have a state income tax?
+
+Tennessee does not tax wages or salaries, and the Hall tax on investment income was fully repealed in 2021.
+
+Q: What is the property tax on a $3 million home in Brentwood?
+
+At the 2026 combined rate of $1.49 per $100 of assessed value (homes are assessed at 25%), about $11,175 a year. In Nashville’s Urban Services District ($2.814) it is about $21,105.
+
+---
+
+# Your Moving Timeline
+URL: https://www.nashvilleluxurylist.com/relocation/guide/moving-timeline/
+Section: Tools · Areas: Nashville, Brentwood, Franklin
+Summary: Pick your move-in date and get a dated, step-by-step plan from 90 days out through your first month in Middle Tennessee.
+Type: interactive tool (the static content below is what the tool is built on)
+
+Target move-in date90 days before
+
+### Plan the search
+
+Talk through neighborhoods and schools, get jumbo pre-approval and start private school applications if needed.75 days before
+
+### Scouting trip
+
+Spend two or three days touring areas and homes. Use Your Perfect Day to plan it.60 days before
+
+### Go under contract
+
+Write the offer, schedule inspections and lock your rate. List your current home if selling.45 days before
+
+### Book movers
+
+Get three quotes; long-distance movers book up, especially in summer.30 days before
+
+### Schools and records
+
+Enroll by address and request transcripts and immunization records.14 days before
+
+### Utilities and internet
+
+Schedule start dates for closing day and book internet installation.7 days before
+
+### Final details
+
+Confirm closing time, verify wire instructions by phone (wire fraud is real) and schedule the final walkthrough.Move day
+
+### Closing and move-in
+
+Sign, get your keys and rekey the locks. Welcome home.7 days after
+
+### First week
+
+Work through The First 90 Days checklist.30 days after
+
+### Make it official
+
+Driver’s license, vehicle registration and voter registration.
+
+## Want me to run this timeline with you?
+
+Send your move date and I’ll build a personal plan around it, including scouting-trip home tours.
+
+---
+
+# The First 90 Days
+URL: https://www.nashvilleluxurylist.com/relocation/guide/first-90-days/
+Section: Tools · Areas: Nashville, Brentwood, Franklin
+Summary: A tap-to-check list for your Tennessee license, tags, utilities, voter registration, doctors and schools. It remembers your progress.
+Type: interactive tool (the static content below is what the tool is built on)
+
+0 of 18 done
+
+## First week
+Change your address with USPSConfirm utilities are in your name (electric, water, gas, internet, trash)Find the nearest urgent care and ERLocate your water shutoff and electrical panelRekey the locks; reset garage and gate codes
+
+## First 30 days
+Get your Tennessee driver’s license (bring proof of residency)Title and register your vehicles with the County ClerkUpdate car insurance to your Tennessee addressRegister to voteEnroll kids in school and request recordsSet up a primary care doctor and pediatrician
+
+## First 90 days
+Update estate documents with a Tennessee attorneyAsk your CPA about part-year residency in your old stateGet a library cardSchedule HVAC service and learn the irrigation systemJoin the HOA or neighborhood email listTry three restaurants from the Where to Eat guidesBuy season tickets: Preds, Symphony, TPAC or Nashville SCReset list
+
+Your checks are saved in this browser only.
+
+## Quick answers
+
+Q: How long do new residents have to get a Tennessee driver’s license?
+
+New residents are expected to get a Tennessee license within 30 days of moving here.
+
+---
+
+# Your Perfect Day
+URL: https://www.nashvilleluxurylist.com/relocation/guide/perfect-day/
+Section: Tools · Areas: Nashville, Brentwood, Franklin
+Summary: Pick a vibe (classic Nashville, foodie, family, outdoors, Brentwood or Franklin) and get a morning-to-evening plan for a scouting trip.
+Type: interactive tool (the static content below is what the tool is built on)
+
+Pick a vibeClassic NashvilleFoodieFamilyOutdoorsyBrentwood localFranklin localMorning
+
+### Biscuits at the Loveless Cafe, then a walk in Percy Warner Park
+Midday
+
+### Tour Belle Meade and Green Hills; lunch at Hill Center Green Hills
+Afternoon
+
+### The Frist Art Museum or the Country Music Hall of Fame
+Evening
+
+### Dinner downtown, then a show at the Ryman
+
+Check hours and reservations before you go.
+
+## Planning a scouting trip?
+
+Tell me your dates and I’ll line up home tours around your perfect day.
+
+---
+
+# Breaking Ground
+URL: https://www.nashvilleluxurylist.com/relocation/guide/breaking-ground/
+Section: Tools · Areas: Nashville
+Summary: The new stadium, Oracle’s campus, the 2030 Super Bowl, transit and the airport: what’s being built and when it lands.
+Type: interactive tool (the static content below is what the tool is built on)
+
+Status as of November 2026. Big projects shift, and I keep this page updated.Completion targeted early 2027
+
+### New Nissan Stadium Under way
+
+East Bank, Nashville. The Titans’ $2.1B enclosed stadium is on schedule for a February 2027 completion, opening the door to year-round concerts and major events. The current stadium is to be phased out after the 2026 NFL season.Construction underway
+
+### Oracle East Bank campus Under way
+
+East Bank, Nashville. Oracle’s riverfront campus is under construction: one of the region’s largest job generators and a reason East Nashville is on so many buyers’ lists.February 2030
+
+### Super Bowl LXIV Planned
+
+New Nissan Stadium. Nashville hosts the Super Bowl in 2030. The East Bank Development Authority has published a schedule of roads, housing and public spaces aimed at being ready before kickoff.Build ~Q3 2027 · open ~Q3 2030
+
+### East Bank 600-room hotel Planned
+
+Beside the new stadium. The master developer now expects construction to start in the third quarter of 2027 and the hotel to open in the third quarter of 2030, later than Metro’s earlier timeline.Rolling out over many years
+
+### Choose How You Move transit program Under way
+
+Davidson County. Approved by Nashville voters in November 2024: more frequent buses, sidewalks, signal upgrades and safety projects, funded by a half-cent sales tax and built corridor by corridor.Ongoing
+
+### BNA “New Horizon” expansion Under way
+
+Nashville International Airport. Terminal, concourse and roadway work continues as passenger numbers keep climbing. Leave extra time for parking and drop-off.Largely open
+
+### Nashville Yards Open
+
+Downtown, Church Street. Office towers (including Amazon), the Grand Hyatt, the Pinnacle music venue, restaurants and shops: a new downtown neighborhood that is mostly up and running.
+
+Go deeper in Across the River: Nashville’s East Bank.
+
+---
+
+# School Finder
+URL: https://www.nashvilleluxurylist.com/relocation/guide/school-finder/
+Section: Schools · Areas: Nashville, Brentwood, Franklin
+Summary: 47 public, magnet and private schools across Nashville, Brentwood and Franklin. Filter by type, grade level, area and focus.
+Type: interactive tool (the static content below is what the tool is built on)
+
+AreaAllNashvilleBrentwoodFranklin
+
+Search
+TypeAll typesPublicAcademic magnetPrivate / independent
+LevelAll levelsElementaryMiddleHigh school
+Student bodyAllCoedBoysGirls
+Program / strengthAnyAPArtsAthleticsIBLanguage immersionLearning differencesMagnet admissionsSTEMFaith-based
+
+47 schools
+
+### Brentwood High School
+PublicWilliamson County Schools · Grades 9–12 · Brentwood · Coed · AP, Athletics, Arts
+
+### Ravenwood High School
+PublicWilliamson County Schools · Grades 9–12 · Brentwood · Coed · AP, Athletics, STEM
+
+### Brentwood Middle School
+PublicWilliamson County Schools · Grades 6–8 · Brentwood · Coed
+
+### Woodland Middle School
+PublicWilliamson County Schools · Grades 6–8 · Brentwood · Coed
+
+### Sunset Middle School
+PublicWilliamson County Schools · Grades 6–8 · Brentwood · Coed
+
+### Scales Elementary
+PublicWilliamson County Schools · Grades K–5 · Brentwood · Coed
+
+### Edmondson Elementary
+PublicWilliamson County Schools · Grades K–5 · Brentwood · Coed
+
+### Kenrose Elementary
+PublicWilliamson County Schools · Grades K–5 · Brentwood · Coed
+
+### Crockett Elementary
+PublicWilliamson County Schools · Grades K–5 · Brentwood · Coed
+
+### Lipscomb Elementary
+PublicWilliamson County Schools · Grades K–5 · Brentwood · Coed
+
+### Franklin High School
+PublicWilliamson County Schools · Grades 9–12 · Franklin · Coed · AP, Arts, Athletics
+
+### Centennial High School
+PublicWilliamson County Schools · Grades 9–12 · Franklin · Coed · AP, Athletics
+
+### Independence High School
+PublicWilliamson County Schools · Grades 9–12 · Thompson’s Station · Coed · AP, Athletics
+
+### Page High School
+PublicWilliamson County Schools · Grades 9–12 · Franklin / College Grove · Coed · AP, Athletics
+
+### Nolensville High School
+PublicWilliamson County Schools · Grades 9–12 · Nolensville · Coed · AP, Athletics
+
+### Summit High School
+PublicWilliamson County Schools · Grades 9–12 · Spring Hill · Coed · AP, Athletics
+
+### Franklin Special School District
+PublicFSSD · Grades PK–8 · Franklin · Coed · Language immersion, Arts
+
+### Hillsboro High School
+PublicMetro Nashville Public Schools · Grades 9–12 · Green Hills · Coed · IB, Arts, Athletics
+
+### Hillwood High School
+PublicMetro Nashville Public Schools · Grades 9–12 · West Nashville · Coed · AP, Athletics
+
+### John Overton High School
+PublicMetro Nashville Public Schools · Grades 9–12 · Oak Hill / Crieve Hall · Coed · AP, Arts
+
+### Hume-Fogg Academic Magnet
+MagnetMetro Nashville Public Schools · Grades 9–12 · Downtown Nashville · Coed · Magnet admissions, AP
+
+### MLK Jr. Academic Magnet
+MagnetMetro Nashville Public Schools · Grades 7–12 · North Nashville · Coed · Magnet admissions, AP, STEM
+
+### Nashville School of the Arts
+MagnetMetro Nashville Public Schools · Grades 9–12 · South Nashville · Coed · Magnet admissions, Arts
+
+### Meigs Academic Magnet
+MagnetMetro Nashville Public Schools · Grades 5–8 · East Nashville · Coed · Magnet admissions
+
+### Julia Green Elementary
+PublicMetro Nashville Public Schools · Grades K–4 · Green Hills · Coed
+
+### Percy Priest Elementary
+PublicMetro Nashville Public Schools · Grades K–4 · Green Hills · Coed
+
+### Eakin Elementary
+PublicMetro Nashville Public Schools · Grades K–4 · Hillsboro Village · Coed
+
+### Glendale Spanish Immersion
+PublicMetro Nashville Public Schools · Grades PK–4 · Green Hills · Coed · Language immersion
+
+### Sylvan Park Paideia Design Center
+PublicMetro Nashville Public Schools · Grades K–4 · Sylvan Park · Coed
+
+### Lockeland Elementary Design Center
+PublicMetro Nashville Public Schools · Grades K–4 · East Nashville · Coed
+
+### Montgomery Bell Academy
+PrivateIndependent · Grades 7–12 · West End / Belle Meade · Boys · Athletics, Arts
+
+### Harpeth Hall
+PrivateIndependent · Grades 5–12 · Green Hills · Girls · STEM, Athletics, Arts
+
+### Ensworth School
+PrivateIndependent · Grades K–12 · Green Hills / Hwy 100 · Coed · Athletics, Arts
+
+### University School of Nashville
+PrivateIndependent · Grades K–12 · Hillsboro Village · Coed · Arts, STEM
+
+### Brentwood Academy
+PrivateIndependent · Grades 6–12 · Brentwood · Coed · Christian · Athletics, Arts
+
+### Battle Ground Academy
+PrivateIndependent · Grades K–12 · Franklin · Coed · Athletics, Arts
+
+### Franklin Road Academy
+PrivateIndependent · Grades PK–12 · Oak Hill · Coed · Christian · Athletics, STEM
+
+### Christ Presbyterian Academy
+PrivateIndependent · Grades PK–12 · Forest Hills · Coed · Christian · Athletics, Arts
+
+### Lipscomb Academy
+PrivateIndependent · Grades PK–12 · Green Hills / Belmont · Coed · Christian · Athletics, Arts
+
+### Father Ryan High School
+PrivateCatholic Diocese · Grades 9–12 · Oak Hill area · Coed · Catholic · Athletics, AP
+
+### St. Cecilia Academy
+PrivateCatholic (Dominican) · Grades 9–12 · North Nashville · Girls · Catholic · AP
+
+### Harding Academy
+PrivateIndependent · Grades PK–8 · Belle Meade · Coed · Arts
+
+### Oak Hill School
+PrivateIndependent · Grades PK–6 · Forest Hills / Oak Hill · Coed · Christian
+
+### St. Henry School
+PrivateCatholic Diocese · Grades K–8 · West Nashville · Coed · Catholic
+
+### Overbrook School
+PrivateCatholic (Dominican) · Grades PK–8 · East Nashville / Inglewood · Coed · Catholic
+
+### Currey Ingram Academy
+PrivateIndependent · Grades K–12 · Brentwood · Coed · Learning differences
+
+### Nashville Christian School
+PrivateIndependent · Grades PK–12 · West Nashville · Coed · Christian · Athletics
+
+Public school assignment is by exact address and can change: verify with Williamson County Schools, FSSD or MNPS. Private school grades and programs as published by each school; confirm admissions details directly.
+
+## Want homes zoned for a specific school?
+
+Tell me the school and I’ll send homes zoned for it, including private listings, and confirm zoning on each.
+
+## Quick answers
+
+Q: Which high schools serve Brentwood?
+
+Most Brentwood addresses are zoned to Brentwood High School or Ravenwood High School (Williamson County Schools). Confirm each address with the district.
+
+Q: What is FSSD?
+
+Franklin Special School District serves PK–8 students in much of the City of Franklin. Those students then attend Williamson County high schools.
+
+Q: Which private schools are in Brentwood and Franklin?
+
+Brentwood Academy and Currey Ingram Academy are in Brentwood; Battle Ground Academy is in Franklin.
+
+---
+
+# The School Question, Answered
+URL: https://www.nashvilleluxurylist.com/relocation/guide/school-question/
+Section: Schools · Areas: Nashville, Brentwood, Franklin
+Summary: Williamson County Schools, FSSD, Metro Nashville and private schools: how each system works and which areas feed where.
+
+3Public systems most buyers consider: WCS, FSSD and MNPSEarly AugFirst day of school in most districtsFall–winterPrivate school application seasonBy addressHow public school zoning works
+
+## Williamson County Schools (Brentwood and Franklin)
+
+Consistently among the highest-performing districts in Tennessee and a major reason families choose Brentwood and Franklin. Brentwood homes are generally zoned to Brentwood High or Ravenwood High. Franklin-area homes may go to Franklin, Centennial, Independence or Page High depending on address.
+
+## Franklin Special School District
+
+Inside much of the City of Franklin, PK–8 students attend FSSD, then move into Williamson County high schools. FSSD is known for programs like Spanish immersion and strong arts.
+
+## Metro Nashville Public Schools
+
+A large, varied district with standout options. Around Green Hills, Julia Green and Percy Priest elementaries feed toward Hillsboro High (IB). Academic magnets like Hume-Fogg and MLK Jr. admit by application.
+
+## Private and independent schools
+
+Nashville has an unusually deep bench: MBA (boys), Harpeth Hall (girls), Ensworth, USN, Brentwood Academy, BGA, CPA, Franklin Road Academy, Lipscomb Academy, Father Ryan and more. Many Belle Meade, Green Hills and Forest Hills families go private; many Brentwood and Franklin families choose public.
+Search them side by side in the School Finder, or see them on the Schools Map.
+
+Districts redraw zones over time. Before you write an offer, verify the exact address with Williamson County Schools, FSSD or MNPS.
+
+## Quick answers
+
+Q: Are Williamson County Schools better than Metro Nashville schools?
+
+Williamson County Schools rank among the top districts in Tennessee overall. Metro Nashville is larger and more varied, with standout zoned schools and academic magnets, and many in-town luxury buyers choose private schools.
+
+Q: When do Nashville private school applications open?
+
+Most independent schools take applications in the fall and winter for the following school year, with decisions in early spring.
+
+---
+
+# Neighborhoods & Schools Map
+URL: https://www.nashvilleluxurylist.com/relocation/guide/schools-map/
+Section: Schools · Areas: Nashville, Brentwood, Franklin
+Summary: See where the luxury neighborhoods sit relative to the major private schools and public high schools.
+Type: interactive tool (the static content below is what the tool is built on)
+
+Shaded circles are neighborhoods; dots are schools. Use it to see which schools are a short drive from where you’re looking.
+
+Percy Priest Lake
+Old Hickory Lake
+Cumberland River
+
+I-65I-40I-24I-440
+
+DAVIDSON COUNTYWILLIAMSON COUNTY
+Belle MeadeGreen HillsForest HillsOak Hill12 SouthSylvan ParkEast NashvilleGermantownBrentwoodGovernors ClubNolensvilleDowntown FranklinWesthavenLeiper’s ForkThompson’s StationCollege GroveMBAHarpeth HallEnsworthUSNLipscomb Acad.CPAFRAFather RyanBrentwood Acad.Currey IngramBGAHillsboro HSBrentwood HSRavenwood HSFranklin HSCentennial HSIndependence HSPage HSNolensville HSHume-FoggSwipe the map sideways →Public high schoolAcademic magnetPrivate schoolApproximate locations
+
+Filter every school in the School Finder.
+
+---
+
+# Moving Here From Out of State
+URL: https://www.nashvilleluxurylist.com/relocation/guide/out-of-state/
+Section: Moving here · Areas: Nashville, Brentwood, Franklin
+Summary: The relocation cheat sheet: taxes, timing, licensing, Nashville vs. Williamson County, and how buying a luxury home works here.
+
+0%State income tax on wages30 daysTo get a Tennessee driver’s license25%Of appraised value is taxed on a homeFeb 28Property tax due date each year
+
+## The big picture
+
+Middle Tennessee is one of the most-moved-to regions in the country: no state income tax on wages, a strong job market (healthcare, music, finance and tech, with Oracle, Amazon and AllianceBernstein all here), a fast-growing airport and a quality of life that still feels neighborly. For most luxury buyers the first decision is Nashville or Williamson County, and inside Williamson, Brentwood or Franklin.
+Davidson County
+
+### Nashville
+
+Belle Meade, Green Hills, Forest Hills, 12 South and East Nashville. Restaurants and culture at your door; many families choose private school.Closer inPrivate-school heavyWilliamson County
+
+### Brentwood
+
+Acre lots, gated communities and Williamson County Schools, about 20 minutes from Green Hills.Top public schoolsBig lotsWilliamson County
+
+### Franklin
+
+Historic Main Street, Westhaven, Leiper’s Fork farms and Cool Springs offices. 25–35 minutes to downtown.Small-town charmLand options
+
+## How buying works here
+
+- Get pre-approved first. Jumbo lenders want two years of income documents. If you are selling elsewhere, ask about bridge or contingent options.
+- Many of the best homes trade quietly. Private exclusives and coming-soon listings are common at the top end, so getting on a curated list early matters. See how to see off-market homes.
+- Inspections, appraisal and financing run on negotiated time periods in the Tennessee purchase agreement. Closings usually take 30–45 days.
+- Remote buying is normal. Video tours, e-signatures and remote closings mean you can buy before you move. See buying from out of state.
+
+## When to move
+
+Spring brings the most inventory and the most competition; late summer and fall are calmer. With school-age kids, aim to close by mid-July so you can register before school starts in early August.
+Private school? Most independent schools take applications in the fall and winter for the next year. Start a year ahead if you can.
+
+## Moving from a specific state?
+
+Detailed tax and lifestyle comparisons: California · New York · New Jersey · Illinois · Massachusetts · Florida.
+
+## Your first-month checklist
+
+- Driver’s license at a Tennessee Driver Services Center (bring proof of residency).
+- Title and register vehicles with the County Clerk.
+- Register to vote.
+- Set up utilities: see Utilities & Setup.
+- Enroll in school by address.
+- Find a pediatrician and primary care doctor: see Healthcare Here.
+
+Check them off in The First 90 Days.
+
+## Quick answers
+
+Q: Is it better to live in Nashville or Brentwood?
+
+Choose Nashville (Belle Meade, Green Hills, Forest Hills) for a shorter drive to downtown and Midtown and access to private schools; choose Brentwood for acre lots, gated communities, lower property taxes and Williamson County public schools.
+
+Q: How long does it take to close on a home in Tennessee?
+
+Most financed purchases close in 30–45 days; cash purchases can close faster.
+
+Q: When is the best time to move to Nashville with kids?
+
+Close by mid-July if you can, so you can enroll before school starts in early August.
+
+---
+
+# What Nobody Tells You About Living Here
+URL: https://www.nashvilleluxurylist.com/relocation/guide/nobody-tells-you/
+Section: Moving here · Areas: Nashville, Brentwood, Franklin
+Summary: The newcomer truths: traffic patterns, pollen, storms, annual property tax bills and where locals actually go.
+
+Every place has unwritten rules. These are the things clients tell me they wish they had known sooner.
+Traffic
+
+### I-65 is the whole story
+
+Most Brentwood and Franklin trips to Nashville run on I-65 or Franklin Pike. Northbound mornings and southbound evenings are heaviest, so living on the right side of your daily commute matters more than miles.Weather
+
+### Ice, not snow
+
+Winters are mild, but a quarter-inch of ice can close schools. Spring brings strong storms: keep weather alerts on and know your home’s safest interior room.Allergies
+
+### Pollen season is real
+
+The Tennessee valley traps pollen, and March through May newcomers notice. Many people start allergy medicine early and run HEPA filters.Taxes
+
+### Property tax comes once a year
+
+Bills go out in the fall and are due by the end of February. If you don’t escrow, budget for one larger payment.Broadway
+
+### Downtown is mostly for visitors
+
+Locals go to the Ryman, the Schermerhorn and the Opry, and eat in East Nashville, Germantown, 12 South and downtown Franklin.Terrain
+
+### Lots aren’t flat
+
+Rolling hills mean walkout basements, drainage questions and steep driveways. A good inspector looks hard at grading and water flow.Schools
+
+### Zoning is by exact address
+
+Two homes on the same street can be zoned differently. Confirm with the district before you fall in love.Sales tax
+
+### Sales tax makes up for it
+
+Expect about 9.25% to 9.75% at the register. Groceries are taxed at a lower state rate.Pace
+
+### People actually talk to you
+
+Waves from neighbors, small talk at the coffee shop, sweet tea as the default. You’ll get used to it, then you’ll love it.
+
+---
+
+# Tennessee Taxes, Explained
+URL: https://www.nashvilleluxurylist.com/relocation/guide/taxes/
+Section: Moving here · Areas: Nashville, Brentwood, Franklin
+Summary: No income tax on wages, how property tax is calculated, and the 2026 rates for Nashville, Brentwood, Franklin and unincorporated Williamson County.
+
+0%Tax on wages25%Residential assessment ratio~9.25–9.75%Combined sales taxNoneState estate or inheritance tax
+
+## Income tax
+
+Tennessee doesn’t tax wages or salaries, and the old Hall tax on investment income was fully repealed in 2021. For high earners from California, New York, New Jersey or Illinois, this is often the single biggest financial reason to move. Run your numbers in Move Math.
+
+## Property tax in one formula
+
+Appraised value × 25% × rate per $100 = annual bill. The county line matters most:
+
+Where | Rate per $100 | $2M home | $3M home | $5M home | 
+Nashville: Urban Services District (Green Hills, 12 South, East Nashville, Sylvan Park) | $2.814 | $14,070 | $21,105 | $35,175 | 
+Nashville: General Services District (Belle Meade, Forest Hills, Oak Hill) | $2.782 | $13,910 | $20,865 | $34,775 | 
+City of Franklin | $1.620 | $8,100 | $12,150 | $20,250 | 
+City of Brentwood | $1.490 | $7,450 | $11,175 | $18,625 | 
+Unincorporated Williamson (College Grove, Leiper’s Fork) | $1.300 | $6,500 | $9,750 | $16,250 | 
+
+2026 rates from the Metro Nashville Trustee, Williamson County FY 2026–27 budget, City of Brentwood FY 2027 and City of Franklin. General Services figures exclude any city levy (such as Belle Meade’s). Full comparison: Davidson vs. Williamson County.
+
+## Sales tax
+
+Tennessee leans on sales tax instead: 7% state plus local options, usually 9.25% to 9.75% at checkout, with a reduced state rate on groceries.
+
+Rates reset after reappraisals. Confirm current figures with the Davidson or Williamson County Trustee, and talk to your CPA about your situation. This is not tax advice.
+
+## Quick answers
+
+Q: How is property tax calculated in Tennessee?
+
+Appraised value × 25% assessment ratio × the local rate per $100 of assessed value.
+
+Q: What is the 2026 property tax rate in Franklin, TN?
+
+The City of Franklin combined rate is $1.62 per $100 of assessed value, about $12,150 a year on a $3M home.
+
+Q: When are property taxes due in Nashville and Williamson County?
+
+Bills are mailed in the fall and are due by the end of February.
+
+---
+
+# Utilities & Setup
+URL: https://www.nashvilleluxurylist.com/relocation/guide/utilities/
+Section: Moving here · Areas: Nashville, Brentwood, Franklin
+Summary: Who provides power, water, gas and internet at your new address in Nashville, Brentwood or Franklin, and what to set up first.
+
+Your provider depends on exactly where the home sits. Here is the usual lineup; I confirm the specifics for every home we look at.
+
+Service | Nashville (Davidson) | Brentwood | Franklin | 
+Electric | Nashville Electric Service (NES) | Middle Tennessee Electric (most); some NES | Middle Tennessee Electric (most areas) | 
+Water & sewer | Metro Water Services | Brentwood Water Services, or a utility district | City of Franklin Water, or a utility district (e.g., Milcrofton, H.B.&T.S.) | 
+Natural gas | Piedmont Natural Gas | Atmos Energy | Atmos Energy | 
+Internet | AT&T Fiber, Google Fiber, Xfinity (by street) | AT&T Fiber, Xfinity | AT&T Fiber, Xfinity; United Communications fiber in some areas | 
+Trash | Metro curbside in the Urban Services District | Private subscription service | City of Franklin service inside city limits | 
+
+## Two weeks before closing
+
+- Schedule electric, water and gas to start the day you close.
+- Book internet installation early; fiber install slots can run out.
+- Set up trash service and note recycling days.
+- Forward mail with USPS.
+- Transfer or set up security monitoring.
+
+Septic vs. sewer, well vs. public water and utility-district boundaries are part of the due diligence I do on every home.
+
+---
+
+# Healthcare Here
+URL: https://www.nashvilleluxurylist.com/relocation/guide/healthcare/
+Section: Moving here · Areas: Nashville, Brentwood, Franklin
+Summary: Nashville is a national healthcare capital. The major hospital systems, where they are, and how to get established as a new patient.
+
+Nashville is home to hundreds of healthcare companies and some of the best medical care in the Southeast.
+Midtown
+
+### Vanderbilt University Medical Center
+
+Academic medical center and Level I trauma center, including Monroe Carell Jr. Children’s Hospital at Vanderbilt, plus Vanderbilt clinics across Williamson County.West Nashville & Midtown
+
+### Ascension Saint Thomas
+
+Saint Thomas West on Harding Pike near Belle Meade, Saint Thomas Midtown, and outpatient sites around the region.Midtown & suburbs
+
+### HCA TriStar
+
+TriStar Centennial in Midtown plus other TriStar hospitals. HCA is headquartered in Nashville.Franklin
+
+### Williamson Health
+
+Williamson Medical Center in Franklin, with a children’s hospital and offices around Brentwood and Cool Springs.
+New-patient waits can be long. Call pediatricians and primary care practices as soon as you are under contract.
+
+---
+
+# Getting Around & Getting Out
+URL: https://www.nashvilleluxurylist.com/relocation/guide/getting-around/
+Section: Moving here · Areas: Nashville, Brentwood, Franklin
+Summary: I-65, I-440 and the back roads, BNA nonstops, private aviation and the shortcuts locals use.
+
+~15–25 minFrom most Nashville luxury neighborhoods to BNA off-peakI-65The Nashville–Brentwood–Franklin spineI-440The inner loop: Green Hills, 12 South, Belle MeadeJWNJohn C. Tune Airport for private aviation
+
+## The road network in one minute
+
+- I-65 runs north–south through Franklin and Brentwood to downtown.
+- I-440 loops the inner city and connects West End, Green Hills and 12 South to I-24 and I-40.
+- Hillsboro Pike, Franklin Pike and Highway 100 are the surface routes locals use when I-65 backs up.
+- Mack Hatcher Parkway circles Franklin; Highway 96 runs east–west through it.
+- The Natchez Trace Parkway starts near Leiper’s Fork: slow, beautiful and commercial-free.
+
+## Flying
+
+Nashville International (BNA) offers nonstop service to most major U.S. cities plus international flights, including London. For private flyers, John C. Tune Airport (JWN) in West Nashville is close to Belle Meade and Sylvan Park.
+
+See estimates in the Drive Time Calculator or on the Drive Times map.
+
+---
+
+# Nashville Neighborhoods, Up Close
+URL: https://www.nashvilleluxurylist.com/relocation/guide/nashville-up-close/
+Section: Neighborhoods · Areas: Nashville
+Summary: Belle Meade to East Nashville: the personality, price range, schools and best fit for each Nashville luxury neighborhood.
+
+Nashville is a city of neighborhoods with very different personalities. Here is how the luxury ones compare.
+$3M–$15M+
+
+### Belle Meade
+
+Nashville’s most established address: stately homes on big, tree-canopied lots, minutes from Green Hills and West End. Most families choose private: Ensworth, MBA, Harpeth Hall and USN are close.$1.5M–$5M
+
+### Green Hills
+
+Convenience central: the Mall at Green Hills, Hill Center, good restaurants and new construction on quiet side streets. MNPS options include Julia Green and Percy Priest elementaries and Hillsboro High (IB).$2M–$7M
+
+### Forest Hills
+
+Rolling hills, wooded one- to three-acre lots and real privacy, still about 15 minutes to Green Hills. Near CPA, Ensworth’s high school campus and Franklin Road Academy.$1.5M–$4M
+
+### Oak Hill
+
+Leafy, low-key and central, with large lots and quick I-65 access in both directions. Near Franklin Road Academy, Oak Hill School and Father Ryan.$1.3M–$3.5M
+
+### 12 South & Belmont-Hillsboro
+
+Sidewalks, coffee, boutiques and Sevier Park: character homes and sleek infill near Belmont and Vanderbilt. Eakin and Julia Green elementaries nearby; USN and Lipscomb Academy are close.$1.2M–$3M
+
+### Sylvan Park & West Nashville
+
+Neighborly streets, bungalows and modern builds, with Richland Park, Charlotte Avenue dining and a quick hop downtown. Sylvan Park Paideia Design Center is a neighborhood favorite.$1.2M–$3M
+
+### East Nashville
+
+Creative and independent: Victorian streets in Lockeland Springs, Shelby Bottoms and the city’s most interesting restaurants. Lockeland Design Center and Meigs Magnet are well-known options.$1.2M–$6M+ (condos and townhomes)
+
+### Germantown & Downtown
+
+Lock-and-leave living: historic rowhouses, high-rises in the Gulch and SoBro, and walk-to-everything convenience. Best for empty-nesters, frequent travelers and second-home buyers.
+
+Price ranges are approximate for luxury single-family homes (condos in the urban core) as of late 2026 and vary street to street.
+
+Narrow it down with the Neighborhood Matcher or the full neighborhood guides.
+
+## Quick answers
+
+Q: What is the most exclusive neighborhood in Nashville?
+
+Belle Meade is Nashville’s most established luxury address, with homes on large, tree-canopied lots near Green Hills and West End.
+
+Q: Where do Nashville families who want walkability live?
+
+12 South and Belmont-Hillsboro, Sylvan Park and East Nashville offer the most walkable luxury streets.
+
+---
+
+# Brentwood, Up Close
+URL: https://www.nashvilleluxurylist.com/relocation/guide/brentwood-up-close/
+Section: Neighborhoods · Areas: Brentwood
+Summary: Acre lots, top public schools and low taxes 20 minutes from Green Hills: everything you need to know about living in Brentwood, TN.
+
+$11,175Property tax on a $3M home (2026 combined rate $1.49)~1 acreTypical lot across much of the cityWCSBrentwood High or Ravenwood High, by address~20 minTo Green Hills off-peak
+
+## Why people choose Brentwood
+
+Brentwood sits just south of the Davidson County line in Williamson County. Much of the city is zoned for roughly one home per acre, which gives it a spacious, park-like feel. Add Williamson County Schools, one of the lowest combined tax rates in the region, and quick access to both Nashville and Cool Springs, and it is easy to see why it is a first stop for relocating families.
+
+## Neighborhoods to know
+
+Gated · golf
+
+### Governors Club
+
+Private golf course, clubhouse, pools and estate homes behind the gate.Club lifeNewer homesGated · estate
+
+### Annandale
+
+Larger estate homes on generous lots with a quiet, private feel.GatedEstateEstablished
+
+### Brentwood Country Club area
+
+Mature trees and classic homes around the club in the heart of Brentwood.CentralNewer
+
+### South Brentwood
+
+Newer estate homes with amenities toward Split Log Road and Nolensville.Newer homes
+
+## Daily life
+
+- Shopping and dining: Hill Center Brentwood, Maryland Farms and the CoolSprings Galleria area ten minutes south.
+- Parks: Crockett Park (concerts and trails), Marcella Vivrette Smith Park, Owl’s Hill Nature Sanctuary and the greenway system.
+- Work: Maryland Farms is a major office hub; Tractor Supply and LifePoint Health are headquartered in Brentwood.
+- Library: the John P. Holt Brentwood Library is a community anchor.
+
+## Schools
+
+Most addresses feed into Brentwood High or Ravenwood High. Private options in town include Brentwood Academy and Currey Ingram Academy. Explore them in the School Finder.
+Brentwood or Franklin? Brentwood or Green Hills? Compare Brentwood vs. Green Hills and Brentwood vs. Franklin.
+
+## Quick answers
+
+Q: How big are lots in Brentwood, TN?
+
+Much of Brentwood is zoned for roughly one home per acre, so one-acre lots are typical in many neighborhoods.
+
+Q: What is the property tax rate in Brentwood, TN?
+
+The 2026 combined rate is $1.49 per $100 of assessed value (25% of appraised), about $11,175 a year on a $3M home.
+
+Q: How far is Brentwood from downtown Nashville?
+
+About 20 minutes off-peak and 32 minutes at rush hour.
+
+---
+
+# Franklin, Up Close
+URL: https://www.nashvilleluxurylist.com/relocation/guide/franklin-up-close/
+Section: Neighborhoods · Areas: Franklin
+Summary: Historic Main Street, Westhaven, Leiper’s Fork and Cool Springs: everything you need to know about living in Franklin, TN.
+
+$12,150Property tax on a $3M home in the City of Franklin (2026 rate $1.62)WCS + FSSDTwo public districts; FSSD covers PK–8 in much of the city~8 minDowntown Franklin to Cool Springs off-peak$9,750On a $3M home in unincorporated areas like Leiper’s Fork ($1.30)
+
+## Why people choose Franklin
+
+About 20 miles south of downtown Nashville, Franklin pairs one of America’s best-loved Main Streets with deep Civil War history, a busy festival calendar and the Cool Springs business district, home to Nissan North America and many other corporate offices. You get a real town center, Williamson County schools and room to spread out, from historic cottages to farms.
+
+## Neighborhoods to know
+
+Walk to Main Street
+
+### Historic Downtown Franklin
+
+Restored Victorians and new infill within blocks of Main Street, the Franklin Theatre and The Factory.WalkableHistoricNew urbanist · golf
+
+### Westhaven
+
+Front porches, a town center, pools and Westhaven Golf Club on Franklin’s west side.AmenitiesCommunityGated · estate
+
+### Laurelbrooke
+
+Gated estate homes on large lots, close to downtown Franklin and Highway 96.GatedGolf community
+
+### Legends Ridge
+
+Estate homes near Vanderbilt Legends Club on the east side of town.GolfFarms · village
+
+### Leiper’s Fork
+
+Horse farms and a village of galleries and live music, 15 minutes west of downtown Franklin.AcreageClub communities
+
+### College Grove
+
+The Grove and Troubadour: private golf, farmland views and newer estates in southern Williamson.GolfResort living
+
+## Daily life
+
+- Main Street: shops, restaurants, the restored Franklin Theatre and seasonal events like the Main Street Festival and Dickens of a Christmas.
+- History: the Carnton, Carter House and Lotz House sites tell the story of the 1864 Battle of Franklin.
+- Parks: Harlinsdale Farm, Pinkerton Park and paddling on the Harpeth River.
+- Work: Cool Springs is one of the region’s biggest office markets, about 10 minutes from most of Franklin.
+
+## Schools
+
+Depending on address, younger kids attend Franklin Special School District (PK–8) or Williamson County Schools. High schools include Franklin, Centennial, Independence and Page. Battle Ground Academy is Franklin’s best-known private school. Filter them in the School Finder.
+Weighing Franklin against Brentwood? Read Brentwood vs. Franklin, or Franklin vs. Thompson’s Station.
+
+## Quick answers
+
+Q: How far is Franklin, TN from Nashville?
+
+About 20 miles. Downtown Franklin to downtown Nashville is about 30 minutes off-peak and 48 minutes at rush hour.
+
+Q: What school district is Franklin, TN in?
+
+Franklin is served by Williamson County Schools, and much of the City of Franklin is also in Franklin Special School District for PK–8.
+
+Q: What is the property tax on a $3M home in Franklin?
+
+About $12,150 a year inside the City of Franklin at the 2026 combined rate of $1.62, and about $9,750 in unincorporated Williamson County ($1.30).
+
+---
+
+# Brentwood vs. Green Hills
+URL: https://www.nashvilleluxurylist.com/relocation/guide/brentwood-vs-green-hills/
+Section: Neighborhoods · Areas: Nashville, Brentwood
+Summary: The decision many relocating families face, side by side: land, schools, taxes, commute and lifestyle.
+
+| Brentwood | Green Hills | 
+County | Williamson | Davidson (Nashville) | 
+Typical lot | ~1 acre in much of the city | ¼–½ acre; larger in pockets | 
+Public schools | Williamson County Schools (Brentwood / Ravenwood High) | MNPS (Julia Green, Percy Priest → Hillsboro High) | 
+Private schools | Brentwood Academy, Currey Ingram; easy reach to BGA, CPA | Harpeth Hall, Ensworth, Lipscomb, USN, MBA within minutes | 
+Tax on a $3M home | $11,175 (2026) | $21,105 (2026, USD) | 
+To downtown | ~20 min off-peak, 32+ at rush | ~15 min off-peak | 
+Walkability | Low: car-first | Moderate near the mall and Hill Center | 
+Homes | Traditional estates and new builds on big lots | Mid-century originals and new construction | 
+
+## Choose Brentwood if…
+
+- Public schools are part of the plan.
+- A big yard and space between neighbors matter.
+- You’ll work in Cool Springs, Franklin or Maryland Farms.
+
+## Choose Green Hills if…
+
+- You plan on private school; many top schools are within five minutes.
+- You’ll head into Midtown, Vanderbilt or downtown most days.
+- You want restaurants and shopping close by.
+
+More comparisons: Brentwood vs. Franklin · Belle Meade vs. Green Hills · all comparisons.
+
+## Quick answers
+
+Q: Is Brentwood or Green Hills better for families?
+
+Brentwood suits families who want Williamson County public schools and acre lots; Green Hills suits families planning on private school who want a shorter drive into Nashville.
+
+---
+
+# A Little More Land
+URL: https://www.nashvilleluxurylist.com/relocation/guide/little-more-land/
+Section: Neighborhoods · Areas: Franklin, Brentwood, Nashville
+Summary: Where to find acreage, privacy and horse property within an hour of downtown Nashville.
+
+If more land is on your list, Middle Tennessee delivers. The trick is balancing acreage with drive time.
+25–40 min to Nashville
+
+### Leiper’s Fork & West Franklin
+
+The premier country-estate area: farms, horse properties and modern farmhouses on rolling hills.Horse propertyPremium30–45 min
+
+### College Grove & Arrington
+
+Open farmland, private golf communities and wineries in southern Williamson County.GolfAcreage15–25 min
+
+### Forest Hills & Oak Hill
+
+Wooded one- to five-acre lots inside Nashville: privacy without the drive.In-town acreage35–45 min
+
+### Thompson’s Station
+
+Small-town feel with newer communities and farm parcels south of Franklin.Value25–35 min
+
+### Fairview & Kingston Springs
+
+Wooded, hilly land west of Nashville off I-40, near the Harpeth River.Wooded
+Before you buy land: verify septic capacity, well vs. public water, flood zones, easements and any conservation restrictions. These are standard checks on every acreage purchase I handle.
+
+---
+
+# Lake & River Living
+URL: https://www.nashvilleluxurylist.com/relocation/guide/lake-life/
+Section: Neighborhoods · Areas: Nashville
+Summary: You don’t have to give up the water: Old Hickory, Percy Priest, the Harpeth River and weekend lakes within reach of Nashville.
+
+~25–35 min
+
+### Old Hickory Lake
+
+The big one for boaters, northeast of Nashville around Hendersonville and Gallatin. Waterfront estates with private docks and a strong lake-life culture.BoatingDocks~20–30 min
+
+### J. Percy Priest Lake
+
+Southeast of the city near Hermitage and Mt. Juliet. Lots of protected shoreline means fewer private docks but wooded views.Sailing~20–40 min
+
+### The Harpeth River
+
+A scenic paddling river through Franklin, Bellevue and Kingston Springs. Riverfront lots offer a quieter kind of water living.Kayaking~75–90 min
+
+### Center Hill & Tims Ford
+
+Clear-water weekend lakes popular for second homes.Second home
+
+Dock rights and shoreline rules on most of these lakes are set by the U.S. Army Corps of Engineers. Always confirm dock permit status before buying.
+
+---
+
+# Across the River: Nashville’s East Bank
+URL: https://www.nashvilleluxurylist.com/relocation/guide/east-bank/
+Section: Neighborhoods · Areas: Nashville
+Summary: The new stadium, Oracle, the 2030 Super Bowl and what it all means for the neighborhoods nearby.
+
+$2.1BNew enclosed Nissan StadiumEarly 2027Stadium completion targetFeb 2030Super Bowl LXIV in Nashville550 acresThe wider East Bank redevelopment area
+
+For decades the land across the Cumberland from downtown was parking lots and industry. Now it is the biggest redevelopment in Nashville’s history.
+
+## What’s happening
+
+- The new Nissan Stadium remains on track for a February 2027 completion; the current stadium is to be phased out after the 2026 season.
+- Oracle’s campus is under construction.
+- A 600-room hotel beside the stadium is now expected to start construction in Q3 2027 and open in Q3 2030, after the Super Bowl.
+- New streets, housing, parks and a pedestrian boulevard are being phased in by the East Bank Development Authority.
+
+## What it means if you are buying
+
+East Nashville, Germantown and the urban-core condo market sit closest to the action. Expect more restaurants, more jobs and, on event days, more traffic. Buyers who want quiet look a little farther out; buyers who want energy and long-term upside look closer in.
+
+Track the timeline in Breaking Ground.
+
+---
+
+# Country Clubs & Golf
+URL: https://www.nashvilleluxurylist.com/relocation/guide/country-clubs/
+Section: Neighborhoods · Areas: Nashville, Brentwood, Franklin
+Summary: Belle Meade to Troubadour: the private clubs that shape social life for many families in Nashville, Brentwood and Franklin.
+
+For many relocating families, a club is the fastest way to build a social circle. Membership processes vary and some have waitlists, so start conversations early. Full details are on the country clubs guide and golf and tennis guide.
+Nashville
+
+### Belle Meade Country Club
+
+The city’s most historic club, in the heart of Belle Meade.GolfTennisNashville
+
+### Hillwood Country Club
+
+West Nashville club with golf, tennis and an active family scene.GolfFamilyNashville
+
+### Richland Country Club
+
+South Nashville near Forest Hills and Brentwood, known for golf and family programs.GolfBrentwood
+
+### Brentwood Country Club
+
+Central Brentwood with golf, tennis and pools.GolfPoolsBrentwood
+
+### Governors Club
+
+Private golf inside the gated Governors Club community.GatedBrentwood
+
+### Nashville Golf & Athletic Club
+
+Golf, fitness and racquet sports in Brentwood.FitnessFranklin
+
+### Old Natchez Country Club
+
+Franklin club near the Natchez Trace with a strong golf community.GolfFranklin
+
+### Westhaven Golf Club
+
+At the center of the Westhaven neighborhood.WalkableFranklin
+
+### Vanderbilt Legends Club
+
+Two championship courses on the east side of Franklin.36 holesCollege Grove
+
+### The Grove & Troubadour
+
+Private golf communities among the farms of southern Williamson County.Golf community
+
+Membership terms, fees and availability change often. I’m happy to make introductions.
+
+---
+
+# Where to Eat: Nashville
+URL: https://www.nashvilleluxurylist.com/relocation/guide/where-to-eat-nashville/
+Section: Eat & do · Areas: Nashville
+Summary: Special-occasion tables, neighborhood favorites, hot chicken and brunch: a local’s short list for Nashville.
+
+## Special occasion
+
+Midtown
+
+### The Catbird Seat
+
+Counter-seat tasting menu and a Nashville institution.Wedgewood-Houston
+
+### Bastion
+
+Small, inventive tasting experience with a lively bar next door.Downtown
+
+### The Continental
+
+Sean Brock’s elegant room in the Grand Hyatt at Nashville Yards.Germantown
+
+### Rolf and Daughters
+
+Pasta-forward and a perennial favorite.
+
+## Neighborhood favorites
+
+East Nashville
+
+### Lockeland Table
+
+Wood-fired comfort food with a community heart.East Nashville
+
+### Audrey
+
+Sean Brock’s Appalachian-rooted cooking.Germantown
+
+### Henrietta Red
+
+Oysters, bright cooking and a great brunch.Belle Meade
+
+### Sperry’s
+
+The classic steakhouse where everyone eventually runs into everyone.Midtown
+
+### Kayne Prime
+
+Modern steakhouse and a special-night favorite.12 South
+
+### Locust
+
+Small, chef-driven and worth the effort to book.
+
+## Only in Nashville
+
+Hot chicken
+
+### Hattie B’s and Prince’s
+
+Start at medium. Really.Meat-and-three
+
+### Arnold’s Country Kitchen
+
+A lunchtime rite of passage.Brunch
+
+### Biscuit Love
+
+Expect a line; it moves.Coffee
+
+### Barista Parlor, Crema, Frothy Monkey
+
+Three local favorites across the city.
+
+Restaurants open, close and change chefs often. Check hours and reservations before you go.
+
+---
+
+# Where to Eat: Franklin
+URL: https://www.nashvilleluxurylist.com/relocation/guide/where-to-eat-franklin/
+Section: Eat & do · Areas: Franklin
+Summary: Main Street favorites, coffee, date night and Leiper’s Fork: where Franklin locals actually eat.
+
+## On and around Main Street
+
+Main Street
+
+### Gray’s on Main
+
+Southern cooking and cocktails in a restored 1876 building with a rooftop.Main Street
+
+### Red Pony
+
+A long-time date-night favorite for Southern-inspired dinners.Main Street
+
+### Merridee’s Breadbasket
+
+The classic downtown spot for breakfast and baked goods.Downtown
+
+### Puckett’s
+
+Casual Southern food and live music; easy with kids.
+
+## Around town
+
+Cool Springs
+
+### Cork & Cow
+
+Steakhouse with a lively, polished room.Franklin
+
+### 55 South
+
+Gulf Coast and Southern comfort food.Franklin
+
+### The Factory at Franklin
+
+A restored stove works filled with restaurants, shops and event spaces.Coffee
+
+### Frothy Monkey Franklin
+
+The local favorite for coffee and a casual meeting.
+
+## A short drive west
+
+Leiper’s Fork
+
+### Fox & Locke
+
+Small-town spot famous for its music nights.Leiper’s Fork
+
+### The village
+
+Galleries, shops and a bite to eat before a drive on the Natchez Trace.
+
+Favorites change: check hours before you go. Have a favorite I missed? Tell me.
+
+---
+
+# Where to Eat: Brentwood
+URL: https://www.nashvilleluxurylist.com/relocation/guide/where-to-eat-brentwood/
+Section: Eat & do · Areas: Brentwood
+Summary: Brentwood’s easy dinners, coffee and family spots, plus the best of Cool Springs and Green Hills just up the road.
+
+Brentwood is a short drive from two of the region’s best restaurant clusters (Green Hills to the north, Franklin to the south), with plenty of its own easy go-tos.
+Brentwood
+
+### Hill Center Brentwood
+
+A walkable cluster of restaurants, shops and coffee: the town’s easy weeknight answer.Brentwood
+
+### Maryland Farms
+
+Lunch spots and dinner options around the office park and Old Hickory Boulevard.Cool Springs
+
+### The Cool Springs corridor
+
+Steakhouses, sushi and family-friendly favorites ten minutes south.15 minutes north
+
+### Green Hills
+
+Hill Center Green Hills and the restaurants around the mall.15 minutes south
+
+### Downtown Franklin
+
+See Where to Eat: Franklin.
+
+Jason’s personal Brentwood favorites are coming soon. Have one to recommend? Tell me.
+
+---
+
+# The Shopping Guide
+URL: https://www.nashvilleluxurylist.com/relocation/guide/shopping/
+Section: Eat & do · Areas: Nashville, Brentwood, Franklin
+Summary: The Mall at Green Hills, 12 South boutiques, Hill Center, Main Street Franklin and more.
+
+Green Hills
+
+### The Mall at Green Hills
+
+Nashville’s luxury mall, anchored by Nordstrom with designer boutiques.LuxuryGreen Hills
+
+### Hill Center Green Hills
+
+Open-air shops and restaurants around the corner from the mall.Boutiques12 South
+
+### 12th Avenue South
+
+A walkable strip of fashion, home stores and coffee.WalkableBrentwood
+
+### Hill Center Brentwood
+
+Brentwood’s outdoor shopping and dining district.LocalFranklin
+
+### Main Street Franklin
+
+Antiques, home goods, gifts and clothing in a historic setting.AntiquesFranklin
+
+### The Factory at Franklin
+
+Makers, shops and restaurants in a restored stove works.MakersCool Springs
+
+### CoolSprings Galleria
+
+Large regional mall with everyday shopping nearby.EverythingDowntown
+
+### Fifth + Broadway
+
+Downtown shops, a food hall and the National Museum of African American Music.Downtown
+
+---
+
+# Music, Arts & Sports
+URL: https://www.nashvilleluxurylist.com/relocation/guide/music-arts-sports/
+Section: Eat & do · Areas: Nashville, Brentwood, Franklin
+Summary: The Ryman, the Opry, the Symphony, the Franklin Theatre, the Preds and more: season tickets worth getting.
+
+## Music and stages
+
+### Ryman Auditorium
+
+The Mother Church of Country Music: every genre sounds better here.
+
+### Grand Ole Opry
+
+Weekly shows at the Opry House.
+
+### Schermerhorn Symphony Center
+
+Home of the Nashville Symphony.
+
+### TPAC
+
+Broadway tours, Nashville Ballet (including the holiday Nutcracker) and Nashville Opera.
+
+### The Bluebird Cafe
+
+Tiny songwriter room in Green Hills; tickets go fast.
+
+### The Franklin Theatre
+
+A restored 1937 movie palace on Main Street with concerts and films.
+
+## Museums and gardens
+
+### Frist Art Museum
+
+Rotating exhibitions in a restored post office.
+
+### Cheekwood Estate & Gardens
+
+Gardens and art in Belle Meade; members get year-round access.
+
+### Country Music Hall of Fame
+
+Worth it even if you think you don’t like country.
+
+## Teams
+
+NHL
+
+### Nashville Predators
+
+Bridgestone Arena downtown. Loud, fun and very Nashville.NFL
+
+### Tennessee Titans
+
+Moving into the new East Bank stadium in 2027.MLS
+
+### Nashville SC
+
+GEODIS Park, one of the largest soccer-specific stadiums in the country.Baseball
+
+### Nashville Sounds
+
+Triple-A baseball at First Horizon Park.College
+
+### Vanderbilt and Belmont
+
+SEC and college athletics in Midtown.
+
+---
+
+# Parks & the Outdoors
+URL: https://www.nashvilleluxurylist.com/relocation/guide/parks-outdoors/
+Section: Eat & do · Areas: Nashville, Brentwood, Franklin
+Summary: Radnor Lake, the Warner Parks, Crockett Park, Harlinsdale Farm and the Natchez Trace.
+
+Oak Hill / Forest Hills
+
+### Radnor Lake State Park
+
+Protected natural area with wooded trails and wildlife. No dogs on most trails.HikingBelle Meade
+
+### Percy and Edwin Warner Parks
+
+Thousands of acres of trails, scenic drives and an equestrian center next to Belle Meade.TrailsEquestrianEast Nashville
+
+### Shelby Bottoms
+
+Flat greenway along the river with a nature center.GreenwayMidtown
+
+### Centennial Park
+
+The Parthenon, a lake and summer events.EventsBrentwood
+
+### Crockett Park
+
+Ballfields, trails, playgrounds and summer concerts.FamilyBrentwood
+
+### Owl’s Hill Nature Sanctuary
+
+Wooded preserve with trails and kids’ programs.NatureFranklin
+
+### Harlinsdale Farm
+
+A historic horse farm turned 200-acre park.WalksEventsFranklin
+
+### Pinkerton Park & the Harpeth
+
+Trails to Fort Granger and paddling on the river.PaddlingLeiper’s Fork
+
+### Natchez Trace Parkway
+
+Scenic, commercial-free road starting just outside Nashville. Stop at the double-arch bridge.Scenic driveCycling
+
+---
+
+# Your Holiday Season, Planned
+URL: https://www.nashvilleluxurylist.com/relocation/guide/holidays/
+Section: Seasonal · Areas: Nashville, Brentwood, Franklin
+Summary: Holiday LIGHTS at Cheekwood, the Nutcracker, Dickens of a Christmas in Franklin and New Year’s Eve downtown.
+
+Mid-November to early January
+
+### Holiday LIGHTS at Cheekwood
+
+Over a million lights through the Belle Meade gardens. Book a timed ticket early.Mid-November to early January
+
+### A Country Christmas at Gaylord Opryland
+
+Indoor gardens dressed for the season, the ICE! exhibit and holiday shows.Early December
+
+### Nashville Christmas Parade
+
+Downtown parade: find a spot along the route early.December
+
+### Nashville’s Nutcracker at TPAC
+
+Nashville Ballet’s version with a local twist. A family tradition for many.Second weekend of December
+
+### Dickens of a Christmas, Downtown Franklin
+
+Carolers in Victorian costume, vendors and characters along Main Street.All season
+
+### Brentwood and Franklin tree lightings
+
+Check the City of Brentwood and Downtown Franklin calendars for dates.December 31
+
+### New Year’s Eve downtown
+
+Free outdoor concert and countdown near Broadway. Many locals watch from a rooftop or stay in.
+
+Dates and ticketing are set by each organizer and can change. Confirm before you go.
+
+---
+
+# Middle Tennessee Through the Year
+URL: https://www.nashvilleluxurylist.com/relocation/guide/seasons-calendar/
+Section: Seasonal · Areas: Nashville, Brentwood, Franklin
+Summary: A month-by-month calendar of the festivals and traditions locals plan around in Nashville, Brentwood and Franklin.
+
+Month | What locals look forward to | 
+January | Quiet month; indoor concerts and restaurant weeks | 
+February | Antiques & Garden Show of Nashville | 
+March | Spring blooms start; St. Patrick’s celebrations | 
+April | Dogwoods, Cheekwood in bloom, Main Street Festival in Franklin | 
+May | Iroquois Steeplechase in Percy Warner Park; Franklin Rodeo | 
+June | CMA Fest downtown; summer concert series begin | 
+July | Fourth of July fireworks downtown and in Brentwood and Franklin | 
+August | Back to school; lake weekends | 
+September | Fall festival season begins | 
+October | Fall color, pumpkin patches, Oktoberfest in Germantown | 
+November | Holiday LIGHTS at Cheekwood opens | 
+December | Dickens of a Christmas, the Nutcracker, New Year’s Eve downtown | 
+
+Exact dates vary each year.
+
+---
+
+# Weather & the Four Seasons
+URL: https://www.nashvilleluxurylist.com/relocation/guide/weather-seasons/
+Section: Seasonal · Areas: Nashville, Brentwood, Franklin
+Summary: What each season actually feels like, and what to plan for if you’re coming from the North or the West Coast.
+
+March–May
+
+### Spring
+
+Dogwoods, redbuds and 70-degree days. Also pollen and the most active storm season.June–August
+
+### Summer
+
+Humid, with highs often around 90. Pools, lake days and evening concerts.September–November
+
+### Fall
+
+Long and lovely: warm Septembers and color peaking late October into November.December–February
+
+### Winter
+
+Mostly mild with cold snaps. Occasional snow; ice is the bigger worry.
+From the West Coast? Humidity is the biggest adjustment. From the North? You’ll gain about two months of outdoor season a year.
+
+---
+
+# Drive Times, Mapped
+URL: https://www.nashvilleluxurylist.com/relocation/guide/drive-map/
+Section: Maps · Areas: Nashville, Brentwood, Franklin
+Summary: Tap any neighborhood on the map to see how long it takes to get everywhere.
+Type: interactive tool (the static content below is what the tool is built on)
+
+Tap a neighborhood (green) to draw its drive times to key destinations (brass). Times are off-peak / rush hour in minutes.
+
+Percy Priest Lake
+Old Hickory Lake
+Cumberland River
+
+I-65I-40I-24I-440
+
+DAVIDSON COUNTYWILLIAMSON COUNTY
+Belle MeadeGreen HillsForest HillsOak Hill12 SouthSylvan ParkEast NashvilleGermantownBrentwoodGovernors ClubNolensvilleDowntown FranklinWesthavenLeiper’s ForkThompson’s StationCollege GroveSwipe the map sideways →NeighborhoodDestinationSchematic, not to scale
+Or pick from the listBelle MeadeGreen HillsForest HillsOak Hill12 South & Belmont-HillsboroSylvan Park & West NashvilleEast NashvilleGermantown & DowntownBrentwood (central)Governors Club & AnnandaleNolensville & ArringtonHistoric Downtown FranklinWesthavenLeiper’s Fork & West FranklinThompson’s StationCollege GroveNashville · $1.5M–$5M
+
+## Green Hills
+
+Convenience central: the Mall at Green Hills, Hill Center, good restaurants and new construction on quiet side streets.Downtown / Broadway15/22BNA Airport20/35Vanderbilt / Midtown10/15Green Hills Mall3/4Cool Springs18/29Downtown Franklin25/40East Bank (Oracle / stadium)17/27
+
+Off-peak Rush hour
+
+Q: See every drive time in one table
+From \ to (off-peak / rush, minutes) | Downtown / Broadway | BNA Airport | Vanderbilt / Midtown | Green Hills Mall | Cool Springs | Downtown Franklin | East Bank (Oracle / stadium) | 
+Belle Meade | 15 / 22 | 22 / 38 | 10 / 15 | 10 / 15 | 25 / 40 | 30 / 48 | 17 / 27 | 
+Green Hills | 15 / 22 | 20 / 35 | 10 / 15 | 3 / 4 | 18 / 29 | 25 / 40 | 17 / 27 | 
+Forest Hills | 18 / 29 | 20 / 35 | 15 / 22 | 8 / 12 | 15 / 22 | 22 / 35 | 20 / 32 | 
+Oak Hill | 14 / 20 | 17 / 30 | 13 / 19 | 8 / 12 | 17 / 27 | 24 / 38 | 16 / 26 | 
+12 South & Belmont-Hillsboro | 8 / 12 | 15 / 25 | 7 / 10 | 8 / 12 | 20 / 32 | 27 / 43 | 10 / 15 | 
+Sylvan Park & West Nashville | 10 / 15 | 20 / 35 | 8 / 12 | 12 / 17 | 25 / 40 | 32 / 51 | 12 / 17 | 
+East Nashville | 8 / 12 | 13 / 22 | 13 / 19 | 18 / 29 | 27 / 43 | 34 / 54 | 6 / 8 | 
+Germantown & Downtown | 5 / 6 | 15 / 25 | 9 / 13 | 15 / 22 | 25 / 40 | 32 / 51 | 7 / 10 | 
+Brentwood (central) | 20 / 32 | 22 / 38 | 20 / 32 | 12 / 17 | 10 / 15 | 17 / 27 | 22 / 35 | 
+Governors Club & Annandale | 25 / 40 | 25 / 43 | 25 / 40 | 18 / 29 | 10 / 15 | 15 / 22 | 27 / 43 | 
+Nolensville & Arrington | 27 / 43 | 25 / 43 | 27 / 43 | 20 / 32 | 18 / 29 | 22 / 35 | 28 / 45 | 
+Historic Downtown Franklin | 30 / 48 | 32 / 54 | 30 / 48 | 25 / 40 | 8 / 12 | 2 / 3 | 32 / 51 | 
+Westhaven | 32 / 51 | 35 / 59 | 30 / 48 | 25 / 40 | 12 / 17 | 7 / 10 | 34 / 54 | 
+Leiper’s Fork & West Franklin | 42 / 67 | 45 / 75 | 40 / 64 | 35 / 56 | 25 / 40 | 15 / 22 | 44 / 70 | 
+Thompson’s Station | 38 / 61 | 40 / 67 | 37 / 59 | 32 / 51 | 16 / 26 | 12 / 17 | 40 / 64 | 
+College Grove | 40 / 64 | 40 / 67 | 40 / 64 | 33 / 53 | 22 / 35 | 20 / 32 | 42 / 67 |
+
+---
+
+# Drive time table (minutes, off-peak / rush hour)
+- Belle Meade: Downtown / Broadway 15/22; BNA Airport 22/38; Vanderbilt / Midtown 10/15; Green Hills Mall 10/15; Cool Springs 25/40; Downtown Franklin 30/48; East Bank (Oracle / stadium) 17/27
+- Green Hills: Downtown / Broadway 15/22; BNA Airport 20/35; Vanderbilt / Midtown 10/15; Green Hills Mall 3/4; Cool Springs 18/29; Downtown Franklin 25/40; East Bank (Oracle / stadium) 17/27
+- Forest Hills: Downtown / Broadway 18/29; BNA Airport 20/35; Vanderbilt / Midtown 15/22; Green Hills Mall 8/12; Cool Springs 15/22; Downtown Franklin 22/35; East Bank (Oracle / stadium) 20/32
+- Oak Hill: Downtown / Broadway 14/20; BNA Airport 17/30; Vanderbilt / Midtown 13/19; Green Hills Mall 8/12; Cool Springs 17/27; Downtown Franklin 24/38; East Bank (Oracle / stadium) 16/26
+- 12 South & Belmont-Hillsboro: Downtown / Broadway 8/12; BNA Airport 15/25; Vanderbilt / Midtown 7/10; Green Hills Mall 8/12; Cool Springs 20/32; Downtown Franklin 27/43; East Bank (Oracle / stadium) 10/15
+- Sylvan Park & West Nashville: Downtown / Broadway 10/15; BNA Airport 20/35; Vanderbilt / Midtown 8/12; Green Hills Mall 12/17; Cool Springs 25/40; Downtown Franklin 32/51; East Bank (Oracle / stadium) 12/17
+- East Nashville: Downtown / Broadway 8/12; BNA Airport 13/22; Vanderbilt / Midtown 13/19; Green Hills Mall 18/29; Cool Springs 27/43; Downtown Franklin 34/54; East Bank (Oracle / stadium) 6/8
+- Germantown & Downtown: Downtown / Broadway 5/6; BNA Airport 15/25; Vanderbilt / Midtown 9/13; Green Hills Mall 15/22; Cool Springs 25/40; Downtown Franklin 32/51; East Bank (Oracle / stadium) 7/10
+- Brentwood (central): Downtown / Broadway 20/32; BNA Airport 22/38; Vanderbilt / Midtown 20/32; Green Hills Mall 12/17; Cool Springs 10/15; Downtown Franklin 17/27; East Bank (Oracle / stadium) 22/35
+- Governors Club & Annandale: Downtown / Broadway 25/40; BNA Airport 25/43; Vanderbilt / Midtown 25/40; Green Hills Mall 18/29; Cool Springs 10/15; Downtown Franklin 15/22; East Bank (Oracle / stadium) 27/43
+- Nolensville & Arrington: Downtown / Broadway 27/43; BNA Airport 25/43; Vanderbilt / Midtown 27/43; Green Hills Mall 20/32; Cool Springs 18/29; Downtown Franklin 22/35; East Bank (Oracle / stadium) 28/45
+- Historic Downtown Franklin: Downtown / Broadway 30/48; BNA Airport 32/54; Vanderbilt / Midtown 30/48; Green Hills Mall 25/40; Cool Springs 8/12; Downtown Franklin 2/3; East Bank (Oracle / stadium) 32/51
+- Westhaven: Downtown / Broadway 32/51; BNA Airport 35/59; Vanderbilt / Midtown 30/48; Green Hills Mall 25/40; Cool Springs 12/17; Downtown Franklin 7/10; East Bank (Oracle / stadium) 34/54
+- Leiper’s Fork & West Franklin: Downtown / Broadway 42/67; BNA Airport 45/75; Vanderbilt / Midtown 40/64; Green Hills Mall 35/56; Cool Springs 25/40; Downtown Franklin 15/22; East Bank (Oracle / stadium) 44/70
+- Thompson’s Station: Downtown / Broadway 38/61; BNA Airport 40/67; Vanderbilt / Midtown 37/59; Green Hills Mall 32/51; Cool Springs 16/26; Downtown Franklin 12/17; East Bank (Oracle / stadium) 40/64
+- College Grove: Downtown / Broadway 40/64; BNA Airport 40/67; Vanderbilt / Midtown 40/64; Green Hills Mall 33/53; Cool Springs 22/35; Downtown Franklin 20/32; East Bank (Oracle / stadium) 42/67
+
+# Contact
+Jason Kloess, REALTOR®, Compass · 1610 West End Ave, Suite 115, Nashville, TN 37203 · 615-457-0768 · jason@nashvilleluxurylist.com · https://www.nashvilleluxurylist.com/contact/
