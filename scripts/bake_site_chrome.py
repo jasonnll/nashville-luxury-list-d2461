@@ -68,7 +68,7 @@ NAV = [
     ('/market-report/', 'Market', [('/market-report/', 'Monthly market report'), ('/answers/', 'Questions answered'),
                                    ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'), ('/blog/', 'Past weekly lists')]),
     ('/about/', 'Jason', [('/about/', 'About Jason'), ('/past-sales/', 'Past sales'), ('/testimonials/', 'Client reviews'),
-                          ('/music/', 'Entertainment &amp; Artist Division'), ('/athletes/', 'Athletes &amp; Sports Division'), ('/contact/', 'Contact')], AREA_PAGES),
+                          ('/music/', 'Entertainment &amp; Music Division'), ('/athletes/', 'Athletes &amp; Sports Division'), ('/contact/', 'Contact')], AREA_PAGES),
 ]
 
 # The "Menu" panel (tablets and phones): every key page, grouped.
@@ -84,7 +84,7 @@ MENU = [
                 ('/compare/', 'Compare areas'), ('/faq/', 'Market FAQ'),
                 ('/blog/', 'Past weekly lists'), ('/guides/', 'Free guides')]),
     ('Jason', [('/about/', 'About Jason'), ('/testimonials/', 'Client reviews'),
-               ('/past-sales/', 'Past sales'), ('/music/', 'Entertainment &amp; Artist Division'), ('/athletes/', 'Athletes &amp; Sports Division'), ('/contact/', 'Contact')]),
+               ('/past-sales/', 'Past sales'), ('/music/', 'Entertainment &amp; Music Division'), ('/athletes/', 'Athletes &amp; Sports Division'), ('/contact/', 'Contact')]),
     ('Jason’s record by area', AREA_PAGES),
 ]
 
@@ -101,7 +101,7 @@ FOOTER_COLS = [
                                 ('/thompsons-station-tn-luxury-realtor/', 'Thompson’s Station')]),
     ('About', [('/about/', 'Jason Kloess'), ('/about/why-nashville-luxury-list/', 'Why Nashville Luxury List'),
                ('/testimonials/', 'Reviews'), ('/market-report/', 'Market report'), ('/answers/', 'Questions answered'),
-               ('/compare/', 'Compare areas'), ('/faq/', 'FAQ'), ('/music/', 'Entertainment &amp; Artist Division'), ('/athletes/', 'Athletes &amp; Sports Division'),
+               ('/compare/', 'Compare areas'), ('/faq/', 'FAQ'), ('/music/', 'Entertainment &amp; Music Division'), ('/athletes/', 'Athletes &amp; Sports Division'),
                ('/contact/', 'Contact')]),
 ]
 
