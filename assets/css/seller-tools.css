@@ -94,9 +94,9 @@
 .st-sub .rg-success h3{color:#FAF7EF}
 /* bottom band */
 .st-ask-tools{display:grid;gap:10px}
-.st-tool{display:flex;justify-content:space-between;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:16px 18px;color:#FAF7EF!important;text-decoration:none!important;font-weight:700;font-size:16px;min-height:56px}
-.st-tool:hover{background:rgba(255,255,255,.12)}
-.st-tool span{color:var(--rg-brass-l)}
+.st-tool{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;border:1px solid var(--rg-line);border-radius:0;padding:16px 18px;color:var(--rg-ink)!important;text-decoration:none!important;font-weight:700;font-size:16px;min-height:56px}
+.st-tool:hover{background:#FFFDF8;border-color:var(--rg-brass)}
+.st-tool span{color:var(--rg-brass-d)}
 /* seller-tools strip used on /sellers/ and /home-valuation/ */
 .st-strip{background:var(--rg-ivory,#FAF7EF);padding:26px 0}
 .st-strip .st-strip-in{max-width:1180px;margin:0 auto;padding:0 18px}
