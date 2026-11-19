@@ -16,6 +16,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from nll_layout import *  # noqa: E402
 
+# Hero photos: each edition gets its own, so the reports don't all open on the same Belle Meade shot
+HUB_PHOTO = "/assets/images/neighborhoods/oak-hill.jpg"
+EDITION_PHOTOS = {
+    "2026-10": "/assets/images/neighborhoods/college-grove.jpg",
+    "2026-11": "/assets/images/neighborhoods/forest-hills.jpg",
+}
+
 
 def pct(v, p):
     c = (v - p) / p * 100
@@ -52,7 +59,7 @@ def edition_page(d, prev, nxt):
     out = head(title, desc, path, PHOTOS["davidson"], g, og_type="article", pixel_name="Market Report")
     out += hero(crumbs[:-1] + [(d["month_label"], None)], f"Market report &middot; Data through {d['data_through']}",
                 f"Nashville Luxury Market Report: {d['month_label']}", d["headline"] + ".",
-                d["summary"], PHOTOS["davidson"],
+                d["summary"], EDITION_PHOTOS.get(d["edition"], PHOTOS["davidson"]),
                 "Want this read on your home or your search? Jason can pull the comps behind these numbers for your street.",
                 updated=f"Published {d['published']} &middot; By Jason Kloess, REALTOR&reg;, Compass")
     out += strip_stats("Key numbers", [(s["value"], s["label"], s["note"]) for s in d["key_stats"]])
@@ -96,7 +103,7 @@ def hub(eds):
     out += hero([("Home", "/"), ("Market Report", None)], "Monthly &middot; Davidson &amp; Williamson Counties",
                 "Nashville Luxury Market Report",
                 f"A dated, monthly read on the luxury market across Davidson and Williamson counties. Latest edition: <a href=\"/market-report/{latest['edition']}/\" style=\"color:var(--bronze-light);text-decoration:underline\">{latest['month_label']}</a>, with data through {latest['data_through']}. {latest['headline']}.",
-                latest["summary"], PHOTOS["davidson"],
+                latest["summary"], HUB_PHOTO,
                 "Get the read behind the numbers for your street or search.",
                 updated=f"Updated {latest['published']} &middot; By Jason Kloess, REALTOR&reg;, Compass")
     out += strip_stats("Latest numbers", [(s["value"], s["label"], s["note"]) for s in latest["key_stats"]])

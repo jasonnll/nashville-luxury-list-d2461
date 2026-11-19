@@ -32,6 +32,8 @@ STORIES = os.path.join(ROOT, '_data', 'sales', 'stories.json')
 MARKET = os.path.join(ROOT, '_data', 'market', '2026-10.json')
 MIN_BUYER_PRICE = 700_000
 DEFAULT_PHOTO = '/assets/images/neighborhoods/belle-meade.jpg'
+# Hero photos for the /answers/ and /compare/ hub pages (each page gets its own, not the default)
+HUB_PHOTOS = {'answers': '/assets/images/neighborhoods/sylvan-park.jpg', 'compare': '/assets/images/city-guides/franklin-countryside.jpg'}
 
 
 def load():
@@ -334,6 +336,7 @@ def topic_page(p, kind, data, market, med):
 
 def hub_page(kind, pages):
     base = '/compare/' if kind == 'compare' else '/answers/'
+    hub_photo = HUB_PHOTOS[kind]
     if kind == 'compare':
         title, h1 = 'Compare Nashville Luxury Areas Side by Side', 'Compare Nashville\'s <em>luxury areas</em>'
         desc = 'Side-by-side comparisons of Nashville and Williamson County luxury areas: prices, lots, property tax, schools and commute.'
@@ -351,8 +354,8 @@ def hub_page(kind, pages):
     graph.append({'@type': 'ItemList', '@id': f'{SITE}{base}#list', 'itemListElement': [
         {'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}{base}{p['slug']}/", 'name': L.strip(p['h1'])} for i, p in enumerate(pages)]})
     points = [L.strip(p['h1']) for p in pages[:4]]
-    return base, (L.head(title + ' | Nashville Luxury List', desc, base, DEFAULT_PHOTO, graph, pixel_name=title)
-                  + L.hero([('Home', '/'), (L.strip(h1), None)], 'Nashville Luxury List', h1, answer, points, DEFAULT_PHOTO,
+    return base, (L.head(title + ' | Nashville Luxury List', desc, base, hub_photo, graph, pixel_name=title)
+                  + L.hero([('Home', '/'), (L.strip(h1), None)], 'Nashville Luxury List', h1, answer, points, hub_photo,
                            'Have a question that isn\'t here? Ask Jason directly.')
                   + L.section('ap-list', 'All pages', 'Pick a topic', body=cards)
                   + L.booking('') + L.final_cta('Have a question about your own move?', 'Start with a 30-minute call.')
