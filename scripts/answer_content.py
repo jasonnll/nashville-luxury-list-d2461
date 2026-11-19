@@ -411,7 +411,7 @@ ANSWERS = [
         title='Buyer Closing Costs on a $2M Home in Tennessee (2026)',
         h1='What are buyer closing costs on a <em>$2 million home</em> in Tennessee?',
         eyebrow='Answers &middot; Buying',
-        photo='/assets/images/neighborhoods/brentwood.jpg',
+        photo='/assets/images/hero/brentwood-estate.jpg',
         desc='Buyer closing costs on a $2M Tennessee home: the 0.37% transfer tax, 0.115% mortgage tax, title, prepaid property tax '
              'and lender fees, with a worked example.',
         answer=(f'Tennessee adds two state taxes that buyers usually pay at closing. The realty transfer tax is <strong>$0.37 per $100</strong> '
@@ -491,7 +491,7 @@ ANSWERS = [
         title='How Long Does It Take to Sell a Luxury Home in Nashville?',
         h1='How long does it take to sell a <em>luxury home</em> in Nashville?',
         eyebrow='Answers &middot; Selling',
-        photo='/assets/images/neighborhoods/belle-meade.jpg',
+        photo='/images/1805-shackleford/kitchen-island.jpg',
         desc='Median days on market for Belle Meade, Brentwood, Green Hills, Franklin and East Nashville, plus $1M+ supply, so '
              'you can plan a luxury sale.',
         answer=('Plan on about two months on the market, then roughly 30 to 45 days to close. In the three months to August 2026, homes '
@@ -521,7 +521,7 @@ ANSWERS = [
         title="Is Nashville a Buyer's Market for Luxury Homes? (Fall 2026)",
         h1="Is Nashville a <em>buyer's market</em> for luxury homes?",
         eyebrow='Answers &middot; Market',
-        photo='/assets/images/neighborhoods/brentwood.jpg',
+        photo='/assets/images/neighborhoods/college-grove.jpg',
         desc="Fall 2026 data on Nashville's $1M+ market: about five months of supply, 43% of listings with price cuts, and where "
              "buyers have the most room to negotiate.",
         answer=("At $1 million and up, it leans toward buyers. At the end of September 2026 about <strong>2,289</strong> homes priced at "
@@ -553,7 +553,7 @@ ANSWERS = [
         title='How to Choose a Luxury Listing Agent in Nashville',
         h1='How do I choose a <em>listing agent</em> for a $2M+ home in Nashville?',
         eyebrow='Answers &middot; Selling',
-        photo='/assets/images/neighborhoods/green-hills.jpg',
+        photo='/images/1805-shackleford/living-room.jpg',
         desc='Six questions to ask any Nashville luxury listing agent, what a written launch plan should include, and how to check '
              'an agent\'s record yourself.',
         answer=('Choose on evidence you can check, not on titles. Ask each agent for their recent closings at your price and in your area, '

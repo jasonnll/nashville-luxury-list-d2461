@@ -1,7 +1,8 @@
 /* ===== Neighborhood guides (scoped: nll-) — moved from guides.nashvilleluxurylist.com =====
    /neighborhoods/<slug>/ pages. Built on main.css + palette.css + agent-page.css tokens. */
 
-.nll-wrap{background:var(--ivory);padding:calc(var(--header-h) + clamp(1.5rem,4vw,2.5rem)) 0 clamp(3rem,7vw,5rem)}
+/* Scoped to main: the shared header and footer also use .nll-wrap, and this padding was making the header 170px tall on the guides */
+main .nll-wrap{background:var(--ivory);padding:calc(var(--header-h) + clamp(1.5rem,4vw,2.5rem)) 0 clamp(3rem,7vw,5rem)}
 .nll-guide{max-width:880px;margin:0 auto}
 .nll-crumbs{font-size:.875rem;color:var(--taupe);margin-bottom:1.25rem}
 .nll-crumbs a{color:var(--taupe)}
@@ -91,3 +92,21 @@ body:has(.nll-wrap) #site-header{background:var(--ivory);border-bottom:1px solid
 .nll-guide .nll-section{padding-top:clamp(1.75rem,4vw,2.5rem);padding-bottom:clamp(1rem,3vw,1.75rem)}
 .nll-guide .nll-intro{padding-top:clamp(1.5rem,4vw,2.25rem);padding-bottom:clamp(.75rem,2.5vw,1.25rem)}
 .nll-guide .nll-intro p:last-child,.nll-guide .nll-section > p:last-child{margin-bottom:.75rem}
+
+/* ===== Full-width photo hero on the neighborhood guides (Nov 2026; markup from scripts/visual_heroes.py) ===== */
+main .nll-wrap:has(.nll-hero--photo){padding-top:0}
+.nll-hero--photo{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-bottom:clamp(2rem,5vw,3rem);
+  min-height:min(80vh,820px);display:flex;align-items:flex-end;overflow:hidden;border:0;
+  padding:clamp(4rem,10vh,6rem) max(20px,env(safe-area-inset-right,0px)) clamp(2.5rem,6vw,4.5rem) max(20px,env(safe-area-inset-left,0px));background:var(--hunter)}
+.nll-hero--photo .nll-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nll-hero--photo::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(14,22,18,.25) 0%,rgba(14,22,18,0) 22%,rgba(14,22,18,.08) 38%,rgba(14,22,18,.82) 100%)}
+.nll-hero-inner{position:relative;z-index:1;width:100%;max-width:880px;margin:0 auto}
+.nll-hero--photo .nll-crumbs,.nll-hero--photo .nll-crumbs a{color:rgba(247,243,236,.85)}
+.nll-hero--photo .nll-eyebrow{color:var(--n-brass-lt,#d9c49a)}
+.nll-hero--photo h1{color:var(--ivory);font-size:clamp(2.3rem,5.6vw,4rem);text-shadow:0 2px 28px rgba(0,0,0,.35)}
+.nll-hero--photo .nll-lede{color:rgba(247,243,236,.92);text-shadow:0 1px 14px rgba(0,0,0,.4)}
+@media(max-width:768px){.nll-hero--photo{min-height:70svh}
+  .nll-hero--photo::after{background:linear-gradient(180deg,rgba(14,22,18,.2) 0%,rgba(14,22,18,0) 18%,rgba(14,22,18,.35) 40%,rgba(14,22,18,.88) 100%)}}
+/* Upright subheads site-wide (no italic serif) */
+.nll-lede{font-style:normal}
