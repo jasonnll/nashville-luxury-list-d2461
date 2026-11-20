@@ -4,6 +4,7 @@
 // The Zap logs it in the NLL Master Lead Log and decides the rest by form name:
 //   - vip-newsletter, off-market-access: added to Mailchimp as a new subscriber (never re-subscribes
 //     someone who unsubscribed) and tagged, so the Off-Market Access welcome sequence starts
+//   - listing-alerts (neighborhood pages): forwarded as access-match, with the neighborhood in `areas`
 //   - access-match, relocation-playbook, home-valuation: also added to Mailchimp, plus a Compass CRM lead
 //     and an email alert to Jason
 //   - relocation-guide (every form on /relocation/guide/): forwarded to the Zap as "relocation-playbook", so it
@@ -22,6 +23,7 @@ const LEAD_FORMS: Record<string, string> = {
   'vip-newsletter': 'Buyer',
   'off-market-access': 'Buyer',
   'access-match': 'Buyer',
+  'listing-alerts': 'Buyer',
   'relocation-playbook': 'Relocation',
   'relocation-guide': 'Relocation',
   'home-valuation': 'Seller',
@@ -31,6 +33,9 @@ const LEAD_FORMS: Record<string, string> = {
 // Forms the Zap should treat as another form it already routes (same lane, tags, Compass lead and emails)
 const ZAP_FORM_ALIAS: Record<string, string> = {
   'relocation-guide': 'relocation-playbook',
+  // Neighborhood listing alerts (/neighborhoods/<slug>/, scripts/lead_offers.py): Buyer lane like access-match,
+  // so a Compass lead tagged with the area in `areas` and an alert to Jason, who sets up the search.
+  'listing-alerts': 'access-match',
   // Home value estimate + net proceeds tools: same Seller lane, home-value tag, Compass lead and alert
   'seller-estimate': 'home-valuation',
 }
