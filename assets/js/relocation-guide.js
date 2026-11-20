@@ -688,7 +688,8 @@ const VENDORS = []; // { cat: 'Home inspectors', name: 'Example Co.', url: 'http
 add({ id: 'trusted-pros', t: 'Jason’s Trusted Pros', cat: 'move', city: ALLC, ic: 'check', img: 'westhaven', isNew: 1,
   seo: 'Trusted Nashville Home Pros: Lenders, Inspectors, Designers, Builders and Movers',
   blurb: 'The lenders, inspectors, attorneys, designers, builders and movers I trust, vetted on real luxury transactions. Ask for the shortlist in any category.',
-  r: () => `<p>New to town, you don’t know who to call. These are the people I’ve watched do excellent work on $1.5M+ homes. Tap any category and I’ll send you two or three names that fit your situation.</p>
+  r: () => `<p class="rg-intro">New to town, you don’t know who to call. These are the people I’ve watched do excellent work on $1.5M+ homes. Tap any category and I’ll send you two or three names that fit your situation.</p>
+<h2 class="rg-vtitle">Pick a category</h2>
 <div class="rg-vendors">${VENDOR_CATS.map(([c, ic]) => { const v = VENDORS.filter((x) => x.cat === c); return `<div class="rg-vcat"><div class="rg-vhead">${icon(ic, 20)}<h3>${c}</h3></div>${v.length ? `<ul class="rg-ul">${v.map((x) => `<li>${x.url ? `<a href="${x.url}" target="_blank" rel="noopener">${x.name}</a>` : x.name}${x.note ? ' · ' + x.note : ''}</li>`).join('')}</ul>` : ''}<button type="button" class="rg-btn rg-btn-ghost rg-vask" data-cat="${esc(c)}">Get my shortlist</button></div>`; }).join('')}</div>
 ${NOTE('I don’t accept referral fees from anyone listed here. Recommendations reflect my own clients’ experiences; always interview and check licenses yourself.')}
 ${leadForm({ compact: 1, anchor: 'pros-form', source: 'Trusted Pros', title: 'Send me your shortlist', text: 'Pick a category above (or tell me what you need) and I’ll email you the names I trust.', goal: 'Something else', cta: 'Send me the shortlist' })}` });

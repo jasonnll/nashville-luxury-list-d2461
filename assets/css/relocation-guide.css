@@ -353,13 +353,26 @@ textarea.rg-fld{min-height:90px;resize:vertical}
 .rg-areachips span{font-weight:700;color:var(--rg-muted);width:100%}
 .rg-areachips a{background:#fff;border:1px solid var(--rg-line);border-radius:0;padding:8px 14px;font-weight:700;color:var(--rg-ink)!important;text-decoration:none!important;min-height:40px;display:inline-flex;align-items:center}
 .rg-areachips a:hover{border-color:var(--rg-brass)}
-.rg-vendors{display:grid;grid-template-columns:1fr;gap:10px;margin:14px 0}
-@media(min-width:700px){.rg-vendors{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.rg-vendors{grid-template-columns:repeat(3,1fr)}}
-.rg-vcat{background:#fff;border:1px solid var(--rg-line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-.rg-vhead{display:flex;align-items:center;gap:10px;color:var(--rg-brass)}
-.rg-vhead h3{margin:0;font-size:17px;color:var(--rg-ink)}
-.rg-vcat .rg-btn{min-height:42px;padding:8px 16px;font-size:14px;align-self:flex-start;margin-top:auto}
+/* Trusted pros: an intro lede, a roomy two-column category grid, then the note and the shortlist form,
+   each with clear space around it so the page reads in steps instead of one dense block */
+.rg-intro{font-size:clamp(17px,1.9vw,19px);line-height:1.7;color:var(--rg-text);margin:14px 0 0;max-width:68ch}
+.rg-content h2.rg-vtitle{margin:40px 0 18px}
+.rg-vendors{display:grid;grid-template-columns:1fr;gap:16px;margin:0 0 8px}
+@media(min-width:620px){.rg-vendors{grid-template-columns:repeat(2,1fr);gap:18px}}
+.rg-vcat{background:#fff;border:1px solid var(--rg-line);border-radius:14px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:18px;transition:border-color .15s,box-shadow .15s}
+@media(max-width:619px){.rg-vcat{padding:18px 18px 16px;gap:14px}}
+.rg-vcat:hover{border-color:var(--rg-brass-l);box-shadow:var(--rg-shadow)}
+.rg-vhead{display:flex;align-items:center;gap:14px;color:var(--rg-brass)}
+.rg-vhead svg{flex-shrink:0;width:40px;height:40px;padding:9px;border-radius:50%;background:#F3EBDA}
+.rg-vhead h3{margin:0;font-size:18px;line-height:1.3;color:var(--rg-ink)}
+.rg-vcat .rg-ul{margin:0}
+.rg-vcat .rg-btn{min-height:44px;padding:10px 18px;font-size:14px;align-self:flex-start;margin-top:auto}
+.rg-vendors+.rg-note{margin-top:32px;padding-top:18px;line-height:1.6}
+.rg-vendors~.rg-lead{margin:44px 0 12px}
+@media(min-width:760px){.rg-vendors~.rg-lead{padding:30px 32px 28px}}
+.rg-vendors~.rg-lead .rg-lead-head{margin-bottom:22px}
+.rg-vendors~.rg-lead .rg-lead-head h2{margin-bottom:8px}
+.rg-vendors~.rg-lead .rg-fg{margin-bottom:16px}
 .rg-idx-ph{background:var(--rg-mint);border:1px dashed var(--rg-hunter2);border-radius:14px;padding:18px;margin:24px 0 0;font-size:15px}
 .rg-page .rg-idx{margin-top:30px}
 .rg-page .rg-idx .section-title{font-family:"Playfair Display",Georgia,serif;font-weight:600}
