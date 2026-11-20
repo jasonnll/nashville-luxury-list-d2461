@@ -377,3 +377,90 @@ textarea.rg-fld{min-height:90px;resize:vertical}
 .rg-page .rg-idx{margin-top:30px}
 .rg-page .rg-idx .section-title{font-family:"Playfair Display",Georgia,serif;font-weight:600}
 
+
+/* ---- guide hub (/relocation/guide/) — roomier rhythm, consistent card frames ---- */
+.rg-hero:not(.rg-hero-city) .rg-hero-in{padding:56px 22px 48px}
+@media(min-width:900px){.rg-hero:not(.rg-hero-city) .rg-hero-in{padding:96px 22px 76px}}
+.rg-hero:not(.rg-hero-city) .rg-eyebrow{margin-bottom:14px}
+.rg-hero:not(.rg-hero-city) h1{margin:0 0 20px}
+.rg-hero:not(.rg-hero-city) .rg-lede{margin-bottom:30px}
+.rg-hero:not(.rg-hero-city) .rg-stats{gap:0;margin-top:40px;grid-template-columns:repeat(4,auto)}
+.rg-hero:not(.rg-hero-city) .rg-stats div{padding:0 30px;border-left:1px solid rgba(216,197,154,.4)}
+.rg-hero:not(.rg-hero-city) .rg-stats div:first-child{padding-left:0;border-left:0}
+.rg-hero:not(.rg-hero-city) .rg-stats span{margin-top:8px}
+@media(max-width:520px){.rg-hero:not(.rg-hero-city) .rg-stats{grid-template-columns:1fr 1fr;gap:22px 0}.rg-hero:not(.rg-hero-city) .rg-stats div{padding:0 0 0 18px}.rg-hero:not(.rg-hero-city) .rg-stats div:nth-child(odd){padding-left:0;border-left:0}}
+
+.rg-hub{padding-left:22px;padding-right:22px;padding-bottom:24px}
+.rg-hub .rg-results{padding-top:48px}
+.rg-hub .rg-results-h{margin-bottom:24px}
+.rg-hub .rg-grid{gap:24px}
+.rg-hub .rg-sec,.rg-hub .rg-group{padding:40px 0 0}
+.rg-hub .rg-sec+.rg-sec,.rg-hub .rg-sec+.rg-group,.rg-hub .rg-group+.rg-group{margin-top:40px;border-top:1px solid var(--rg-line)}
+@media(min-width:900px){.rg-hub .rg-sec,.rg-hub .rg-group{padding-top:60px}.rg-hub .rg-sec+.rg-sec,.rg-hub .rg-sec+.rg-group,.rg-hub .rg-group+.rg-group{margin-top:56px}}
+.rg-hub .rg-eyebrow{margin-bottom:12px}
+.rg-hub .rg-h{margin:0 0 30px}
+.rg-hub .rg-sec>.rg-eyebrow+.rg-rail{margin-top:10px}
+
+/* city tiles */
+.rg-hub .rg-cities{gap:20px;margin-top:0}
+.rg-hub .rg-city{border-radius:12px;min-height:200px}
+.rg-hub .rg-city span{padding:26px 24px}
+.rg-hub .rg-city small{margin-bottom:6px}
+.rg-hub .rg-city em{margin-top:10px}
+@media(min-width:700px){.rg-hub .rg-cities{gap:28px}.rg-hub .rg-city{min-height:320px}}
+
+/* employers: "All employers" spans the last two columns so rows stay full */
+.rg-hub .rg-emps{gap:16px;margin-top:0}
+.rg-hub .rg-emp{border-radius:12px;padding:22px 22px 20px;min-height:148px;gap:6px}
+.rg-hub .rg-emp b{font-size:20px}
+.rg-hub .rg-emp small{font-size:13.5px}
+.rg-hub .rg-emp span{padding-top:14px}
+.rg-hub .rg-emp-all{grid-column:span 2}
+@media(min-width:760px){.rg-hub .rg-emps{gap:24px}}
+
+/* topic buttons: 2 x 4 instead of 7 + an orphan */
+.rg-hub .rg-catbtns{gap:16px;margin-top:0}
+@media(min-width:700px){.rg-hub .rg-catbtns{grid-template-columns:repeat(4,1fr);gap:24px}}
+.rg-hub .rg-catbtn{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:16px;row-gap:2px;align-items:center;border-radius:12px;padding:20px 22px;min-height:0}
+.rg-hub .rg-catbtn-ic{grid-row:span 2;width:46px;height:46px;margin:0}
+@media(max-width:699px){.rg-hub .rg-catbtn{grid-template-columns:1fr;padding:18px}.rg-hub .rg-catbtn-ic{grid-row:auto;margin-bottom:10px;width:42px;height:42px}}
+.rg-hub .rg-catbtn b{font-size:19px;line-height:1.25;align-self:end}
+.rg-hub .rg-catbtn small{align-self:start}
+.rg-hub .rg-catbtn small{font-size:13.5px}
+
+/* card rails & grids */
+.rg-hub .rg-rail{gap:18px;padding-bottom:18px}
+@media(min-width:900px){.rg-hub .rg-rail{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px 24px;padding:4px 0 8px}}
+.rg-hub .rg-card{border-radius:12px}
+.rg-hub .rg-card-b{padding:20px 22px 22px}
+.rg-hub .rg-card h3{font-size:20px;line-height:1.25;margin:8px 0 10px}
+.rg-hub .rg-card p{margin-bottom:16px}
+.rg-hub .rg-open{padding-top:6px}
+.rg-hub .rg-badge{top:14px;left:14px}
+.rg-hub .rg-badge-tool{left:auto;right:14px}
+
+/* category group headers */
+.rg-hub .rg-ghead{gap:18px;align-items:center;margin-bottom:30px}
+.rg-hub .rg-ghead-ic{width:52px;height:52px}
+.rg-hub .rg-ghead p{margin-top:6px}
+.rg-hub .rg-gmore{margin-top:24px;gap:12px 28px}
+
+/* closing help section */
+.rg-hub+.rg-ask{margin-top:72px}
+@media(min-width:900px){.rg-hub+.rg-ask .rg-ask-in{padding:84px 22px 92px;gap:64px}}
+.rg-hub+.rg-ask .rg-ask-lines{gap:20px;margin-top:28px}
+.rg-hub+.rg-ask .rg-ask-lines small{margin-bottom:4px}
+.rg-hub+.rg-ask .rg-lead{padding:30px 32px 28px}
+.rg-hub+.rg-ask .rg-lead-head{margin-bottom:22px}
+.rg-hub+.rg-ask .rg-fg{margin-bottom:16px}
+@media(max-width:600px){.rg-hub+.rg-ask .rg-lead{padding:24px 20px}}
+.rg-hub .rg-emps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rg-hub .rg-catbtns{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:700px){.rg-hub .rg-catbtns{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:760px){.rg-hub .rg-emps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.rg-hub .rg-emp b{overflow-wrap:anywhere}
+@media(max-width:599px){.rg-hub .rg-emps,.rg-hub .rg-catbtns{gap:12px}.rg-hub .rg-emp{padding:18px 16px;min-height:132px}.rg-hub .rg-emp b{font-size:18px}.rg-hub .rg-emp small{font-size:13px}.rg-hub .rg-catbtn b{font-size:17.5px}}
+@media(max-width:899px){.rg-hub .rg-rail{margin:0 -22px;padding-left:22px;padding-right:22px;scroll-padding-left:22px}}
+@media(max-width:599px){.rg-hub .rg-ghead{align-items:flex-start;gap:14px}.rg-hub .rg-ghead-ic{width:44px;height:44px}.rg-hub .rg-emp{padding:18px 14px}.rg-hub .rg-emp b{font-size:clamp(15.5px,4.3vw,18px)}}
+@media(max-width:599px){.rg-hub .rg-emp{padding:18px 12px 16px 14px;border-left-width:3px}.rg-hub .rg-emp b{font-size:clamp(15px,4vw,18px);letter-spacing:-.01em}}
+@media(max-width:379px){.rg-hub .rg-emps{grid-template-columns:minmax(0,1fr)}.rg-hub .rg-emp{min-height:0}.rg-hub .rg-emp-all{grid-column:auto}}
