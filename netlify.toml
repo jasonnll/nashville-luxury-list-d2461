@@ -317,3 +317,41 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# ── Old 2025 Squarespace blog posts, deleted Nov 2026 → blog index ───────────────
+[[redirects]]
+  from   = "/blog/7-best-brentwood-tn-luxury-homes-to-explore-in-2025/*"
+  to     = "/blog/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/blog/7-best-brentwood-tn-luxury-homes-to-explore-in-2025"
+  to     = "/blog/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/blog/7-best-williamson-county-homes-to-explore-in-2025/*"
+  to     = "/blog/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/blog/7-best-williamson-county-homes-to-explore-in-2025"
+  to     = "/blog/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/blog/off-market-properties-guide-insider-tips-for-2025-success/*"
+  to     = "/blog/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/blog/off-market-properties-guide-insider-tips-for-2025-success"
+  to     = "/blog/"
+  status = 301
+  force  = true
+
