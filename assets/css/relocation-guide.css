@@ -126,7 +126,7 @@
 .rg-ghead p{margin:2px 0 0;color:var(--rg-muted);font-size:15px}
 .rg-gmore{font-weight:700;font-size:14.5px;display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
 /* mobile: horizontal snap rail; desktop: grid */
-.rg-rail{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 18px 14px;margin:0 -18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rg-rail{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 18px 14px;margin:0 -18px;scroll-padding-inline:18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .rg-rail::-webkit-scrollbar{display:none}
 .rg-rail>*{scroll-snap-align:start}
 @media(min-width:620px){.rg-rail{grid-auto-columns:46%}}
@@ -420,7 +420,8 @@ textarea.rg-fld{min-height:90px;resize:vertical}
 
 /* topic buttons: 2 x 4 instead of 7 + an orphan */
 .rg-hub .rg-catbtns{gap:16px;margin-top:0}
-@media(min-width:700px){.rg-hub .rg-catbtns{grid-template-columns:repeat(4,1fr);gap:24px}}
+@media(min-width:700px){.rg-hub .rg-catbtns{gap:24px}}
+@media(min-width:1100px){.rg-hub .rg-catbtns{grid-template-columns:repeat(4,1fr)}}
 .rg-hub .rg-catbtn{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:16px;row-gap:2px;align-items:center;border-radius:12px;padding:20px 22px;min-height:0}
 .rg-hub .rg-catbtn-ic{grid-row:span 2;width:46px;height:46px;margin:0}
 @media(max-width:699px){.rg-hub .rg-catbtn{grid-template-columns:1fr;padding:18px}.rg-hub .rg-catbtn-ic{grid-row:auto;margin-bottom:10px;width:42px;height:42px}}
@@ -456,7 +457,7 @@ textarea.rg-fld{min-height:90px;resize:vertical}
 @media(max-width:600px){.rg-hub+.rg-ask .rg-lead{padding:24px 20px}}
 .rg-hub .rg-emps{grid-template-columns:repeat(2,minmax(0,1fr))}
 .rg-hub .rg-catbtns{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media(min-width:700px){.rg-hub .rg-catbtns{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:1100px){.rg-hub .rg-catbtns{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(min-width:760px){.rg-hub .rg-emps{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .rg-hub .rg-emp b{overflow-wrap:anywhere}
 @media(max-width:599px){.rg-hub .rg-emps,.rg-hub .rg-catbtns{gap:12px}.rg-hub .rg-emp{padding:18px 16px;min-height:132px}.rg-hub .rg-emp b{font-size:18px}.rg-hub .rg-emp small{font-size:13px}.rg-hub .rg-catbtn b{font-size:17.5px}}
