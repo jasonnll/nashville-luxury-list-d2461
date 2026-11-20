@@ -39,7 +39,7 @@ EMAIL = 'jason@nashvilleluxurylist.com'
 
 # ── Site chrome (2026 redesign) ───────────────────────────────────────────────
 # Styles live in /assets/css/chrome.css, which bake() links on every page.
-CHROME_CSS = '/assets/css/chrome.css?v=20261113pl'
+CHROME_CSS = '/assets/css/chrome.css?v=20261120qc'
 SANS_FONT = '/assets/fonts/lato-latin-400-normal.woff2'
 
 # Desktop header: each top link opens a dropdown on hover (and on keyboard focus); clicking the top link goes to
@@ -161,7 +161,7 @@ def header(pg):
       <details class="nll-menu">
         <summary><span><i></i><i></i><i></i></span>Menu</summary>
         <div class="nll-menu-panel">{panel}
-          <a class="nll-mcall" href="tel:+{PHONE_RAW}">Call or text {PHONE}</a>
+          <a class="nll-mcall" href="tel:+{PHONE_RAW}">Call {PHONE}</a> <a class="nll-mcall" href="{SMS_HREF}">Text Jason</a>
         </div>
       </details>
     </nav>
@@ -169,12 +169,38 @@ def header(pg):
 </header><!-- /site-header -->'''
 
 
-def call_bar(_pg):
+# "Text Jason" opens the phone's Messages app with a short opener already typed (the ?&body= form works on iOS and Android).
+SMS_HREF = f'sms:+{PHONE_RAW}?&amp;body=Hi%20Jason%2C%20'
+
+
+def _bar_offer(pg):
+    """The call bar's last button: the next step that fits the page the visitor is on."""
+    here = pg.here
+    if here.startswith(('/sellers', '/home-valuation', '/seller-guide', '/past-sales', '/market-report', '/luxury-index', '/answers/cost-to-sell')):
+        return '/home-valuation/', 'Home value'
+    if here.startswith('/relocation'):
+        return '/relocation/#get-playbook', 'Free guide'
+    return '/newsletter/', 'Join the List'
+
+
+def call_bar(pg):
+    href, label = _bar_offer(pg)
     return f'''<nav id="nll-callbar" class="nll-callbar" aria-label="Quick actions">
-  <a href="tel:+{PHONE_RAW}">Call Jason</a>
+  <a href="{SMS_HREF}" data-track="text-jason">Text Jason</a>
+  <a href="tel:+{PHONE_RAW}" data-track="call-jason">Call</a>
   <a href="/search/">Search</a>
-  <a href="/newsletter/">Join the List</a>
+  <a href="{href}">{label}</a>
 </nav><!-- /site-floating-cta -->'''
+
+
+# Adds a "Text" button beside the "Call" button on the pages' own sticky bars (.ap-sticky on tablets, .rl-sticky).
+STICKY_CALL_RX = re.compile(r'(<(?:nav|div) class="(?:ap|rl)-sticky"[^>]*>(?:(?!</(?:nav|div)>).)*?)(<a class="([^"]*)" href="tel:[^"]*" style="([^"]*)" aria-label="Call Jason">Call</a>)', re.S)
+
+
+def add_sticky_text(html):
+    if 'data-track="text-jason-sticky"' in html:
+        return html
+    return STICKY_CALL_RX.sub(lambda m: f'{m.group(1)}<a class="{m.group(3)}" href="{SMS_HREF}" style="{m.group(4)}" aria-label="Text Jason" data-track="text-jason-sticky">Text</a>\n  {m.group(2)}', html, count=1)
 
 
 def _profile(name):
@@ -224,7 +250,7 @@ def footer(pg):
     <div class="nll-foot-cols">
       <div class="nll-contact">
         <a class="nll-mark" href="/">{MARK}</a>
-        <p style="margin-top:16px"><a href="tel:+{PHONE_RAW}">Call or text {PHONE}</a><br><a href="mailto:{EMAIL}">{EMAIL}</a><br>1610 West End Ave, Suite 115<br>Nashville, TN 37203</p>
+        <p style="margin-top:16px"><a href="tel:+{PHONE_RAW}">Call {PHONE}</a> · <a href="{SMS_HREF}">Text Jason</a><br><a href="mailto:{EMAIL}">{EMAIL}</a><br>1610 West End Ave, Suite 115<br>Nashville, TN 37203</p>
         <p style="margin-top:8px"><a href="{GOOGLE_PROFILE}" target="_blank" rel="noopener">Google reviews</a> &middot; <a href="{_profile('Zillow')}" target="_blank" rel="noopener">Zillow</a> &middot; <a href="{_profile('RateMyAgent')}" target="_blank" rel="noopener">RateMyAgent</a> &middot; <a href="{_profile('Compass')}" target="_blank" rel="noopener">Compass</a></p>
         <p style="margin-top:4px"><a href="{_profile('Instagram')}" target="_blank" rel="noopener">Instagram</a> &middot; <a href="{_profile('Facebook')}" target="_blank" rel="noopener">Facebook</a> &middot; <a href="{_profile('LinkedIn')}" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>{cols}
@@ -461,6 +487,61 @@ def ensure_person(src):
                 n['founder'] = {'@id': PERSON_ID}
         graph.append(PERSON)
         data['@graph'] = graph
+        done = True
+        indent = 2 if '\n  ' in m.group(2) else None
+        body = json.dumps(data, ensure_ascii=False, indent=indent).replace('</', '<\\/')
+        return m.group(1) + ('\n' + body + '\n' if indent else body) + m.group(3)
+
+    return _LD_BLOCK_RX.sub(fix, src)
+
+
+# Pages that point at Jason (#person) or the brand (#brand) by @id without describing them on the page
+# (the relocation guides do this) leave search engines with a dangling reference: Google doesn't follow @ids
+# across pages. This adds the full Person and Organization nodes to such a page's first graph.
+BRAND_ID = SITE + '#brand'
+BRAND = {'@type': 'Organization', '@id': BRAND_ID, 'name': 'Nashville Luxury List', 'url': SITE, 'email': EMAIL,
+         'logo': SITE + 'favicon.ico', 'founder': {'@id': PERSON_ID}}
+
+
+def ensure_referenced_nodes(src):
+    blocks = _LD_BLOCK_RX.findall(src)
+    if not blocks:
+        return src
+    defined, referenced = set(), set()
+
+    def walk(n, top=False):
+        if isinstance(n, list):
+            for x in n:
+                walk(x, top)
+        elif isinstance(n, dict):
+            if '@id' in n and len(n) > 1:
+                defined.add(n['@id'])
+            elif '@id' in n:
+                referenced.add(n['@id'])
+            for v in n.values():
+                walk(v)
+    for _, body, _ in blocks:
+        try:
+            walk(json.loads(body))
+        except ValueError:
+            return src
+    missing = [node for nid, node in ((PERSON_ID, PERSON), (BRAND_ID, BRAND)) if nid in referenced and nid not in defined]
+    if not missing:
+        return src
+    done = False
+
+    def fix(m):
+        nonlocal done
+        if done:
+            return m.group(0)
+        data = json.loads(m.group(2))
+        if isinstance(data, dict) and isinstance(data.get('@graph'), list):
+            data['@graph'].extend(missing)
+        elif isinstance(data, dict):
+            ctx = data.pop('@context', 'https://schema.org')
+            data = {'@context': ctx, '@graph': [data] + missing}
+        else:
+            return m.group(0)
         done = True
         indent = 2 if '\n  ' in m.group(2) else None
         body = json.dumps(data, ensure_ascii=False, indent=indent).replace('</', '<\\/')
@@ -744,7 +825,9 @@ def main():
             if with_person != out:
                 person_added += 1
                 out = with_person
+            out = ensure_referenced_nodes(out)
             out = sync_same_as(out)
+            out = add_sticky_text(out)
             out = link_google_reviews(out)  # also on standalone pages without the shared chrome (e.g. /jasonkloess/)
             if any(m in out for m in CHROME_MARKERS):
                 total += 1

@@ -330,6 +330,34 @@
     <p class="idx-note"><span data-idx-provider></span>Listing data from Realtracs, deemed reliable but not guaranteed.</p>
   </div>
 </section>
+
+<!-- nll-offer:alerts -->
+<section data-band="white" class="nll-offer" aria-labelledby="alerts-h">
+  <div class="container nll-offer-in">
+    <div class="nll-offer-copy">
+      <span class="eyebrow">Listing alerts</span>
+      <h2 id="alerts-h">Get new The Grove listings first</h2>
+      <p>Tell me your price range and I&rsquo;ll send new The Grove homes as they come up, including the private and coming-soon ones that never reach Zillow. No spam, and you can stop anytime.</p>
+    </div>
+    <div class="form-wrapper">
+      <form class="nll-offer-form" name="listing-alerts" method="POST" action="/thank-you/" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="listing-alerts">
+        <input type="hidden" name="source" value="Listing alerts – The Grove">
+        <input type="hidden" name="lane" value="Buyer">
+        <input type="hidden" name="areas" value="The Grove">
+        <p hidden><label>Leave blank <input name="bot-field"></label></p>
+        <div class="nll-offer-row">
+          <label><span>First name</span><input name="first_name" autocomplete="given-name" required></label>
+          <label><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+        </div>
+        <label><span>Price range</span><select name="price_range" required><option value="" selected disabled>Select</option><option>$1M to $1.5M</option><option>$1.5M to $2M</option><option>$2M to $3M</option><option>$3M to $5M</option><option>$5M+</option></select></label>
+        <button type="submit" class="btn btn-gold btn-full">Send me The Grove listings</button>
+      </form>
+      <div class="form-success" role="status" aria-live="polite" style="display:none"><h3>You&rsquo;re set.</h3><p>I&rsquo;ll set up your The Grove search personally and send the first homes shortly. &mdash; Jason</p></div>
+    </div>
+  </div>
+</section>
+<!-- /nll-offer:alerts -->
 <section data-band="white" class="ap-photo-sec" aria-label="The Grove photo"><div class="container"><figure class="ap-photo"><img src="/.netlify/images?url=/assets/images/neighborhoods/the-grove.jpg&amp;w=1200&amp;q=72" srcset="/.netlify/images?url=/assets/images/neighborhoods/the-grove.jpg&amp;w=640&amp;q=72 640w, /.netlify/images?url=/assets/images/neighborhoods/the-grove.jpg&amp;w=960&amp;q=72 960w" sizes="(max-width: 1200px) 100vw, 1140px" width="1280" height="720" alt="Aerial view of homes, the golf course and the Manor House at The Grove" loading="lazy" decoding="async"></figure></div></section>
 <section data-band="sand" class="ap-sec" aria-labelledby="ov">
   <div class="container">
