@@ -28,6 +28,8 @@ const LEAD_FORMS: Record<string, string> = {
   'relocation-guide': 'Relocation',
   'home-valuation': 'Seller',
   'seller-estimate': 'Seller',
+  // /coming-in-2027/ guide form: lane (Buyer / Seller / Relocation) comes from the form's own select
+  'coming-2027': 'Buyer',
 }
 
 // Forms the Zap should treat as another form it already routes (same lane, tags, Compass lead and emails)
@@ -38,6 +40,8 @@ const ZAP_FORM_ALIAS: Record<string, string> = {
   'listing-alerts': 'access-match',
   // Home value estimate + net proceeds tools: same Seller lane, home-value tag, Compass lead and alert
   'seller-estimate': 'home-valuation',
+  // "What's Coming in 2027" guide: Compass lead + alert to Jason like access-match, source kept as the guide
+  'coming-2027': 'access-match',
 }
 
 const CRM_WEBHOOK_FALLBACK = 'https://hooks.zapier.com/hooks/catch/25124451/4m7pk3q/'
