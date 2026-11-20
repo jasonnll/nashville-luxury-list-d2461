@@ -416,7 +416,7 @@ ${F([['$2.1B', 'New enclosed Nissan Stadium'], ['Early 2027', 'Stadium completio
 ${UL(['<b>The new Nissan Stadium</b> remains on track for a February 2027 completion; the current stadium is to be phased out after the 2026 season.', '<b>Oracle’s campus</b> is under construction.', '<b>A 600-room hotel</b> beside the stadium is now expected to start construction in Q3 2027 and open in Q3 2030, after the Super Bowl.', '<b>New streets, housing, parks and a pedestrian boulevard</b> are being phased in by the East Bank Development Authority.'])}
 <h2>What it means if you are buying</h2>
 <p>East Nashville, Germantown and the urban-core condo market sit closest to the action. Expect more restaurants, more jobs and, on event days, more traffic. Buyers who want quiet look a little farther out; buyers who want energy and long-term upside look closer in.</p>
-<p>Track the timeline in ${L('breaking-ground', 'Breaking Ground')}.</p>` });
+<p>Track the timeline in ${L('breaking-ground', 'Breaking Ground')}, and see the full 2027 calendar for Nashville and Franklin in <a href="/coming-in-2027/">What’s Coming in 2027</a>.</p>` });
 add({ id: 'country-clubs', t: 'Country Clubs & Golf', cat: 'area', city: ALLC, ic: 'flag', img: 'club-belle-meade',
   seo: 'Nashville, Brentwood and Franklin Country Clubs: A Relocation Guide',
   blurb: 'Belle Meade to Troubadour: the private clubs that shape social life for many families in Nashville, Brentwood and Franklin.', r: () => `
@@ -706,7 +706,7 @@ ${leadForm({ compact: 1, anchor: 'pros-form', source: 'Trusted Pros', title: 'Se
 
 /* ---------------- groups (navigation) ---------------- */
 const GROUPS = [
-  { k: 'tools', n: 'Tools', ic: 'grid', d: 'Calculators, planners and maps that answer the big questions with your numbers.', ids: ['neighborhood-matcher', 'drive-times', 'drive-map', 'move-math', 'moving-timeline', 'first-90-days', 'perfect-day', 'breaking-ground'] },
+  { k: 'tools', n: 'Tools', ic: 'grid', d: 'Calculators, planners and maps that answer the big questions with your numbers.', ids: ['neighborhood-matcher', 'drive-times', 'drive-map', 'move-math', 'moving-timeline', 'first-90-days', 'perfect-day', 'breaking-ground'], more: [['/coming-in-2027/', 'What’s coming in 2027']] },
   { k: 'work', n: 'Moving for work', ic: 'flag', d: 'Oracle, Amazon, AllianceBernstein, Starbucks, healthcare and Cool Springs: where each company’s people live.', ids: ['moving-for-work', 'moving-for-oracle', 'moving-for-amazon', 'moving-for-alliancebernstein', 'moving-for-starbucks', 'moving-for-healthcare', 'moving-for-cool-springs', 'relocation-package'] },
   { k: 'homes', n: 'Home search', ic: 'house', d: 'Live listings by school zone, land, golf, gates and walkability, plus new construction.', ids: ['homes-zoned-brentwood-high', 'homes-zoned-ravenwood-high', 'homes-zoned-franklin-high', 'homes-zoned-hillsboro-high', 'homes-near-private-schools', 'homes-with-acreage', 'gated-communities', 'golf-course-homes', 'walkable-luxury-homes', 'new-construction'], more: [['/search/', 'Search all homes from $1M →']] },
   { k: 'schools', n: 'Schools', ic: 'school', d: 'Public, magnet and private schools across all three areas.', ids: ['school-finder', 'school-question', 'schools-map'] },
@@ -889,7 +889,7 @@ const DAYS = {
 function perfectDayView() { const k0 = Object.keys(DAYS)[0]; return `<div class="rg-panel"><span class="rg-qlabel">Pick a vibe</span><div class="rg-seg rg-seg-wrap" id="pd-v">${Object.keys(DAYS).map((k, i) => `<button type="button" class="${i ? '' : 'on'}" data-v="${k}">${k}</button>`).join('')}</div></div><div class="rg-timeline" id="pd-out">${pdHTML(k0)}</div>${NOTE('Check hours and reservations before you go.')}
   ${leadForm({ compact: 1, source: 'Your Perfect Day', title: 'Planning a scouting trip?', text: 'Tell me your dates and I’ll line up home tours around your perfect day.', goal: 'Finding the right neighborhood', cta: 'Plan my scouting trip' })}`; }
 const pdHTML = (k) => DAYS[k].map(([w, t]) => `<div class="rg-tl"><div class="rg-when">${w}</div><h3>${t}</h3></div>`).join('');
-function breakingView() { return `<p>Status as of ${UPDATED}. Big projects shift, and I keep this page updated.</p><div class="rg-timeline">${BUILD.map((b) => `<div class="rg-tl"><div class="rg-when">${b.when}</div><h3>${b.t} <span class="rg-status st-${b.st}">${b.st === 'build' ? 'Under way' : b.st === 'plan' ? 'Planned' : 'Open'}</span></h3><p><b>${b.where}.</b> ${b.d}</p></div>`).join('')}</div><p>Go deeper in ${L('east-bank', 'Across the River: Nashville’s East Bank')}.</p>`; }
+function breakingView() { return `<p>Status as of ${UPDATED}. Big projects shift, and I keep this page updated.</p><div class="rg-timeline">${BUILD.map((b) => `<div class="rg-tl"><div class="rg-when">${b.when}</div><h3>${b.t} <span class="rg-status st-${b.st}">${b.st === 'build' ? 'Under way' : b.st === 'plan' ? 'Planned' : 'Open'}</span></h3><p><b>${b.where}.</b> ${b.d}</p></div>`).join('')}</div><p>Go deeper in ${L('east-bank', 'Across the River: Nashville’s East Bank')}, or see everything opening this year in <a href="/coming-in-2027/">What’s Coming to Nashville &amp; Franklin in 2027</a>.</p>`; }
 
 /* ---------------- page pieces ---------------- */
 function card(g, opt = {}) {
@@ -942,6 +942,7 @@ function hubView() {
   <section class="rg-sec" id="rg-start"><span class="rg-eyebrow">Choose your city</span><h2 class="rg-h">Three places, three different lives</h2>${cityButtons()}</section>
   <section class="rg-sec"><span class="rg-eyebrow">Moving for work</span><h2 class="rg-h">Relocating with your company?</h2>${empStrip(EMP)}</section>
   <section class="rg-sec"><span class="rg-eyebrow">Or jump to a topic</span><h2 class="rg-h">What do you need to figure out?</h2>${catButtons()}</section>
+  <section class="rg-sec"><span class="rg-eyebrow">The 2027 watch list</span><h2 class="rg-h">What’s coming to Nashville &amp; Franklin in 2027</h2><p>The new stadium, Oracle’s East Bank campus, Franklin’s new City Hall, Pilgrimage’s return and the new private clubs and estate communities, with a month-by-month calendar.</p><p><a class="rg-btn rg-btn-brass" href="/coming-in-2027/">See what’s coming in 2027 →</a></p></section>
   <section class="rg-sec"><span class="rg-eyebrow">Just added</span><div class="rg-rail rg-rail-new">${newest.map((g) => card(g, { short: 1 })).join('')}</div></section>
   ${groupSections()}
   </div>`;
@@ -962,7 +963,7 @@ function cityView(k) {
   <section class="rg-sec"><span class="rg-eyebrow">${c.n} schools</span><h2 class="rg-h">Schools in and near ${c.n}</h2><div class="rg-slist">${SCHOOLS.filter((s) => SCHOOL_CITY(s) === k).filter((s) => k !== 'nashville' || /High|Academy|School|Magnet|Hall/.test(s[0])).slice(0, 12).map(schoolRow).join('')}</div><p><a href="${href('school-finder')}${MODE === 'spa' ? '' : '?city=' + k}">Filter every ${c.n} school →</a></p></section>
   <section class="rg-sec"><span class="rg-eyebrow">Moving for work</span><h2 class="rg-h">Employers near ${c.n}</h2>${empStrip(k === 'nashville' ? EMP : EMP.filter((e) => e.d === 4 || e.id === 'moving-for-healthcare'))}</section>
   ${groupSections(k)}
-  <section class="rg-sec"><span class="rg-eyebrow">More on ${c.n}</span><h2 class="rg-h">Go deeper</h2><div class="rg-linklist">${c.site.map(([u, t]) => `<a href="${u}">${t}<span>→</span></a>`).join('')}</div></section>
+  <section class="rg-sec"><span class="rg-eyebrow">More on ${c.n}</span><h2 class="rg-h">Go deeper</h2><div class="rg-linklist">${(k === 'brentwood' ? [] : [['/coming-in-2027/?city=' + k, 'What’s coming to ' + c.n + ' in 2027']]).concat(c.site).map(([u, t]) => `<a href="${u}">${t}<span>→</span></a>`).join('')}</div></section>
   </div>`;
 }
 function related(g) {
