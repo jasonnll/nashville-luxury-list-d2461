@@ -349,6 +349,10 @@ def band_sections(html):
     for offset, classes in p.found:
         if classes & (HERO_CLASSES | NO_BAND_CLASSES):
             continue
+        # Relocation Guide sections (rg-*) sit inside the guide's padded content column and carry their
+        # own backgrounds and divider rules; a band there paints a box with the content flush to its edges.
+        if any(c.startswith('rg-') for c in classes):
+            continue
         if classes & ANCHOR_CLASSES:
             marks.append((offset, 'anchor'))
             continue
