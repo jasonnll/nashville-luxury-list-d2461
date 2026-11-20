@@ -779,6 +779,10 @@ def jump_nav(html, pg):
         parts = [p.strip() for p in _plain(eb[-1]).split('·')] if eb else []
         parts = [p for p in parts if p and not re.match(r'(?i)chapters?\b', p) and not re.search(r'\b20\d\d\b', p)]
         label = parts[0] if parts and len(parts[0]) <= 30 else _short_label(text)
+        # A heading can name its own jump link: <h2 data-jump="Your Advisor">
+        custom = re.search(r'\bdata-jump="([^"]+)"', attrs)
+        if custom:
+            label = htmllib.unescape(custom.group(1))
         items.append((hid, label))
         return m.group(0) if idm else f'<h2{attrs} id="{hid}">{inner}</h2>'
 
