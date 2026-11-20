@@ -193,7 +193,7 @@ add({ id: 'neighborhood-matcher', t: 'Neighborhood Matcher', cat: 'tool', city: 
   seo: 'Neighborhood Matcher: Find Your Best-Fit Nashville, Brentwood or Franklin Neighborhood',
   blurb: 'Answer five quick questions about how you live and get your best-fit neighborhoods across Nashville, Brentwood and Franklin, ranked.',
   r: matcherView, faq: [['What neighborhoods does the matcher compare?', `It ranks ${HOODS.length} luxury areas: ${HOODS.map((h) => h.short || h.n).join(', ')}.`], ['How are matches scored?', 'Each neighborhood is scored on your budget, lifestyle, daily destinations, school plans and home style, using Jason Kloess’s local knowledge of each area. It is a starting point for a conversation, not a substitute for touring.']] });
-add({ id: 'drive-times', t: 'Drive Time Calculator', cat: 'tool', city: ALLC, ic: 'car', img: 'guide-drive-times',
+add({ id: 'drive-times', t: 'Drive Time Calculator', cat: 'tool', city: ALLC, ic: 'car', img: 'guide-drive-times-map',
   seo: 'Nashville Drive Time Calculator: Commutes From Brentwood, Franklin & Green Hills',
   blurb: `Drive times from ${HOODS.length} neighborhoods to downtown, BNA, Vanderbilt, Green Hills, Cool Springs, Franklin and the East Bank, off-peak and at rush hour.`,
   r: driveView, faq: [['How long is the drive from Brentwood to downtown Nashville?', `About ${DT.brentwood[0]} minutes off-peak and roughly ${rush(DT.brentwood[0], 0)} minutes at rush hour, mostly on I-65.`], ['How long is the drive from Franklin to downtown Nashville?', `About ${DT['downtown-franklin'][0]} minutes off-peak from downtown Franklin and roughly ${rush(DT['downtown-franklin'][0], 0)} minutes at rush hour.`], ['How far is Green Hills from the airport?', `About ${DT['green-hills'][1]} minutes off-peak to BNA.`]] });
@@ -539,7 +539,7 @@ ${T([{ m: 'March–May', h: 'Spring', p: 'Dogwoods, redbuds and 70-degree days. 
 ${CO('<b>From the West Coast?</b> Humidity is the biggest adjustment. <b>From the North?</b> You’ll gain about two months of outdoor season a year.')}` });
 
 /* === Maps === */
-add({ id: 'drive-map', t: 'Drive Times, Mapped', cat: 'map', city: ALLC, ic: 'map', img: '', tool: 1,
+add({ id: 'drive-map', t: 'Drive Times, Mapped', cat: 'map', city: ALLC, ic: 'map', img: 'guide-drive-map', tool: 1,
   seo: 'Nashville Commute Map: Drive Times From Brentwood, Franklin and Green Hills',
   blurb: 'Tap any neighborhood on the map to see how long it takes to get everywhere.', r: driveMapView });
 
@@ -929,7 +929,7 @@ function groupSections(filterCity) {
 }
 function hubView() {
   const newest = G.filter((g) => g.isNew);
-  return `<header class="rg-hero">${pic('brentwood-dusk', 'Brentwood, Tennessee estate at dusk', 'rg-hero-img', true)}<div class="rg-hero-shade"></div><div class="rg-wrap rg-hero-in">
+  return `<header class="rg-hero">${pic('skyline-golden-hour', 'Downtown Nashville skyline over the Cumberland River at golden hour', 'rg-hero-img', true)}<div class="rg-hero-shade"></div><div class="rg-wrap rg-hero-in">
   <span class="rg-eyebrow light">Nashville Luxury List · The Relocation Guide</span>
   <h1>Moving to Nashville, Brentwood or Franklin? Start here.</h1>
   <p class="rg-lede">${G.length} free guides and tools from Jason Kloess at Compass: drive times, schools, neighborhoods, taxes and where to eat, for families moving across town or across the country.</p>
