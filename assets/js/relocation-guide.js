@@ -937,7 +937,7 @@ function hubView() {
   <div class="rg-stats"><div>${G.length}<span>Guides &amp; tools</span></div><div>${G.filter(isTool).length}<span>Interactive</span></div><div>${HOODS.length}<span>Neighborhoods</span></div><div>${UPDATED.split(' ')[0].slice(0, 3)} ${UPDATED.split(' ')[1]}<span>Updated</span></div></div>
   </div></header>
   ${guideNav('home')}
-  <div class="rg-wrap">
+  <div class="rg-wrap rg-hub">
   <div class="rg-results" id="rg-results" hidden><div class="rg-results-h"><h2 id="rg-rcount"></h2><button type="button" class="rg-btn rg-btn-ghost" id="rg-clear">Clear search</button></div><div class="rg-grid" id="rg-rgrid"></div></div>
   <section class="rg-sec" id="rg-start"><span class="rg-eyebrow">Choose your city</span><h2 class="rg-h">Three places, three different lives</h2>${cityButtons()}</section>
   <section class="rg-sec"><span class="rg-eyebrow">Moving for work</span><h2 class="rg-h">Relocating with your company?</h2>${empStrip(EMP)}</section>
