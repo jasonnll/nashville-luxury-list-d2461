@@ -5,7 +5,7 @@ First it syncs the page list:
   * every blog post under blog/<slug>/ is listed, newest first, right after /blog/, dated by its publish date,
     so each week's newsletter post is indexed even when it was committed to the repo rather than added by
     this build (the Mailchimp import only lists posts it creates itself);
-  * the generic 2025 Squarespace posts in SITEMAP_EXCLUDE are left out;
+  * any slugs in SITEMAP_EXCLUDE are left out;
   * any page carrying <meta name="robots" content="noindex..."> (such as /review/ and /strategy/) is dropped,
     because a sitemap should only list pages meant for search results;
   * /blog/ is dated by its newest post.
@@ -31,12 +31,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITEMAP = os.path.join(ROOT, 'sitemap.xml')
 SITE = 'https://www.nashvilleluxurylist.com'
 
-# Generic 2025 posts from the old Squarespace blog. They stay on the site but aren't offered to search engines.
-SITEMAP_EXCLUDE = {
-    '7-best-brentwood-tn-luxury-homes-to-explore-in-2025',
-    '7-best-williamson-county-homes-to-explore-in-2025',
-    'off-market-properties-guide-insider-tips-for-2025-success',
-}
+# Blog post slugs to keep out of the sitemap (the old 2025 Squarespace posts were deleted Nov 2026).
+SITEMAP_EXCLUDE: set[str] = set()
 NOINDEX = re.compile(r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex', re.I)
 URL_BLOCK = re.compile(r'[ \t]*<url>.*?</url>\n?', re.S)
 
