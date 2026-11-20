@@ -222,7 +222,7 @@ def build():
     items = [('Home', '/'), ('Sellers', '/sellers/'), ('Home value estimate', path)]
     area_opts = ''.join(f'<option value="{a["id"]}" data-ppsf="{a["ppsf"]:.0f}" data-median="{a["median"]:.0f}" data-dom="{a["dom"]:.0f}" data-stl="{a["stl"]}" data-name="{E(a["name"])}">{E(a["name"])}</option>' for a in A)
     chips = lambda name, opts, sel: ''.join(f'<button type="button" class="rg-opt-b {"on" if v == sel else ""}" data-v="{v}" aria-pressed="{"true" if v == sel else "false"}">{t}</button>' for v, t in opts)
-    body = hero(items, f'Seller tools · Data through {thru}', 'What’s my home worth?', 'A private, instant price range for your home from the latest neighborhood sales, then a precise number from me when you’re ready.', '/assets/images/relocation-guide/brentwood-dusk-1600.webp', 'Brentwood estate at dusk') + subnav(path) + f'''
+    body = hero(items, f'Seller tools · Data through {thru}', 'What’s my home worth?', 'A private, instant price range for your home from the latest neighborhood sales, then a precise number from me when you’re ready.', '/assets/images/pages/page-home-value-estimate.jpg', 'White brick and stone estate at dusk') + subnav(path) + f'''
 <div class="rg-wrap rg-body st-body">
 <div class="st-grid">
 <form class="rg-panel st-inputs" id="hv-form" onsubmit="return false" aria-label="Home details">
@@ -246,7 +246,7 @@ def build():
     ld = [{'@type': 'WebPage', '@id': SITE + path + '#webpage', 'url': SITE + path, 'name': 'Nashville Home Value Estimate', 'description': 'Instant price range for a Nashville, Brentwood or Franklin home from the latest neighborhood sale prices per square foot.', 'dateModified': today, 'isPartOf': {'@id': SITE + '/#website'}, 'author': {'@id': SITE + '/#person'}},
           {'@type': 'WebApplication', 'name': 'Home Value Estimate', 'url': SITE + path, 'applicationCategory': 'FinanceApplication', 'operatingSystem': 'Any (web browser)', 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}},
           crumbs(items)]
-    out('sellers/home-value-estimate/index.html', page(path, 'What’s My Home Worth? Instant Nashville Home Value Estimate', f'Instant price range for your Nashville, Brentwood, Franklin, Green Hills, Belle Meade or East Nashville home from {thru} neighborhood sales, plus a free private pricing read.', body, ld, 'Seller tools – Home value estimate', '/assets/images/relocation-guide/brentwood-dusk-1600.webp'))
+    out('sellers/home-value-estimate/index.html', page(path, 'What’s My Home Worth? Instant Nashville Home Value Estimate', f'Instant price range for your Nashville, Brentwood, Franklin, Green Hills, Belle Meade or East Nashville home from {thru} neighborhood sales, plus a free private pricing read.', body, ld, 'Seller tools – Home value estimate', '/assets/images/pages/page-home-value-estimate.jpg'))
     pages.append((path, 'Home value estimate', 'Instant price range for a Nashville-area home from the latest neighborhood price per square foot.'))
 
     # ---------------- Net proceeds ----------------
