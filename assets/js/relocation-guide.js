@@ -60,15 +60,15 @@ function pat(seed) {
 
 /* ---------------- cities ---------------- */
 const CITIES = {
-  nashville: { n: 'Nashville', img: 'belle-meade-estate', county: 'Davidson County',
+  nashville: { n: 'Nashville', img: 'guide-nashville', county: 'Davidson County',
     lede: 'Belle Meade, Green Hills, Forest Hills, 12 South, East Nashville and the urban core: in-town living with Nashville’s best restaurants, culture and private schools minutes away.',
     facts: [['$21,105', 'Property tax on a $3M home (Urban Services District, 2026 rate $2.814)'], ['5–20 min', 'To downtown, Vanderbilt and BNA from most luxury neighborhoods'], ['MNPS + private', 'Most luxury families here choose independent schools'], ['0%', 'State income tax on wages']],
     site: [['/neighborhoods/belle-meade/', 'Belle Meade neighborhood guide'], ['/neighborhoods/green-hills/', 'Green Hills neighborhood guide'], ['/neighborhoods/east-nashville/', 'East Nashville neighborhood guide'], ['/relocation/living-in-nashville/', 'Living in Nashville (city guide)'], ['/compare/belle-meade-vs-green-hills/', 'Belle Meade vs. Green Hills'], ['/nashville-luxury-realtor/', 'Nashville luxury market and Jason’s sales'], ['/assets/guides/nashville-relocation-guide-2026.pdf', 'Nashville Relocation Guide 2026 (PDF)']] },
-  brentwood: { n: 'Brentwood', img: 'brentwood-dusk', county: 'Williamson County',
+  brentwood: { n: 'Brentwood', img: 'guide-brentwood', county: 'Williamson County',
     lede: 'Acre lots, mature trees, gated communities like Governors Club and Annandale, and Williamson County Schools, about 20 minutes from Green Hills.',
     facts: [['$11,175', 'Property tax on a $3M home (2026 combined rate $1.49)'], ['~1 acre', 'Typical lot across much of the city'], ['WCS', 'Brentwood High or Ravenwood High, by address'], ['~20 min', 'To Green Hills off-peak']],
     site: [['/neighborhoods/brentwood/', 'Brentwood neighborhood guide'], ['/neighborhoods/governors-club/', 'Governors Club'], ['/neighborhoods/annandale/', 'Annandale'], ['/compare/governors-club-vs-annandale/', 'Governors Club vs. Annandale'], ['/compare/brentwood-vs-franklin/', 'Brentwood vs. Franklin'], ['/relocation/living-in-brentwood/', 'Living in Brentwood (city guide)'], ['/brentwood-tn-luxury-realtor/', 'Brentwood luxury market'], ['/assets/guides/brentwood-relocation-guide-2026.pdf', 'Brentwood Relocation Guide 2026 (PDF)']] },
-  franklin: { n: 'Franklin', img: 'franklin-main-street', county: 'Williamson County',
+  franklin: { n: 'Franklin', img: 'guide-franklin', county: 'Williamson County',
     lede: 'A storybook Main Street, Westhaven, Leiper’s Fork farms and the Cool Springs job center, with Williamson County Schools and FSSD, about 25–35 minutes from downtown Nashville.',
     facts: [['$12,150', 'Property tax on a $3M home in the City of Franklin (2026 rate $1.62)'], ['WCS + FSSD', 'Two public districts; FSSD covers PK–8 in much of the city'], ['~8 min', 'Downtown Franklin to Cool Springs off-peak'], ['$9,750', 'On a $3M home in unincorporated areas like Leiper’s Fork ($1.30)']],
     site: [['/neighborhoods/franklin/', 'Franklin neighborhood guide'], ['/neighborhoods/westhaven/', 'Westhaven'], ['/neighborhoods/leipers-fork/', 'Leiper’s Fork'], ['/neighborhoods/laurelbrooke/', 'Laurelbrooke'], ['/neighborhoods/college-grove/', 'College Grove'], ['/compare/franklin-vs-thompsons-station/', 'Franklin vs. Thompson’s Station'], ['/relocation/living-in-franklin/', 'Living in Franklin (city guide)'], ['/franklin-tn-luxury-realtor/', 'Franklin luxury market'], ['/assets/guides/franklin-relocation-guide-2026.pdf', 'Franklin Relocation Guide 2026 (PDF)']] },
@@ -189,19 +189,19 @@ const add = (o) => G.push(o);
 const ALLC = ['nashville', 'brentwood', 'franklin'];
 
 /* === Tools === */
-add({ id: 'neighborhood-matcher', t: 'Neighborhood Matcher', cat: 'tool', city: ALLC, ic: 'compass', img: 'belle-meade-estate', isNew: 1,
+add({ id: 'neighborhood-matcher', t: 'Neighborhood Matcher', cat: 'tool', city: ALLC, ic: 'compass', img: 'guide-neighborhood-matcher', isNew: 1,
   seo: 'Neighborhood Matcher: Find Your Best-Fit Nashville, Brentwood or Franklin Neighborhood',
   blurb: 'Answer five quick questions about how you live and get your best-fit neighborhoods across Nashville, Brentwood and Franklin, ranked.',
   r: matcherView, faq: [['What neighborhoods does the matcher compare?', `It ranks ${HOODS.length} luxury areas: ${HOODS.map((h) => h.short || h.n).join(', ')}.`], ['How are matches scored?', 'Each neighborhood is scored on your budget, lifestyle, daily destinations, school plans and home style, using Jason Kloess’s local knowledge of each area. It is a starting point for a conversation, not a substitute for touring.']] });
-add({ id: 'drive-times', t: 'Drive Time Calculator', cat: 'tool', city: ALLC, ic: 'car', img: 'forest-hills',
+add({ id: 'drive-times', t: 'Drive Time Calculator', cat: 'tool', city: ALLC, ic: 'car', img: 'guide-drive-times',
   seo: 'Nashville Drive Time Calculator: Commutes From Brentwood, Franklin & Green Hills',
   blurb: `Drive times from ${HOODS.length} neighborhoods to downtown, BNA, Vanderbilt, Green Hills, Cool Springs, Franklin and the East Bank, off-peak and at rush hour.`,
   r: driveView, faq: [['How long is the drive from Brentwood to downtown Nashville?', `About ${DT.brentwood[0]} minutes off-peak and roughly ${rush(DT.brentwood[0], 0)} minutes at rush hour, mostly on I-65.`], ['How long is the drive from Franklin to downtown Nashville?', `About ${DT['downtown-franklin'][0]} minutes off-peak from downtown Franklin and roughly ${rush(DT['downtown-franklin'][0], 0)} minutes at rush hour.`], ['How far is Green Hills from the airport?', `About ${DT['green-hills'][1]} minutes off-peak to BNA.`]] });
-add({ id: 'move-math', t: 'Move Math Calculator', cat: 'tool', city: ALLC, ic: 'calc', img: 'brentwood-dusk',
+add({ id: 'move-math', t: 'Move Math Calculator', cat: 'tool', city: ALLC, ic: 'calc', img: 'guide-move-math',
   seo: 'Move Math: What Moving to Tennessee Saves You in Income and Property Tax',
   blurb: 'Plug in your income and home values to estimate what Tennessee’s 0% wage tax and lower property taxes could save you each year.',
   r: moveMathView, faq: [['Does Tennessee have a state income tax?', 'Tennessee does not tax wages or salaries, and the Hall tax on investment income was fully repealed in 2021.'], ['What is the property tax on a $3 million home in Brentwood?', 'At the 2026 combined rate of $1.49 per $100 of assessed value (homes are assessed at 25%), about $11,175 a year. In Nashville’s Urban Services District ($2.814) it is about $21,105.']] });
-add({ id: 'moving-timeline', t: 'Your Moving Timeline', cat: 'tool', city: ALLC, ic: 'cal', img: 'annandale', isNew: 1,
+add({ id: 'moving-timeline', t: 'Your Moving Timeline', cat: 'tool', city: ALLC, ic: 'cal', img: 'guide-moving-timeline', isNew: 1,
   seo: 'Moving to Nashville Timeline: A Dated 90-Day Relocation Plan',
   blurb: 'Pick your move-in date and get a dated, step-by-step plan from 90 days out through your first month in Middle Tennessee.', r: timelineView });
 add({ id: 'first-90-days', t: 'The First 90 Days', cat: 'tool', city: ALLC, ic: 'check', img: 'westhaven',
@@ -211,7 +211,7 @@ add({ id: 'first-90-days', t: 'The First 90 Days', cat: 'tool', city: ALLC, ic: 
 add({ id: 'perfect-day', t: 'Your Perfect Day', cat: 'tool', city: ALLC, ic: 'sun', img: 'franklin-main-street',
   seo: 'Plan a Nashville, Brentwood or Franklin Scouting Trip: Your Perfect Day',
   blurb: 'Pick a vibe (classic Nashville, foodie, family, outdoors, Brentwood or Franklin) and get a morning-to-evening plan for a scouting trip.', r: perfectDayView });
-add({ id: 'breaking-ground', t: 'Breaking Ground', cat: 'tool', city: ['nashville'], ic: 'crane', img: 'nashville-skyline',
+add({ id: 'breaking-ground', t: 'Breaking Ground', cat: 'tool', city: ['nashville'], ic: 'crane', img: 'guide-breaking-ground',
   seo: 'What’s Being Built in Nashville: Stadium, Oracle, Transit and Airport Timeline',
   blurb: 'The new stadium, Oracle’s campus, the 2030 Super Bowl, transit and the airport: what’s being built and when it lands.', r: breakingView });
 
@@ -407,7 +407,7 @@ ${T([
   { m: '~75–90 min', h: 'Center Hill & Tims Ford', p: 'Clear-water weekend lakes popular for second homes.', tags: ['Second home'] },
 ])}
 ${NOTE('Dock rights and shoreline rules on most of these lakes are set by the U.S. Army Corps of Engineers. Always confirm dock permit status before buying.')}` });
-add({ id: 'east-bank', t: 'Across the River: Nashville’s East Bank', cat: 'area', city: ['nashville'], ic: 'crane', img: 'nashville-skyline', isNew: 1,
+add({ id: 'east-bank', t: 'Across the River: Nashville’s East Bank', cat: 'area', city: ['nashville'], ic: 'crane', img: 'guide-east-bank', isNew: 1,
   seo: 'Nashville East Bank Redevelopment: New Stadium, Oracle and the 2030 Super Bowl',
   blurb: 'The new stadium, Oracle, the 2030 Super Bowl and what it all means for the neighborhoods nearby.', r: () => `
 ${F([['$2.1B', 'New enclosed Nissan Stadium'], ['Early 2027', 'Stadium completion target'], ['Feb 2030', 'Super Bowl LXIV in Nashville'], ['550 acres', 'The wider East Bank redevelopment area']])}
@@ -446,7 +446,7 @@ ${T([{ m: 'East Nashville', h: 'Lockeland Table', p: 'Wood-fired comfort food wi
 <h2>Only in Nashville</h2>
 ${T([{ m: 'Hot chicken', h: 'Hattie B’s and Prince’s', p: 'Start at medium. Really.' }, { m: 'Meat-and-three', h: 'Arnold’s Country Kitchen', p: 'A lunchtime rite of passage.' }, { m: 'Brunch', h: 'Biscuit Love', p: 'Expect a line; it moves.' }, { m: 'Coffee', h: 'Barista Parlor, Crema, Frothy Monkey', p: 'Three local favorites across the city.' }])}
 ${NOTE('Restaurants open, close and change chefs often. Check hours and reservations before you go.')}` });
-add({ id: 'where-to-eat-franklin', t: 'Where to Eat: Franklin', cat: 'eat', city: ['franklin'], ic: 'fork', img: 'franklin', isNew: 1,
+add({ id: 'where-to-eat-franklin', t: 'Where to Eat: Franklin', cat: 'eat', city: ['franklin'], ic: 'fork', img: 'guide-where-to-eat-franklin', isNew: 1,
   seo: 'Best Restaurants in Franklin, TN: Main Street, The Factory and Leiper’s Fork',
   blurb: 'Main Street favorites, coffee, date night and Leiper’s Fork: where Franklin locals actually eat.', r: () => `
 <h2>On and around Main Street</h2>
@@ -456,7 +456,7 @@ ${T([{ m: 'Cool Springs', h: 'Cork & Cow', p: 'Steakhouse with a lively, polishe
 <h2>A short drive west</h2>
 ${T([{ m: 'Leiper’s Fork', h: 'Fox & Locke', p: 'Small-town spot famous for its music nights.' }, { m: 'Leiper’s Fork', h: 'The village', p: 'Galleries, shops and a bite to eat before a drive on the Natchez Trace.' }])}
 ${NOTE('Favorites change: check hours before you go. Have a favorite I missed? Tell me.')}` });
-add({ id: 'where-to-eat-brentwood', t: 'Where to Eat: Brentwood', cat: 'eat', city: ['brentwood'], ic: 'coffee', img: 'hillsboro-village',
+add({ id: 'where-to-eat-brentwood', t: 'Where to Eat: Brentwood', cat: 'eat', city: ['brentwood'], ic: 'coffee', img: 'guide-where-to-eat-brentwood',
   seo: 'Where to Eat in Brentwood, TN: Hill Center, Maryland Farms and Cool Springs',
   blurb: 'Brentwood’s easy dinners, coffee and family spots, plus the best of Cool Springs and Green Hills just up the road.', r: () => `
 <p>Brentwood is a short drive from two of the region’s best restaurant clusters (Green Hills to the north, Franklin to the south), with plenty of its own easy go-tos.</p>
@@ -506,7 +506,7 @@ ${T([
 ])}` });
 
 /* === Seasonal === */
-add({ id: 'holidays', t: 'Your Holiday Season, Planned', cat: 'season', city: ALLC, ic: 'star', img: 'nashville-skyline', isNew: 1,
+add({ id: 'holidays', t: 'Your Holiday Season, Planned', cat: 'season', city: ALLC, ic: 'star', img: 'guide-holidays', isNew: 1,
   seo: 'Holiday Events in Nashville, Brentwood and Franklin: Lights, Nutcracker and Dickens',
   blurb: 'Holiday LIGHTS at Cheekwood, the Nutcracker, Dickens of a Christmas in Franklin and New Year’s Eve downtown.', r: () => `
 <div class="rg-timeline">${[
@@ -610,37 +610,37 @@ ${areaChips(['troubadour', 'the-grove', 'brentwood', 'franklin', 'green-hills'])
 
 /* ======== Corporate relocation ======== */
 const EMP = [
-  { id: 'moving-for-oracle', n: 'Oracle', img: 'nashville-skyline', d: 6, office: 'East Bank campus (under construction); Neuhoff District offices today',
+  { id: 'moving-for-oracle', n: 'Oracle', img: 'guide-moving-for-oracle', d: 6, office: 'East Bank campus (under construction); Neuhoff District offices today',
     lede: 'Oracle has broken ground on its global headquarters on Nashville’s East Bank. If you are moving with Oracle, here is where to live, what the commute looks like and how to buy before you arrive.',
     facts: [['$4.5B', 'Global headquarters campus on the East Bank'], ['Nov 2026', 'Groundbreaking'], ['8,500', 'Nashville jobs Oracle has said it aims for'], ['Neuhoff', 'Current offices overlooking the site']],
     body: `<p>Oracle held its groundbreaking for a <b>$4.5 billion global headquarters</b> on the East Bank in November 2026, with a campus that also plans an amphitheater, a hotel and a pedestrian bridge. Until it opens, many teams work from Oracle’s expanded offices in the <b>Neuhoff District</b>, which overlook the construction, and the company has also had employees in Capitol View.</p>
 <p>Oracle has said it aims to have about 8,500 employees in Nashville. Reporting this year noted it has offered relocation incentives to some existing employees, so ask HR exactly what your package covers. See ${L('relocation-package', 'Your Relocation Package, Decoded')}.</p>`,
     src: [['Oracle press release: groundbreaking (Nov 2026)', 'https://oracle.com/news/announcement/oracle-celebrates-groundbreaking-on-future-global-headquarters-in-nashville-2026-11-10/'], ['WSMV: Oracle breaks ground on $4.5B HQ', 'https://www.wsmv.com/2026/11/11/oracle-breaks-ground-45-billion-global-headquarters-nashvilles-east-bank/'], ['Oracle press release: Neuhoff offices (Mar 2026)', 'https://www.oracle.com/news/announcement/oracle-scales-up-nashville-offices-to-support-rapid-growth-2026-03-26/'], ['Nashville Scene: Oracle jobs and incentives', 'https://www.nashvillescene.com/news/pithinthewind/oracle-jobs-growth-incentives-pace/article_5e26c0b0-6195-4a01-a2d9-9946472fdbb2.html']] },
-  { id: 'moving-for-amazon', n: 'Amazon', img: 'germantown', d: 0, office: 'Nashville Yards, downtown',
+  { id: 'moving-for-amazon', n: 'Amazon', img: 'guide-moving-for-amazon', d: 0, office: 'Nashville Yards, downtown',
     lede: 'Amazon’s Operations Center of Excellence sits at Nashville Yards downtown. Here is where Amazon employees live, the commute from each neighborhood and how to plan the move.',
     facts: [['Nashville Yards', 'Downtown office towers on Church Street'], ['5,000', 'Jobs in the original Operations Center plan'], ['2nd tower', 'Interior buildout announced in 2025'], ['Amazon Music', 'Also at the CAA building next door']],
     body: `<p>Amazon chose Nashville for its <b>Operations Center of Excellence</b>, the Eastern U.S. hub for its retail operations, with a plan for 5,000 jobs at <b>Nashville Yards</b> downtown. In 2025 Nashville Yards announced Amazon was starting work on its second office tower and had leased a floor in the CAA building, including Amazon Music teams.</p>
 <p>Downtown offices make close-in neighborhoods (Germantown, 12 South, East Nashville, Sylvan Park and Green Hills) the shortest commutes, while Brentwood and Franklin trade a longer I-65 drive for land and Williamson County schools.</p>`,
     src: [['Tennessee Governor’s office: Amazon 5,000 jobs', 'https://www.tn.gov/former-governor-haslam/news/2018/11/13/amazon-to-create-5000-new-jobs-in-nashville.html'], ['Nashville Yards: Amazon expansion (May 2025)', 'https://www.nashvilleyards.com/wp-content/uploads/2025/05/Nashville-Yards-Announces-Amazon-Expansion-5.14.25.pdf']] },
-  { id: 'moving-for-alliancebernstein', n: 'AllianceBernstein', img: 'belle-meade-estate', d: 0, office: '501 Commerce Street, downtown',
+  { id: 'moving-for-alliancebernstein', n: 'AllianceBernstein', img: 'guide-moving-for-alliancebernstein', d: 0, office: '501 Commerce Street, downtown',
     lede: 'AllianceBernstein moved its global headquarters from New York to downtown Nashville. Here is where AB families live, commute times and what changes when you leave New York.',
     facts: [['501 Commerce', 'Global HQ, downtown Nashville'], ['2021', 'Moved into the Nashville headquarters'], ['From NYC', 'HQ relocation announced in 2018'], ['0%', 'Tennessee tax on wages']],
     body: `<p>AllianceBernstein announced in 2018 that it would move its global headquarters from New York City to Nashville, and moved into its downtown headquarters in 2021. The building is at <b>501 Commerce Street</b>, steps from Broadway and the Music City Center.</p>
 <p>For families coming from the New York area, the biggest changes are taxes and space: Tennessee doesn’t tax wages, and in-town neighborhoods like Belle Meade and Green Hills offer large lots 15 minutes from the office. Run the numbers in ${L('move-math', 'Move Math')} and read <a href="/relocation/moving-from-new-york/">Moving from New York</a>.</p>`,
     src: [['AllianceBernstein (Wikipedia)', 'https://www.wikipedia.org/wiki/AllianceBernstein'], ['REjournals: AB to anchor Fifth + Broadway tower', 'https://rejournals.com/investment-firm-to-anchor-office-tower-at-nashvilles-fifth-broadway/']] },
-  { id: 'moving-for-starbucks', n: 'Starbucks', img: 'hillsboro-village', d: 0, office: 'The Gulch (temporary) then Peabody Union, downtown (2027)', isNew: 1,
+  { id: 'moving-for-starbucks', n: 'Starbucks', img: 'guide-moving-for-starbucks', d: 0, office: 'The Gulch (temporary) then Peabody Union, downtown (2027)', isNew: 1,
     lede: 'Starbucks is building a Southeast corporate office in Nashville with up to 2,000 jobs. Here is where to live, the commute and how to time a move around the 2027 office opening.',
     facts: [['$100M', 'Investment in the Nashville office'], ['Up to 2,000', 'Jobs planned'], ['Peabody Union', 'Permanent home in 2027'], ['Supply chain + tech', 'Teams moving here']],
     body: `<p>In April 2026 Starbucks announced a <b>Southeast corporate office</b> in Nashville: a $100 million investment and up to 2,000 jobs, complementing its Seattle headquarters. The company opened a temporary office in <b>The Gulch</b> before moving into the <b>Peabody Union</b> complex downtown in 2027, with roles spanning supply chain, technology and support functions.</p>
 <p>Coming from Seattle? Washington doesn’t tax wages either, so the bigger differences are home prices, lot sizes and property taxes. Compare neighborhoods with the ${L('neighborhood-matcher', 'Neighborhood Matcher')}.</p>`,
     src: [['Starbucks: Southeast corporate office in Nashville', 'https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Selects-Tennessee-for-Southeast-Corporate-Office-2026-MgIal80vem/default.aspx'], ['Axios: Starbucks ramps up Nashville expansion', 'https://www.axios.com/2026/04/21/starbucks-nashville-expansion-jobs-investment']] },
-  { id: 'moving-for-healthcare', n: 'Healthcare (HCA, Vanderbilt & more)', short: 'Healthcare', img: 'oak-hill', d: 2, office: 'Midtown / West End (HCA at One Park Plaza; VUMC); Franklin and Brentwood for CHS and LifePoint',
+  { id: 'moving-for-healthcare', n: 'Healthcare (HCA, Vanderbilt & more)', short: 'Healthcare', img: 'guide-moving-for-healthcare', d: 2, office: 'Midtown / West End (HCA at One Park Plaza; VUMC); Franklin and Brentwood for CHS and LifePoint',
     lede: 'Nashville is the healthcare capital of the country. For executives and physicians joining HCA, Vanderbilt, Community Health Systems, LifePoint or one of hundreds of health companies, here is where to live.',
     facts: [['One Park Plaza', 'HCA Healthcare global headquarters'], ['Midtown', 'Vanderbilt University Medical Center'], ['Franklin', 'Community Health Systems HQ (Cool Springs)'], ['Brentwood', 'LifePoint Health HQ']],
     body: `<p><b>HCA Healthcare</b> is headquartered at One Park Plaza in Nashville, close to Midtown and West End, near <b>Vanderbilt University Medical Center</b> and the Saint Thomas and TriStar hospitals. South of town, <b>Community Health Systems</b> is in Franklin’s Cool Springs area and <b>LifePoint Health</b> is in Brentwood.</p>
 <p>For Midtown, Belle Meade, Green Hills, 12 South and Sylvan Park keep the drive short. For Cool Springs or Brentwood offices, Brentwood, Franklin and Forest Hills are the natural fits. Physicians with hospital call often want to be within 15–20 minutes of the hospital: check the times below.</p>`,
     src: [['HCA Healthcare 2025 Form 10-K (One Park Plaza)', 'https://fortune.com/company-assets/1660/quartr/annual-report-10-k-a2d8c-2026-02-10-09-08-29.pdf'], ['Williamson County Chamber: corporate headquarters', 'https://williamsonchamber.com/economic-development/target-business-sectors/']] },
-  { id: 'moving-for-cool-springs', n: 'Nissan, Mitsubishi & Cool Springs Companies', short: 'Cool Springs', img: 'brentwood-estate', d: 4, office: 'Cool Springs, Franklin (Nissan, Mitsubishi, Mars Petcare, CHS, Ramsey and more)',
+  { id: 'moving-for-cool-springs', n: 'Nissan, Mitsubishi & Cool Springs Companies', short: 'Cool Springs', img: 'guide-moving-for-cool-springs', d: 4, office: 'Cool Springs, Franklin (Nissan, Mitsubishi, Mars Petcare, CHS, Ramsey and more)',
     lede: 'Cool Springs in Franklin is one of the Southeast’s densest corporate headquarters districts. Here is where people who work at Nissan, Mitsubishi, Mars Petcare and other Cool Springs companies live.',
     facts: [['40+', 'Corporate headquarters in Williamson County'], ['13 of 25', 'Public companies in the Nashville metro HQ’d in Cool Springs'], ['2006', 'Nissan moved its North American HQ to Franklin'], ['~10 min', 'From Brentwood or downtown Franklin off-peak']],
     body: `<p>Williamson County is home to more than 40 corporate headquarters, including <b>Nissan North America</b>, <b>Tractor Supply</b>, <b>Mars Petcare</b> and <b>Community Health Systems</b>. The Williamson County Chamber reports that 13 of the 25 publicly traded companies in the Nashville metro are headquartered in Cool Springs. <b>Mitsubishi Motors North America</b> moved its headquarters from California to Cool Springs to sit alongside its alliance partner Nissan, which moved its own North American headquarters to Franklin in 2006.</p>
@@ -665,7 +665,7 @@ for (const e of EMP) add({ id: e.id, t: `Moving to Nashville for ${e.n}`, cat: '
   seo: `Moving to Nashville for ${e.n}: Where to Live, Commutes & Relocation Tips`, blurb: e.lede, r: () => empView(e), emp: e,
   faq: [[`What is the best neighborhood for ${e.short || e.n} employees?`, `For the shortest commute to ${e.office.split(';')[0]}: ${commuteRank(e.d).slice(0, 3).map((x) => x.h.short || x.h.n).join(', ')}. Families wanting Williamson County public schools often choose Brentwood or Franklin and accept a longer drive.`]] });
 
-add({ id: 'moving-for-work', t: 'Relocating to Nashville for Work', cat: 'work', city: ALLC, ic: 'flag', img: 'nashville-skyline', isNew: 1,
+add({ id: 'moving-for-work', t: 'Relocating to Nashville for Work', cat: 'work', city: ALLC, ic: 'flag', img: 'guide-moving-for-work', isNew: 1,
   seo: 'Corporate Relocation to Nashville: Oracle, Amazon, AllianceBernstein, Starbucks, HCA, Nissan',
   blurb: 'Oracle, Amazon, AllianceBernstein, Starbucks, HCA, Nissan and more: where each company is, where its people live and how to plan a corporate move.',
   r: () => `<p>Nashville has become one of the country’s top destinations for corporate headquarters and regional hubs. Pick your employer for commute-ranked neighborhoods and a move plan.</p>

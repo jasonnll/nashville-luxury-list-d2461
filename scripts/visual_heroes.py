@@ -73,7 +73,8 @@ def convert_ap_hero(html, rel):
     rest = hero[h1.end():aside.start()]
     rest = rest[:rest.rfind('</div>')].strip()
 
-    muted = rel.startswith('past-sales/') and rel != 'past-sales/index.html'
+    muted = (rel.startswith('past-sales/') and rel != 'past-sales/index.html'
+             and '/assets/images/sales/' not in img.group(0).replace('%2F', '/'))
     cls = 'ap-hero ap-hero--photo' + (' ap-hero--muted' if muted else '')
     keep_card = 'class="ap-card"' not in aside.group(0)  # forms (cg-card) stay; the contact card goes
     intro_cls = 'ap-sec ap-intro' + (' ap-intro--card' if keep_card else '')
