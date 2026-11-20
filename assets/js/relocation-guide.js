@@ -457,9 +457,19 @@ ${T([{ m: 'Cool Springs', h: 'Cork & Cow', p: 'Steakhouse with a lively, polishe
 ${T([{ m: 'Leiper’s Fork', h: 'Fox & Locke', p: 'Small-town spot famous for its music nights.' }, { m: 'Leiper’s Fork', h: 'The village', p: 'Galleries, shops and a bite to eat before a drive on the Natchez Trace.' }])}
 ${NOTE('Favorites change: check hours before you go. Have a favorite I missed? Tell me.')}` });
 add({ id: 'where-to-eat-brentwood', t: 'Where to Eat: Brentwood', cat: 'eat', city: ['brentwood'], ic: 'coffee', img: 'guide-where-to-eat-brentwood',
-  seo: 'Where to Eat in Brentwood, TN: Hill Center, Maryland Farms and Cool Springs',
-  blurb: 'Brentwood’s easy dinners, coffee and family spots, plus the best of Cool Springs and Green Hills just up the road.', r: () => `
-<p>Brentwood is a short drive from two of the region’s best restaurant clusters (Green Hills to the north, Franklin to the south), with plenty of its own easy go-tos.</p>
+  seo: 'Where to Eat in Brentwood, TN: Karrington Rowe, Mère Bulles, Serrato’s and More',
+  blurb: 'Jason’s Brentwood favorites: Karrington Rowe, Mère Bulles, Serrato’s, 55 South and more, plus Cool Springs and Green Hills nearby.', r: () => `
+<p>Brentwood is a short drive from two of the region’s best restaurant clusters (Green Hills to the north, Franklin to the south), with plenty of its own go-tos. These are mine.</p>
+<h2>Jason’s Brentwood favorites</h2>
+${T([
+  { m: 'Brentwood Place', h: 'Karrington Rowe', link: 'https://karringtonrowe.com/', p: 'Modern American brasserie from the team behind Germantown Café and Park Cafe. Lunch, dinner and weekend brunch; dressy enough for date night, easy enough for a weeknight.', tags: ['Date night', 'Brunch'] },
+  { m: 'Maryland Farms', h: 'Mère Bulles', link: 'https://www.merebulles.com/', p: 'Upscale Southern fare and steaks in a restored historic mansion, with a deep wine list (half-price bottles) and Sunday brunch.', tags: ['Special occasion', 'Wine'] },
+  { m: 'Ward Circle', h: 'Serrato’s Steakhouse', p: 'Chef Jose Serrato’s locally owned steakhouse: hand-cut steaks, fresh seafood and a polished room that’s just as good for a client dinner. Book ahead on weekends.', tags: ['Steakhouse'] },
+  { m: 'Maryland Farms', h: '55 South', p: 'Chef Jason McConnell’s Delta-inspired Southern comfort food, from Memphis to New Orleans: shrimp and grits, chargrilled oysters and a great brunch.', tags: ['Southern', 'Brunch'] },
+  { m: 'Maryland Farms', h: 'Jonathan’s Grille', p: 'Family-owned, upscale sports grille run by two Brentwood brothers: burgers, wood-fired pizza and a TV at every angle on game day.', tags: ['Game day', 'Family'] },
+  { m: 'Cool Springs', h: 'Mi Kitchen', p: 'Inventive, Korean-inspired Asian small plates and great cocktails. Order about two plates per person and share.', tags: ['Small plates', 'Date night'] },
+])}
+<h2>Around town</h2>
 ${T([
   { m: 'Brentwood', h: 'Hill Center Brentwood', p: 'A walkable cluster of restaurants, shops and coffee: the town’s easy weeknight answer.' },
   { m: 'Brentwood', h: 'Maryland Farms', p: 'Lunch spots and dinner options around the office park and Old Hickory Boulevard.' },
@@ -467,7 +477,7 @@ ${T([
   { m: '15 minutes north', h: 'Green Hills', p: 'Hill Center Green Hills and the restaurants around the mall.' },
   { m: '15 minutes south', h: 'Downtown Franklin', p: 'See ' + L('where-to-eat-franklin', 'Where to Eat: Franklin') + '.' },
 ])}
-${NOTE('Jason’s personal Brentwood favorites are coming soon. Have one to recommend? Tell me.')}` });
+${NOTE('Favorites change: check hours and book ahead on weekends. Have a Brentwood favorite I missed? Tell me.')}` });
 add({ id: 'shopping', t: 'The Shopping Guide', cat: 'eat', city: ALLC, ic: 'bag', img: '12-south',
   seo: 'Shopping in Nashville, Brentwood and Franklin: Green Hills, 12 South and Main Street',
   blurb: 'The Mall at Green Hills, 12 South boutiques, Hill Center, Main Street Franklin and more.', r: () => `

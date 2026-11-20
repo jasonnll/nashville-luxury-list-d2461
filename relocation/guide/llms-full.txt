@@ -1340,9 +1340,40 @@ Favorites change: check hours before you go. Have a favorite I missed? Tell me.
 # Where to Eat: Brentwood
 URL: https://www.nashvilleluxurylist.com/relocation/guide/where-to-eat-brentwood/
 Section: Eat & do · Areas: Brentwood
-Summary: Brentwood’s easy dinners, coffee and family spots, plus the best of Cool Springs and Green Hills just up the road.
+Summary: Jason’s Brentwood favorites: Karrington Rowe, Mère Bulles, Serrato’s, 55 South and more, plus Cool Springs and Green Hills nearby.
 
-Brentwood is a short drive from two of the region’s best restaurant clusters (Green Hills to the north, Franklin to the south), with plenty of its own easy go-tos.
+Brentwood is a short drive from two of the region’s best restaurant clusters (Green Hills to the north, Franklin to the south), with plenty of its own go-tos. These are mine.
+
+## Jason’s Brentwood favorites
+
+Brentwood Place
+
+### Karrington Rowe
+
+Modern American brasserie from the team behind Germantown Café and Park Cafe. Lunch, dinner and weekend brunch; dressy enough for date night, easy enough for a weeknight.Date nightBrunchMaryland Farms
+
+### Mère Bulles
+
+Upscale Southern fare and steaks in a restored historic mansion, with a deep wine list (half-price bottles) and Sunday brunch.Special occasionWineWard Circle
+
+### Serrato’s Steakhouse
+
+Chef Jose Serrato’s locally owned steakhouse: hand-cut steaks, fresh seafood and a polished room that’s just as good for a client dinner. Book ahead on weekends.SteakhouseMaryland Farms
+
+### 55 South
+
+Chef Jason McConnell’s Delta-inspired Southern comfort food, from Memphis to New Orleans: shrimp and grits, chargrilled oysters and a great brunch.SouthernBrunchMaryland Farms
+
+### Jonathan’s Grille
+
+Family-owned, upscale sports grille run by two Brentwood brothers: burgers, wood-fired pizza and a TV at every angle on game day.Game dayFamilyCool Springs
+
+### Mi Kitchen
+
+Inventive, Korean-inspired Asian small plates and great cocktails. Order about two plates per person and share.Small platesDate night
+
+## Around town
+
 Brentwood
 
 ### Hill Center Brentwood
@@ -1365,7 +1396,7 @@ Hill Center Green Hills and the restaurants around the mall.15 minutes south
 
 See Where to Eat: Franklin.
 
-Jason’s personal Brentwood favorites are coming soon. Have one to recommend? Tell me.
+Favorites change: check hours and book ahead on weekends. Have a Brentwood favorite I missed? Tell me.
 
 ---
 
@@ -2346,6 +2377,8 @@ Section: Moving here · Areas: Nashville, Brentwood, Franklin
 Summary: The lenders, inspectors, attorneys, designers, builders and movers I trust, vetted on real luxury transactions. Ask for the shortlist in any category.
 
 New to town, you don’t know who to call. These are the people I’ve watched do excellent work on $1.5M+ homes. Tap any category and I’ll send you two or three names that fit your situation.
+
+## Pick a category
 
 ### Jumbo & private-bank lenders
 Get my shortlist
