@@ -74,6 +74,10 @@ def homes(data):
 
 
 def photo_for(s):
+    # A photo of the home itself, when Jason has one: /assets/images/sales/<page slug>.jpg (from the photo shot list)
+    own = f"/assets/images/sales/{R.home_slug(s['address'], s['city'])}.jpg"
+    if os.path.exists(os.path.join(ROOT, own.lstrip('/'))):
+        return own
     hood, z, city = s.get('neighborhood') or '', s['zip'], s['city']
     if R.in_east(s):
         return '/assets/images/neighborhoods/east-nashville.jpg'

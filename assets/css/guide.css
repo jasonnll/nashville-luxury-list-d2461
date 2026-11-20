@@ -110,3 +110,6 @@ main .nll-wrap:has(.nll-hero--photo){padding-top:0}
   .nll-hero--photo::after{background:linear-gradient(180deg,rgba(14,22,18,.2) 0%,rgba(14,22,18,0) 18%,rgba(14,22,18,.35) 40%,rgba(14,22,18,.88) 100%)}}
 /* Upright subheads site-wide (no italic serif) */
 .nll-lede{font-style:normal}
+/* Photo at the top of a guide section (Outdoors, Lifestyle, Things to Do…) */
+.nll-photo--section{margin:1rem 0 1.5rem}
+.nll-photo--section img{aspect-ratio:3/2;max-height:none;object-fit:cover}
