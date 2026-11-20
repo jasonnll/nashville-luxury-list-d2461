@@ -292,6 +292,34 @@
   </div>
 </section>
 
+<!-- nll-offer:alerts -->
+<section data-band="white" class="nll-offer" aria-labelledby="alerts-h">
+  <div class="container nll-offer-in">
+    <div class="nll-offer-copy">
+      <span class="eyebrow">Listing alerts</span>
+      <h2 id="alerts-h">Get new Sylvan Park listings first</h2>
+      <p>Tell me your price range and I&rsquo;ll send new Sylvan Park homes as they come up, including the private and coming-soon ones that never reach Zillow. No spam, and you can stop anytime.</p>
+    </div>
+    <div class="form-wrapper">
+      <form class="nll-offer-form" name="listing-alerts" method="POST" action="/thank-you/" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="listing-alerts">
+        <input type="hidden" name="source" value="Listing alerts – Sylvan Park">
+        <input type="hidden" name="lane" value="Buyer">
+        <input type="hidden" name="areas" value="Sylvan Park">
+        <p hidden><label>Leave blank <input name="bot-field"></label></p>
+        <div class="nll-offer-row">
+          <label><span>First name</span><input name="first_name" autocomplete="given-name" required></label>
+          <label><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+        </div>
+        <label><span>Price range</span><select name="price_range" required><option value="" selected disabled>Select</option><option>$1M to $1.5M</option><option>$1.5M to $2M</option><option>$2M to $3M</option><option>$3M to $5M</option><option>$5M+</option></select></label>
+        <button type="submit" class="btn btn-gold btn-full">Send me Sylvan Park listings</button>
+      </form>
+      <div class="form-success" role="status" aria-live="polite" style="display:none"><h3>You&rsquo;re set.</h3><p>I&rsquo;ll set up your Sylvan Park search personally and send the first homes shortly. &mdash; Jason</p></div>
+    </div>
+  </div>
+</section>
+<!-- /nll-offer:alerts -->
+
 <div class="nll-wrap nll-wrap-cont">
   <div class="container">
     <article class="nll-guide">

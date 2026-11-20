@@ -109,6 +109,7 @@ def tail(slug_event):
 <nav class="ap-sticky" id="ap-sticky" aria-label="Quick contact">
   <a class="btn btn-gold" href="/contact/">Contact Jason</a>
   <a class="btn btn-outline-gold ap-outline-light" href="/home-valuation/">Home Value</a>
+  <a class="btn btn-outline-gold ap-outline-light" href="sms:+16154570768?&amp;body=Hi%20Jason%2C%20" style="flex:0 0 auto" aria-label="Text Jason" data-track="text-jason-sticky">Text</a>
   <a class="btn btn-outline-gold ap-outline-light" href="tel:+16154570768" style="flex:0 0 auto" aria-label="Call Jason">Call</a>
 </nav>
 

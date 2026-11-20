@@ -633,10 +633,8 @@ body.is-typing .rl-sticky.show{transform:translateY(110%)}
             <div class="form-group"><label class="form-label" for="rl-first">First name</label><input class="form-control" id="rl-first" name="first_name" autocomplete="given-name" required></div>
             <div class="form-group"><label class="form-label" for="rl-email">Email</label><input class="form-control" id="rl-email" name="email" type="email" autocomplete="email" required></div>
           </div>
-          <div class="form-group"><label class="form-label" for="rl-phone">Mobile <span class="opt">(optional, for a faster reply)</span></label><input class="form-control" id="rl-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label" for="rl-from">Moving from</label><input class="form-control" id="rl-from" name="moving_from" placeholder="City, State"></div>
-            <div class="form-group"><label class="form-label" for="rl-when">Timeline</label>
+            <div class="form-group"><label class="form-label" for="rl-when">When are you moving?</label>
               <select class="form-control" id="rl-when" name="timeline" required>
                 <option value="" selected disabled>Select</option>
                 <option>0 to 3 months</option>
@@ -645,17 +643,23 @@ body.is-typing .rl-sticky.show{transform:translateY(110%)}
                 <option>12+ months / exploring</option>
               </select>
             </div>
+            <div class="form-group"><label class="form-label" for="rl-phone">Mobile <span class="opt">(optional)</span></label><input class="form-control" id="rl-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
           </div>
-          <div class="form-group"><label class="form-label" for="rl-budget">Price range</label>
-            <select class="form-control" id="rl-budget" name="price_range">
-              <option value="" selected disabled>Select</option>
-              <option>$1M to $1.5M</option>
-              <option>$1.5M to $2M</option>
-              <option>$2M to $3M</option>
-              <option>$3M to $5M</option>
-              <option>$5M+</option>
-            </select>
+          <details class="rg-more"><summary>Add details <span class="opt">(optional)</span></summary>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" for="rl-from">Moving from</label><input class="form-control" id="rl-from" name="moving_from" placeholder="City, State"></div>
+            <div class="form-group"><label class="form-label" for="rl-budget">Price range</label>
+              <select class="form-control" id="rl-budget" name="price_range">
+                <option value="" selected disabled>Select</option>
+                <option>$1M to $1.5M</option>
+                <option>$1.5M to $2M</option>
+                <option>$2M to $3M</option>
+                <option>$3M to $5M</option>
+                <option>$5M+</option>
+              </select>
+            </div>
           </div>
+          </details>
           <label class="rl-sms"><input type="checkbox" name="sms_consent" value="Yes"> Text me about my move. Jason Kloess, Compass. Message and data rates may apply. Message frequency varies. Reply STOP to opt out. Consent is not a condition of purchase.</label>
           <button type="submit" class="btn btn-gold btn-full btn-lg">Send My Relocation Playbook</button>
           <p class="rl-consent">By submitting, you agree to receive the playbook and follow-up emails from Jason Kloess at Compass about your move. Unsubscribe anytime. <a href="/privacy-policy/">Privacy policy</a>.</p>
