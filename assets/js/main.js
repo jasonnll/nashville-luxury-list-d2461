@@ -181,10 +181,17 @@
       try { target = document.querySelector(hash); } catch { return; }
       if (!target) return;
       e.preventDefault();
-      // Offset by the real header height, which is shorter on phones
-      const headerH = header ? header.offsetHeight : 0;
+      // Offset by everything pinned to the top of the screen: the sticky site header
+      // (shorter on phones) and, when the page has one, the sticky "On this page" bar
+      const topBar = header || document.getElementById('nll-top');
+      let offset = topBar ? topBar.offsetHeight : 0;
+      const jump = document.querySelector('.nll-jump');
+      if (jump && getComputedStyle(jump).position === 'sticky') offset += jump.offsetHeight;
+      // Land on the section's eyebrow label when it sits right above the heading
+      const prev = target.previousElementSibling;
+      if (/^H[1-6]$/.test(target.tagName) && prev && /eyebrow/.test(prev.className)) target = prev;
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerH - 12, behavior: reduce ? 'auto' : 'smooth' });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset - 24, behavior: reduce ? 'auto' : 'smooth' });
       if (history.replaceState) history.replaceState(null, '', hash);
     });
   });
