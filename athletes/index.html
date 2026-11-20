@@ -25,26 +25,34 @@
 .ath-eyebrow::before{content:"";width:34px;height:1px;background:var(--bronze-light)}
 .ath-eyebrow.on-light{color:var(--bronze-deep)}
 .ath-eyebrow.on-light::before{background:var(--bronze)}
-.ath-hero{background:var(--hunter);color:var(--ivory);padding:calc(var(--header-h) + clamp(2.5rem,6vw,4.5rem)) 0 clamp(3.5rem,7vw,6rem);position:relative;overflow:hidden}
-.ath-hero::before{content:"";position:absolute;inset:0;background:url('/.netlify/images?url=/assets/images/pages/page-athletes.jpg&w=1800&q=72') center/cover no-repeat;opacity:.55}
-.ath-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,32,25,.9) 0%,rgba(20,32,25,.68) 50%,rgba(20,32,25,.35) 100%)}
-@media(max-width:768px){.ath-hero::before{background-image:url('/.netlify/images?url=/assets/images/pages/page-athletes.jpg&w=900&q=68')}}
-.ath-hero .container{position:relative;z-index:1;display:grid;gap:clamp(2rem,5vw,4rem);align-items:start}
-@media(min-width:980px){.ath-hero .container{grid-template-columns:1.1fr .9fr}}
-.ath-hero h1{font-family:var(--font-serif);font-style:normal;font-weight:500;color:var(--ivory);font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.01em;margin-bottom:1.4rem}
-.ath-lede{font-size:clamp(1.05rem,1.7vw,1.2rem);line-height:1.75;color:rgba(250,247,239,.86);max-width:600px;margin-bottom:2rem}
-.ath-pillars{list-style:none;padding:0;margin:0 0 2.25rem;display:grid;gap:.85rem;max-width:560px}
-.ath-pillars li{display:flex;gap:.85rem;align-items:flex-start;color:rgba(250,247,239,.9);line-height:1.6}
-.ath-pillars li::before{content:"";flex:0 0 7px;height:7px;margin-top:.6rem;background:var(--bronze-light);transform:rotate(45deg)}
-.ath-pillars strong{color:var(--ivory);font-weight:700}
+/* Full-strength photo hero, matching the site's other page heroes: only the eyebrow and headline sit over it */
+.ath-hero{background:var(--hunter);color:var(--ivory);position:relative;overflow:hidden;min-height:min(84vh,880px);display:flex;align-items:flex-end;padding:calc(var(--header-h) + 3rem) 0 clamp(2.75rem,6vw,4.75rem)}
+.ath-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.ath-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(14,22,18,.25) 0%,rgba(14,22,18,0) 22%,rgba(14,22,18,.08) 38%,rgba(14,22,18,.82) 100%)}
+.ath-hero .container{position:relative;z-index:1;width:100%}
+.ath-hero-text{max-width:920px}
+.ath-hero .ath-eyebrow{text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.ath-hero h1{font-family:var(--font-serif);font-style:normal;font-weight:500;color:var(--ivory);font-size:clamp(2.3rem,5.6vw,4.2rem);line-height:1.08;letter-spacing:-.01em;margin:.6rem 0 0;text-shadow:0 2px 28px rgba(0,0,0,.35)}
+@media(max-width:768px){.ath-hero{min-height:70svh;padding-bottom:2.25rem}
+  .ath-hero::after{background:linear-gradient(180deg,rgba(14,22,18,.2) 0%,rgba(14,22,18,0) 18%,rgba(14,22,18,.35) 40%,rgba(14,22,18,.88) 100%)}}
+
+/* Intro under the hero: the lede, pillars and buttons beside the private inquiry form */
+.ath-intro-sec{padding:clamp(2.75rem,6vw,4.5rem) 0}
+.ath-intro-sec .container{display:grid;gap:clamp(2rem,5vw,4rem);align-items:start}
+@media(min-width:980px){.ath-intro-sec .container{grid-template-columns:1.1fr .9fr}}
+.ath-lede{font-size:clamp(1.1rem,1.6vw,1.25rem);line-height:1.75;color:var(--charcoal);max-width:640px;margin-bottom:2rem}
+.ath-pillars{list-style:none;padding:0;margin:0 0 2.25rem;display:grid;gap:.85rem;max-width:600px}
+.ath-pillars li{display:flex;gap:.85rem;align-items:flex-start;color:#4A463F;line-height:1.65}
+.ath-pillars li::before{content:"";flex:0 0 7px;height:7px;margin-top:.6rem;background:var(--bronze);transform:rotate(45deg)}
+.ath-pillars strong{color:var(--ink);font-weight:700}
 .ath-hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
-.ath-hero .btn-ivory{background:var(--ivory);color:var(--hunter);border:1px solid var(--ivory);font-weight:700}
-.ath-hero .btn-ivory:hover{background:transparent;color:var(--ivory)}
-.ath-hero .btn-line{background:transparent;color:var(--ivory);border:1px solid rgba(216,197,154,.6)}
-.ath-hero .btn-line:hover{border-color:var(--ivory);color:var(--ivory)}
+.ath-hero-cta .btn-ivory{background:var(--hunter);color:var(--ivory);border:1px solid var(--hunter);font-weight:700}
+.ath-hero-cta .btn-ivory:hover{background:transparent;color:var(--hunter)}
+.ath-hero-cta .btn-line{background:transparent;color:var(--ink);border:1px solid var(--bronze)}
+.ath-hero-cta .btn-line:hover{border-color:var(--ink);color:var(--ink)}
 
 /* Form card */
-.ath-card{background:var(--ivory);color:var(--charcoal);padding:clamp(1.5rem,3vw,2.25rem);border-top:3px solid var(--bronze);box-shadow:0 24px 60px rgba(10,20,14,.35);scroll-margin-top:calc(var(--header-h) + 1rem)}
+.ath-card{background:var(--cream-white,#fff);color:var(--charcoal);padding:clamp(1.5rem,3vw,2.25rem);border:1px solid var(--stone);border-top:3px solid var(--bronze);box-shadow:0 18px 44px rgba(10,20,14,.12);scroll-margin-top:calc(var(--header-h) + 1rem)}
 .ath-card-head{border-bottom:1px solid var(--stone);padding-bottom:1rem;margin-bottom:1.25rem}
 .ath-card-head h2{font-family:var(--font-serif);font-style:normal;font-weight:500;font-size:1.55rem;color:var(--ink);margin:0 0 .35rem}
 .ath-card-head p{font-size:.92rem;color:var(--taupe);margin:0;line-height:1.55}
@@ -182,11 +190,18 @@
 
 <main id="main">
 
-<section class="ath-hero">
+<section class="ath-hero" aria-labelledby="ath-h1">
+  <img class="ath-hero-bg" src="/.netlify/images?url=/assets/images/pages/page-athletes.jpg&amp;w=1600&amp;q=72" srcset="/.netlify/images?url=/assets/images/pages/page-athletes.jpg&amp;w=800&amp;q=72 800w, /.netlify/images?url=/assets/images/pages/page-athletes.jpg&amp;w=1600&amp;q=72 1600w, /.netlify/images?url=/assets/images/pages/page-athletes.jpg&amp;w=2400&amp;q=72 2400w" sizes="100vw" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+  <div class="container">
+    <div class="ath-hero-text">
+      <p class="ath-eyebrow">Athletes &amp; Sports Division &middot; Private client advisory</p>
+      <h1 id="ath-h1">Your next home in Nashville, handled quietly.</h1>
+    </div>
+  </div>
+</section>
+<section class="ap-sec ap-intro ath-intro-sec" aria-label="In brief">
   <div class="container">
     <div>
-      <p class="ath-eyebrow">Athletes &amp; Sports Division &middot; Private client advisory</p>
-      <h1>Your next home in Nashville, handled quietly.</h1>
       <p class="ath-lede">Discreet real estate representation for professional athletes, coaches, executives and the people who represent them. Whether you just signed, were traded, are retiring here or are moving on, Jason Kloess of Compass runs the search, the negotiation and the closing so you can stay focused on the season.</p>
       <ul class="ath-pillars">
         <li><span><strong>Discretion first.</strong> NDAs on request, private showings, off-market and Compass Private Exclusive access, and titling coordinated with your attorney.</span></li>
@@ -199,7 +214,7 @@
       </div>
     </div>
 
-    <div class="ath-card" id="inquire">
+    <aside class="ath-card" id="inquire" aria-label="Private inquiry">
       <div class="ath-card-head">
         <p class="ath-lock"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><rect x="1" y="6" width="10" height="7.5" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3.3 6V4.2a2.7 2.7 0 0 1 5.4 0V6" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Confidential</p>
         <h2>Private inquiry</h2>
@@ -289,7 +304,7 @@
           <p>Jason will reach out personally, usually within two hours, by the method you chose. If it's urgent, text him at <a href="sms:+16154570768">615-457-0768</a>.</p>
         </div>
       </div>
-    </div>
+    </aside>
   </div>
 </section>
 <nav class="nll-jump" aria-label="On this page"><div class="nll-jump-in"><span>On this page</span><a href="#sec-nashville-is-a-sports-town-now-rosters-c">Nashville is a sports</a><a href="#sec-privacy-is-the-service-not-an-add-on">Privacy is the service</a><a href="#sec-expert-representation-for-the-way-your-c">Expert representation for the</a><a href="#sec-privacy-space-and-an-easy-drive-to-the-f">Privacy</a><a href="#sec-simple-private-on-your-timeline">Simple</a><a href="#sec-jason-kloess-compass">Jason Kloess</a><a href="#sec-common-questions">Common questions</a><a href="#sec-start-with-a-private-conversation">Start with a private</a></div></nav><!-- /nll-jump -->
