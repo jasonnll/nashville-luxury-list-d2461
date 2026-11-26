@@ -254,3 +254,39 @@ section{padding-block:96px}
 .private .join-wrap{margin-top:40px}
 .private .join-wrap .join{margin-top:0}
 .home figure a{display:block;width:100%;height:100%}
+
+/* ── Phones (Nov 2026 clean-up) ──
+   First screen: a shorter photo and a tighter headline so the headline, the one-line pitch and the email
+   signup all fit above the bottom call bar. Long stacks (featured homes, neighborhoods, reviews) become
+   swipeable rows with the next card peeking in, which cuts several screens of scrolling. */
+@media (max-width:640px){
+  section{padding-block:56px}
+  .hero img.bg{aspect-ratio:2/1;object-position:50% 42%;background-position:50% 42%}
+  .hero .wrap{padding-block:22px 28px;gap:14px}
+  .hero h1{font-size:34px;max-width:none;line-height:1.08}
+  .hero .lede{font-size:16px;line-height:1.55}
+  .hero .join{gap:8px}
+  .hero .join input{flex:1 1 150px}
+  .hero .join .btn{flex:0 0 auto;padding:0 16px}
+  .head{margin-bottom:28px}
+  .head h2{font-size:32px}
+  .head p{font-size:16px}
+
+  :is(.homes,.pgrid,.reviews){display:flex!important;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:calc(-1 * max(20px,env(safe-area-inset-left,0px)));padding:0 max(20px,env(safe-area-inset-left,0px)) 6px;scroll-padding-inline:max(20px,env(safe-area-inset-left,0px))}
+  :is(.homes,.pgrid,.reviews)::-webkit-scrollbar{display:none}
+  :is(.homes,.pgrid,.reviews)>*{flex:0 0 84%;scroll-snap-align:start;min-width:0}
+  .homes>.home[hidden]{display:none}
+  .pcard.feature figure{aspect-ratio:4/3}
+  .pcard.feature h3{font-size:30px}
+  .pcard.feature dd{font-size:26px}
+  .reviews figure{padding-top:20px}
+  .reviews blockquote{font-size:19px}
+  .home .actions{gap:8px}
+  .home .actions .btn{flex:1 1 auto;padding:0 12px}
+  .swipe-hint{display:block;margin-top:12px;font-size:14px;color:var(--stone)}
+  .private .swipe-hint,.proof .swipe-hint{color:#D9D3C5}
+  .issue{margin-top:40px;padding-top:28px}
+  .veil b{font-size:22px}
+  .private .join-wrap{margin-top:24px}
+}
+.swipe-hint{display:none}

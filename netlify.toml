@@ -14,6 +14,10 @@
   # netlify/functions/indexnow.mts submits new and changed pages to IndexNow (Bing, Yandex and others).
   command = "python3 scripts/import-mailchimp-blog.py && python3 scripts/update_newsletter_latest.py && python3 scripts/fetch_compass_sales.py && python3 scripts/build_answer_pages.py && python3 scripts/build_realtor_pages.py && python3 scripts/build_seller_tools.py && python3 scripts/lead_offers.py && python3 scripts/visual_heroes.py && python3 scripts/bake_site_chrome.py && python3 scripts/tidy_meta.py && python3 scripts/update_sitemap_lastmod.py"
 
+# MLS listing photos in the IDX Broker widgets are resized through Netlify Image CDN (see assets/js/idx.js).
+[images]
+  remote_images = ["https://s3\\.amazonaws\\.com/mlsphotos\\.idxbroker\\.com/.*"]
+
 # ── Trailing-slash redirects ──────────────────────────────────────────────────
 # Old neighborhood-guide subdomain -> guides now live at /neighborhoods/<slug>/.
 # Takes effect once guides.nashvilleluxurylist.com is added as a domain alias of this site.

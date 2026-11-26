@@ -9,6 +9,42 @@
  * buttons switch between IDX Broker carousels, one per area per tier (ids in idx-config.js),
  * without leaving the page. /search/ also shows the area's own IDX Broker map.
  */
+/* MLS photos: IDX Broker's carousel asks for every listing's original photo (often 2048px and 0.5–2 MB)
+ * to fill a ~300px card, which came to about 60 MB on /search/ on a phone. Before any widget renders,
+ * photo URLs are routed through Netlify Image CDN at card size (remote host allowed in netlify.toml)
+ * and marked loading="lazy", so only the cards in view download. If a resized photo fails, the card
+ * falls back to the original once. */
+(function () {
+  if (window.__nllMlsPhotos) return;
+  window.__nllMlsPhotos = true;
+  const RX = /^(?:https:)?\/\/s3\.amazonaws\.com\/mlsphotos\.idxbroker\.com\//;
+  const desc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+  const setAttr = Element.prototype.setAttribute;
+  if (!desc || !desc.set) return;
+  const resize = (img, v) => {
+    if (typeof v !== 'string' || !RX.test(v)) return v;
+    const orig = v.replace(/^\/\//, 'https://');
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    if (!img.__nllFallback) {
+      img.__nllFallback = true;
+      img.addEventListener('error', function onErr() {
+        img.removeEventListener('error', onErr);
+        desc.set.call(img, orig);
+      });
+    }
+    return '/.netlify/images?url=' + encodeURIComponent(orig) + '&w=640&q=70';
+  };
+  Object.defineProperty(HTMLImageElement.prototype, 'src', {
+    configurable: true, enumerable: desc.enumerable, get: desc.get,
+    set(v) { desc.set.call(this, resize(this, v)); },
+  });
+  Element.prototype.setAttribute = function (name, value) {
+    if (this instanceof HTMLImageElement && String(name).toLowerCase() === 'src') value = resize(this, value);
+    return setAttr.call(this, name, value);
+  };
+})();
+
 (function () {
   const CFG = Object.assign({ minPrice: 1000000, idxHost: 'nashvilleluxurylist.idxbroker.com', areas: {} }, window.NLL_IDX || {});
 
@@ -307,7 +343,14 @@
     const mapId = areaCfg(area).map;
     if (map && mapId) {
       map.hidden = false;
-      mount(map.querySelector('.idx-embed'), widgetCode(mapId));
+      // The map (its scripts and tiles) loads only when the visitor scrolls near it.
+      const load = () => mount(map.querySelector('.idx-embed'), widgetCode(mapId));
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some((e) => e.isIntersecting)) { io.disconnect(); load(); }
+        }, { rootMargin: '600px 0px' });
+        io.observe(map);
+      } else load();
     }
   }
 
