@@ -465,3 +465,22 @@ textarea.rg-fld{min-height:90px;resize:vertical}
 @media(max-width:599px){.rg-hub .rg-ghead{align-items:flex-start;gap:14px}.rg-hub .rg-ghead-ic{width:44px;height:44px}.rg-hub .rg-emp{padding:18px 14px}.rg-hub .rg-emp b{font-size:clamp(15.5px,4.3vw,18px)}}
 @media(max-width:599px){.rg-hub .rg-emp{padding:18px 12px 16px 14px;border-left-width:3px}.rg-hub .rg-emp b{font-size:clamp(15px,4vw,18px);letter-spacing:-.01em}}
 @media(max-width:379px){.rg-hub .rg-emps{grid-template-columns:minmax(0,1fr)}.rg-hub .rg-emp{min-height:0}.rg-hub .rg-emp-all{grid-column:auto}}
+
+/* ── Mobile readability and tap targets (Nov 2026) ──
+   Small uppercase labels move up from 10.5–12px to 13px with less letter-spacing; contact links, "more"
+   links and the text-me checkbox get 44px tap areas; the hub hero gets a deeper shade behind its text so
+   the intro reads over the brightest part of the skyline. */
+.rg-eyebrow{font-size:13px;letter-spacing:.1em}
+:is(.rg-stats span,.rg-kind,.rg-meta,.rg-status,.rg-ask-lines small){font-size:12.5px!important;letter-spacing:.08em!important}
+.rg-pill{font-size:12px;letter-spacing:.04em}
+.rg-sms,.rg-consent{font-size:14px}
+.rg-sms{align-items:center;min-height:44px}
+.rg-sms input{width:24px;height:24px;margin:0}
+.rg-consent a{display:inline-block;padding-block:8px}
+.rg-ask-lines a{display:inline-block;padding-block:11px}
+.rg-gmore a{display:inline-block;padding-block:11px}
+@media(max-width:720px){
+  .rg-hero:not(.rg-hero-city) .rg-hero-shade{background:linear-gradient(180deg,rgba(19,32,58,.66) 0%,rgba(19,32,58,.6) 45%,rgba(21,36,28,.9) 100%)}
+  .rg-hero:not(.rg-hero-city) :is(.rg-lede,h1,.rg-eyebrow){text-shadow:0 1px 14px rgba(8,14,24,.55)}
+}
+.rg-ask-lines{gap:4px}

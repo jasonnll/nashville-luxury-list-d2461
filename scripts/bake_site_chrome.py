@@ -39,7 +39,7 @@ EMAIL = 'jason@nashvilleluxurylist.com'
 
 # ── Site chrome (2026 redesign) ───────────────────────────────────────────────
 # Styles live in /assets/css/chrome.css, which bake() links on every page.
-CHROME_CSS = '/assets/css/chrome.css?v=20261120qc'
+CHROME_CSS = '/assets/css/chrome.css?v=20261126mx'
 SANS_FONT = '/assets/fonts/lato-latin-400-normal.woff2'
 
 # Desktop header: each top link opens a dropdown on hover (and on keyboard focus); clicking the top link goes to
@@ -151,8 +151,10 @@ def header(pg):
                 f'<svg viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>'
                 f'<div class="nll-dd-panel{" nll-dd-wide" if extra else ""}">{sub}</div></div>')
     links = ''.join(dropdown(*n) for n in NAV)
+    # Phones: each menu group folds behind its label; the group holding the current page starts open.
     panel = ''.join(
-        f'\n          <p class="nll-mlabel">{label}</p>' + ''.join(f'<a href="{h}"{pg.cur(h)}>{t}</a>' for h, t in items)
+        f'\n          <details class="nll-mgroup"{" open" if any(pg.is_here(h) for h, _ in items) else ""}>'
+        f'<summary class="nll-mlabel">{label}</summary>' + ''.join(f'<a href="{h}"{pg.cur(h)}>{t}</a>' for h, t in items) + '</details>'
         for label, items in MENU)
     return f'''<header id="nll-top" class="nll-top">
   <a class="nll-skip" href="#main">Skip to content</a>
@@ -162,8 +164,8 @@ def header(pg):
       <a class="nll-btn nll-btn-solid" href="/newsletter/">Join the List</a>
       <details class="nll-menu">
         <summary><span><i></i><i></i><i></i></span>Menu</summary>
-        <div class="nll-menu-panel">{panel}
-          <a class="nll-mcall" href="tel:+{PHONE_RAW}">Call {PHONE}</a> <a class="nll-mcall" href="{SMS_HREF}">Text Jason</a>
+        <div class="nll-menu-panel">
+          <div class="nll-mcalls"><a class="nll-mcall" href="tel:+{PHONE_RAW}" data-track="call-jason">Call {PHONE}</a><a class="nll-mcall" href="{SMS_HREF}" data-track="text-jason">Text Jason</a></div>{panel}
         </div>
       </details>
     </nav>
@@ -182,6 +184,8 @@ def _bar_offer(pg):
         return '/home-valuation/', 'Home value'
     if here.startswith('/relocation'):
         return '/relocation/#get-playbook', 'Free guide'
+    if here.startswith('/newsletter'):
+        return '/search/', 'Search homes'
     return '/newsletter/', 'Join the List'
 
 
@@ -190,7 +194,6 @@ def call_bar(pg):
     return f'''<nav id="nll-callbar" class="nll-callbar" aria-label="Quick actions">
   <a href="{SMS_HREF}" data-track="text-jason">Text Jason</a>
   <a href="tel:+{PHONE_RAW}" data-track="call-jason">Call</a>
-  <a href="/search/">Search</a>
   <a href="{href}">{label}</a>
 </nav><!-- /site-floating-cta -->'''
 
@@ -243,8 +246,10 @@ def footer(pg):
       </div>
     </div>
   </div>'''
+    # Each link group is a <details> left open in the HTML (crawlers and wide screens see every link);
+    # main.js folds them on phones, so the footer is a short list of tappable group names.
     cols = ''.join(
-        f'\n      <div><p class="nll-flabel">{label}</p><ul>' + ''.join(f'<li><a href="{h}">{t}</a></li>' for h, t in items) + '</ul></div>'
+        f'\n      <details class="nll-fcol" open><summary class="nll-flabel">{label}</summary><ul>' + ''.join(f'<li><a href="{h}">{t}</a></li>' for h, t in items) + '</ul></details>'
         for label, items in FOOTER_COLS)
     return f'''<div id="nll-foot" class="nll-foot-region">{newsletter}
 <footer class="nll-foot">
@@ -694,6 +699,9 @@ def final_join(pg):
 def merge_final_band(html, pg):
     m = FINAL_RX.search(html)
     if not m or 'nll-final-join' in m.group(2):
+        return html
+    # The contact and signup pages already lead with their own form; a second signup there is noise.
+    if pg.here.startswith(('/contact/', '/newsletter/', '/thank-you/')):
         return html
     body = m.group(2)
     col = CTA_COL_RX.search(body)

@@ -199,3 +199,40 @@
   /* Stats render as static final numbers (no count-up animation). */
 
 })();
+
+/* ── Site chrome on phones and tablets (header baked by scripts/bake_site_chrome.py) ──
+   1. The header slides away while scrolling down and comes back on any scroll up, so it doesn't sit on top
+      of the page's own sticky bar and the bottom call bar. html.nll-hdr-off drives the CSS (chrome.css).
+   2. Footer link groups ship open in the HTML; on phones they fold so the footer is a short list.
+   3. Opening one menu group closes the others, so the menu stays a short list. */
+(function () {
+  'use strict';
+  const top = document.getElementById('nll-top');
+  const root = document.documentElement;
+  const compact = window.matchMedia('(max-width: 1020px)');
+  if (top) {
+    const menu = top.querySelector('.nll-menu');
+    let lastY = window.scrollY, ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = Math.max(0, window.scrollY);
+      const keep = !compact.matches || y < 160 || (menu && menu.open) || top.contains(document.activeElement);
+      if (keep || y < lastY - 6) root.classList.remove('nll-hdr-off');
+      else if (y > lastY + 6) root.classList.add('nll-hdr-off');
+      if (Math.abs(y - lastY) > 6 || keep) lastY = y;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    top.addEventListener('focusin', () => root.classList.remove('nll-hdr-off'));
+    if (menu) {
+      menu.addEventListener('toggle', () => { if (menu.open) root.classList.remove('nll-hdr-off'); });
+      const groups = Array.from(menu.querySelectorAll('.nll-mgroup'));
+      groups.forEach((g) => g.addEventListener('toggle', () => {
+        if (g.open) groups.forEach((o) => { if (o !== g) o.open = false; });
+      }));
+      menu.querySelectorAll('a[href^="#"], a[href*="/#"]').forEach((a) => a.addEventListener('click', () => { menu.open = false; }));
+    }
+  }
+  if (window.matchMedia('(max-width: 640px)').matches) {
+    document.querySelectorAll('.nll-fcol[open]').forEach((d) => { d.open = false; });
+  }
+})();

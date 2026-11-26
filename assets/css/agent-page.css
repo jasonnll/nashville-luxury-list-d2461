@@ -257,3 +257,15 @@ body.is-typing .ap-sticky.show{transform:translateY(110%)}
 .ap-intro .ap-updated{color:var(--taupe)}
 .ap-intro .ap-outline-light{color:var(--ink)!important;border-color:var(--bronze)!important}
 .ap-intro .bg-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+
+/* Contact page: one row of direct actions above the form, and a light "Get directions" block in place of the embedded map */
+.ct-quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:1.25rem 0 .75rem;max-width:520px}
+.ct-quick .btn{width:100%;min-height:52px;padding:0 10px}
+.ct-office{font-size:16px;color:var(--n-stone,#57534B);margin:0 0 1rem}
+.ct-office a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.ct-visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:24px 48px;align-items:center}
+.ct-visit .section-title{margin:.4rem 0 .8rem}
+.ct-addr{font-size:18px;line-height:1.6;margin:0 0 .5rem}
+.ct-visit-btns{display:grid;gap:10px}
+.ct-visit-btns .btn{width:100%}
+@media (max-width:720px){.ct-visit{grid-template-columns:1fr}}

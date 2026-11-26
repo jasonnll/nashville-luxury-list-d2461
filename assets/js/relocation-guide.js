@@ -933,7 +933,7 @@ function hubView() {
   <span class="rg-eyebrow light">Nashville Luxury List · The Relocation Guide</span>
   <h1>Moving to Nashville, Brentwood or Franklin? Start here.</h1>
   <p class="rg-lede">${G.length} free guides and tools from Jason Kloess at Compass: drive times, schools, neighborhoods, taxes and where to eat, for families moving across town or across the country.</p>
-  <form class="rg-search" role="search" id="rg-search"><label class="rg-sr" for="rg-q">Search the guides</label>${icon('search', 18)}<input id="rg-q" type="search" placeholder="Try “schools”, “Franklin” or “taxes”" autocomplete="off"><button type="submit">Search</button></form>
+  <form class="rg-search" role="search" id="rg-search"><label class="rg-sr" for="rg-q">Search the guides</label>${icon('search', 18)}<input id="rg-q" type="search" placeholder="Try “schools” or “Franklin”" autocomplete="off"><button type="submit">Search</button></form>
   <div class="rg-stats"><div>${G.length}<span>Guides &amp; tools</span></div><div>${G.filter(isTool).length}<span>Interactive</span></div><div>${HOODS.length}<span>Neighborhoods</span></div><div>${UPDATED.split(' ')[0].slice(0, 3)} ${UPDATED.split(' ')[1]}<span>Updated</span></div></div>
   </div></header>
   ${guideNav('home')}

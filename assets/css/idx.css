@@ -229,3 +229,4 @@ a.idx-card:hover, a.idx-card:focus-visible { box-shadow: var(--shadow-lg); borde
 .idx-tier .idx-empty { border: 0; padding: 1.5rem 1rem; }
 .idx-loading { margin: 0; padding: 3rem 1rem; text-align: center; color: var(--text-mid); font-size: 0.95rem; letter-spacing: 0.02em; }
 .idx-map-sec .idx-embed { min-height: 520px; }
+@media (max-width:600px){.idx-nb .idx-embed,.idx-results .idx-embed{padding:.5rem;overflow:hidden;max-width:100%}}
